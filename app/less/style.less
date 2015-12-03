@@ -1,0 +1,48 @@
+@color: rgba(0,0,0,0.3);
+@bgcolor: #f6f6f6;
+html {
+  font-size: 62.5%;
+}
+body {
+  color: @color;
+  font-family: 微软雅黑;
+}
+.page {
+  width: 100%;
+}
+.aside {
+  width: 35%;
+  background-color: @bgcolor;
+  padding-left: 5%;
+  .author {
+    padding-top: 150px;
+  }
+  ul {
+    padding-top: 10%;
+    padding-left: 5%;
+  }
+  ul li {
+    padding-bottom: 5px;
+  }
+  .category {
+    padding-top: 30px;
+    color: #666;
+    .lists {
+      width:60%;
+    }
+    .list-num {
+      float: right;
+    }
+  }
+}
+.main {
+  width: 60%;
+  float: right;
+}
+h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+h2 {
+  font-size: 2rem;
+}
