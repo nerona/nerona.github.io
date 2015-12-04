@@ -4,10 +4,8 @@
  * description: ...
  */
 require('./css/normalize.css');
-require('./less/style.less');
 
-var Aside = require('./components/aside.js');
-var Main= require('./components/main.js');
+var Header = require('./components/header.js');
 var React = require('react');
 var ReactDOM = require('react-dom');
 
@@ -15,8 +13,7 @@ var Page = React.createClass({
     render: function () {
         return (
             <div className="page">
-                <Aside />
-                <Main />
+                <Header />
             </div>
         );
     }

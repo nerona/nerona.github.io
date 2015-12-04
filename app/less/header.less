@@ -1,0 +1,103 @@
+@color-blue: rgb(26, 93, 126);
+.bgimg {
+  display: inline-block;
+  background: url(./../img/sprt.png) no-repeat;
+  zoom: 1;
+}
+header {
+  width: 100%;
+  .navbar {
+    height: 90px;
+    background-color: @color-blue;
+    .brand {
+      overflow: hidden;
+      text-indent: -999em;
+      width: 228px;
+      height: 52px;
+      .bgimg;
+      background-position: 0 -537px;
+      margin-top: 19px;
+      margin-left: 6px;
+    }
+    .search-bar {
+      display: inline-block;
+      margin-left: 50px;
+      border: 1px solid #fff;
+      background: #fff;
+      border-radius: 3px;
+      height: 32px;
+      position: absolute;
+      top: 30px;
+      .search-text {
+        width:300px;
+        padding-left: 6px;
+        outline: 0;
+        border: 0;
+        color: #888;
+        font-size: 14px;
+        line-height: 20px;
+        position: relative;
+        top: -10px;
+      }
+      .search-submit {
+        width: 45px;
+        height: 32px;
+        .bgimg;
+        background-position: 0 -1140px;
+        overflow: hidden;
+        border: 0;
+        cursor: pointer;
+      }
+    }
+    .nav-item {
+      display: inline-block;
+      float: right;
+      position: relative;
+      top: 29px;
+      .vip {
+        width: 124px;
+        height: 32px;
+        .bgimg;
+        text-indent: -999em;
+        background-position: 0 -115px;
+        margin-right: 10px;
+      }
+      .rings {
+        width: 83px;
+        height: 32px;
+        .bgimg;
+        text-indent: -999em;
+        background-position: 0 -152px;
+        margin-right: 10px;
+      }
+    }
+  }
+  .tabbar {
+    position: relative;
+    width: 100%;
+    clear: both;
+    background-color: rgba(0,0,0,.1);
+    ul { height: 40px;}
+    li {
+      display: inline-block;
+      float: left;
+      width: 95px;
+      height: 40px;
+      line-height: 40px;
+      a{
+        text-decoration: none;
+        display: block;
+        color: #6a6b6c;
+        text-align: center;
+        font-size: 14px;
+        &:hover {
+          background-color:  #6a6b6c;
+          color: #fff;
+        }
+      }
+    }
+    .current {
+      background-color: rgba(237,0,128,.5)
+    }
+  }
+}

@@ -37,7 +37,7 @@ figcaption,
 figure,
 footer,
 header,
-hgroup,
+/*hgroup,*/
 main,
 menu,
 nav,
@@ -422,3 +422,4 @@ td,
 th {
   padding: 0;
 }
+ul, li {margin: 0;}
