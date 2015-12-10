@@ -3,16 +3,45 @@
  * time   : 2015/12/3
  * description: ...
  */
-var React = require('react');
-var Main = React.createClass({
-    render: function () {
-        return (
-            <div className="main">
-                <div className="menu">
-                    <h1>我是memu</h1>
-                </div>
-            </div>
-        );
+import {React} from 'react';
+import {Reflux} from 'reflux';
+import $ from 'jquery';
+
+var TodoActions = Reflux.createActions([
+    'addItem',
+    'deleteItem'
+]);
+var getAll = Reflux.createAction({async:true});
+
+var TodoStore = Reflux.createStore({
+    init: function () {
+        this.listenTo(TodoActions.addItem, 'addItem');
+        this.listenTo(TodoActions.deleteItem, 'deleteItem');
+        this.listenTo(getAll, 'getAll');
+    },
+    addItem: function (model) {
+        console.log(model);
+    },
+    deleteItem: function (model) {
+        console.log(model);
+    },
+    getAll: function (model) {
+        $.get('/all', function (data) {
+            if(data){
+                getAll.completed(data);
+            } else {
+                getAll.failed(data);
+            }
+        });
     }
 });
-module.exports = Main;
+
+TodoActions.addItem({name:'neron'});
+TodoActions.deleteItem({name:'neron'});
+getAll({name:'neron'})
+    .then(function (data) {
+         console.log(data);
+    })
+    .catch(function (err) {
+        throw err;
+});

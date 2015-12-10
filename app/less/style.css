@@ -39,7 +39,9 @@ body {
 }
 h1 {
   margin: 0;
-  font-size: 2rem;
+  font-size: 60px;
+  color: blue;
+  background-color: black;
 }
 h2 {
   font-size: 2rem;

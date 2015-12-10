@@ -134,8 +134,10 @@ dfn {
  */
 
 h1 {
-  font-size: 2em;
+  font-size: 60px;
   margin: 0.67em 0;
+  color: blue;
+  background-color: black;
 }
 
 /**

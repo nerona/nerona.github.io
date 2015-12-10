@@ -1,0 +1,7 @@
+{
+  "extends": "eslint-config-airbnb",
+  "rules": {
+    "no-var": 0,
+    "no-alert": 0
+  }
+}
