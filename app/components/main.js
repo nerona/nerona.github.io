@@ -1,47 +1,86 @@
-/**
- * Author :  neron
- * time   : 2015/12/3
- * description: ...
- */
 import {React} from 'react';
+import {ReactDOM} from 'react-dom';
 import {Reflux} from 'reflux';
 import $ from 'jquery';
 
 var TodoActions = Reflux.createActions([
+    'getAll',
     'addItem',
-    'deleteItem'
+    'deleteItem',
+    'updateItem'
 ]);
-var getAll = Reflux.createAction({async:true});
 
 var TodoStore = Reflux.createStore({
-    init: function () {
-        this.listenTo(TodoActions.addItem, 'addItem');
-        this.listenTo(TodoActions.deleteItem, 'deleteItem');
-        this.listenTo(getAll, 'getAll');
-    },
-    addItem: function (model) {
-        console.log(model);
-    },
-    deleteItem: function (model) {
-        console.log(model);
-    },
-    getAll: function (model) {
+    items: [1, 2, 3],
+    listenables: [TodoActions],
+    onGetAll: function () {
         $.get('/all', function (data) {
-            if(data){
-                getAll.completed(data);
-            } else {
-                getAll.failed(data);
-            }
-        });
+            this.items = data;
+            this.trigger(this.items);
+        }.bind(this));
+    },
+    onAddItem: function (model) {
+        $.post('/add', model, function (data) {
+            this.items.unshift(data);
+            this.trigger(this.items);
+        }.bind(this));
+    },
+    onDeleteItem: function (model, index) {
+        $.post('/delete', model, function (data) {
+            this.items.splice(index, 1);
+            this.trigger(this.items);
+        }.bind(this));
+    },
+    onUpdateItem: function (model, index) {
+        $.post('/update', model, function (data) {
+            this.items[index] = data;
+            this.trigger(this.items);
+        }.bind(this));
     }
 });
 
-TodoActions.addItem({name:'neron'});
-TodoActions.deleteItem({name:'neron'});
-getAll({name:'neron'})
-    .then(function (data) {
-         console.log(data);
-    })
-    .catch(function (err) {
-        throw err;
+
+var TodoComponent = React.createClass({
+    mixins: [Reflux.connect(TodoStore, 'list')],
+    getInitialState: function () {
+        return {list: []};
+    },
+    componentDidMount: function () {
+        TodoActions.getAll();
+    },
+    render: function () {
+        return (
+            <div>
+                {this.state.list.map(function(item){
+                    return <TodoItem data={item}/>
+                })}
+            </div>
+        )
+    }
 });
+
+var TodoItem = React.createClass({
+    componentDidMount: function () {
+        TodoActions.getAll();
+    },
+    handleAdd: function (model) {
+        TodoActions.addItem(model);
+    },
+    handleDelete: function (model,index) {
+        TodoActions.deleteItem(model,index);
+    },
+    handleUpdate: function (model) {
+        TodoActions.updateItem(model);
+    },
+    render: function () {
+        var item=this.props.data;
+        return (
+            <div>
+                <p>{item.name}</p>
+                <p>{item.email}</p>
+                <p>/*操作按钮*/</p>
+            </div>
+        )
+    }
+});
+ReactDOM.render(<TodoComponent />, document.getElementById('test'));

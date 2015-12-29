@@ -1,36 +1,55 @@
-/** 清除内外边距 **/
-body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, /* structural elements 结构元素 */
-dl, dt, dd, ul, ol, li, /* list elements 列表元素 */
-pre, /* text formatting elements 文本格式元素 */
-form, fieldset, legend, button, input, textarea, /* form elements 表单元素 */
-th, td /* table elements 表格元素 */ {
-    margin: 0;
-    padding: 0;
+@charset "utf-8";
+/* CSS Document */
+/*
+Theme Name: neron
+Date:2015/12/29;
+Version:1.0;
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video { margin: 0; padding: 0; border: 0; font-size: 100%; vertical-align: baseline; }
+
+/* HTML5标签初始化
+--------------------------------------------------*/
+article, aside, details, figcaption, figure, footer, header, menu, nav, section { display: block; }
+
+/* 标签初始化
+--------------------------------------------------*/
+body { line-height: 1;}
+ol, ul { list-style: none; }
+i{
+    font-style: normal;
+    font-weight: normal;
 }
-
-/** 设置默认字体 **/
-body,
-button, input, select, textarea /* for ie */ {
-    font: 12px/1.5 tahoma, arial, \5b8b\4f53, sans-serif;
-}
-h1, h2, h3, h4, h5, h6 { font-size: 100%; }
-address, cite, dfn, em, var { font-style: normal; } /* 将斜体扶正 */
-code, kbd, pre, samp { font-family: courier new, courier, monospace; } /* 统一等宽字体 */
-small { font-size: 12px; } /* 小于 12px 的中文很难阅读，让 small 正常化 */
-
-/** 重置列表元素 **/
-ul, ol { list-style: none; }
-
-/** 重置文本格式元素 **/
-a { text-decoration: none; }
-a:hover { text-decoration: underline; }
-
-
-/** 重置表单元素 **/
-legend { color: #000; } /* for ie6 */
-fieldset, img { border: 0; } /* img 搭车：让链接里的 img 无边框 */
-button, input, select, textarea { font-size: 100%; } /* 使得表单元素在 ie 下能继承字体大小 */
-/* 注：optgroup 无法扶正 */
-
-/** 重置表格元素 **/
+blockquote:before, blockquote:after,
+q:before, q:after { content: ''; }
 table { border-collapse: collapse; border-spacing: 0; }
+a img{ border:0; }
+h1{ font-size:24px; }
+h2{ font-size:20px; }
+h3{ font-size:18px; }
+h4{ font-size:14px; }
+h5, h6{ font-size:12px; }
+a { text-decoration:none; }
+a:hover { text-decoration:underline; }
+div{display:block;}
+
+/* 解决Google浏览器字体不小于12px的问题
+--------------------------------------------------*/
+html{ -webkit-text-size-adjust:none;}
+a:focus {
+    outline:none;
+}
+
+/*让position:fixed在IE6下可用! */
+* html,* html body /* 修正IE6振动bug */{background-attachment:fixed;}
