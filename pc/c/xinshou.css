@@ -1,0 +1,150 @@
+html {  font-size: 62.5%;  }
+.xinshou{
+    width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
+    background-color: rgb(255,255,255);
+}
+.banner {
+    width: 100%;
+    height:450px;
+    background-color: rgb(31,126,234);
+    text-align: center;
+    color: rgb(255,255,255);
+}
+.banner-title {
+    width: 383px;
+    margin: 0 auto;
+    height: 50px;
+    background: url(/pc/i/x-menu.png) no-repeat;
+    background-position: -295px 1px;
+    position: relative;
+    top:75px;
+}
+.banner-container {
+    width: 1000px;
+    margin: 0 auto;
+    margin-top: 150px;
+    text-align: center;
+}
+.banner-to-step {
+    display: inline-block;
+    width: 130px;
+}
+.banner-to-step a, .banner-to-step a:visited, .banner-to-step a:hover, .banner-to-step a:active {
+    color: rgb(255,255,255)
+}
+.banner-to-step p {
+    font-size: 18px;
+    margin-top: 6px;
+    letter-spacing: 2px;
+}
+.banner-icon {
+    display: inline-block;
+    width: 140px;
+    height: 140px;
+    background: url(/pc/i/x-menu.png) no-repeat;
+    background-size: 982px 260px;
+}
+.step-icon1 {
+    background-position: 5px -125px;
+}
+.step-icon2 {
+    background-position: -204px -125px;
+}
+.step-icon3 {
+    background-position: -418px -125px;
+}
+.step-icon4 {
+    background-position: -634px -125px;
+}
+.step-icon5 {
+    background-position: -844px -125px;
+}
+.banner-icon-next {
+    display: inline-block;
+    width: 20px;
+    height: 34px;
+    background: url(/pc/i/x-menu.png) no-repeat -159px -184px;
+    background-size: 982px 260px;
+    margin: 0 25px;
+    position: relative;
+    top: -68px;
+}
+/*steps*/
+.step {width: 100%;}
+.step-container {
+    width: 1000px;
+    height: 600px;
+    margin: 0 auto;
+    color: rgb(31,126,234);
+}
+.step:nth-of-type(odd) {background-color: rgb(242,242,242);}
+.step-side{
+    display: inline-block;
+    width: 43%;
+}
+.step-left {float: left;}
+.step-right {  float: right;  }
+.step-baseline {
+    width: 1000px;
+    margin: 0 auto;
+    height: 1px;
+    background: -webkit-linear-gradient(left,rgb(245,244,245),rgb(215,215,215) 50%,rgb(245,245,245));
+    background: -moz-linear-gradient(left,rgb(245,244,245),rgb(215,215,215) 50%,rgb(245,245,245));
+    background: linear-gradient(left,rgb(245,244,245),rgb(215,215,215) 50%,rgb(245,245,245));
+    position: relative;
+    top: 499px;
+    left:-1000px;
+    opacity: 0;
+}
+.step:nth-of-type(odd) .step-baseline {  left: 1000px;  }
+.step:nth-of-type(odd) .step-container {height: 560px}
+.step-title {
+    padding-left: 15px;
+    font-size: 22px;
+    border-left: 4px solid;
+    position: relative;
+    top:100px;
+    opacity: 0;
+    height: 22px;
+    line-height: 22px;
+}
+.step-text {
+    font-size: 16px;
+    position: relative;
+    top:200px;
+    left:-50px;
+    letter-spacing: 1px;
+    line-height: 30px;
+    opacity: 0;
+}
+.x-app-download {
+    width: 175px;
+    position: absolute;
+    right: 0;
+    top: 75px;
+    border: 1px solid rgb(218,218,218);
+}
+.step-icon-even {
+    width: 400px;
+    position: relative;
+    top: 177px;
+    left: 200px;
+    opacity: 0;
+}
+.step-icon-odd {
+    width: 360px;
+    position: relative;
+    top: 147px;
+    opacity: 0;
+    left: -15px;
+}
+.step3 .step-icon-even {top: 181px}
+.step4 .step-icon-odd {top: 145px}
+.step5 .step-icon-even {top: 176px}
+.step2 .step-baseline, .step4 .step-baseline {  top: 458px;  }
+
+@media screen and (max-width: 1024px) {
+    .banner-to-step {  width: 130px;  }
+}

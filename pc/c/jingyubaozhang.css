@@ -1,0 +1,379 @@
+@charset"utf-8";
+@charset "utf-8";
+body {
+    color: #666;
+    font-size: 12px;
+    line-height: 1.5
+}
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+form,
+fieldset,
+input,
+textarea,
+p,
+blockquote,
+th,
+td {
+    margin: 0;
+    padding: 0;
+    font-family: "Microsoft YaHei";
+    box-sizing: border-box;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+fieldset,
+img {
+    border: 0
+}
+address,
+caption,
+cite,
+dfn,
+em,
+th,
+var,
+i {
+    font-style: normal;
+    font-weight: normal
+}
+ol,
+ul {
+    list-style: none
+}
+caption,
+th {
+    text-align: left
+}
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 100%
+}
+h1 {
+    font-size: 18px
+}
+q:before,
+q:after {
+    content: ''
+}
+abbr,
+acronym {
+    border: 0
+}
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 0
+}
+textarea {
+    resize: none
+}
+a {
+    outline: 0;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+
+/* 基础样式 */
+.a-blue {
+    color: #28ABE1 !important;
+}
+.a-blue:hover {
+    color: #28ABE1 !important; 
+    text-decoration: #28abe1 !important;
+}
+.a-deepblue {
+    color: #004E9D !important;
+}
+.a-deepblue:hover {
+    color: #004E9D !important; 
+    text-decoration: #28abe1 !important;
+}
+.pull-right {
+    float: right;
+}
+.bg-blue {
+    background-color: #D7E8FA;
+}
+/* menu 菜单 */
+
+.menu {
+    height: 44px;
+    background-color: #071430;
+}
+.menu .container {
+    width: 980px;
+    height: 44px;
+    padding: 8px 0;
+    line-height: 28px;
+    margin: 0 auto;
+}
+.menu .menu-left {
+    display: inline-block;
+    width: 300px;
+    margin-top: 0;
+    font-size: 16px;
+    color: #fff;
+    cursor: default;
+    margin-right: 380px;
+}
+.menu .menu-phone {
+    display: inline-block;
+    background: url('../i/cmenu.png') no-repeat -35px -147px;
+	width: 16px;
+	height: 16px;
+}
+.menu .menu-tel {
+    
+}
+.menu .menu-weixin {
+    display: inline-block;
+    background: url('../i/cmenu.png') no-repeat -325px -17px;
+	width: 25px;
+	height: 26px;
+    margin-bottom: -6px;
+    cursor: pointer;
+}
+
+.menu .menu-right {
+    display: inline-block;
+    color: #fff;
+    font-size: 14px;
+    color:#fff;
+    cursor: default;
+}
+.menu .menu-right-item {
+    display: inline-block;
+    color: #fff;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+.menu .p-r-0 {
+    padding-right: 0;
+}
+.menu .menu-line {
+    color: #696A6B;
+} 
+.menu .menu-share {
+    display: inline-block;
+    background: url('../i/cmenu.png') no-repeat -34px -191px;
+	width: 17px;
+	height: 17px;
+    margin-bottom: -4px;
+    margin-left: 4px;
+}
+
+/* secondMenu 二级菜单 */
+.secondMenu {
+}
+.secondMenu .container {
+    width: 980px;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 44px;
+}
+.secondMenu .jinrlogo {
+    display: inline-block;
+    background: url('../i/cmenu.png') no-repeat -28px -21px;
+	width: 179px;
+	height: 64px;
+    vertical-align: bottom;
+    cursor: pointer;
+}
+.secondMenu .jinrname {
+    display: inline-block;
+    font-size: 24px;
+    height: 64px;
+    line-height: 64px;
+    margin-right: 250px;
+    cursor: pointer;
+}
+.secondMenu .secondMenu-right {
+    display: inline-block;
+    float: right;
+}
+.secondMenu .secondMenu-item {
+    display: inline-block;
+    color: #898989;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 15px;
+    height: 32px;
+    line-height: 32px; 
+    text-decoration: none;
+}
+.secondMenu .secondMenu-item.active {
+    color: #004E9D;
+}
+
+/* banner 斑呢 */
+.banner {
+    position: relative;
+    cursor: pointer;
+}
+.banner .banner-bg {
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+}
+#cearth {
+    position: absolute;
+    width: 55%;
+    left: 20%;
+    top: 5%;
+    cursor: pointer;
+}
+#cc6:hover {
+    fill:"#ff0000";
+}
+/* banner 斑呢 */
+
+/* barlist */
+.barlist {
+    width: 100%;
+    margin: 0 auto;
+}
+.barlist .barlist-item {
+    width: 980px;
+    padding: 60px 0;
+    margin: 0 auto;
+}
+.barlist .barlist-itemleft {
+    display:table-cell;
+    width: 490px;
+    position: relative;
+}
+.barlist .barlist-itemright {
+    display:table-cell;
+    width: 490px;
+    
+    position: relative;
+}
+.barlist .barlist-bar {
+    display:inherit;
+}
+.barlist .listbar1 {
+    background: url('../i/barlist.png') no-repeat -67px -27px;
+	width: 245px;
+	height: 268px;
+}
+.barlist .listbar2 {
+    background: url('../i/barlist.png') no-repeat -67px -410px;
+	width: 291px;
+	height: 278px;
+}
+.barlist .listbar3 {
+    background: url('../i/barlist.png') no-repeat -67px -792px;
+	width: 269px;
+	height: 279px;
+}
+.barlist .listbar4 {
+    background: url('../i/barlist.png') no-repeat -74px -1194px;
+	width: 275px;
+	height: 277px;
+}
+.barlist .listbar5 {
+    background: url('../i/barlist.png') no-repeat -67px -1607px;
+	width: 316px;
+	height: 278px;
+}
+.barlist .listbar6 {
+    background: url('../i/barlist.png') no-repeat -67px -1998px;
+	width: 277px;
+	height: 265px;
+}
+.barlist .listbar7 {
+    background: url('../i/barlist.png') no-repeat -67px -2399px;
+	width: 267px;
+	height: 277px;
+}
+.barlist .barlist-text {
+    width: 490px;
+    cursor: default;
+    position: absolute;
+    
+    left: 0;
+    top: 0;
+}
+.barlist .barlist-title {
+    color: #004E9D;
+    font-size: 52px;
+    margin-bottom: 40px;
+}
+.barlist .barlist-subtitle {
+    color: #3E3A39;
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 22px;
+}
+.barlist .barlist-content {
+    color: #636363;
+    font-size: 14px;
+    line-height: 24px;
+}
+
+/* foot */
+.foot {
+    width: 980px;
+    margin: 0 auto;
+    margin-top: 100px;
+    margin-bottom: 44px;
+    text-align: center;
+    font-size: 16px;
+    color: #000;
+    cursor: pointer;
+}
+.foot span {
+    margin: 0 16px;
+}
+
+/* copyright 版权 */
+.copyright {
+    width: 100%;
+    margin: 0 auto;
+    height: 140px;
+    text-align: center;
+    background-color: #061430;
+}
+.copyright .container {
+    width: 980px;
+    margin: 0 auto;
+    padding-top: 16px;
+    font-size: 14px;
+    color: #fff;
+}
+.copyright .copyright-title {
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+

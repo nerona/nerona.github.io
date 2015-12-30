@@ -1,0 +1,208 @@
+html {  font-size: 62.5%;  }
+.security {
+    width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
+    background-color: rgb(255,255,255);
+}
+.banner {  width: 100%;  }
+
+/*desc*/
+.desc {
+    width: 1000px;
+    margin: 0 auto;
+}
+.desc-left, .desc-right {
+    display: inline-block;
+    position: relative;
+}
+.desc-left {float: left;width: 44%;}
+.desc-right {float: right;width: 44%;}
+.desc-icon {
+    width: 460px;
+    margin-top: 80px;
+}
+.same-card {margin-top: 200px;position: relative;    padding-bottom: 31px;}
+.third-part, .all-percent {margin-top: 100px;padding-bottom:100px;position: relative;}
+.third-part .desc-title:before {
+    content: '';
+    display: inline-block;
+    width: 150%;
+    height: 1px;
+    background: rgb(225,225,225);
+    position: absolute;
+    top: 16px;
+    left: -155%;
+}
+.same-card .desc-title:after, .all-percent .desc-title:after {
+    content: '';
+    display: inline-block;
+    width: 200%;
+    height: 1px;
+    background: rgb(225,225,225);
+    position: absolute;
+    top: 16px;
+}
+.same-card .desc-title:after {left: 38%;}
+.all-percent .desc-title:after {left: 60%;}
+.third-part .desc-title {
+    width: 58%;
+    height: 32px;
+    background: url(/pc/i/title-1.png) no-repeat;
+    background-size: 238px 111px;
+    background-position: 0 -39px;
+}
+.same-card .desc-title {
+    width: 38%;
+    height: 32px;
+    background: url(/pc/i/title-1.png) no-repeat;
+    background-size: 238px 111px;
+    background-position: 0 0;
+}
+.all-percent .desc-title {
+    width: 60%;
+    height: 32px;
+    background: url(/pc/i/title-1.png) no-repeat;
+    background-size: 238px 111px;
+    background-position: 0 -80px;
+}
+.desc-text {
+    width: 100%;
+    font-size: 16px;
+    line-height: 26px;
+    margin-top: 20px;
+    text-align: justify;
+    color: rgb(128,128,128);
+    letter-spacing: 1px;
+}
+/*understand*/
+.understand {width: 100%;text-align: center;background-color: rgb(255,255,255)}
+.understand-icon {  width: 100%;  }
+.understand-con {  width: 1000px;  margin: 100px 0;}
+/*multi-pro*/
+.multi-protect {
+    width: 100%;
+    height: 650px;
+    background: rgb(242,242,242);
+}
+.pro-container {
+    width: 1000px;
+    margin:0 auto;
+    position: relative;
+}
+.pro-container ul li {
+    display: inline-block;
+    width:270px;
+    height: 315px;
+    border:1px solid rgb(31,126,234);
+    border-radius: 5px;
+    text-align: center;
+    background-color: rgb(255,255,255);
+    transition: all 600ms ease-in-out;
+    -webkit-transition: all 600ms ease-in-out;
+    top: 100px;
+}
+.pro-container ul li:hover {
+    -moz-box-shadow: 0 0 10px rgb(31,126,234);
+    -webkit-box-shadow: 0 0 10px rgb(31,126,234);
+    box-shadow: 0 0 10px rgb(31,126,234);
+}
+.pro-title {
+    background-color: rgb(31,126,234);
+    color: rgb(255,255,255);
+    line-height: 50px;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+.pro-text {
+    text-align: justify;
+    font-size: 15px;
+    padding: 2px 16px;
+    letter-spacing: 1px;
+    color: rgb(89,89,89);
+}
+.multi-title {
+    font-size: 28px;
+    letter-spacing: 3px;
+    color: rgb(31,126,234);
+    position: relative;
+    top: 50px;
+    text-align: center;
+}
+.multi-title:before, .multi-title:after {
+    content: '';
+    display: inline-block;
+    width: 35%;
+    height: 1px;
+    background-color: rgb(225,225,225);
+    position: absolute;
+}
+.multi-title:before {left: 0;top: 18px;}
+.multi-title:after {right: 0;top: 18px;}
+ .card-icon {
+    display: inline-block;
+    width: 90px;
+    height: 95px;
+    background: url(/pc/i/icons.png) no-repeat;
+    background-size: 420px 450px;
+    margin: 30px 0 24px 0;
+}
+ .card-icon1 {
+    width: 86px;
+    background-position: -178px -365px;
+}
+ .card-icon2 {
+    background-position: -90px -298px;
+    position: relative;
+    top: -7px;
+}
+ .card-icon3 {  background-position: 3px -355px;  }
+ .card-icon4 {
+    background-position: -88px -393px;
+    position: relative;
+    top: 22px;
+}
+ .card-icon5 {  background-position: -250px -362px;  }
+ /*reset flipster*/
+.flipster-carousel .flip-current {top: 200px;}
+.flipster-carousel .flip-prev {
+    -webkit-transform:  translateX(-140%) translateZ(0) rotateY(0deg) scale(0.84);
+    -moz-transform: translateX(-140%) translateZ(0) rotateY(0deg) scale(0.84);
+    -o-transform: translateX(-140%) translateZ(0) rotateY(0deg) scale(0.84);
+    -ms-transform:  translateX(-140%) translateZ(0) rotateY(0deg) scale(0.84);
+    transform: translateX(-140%) translateZ(0) rotateY(0deg) scale(0.84);
+    opacity: 1;
+    top: 120px;
+}
+.flipster-carousel .flip-next {
+    -webkit-transform:  translateX(140%) translateZ(0) rotateY(0deg) scale(0.84);
+    -moz-transform: translateX(140%) translateZ(0) rotateY(0deg) scale(0.84);
+    -o-transform: translateX(140%) translateZ(0) rotateY(0deg) scale(0.84);
+    -ms-transform:  translateX(140%) translateZ(0) rotateY(0deg) scale(0.84);
+    transform: translateX(140%) translateZ(0) rotateY(0deg) scale(0.84);
+    opacity: 1;
+    top: 120px;
+}
+.flipster-carousel .flip-past {
+    top: 60px;
+    opacity: 1;
+    -webkit-transform: translateX(-70%) translateZ(0) rotateY(0deg) scale(0.76);
+    -moz-transform: translateX(-70%) translateZ(0) rotateY(0deg) scale(0.76);
+    -o-transform: translateX(-70%) translateZ(0) rotateY(0deg) scale(0.76);
+    -ms-transform: translateX(-70%) translateZ(0) rotateY(0deg) scale(0.76);
+    transform: translateX(-70%) translateZ(0) rotateY(0deg) scale(0.76);
+}
+.flipster-carousel .flip-future {
+    top: 60px;
+    opacity: 1;
+    -webkit-transform: translateX(70%) translateZ(0) rotateY(0deg) scale(0.76);
+    -moz-transform: translateX(70%) translateZ(0) rotateY(0deg) scale(0.76);
+    -o-transform: translateX(70%) translateZ(0) rotateY(0deg) scale(0.76);
+    -ms-transform: translateX(70%) translateZ(0) rotateY(0deg) scale(0.76);
+    transform: translateX(70%) translateZ(0) rotateY(0deg) scale(0.76);
+}
+@media screen and (max-width: 1024px) {
+    .third-part, .all-percent {padding-bottom: 70px}
+    .understand-con {  margin: 80px 0;  }
+    .multi-protect {height: 620px;}
+}

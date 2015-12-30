@@ -1,0 +1,369 @@
+html {  font-size: 62.5%;  }
+.home {
+    width: 100%;
+    overflow-x: hidden;
+    background-color: rgb(255,255,255);
+}
+.banner {
+    width: 100%;
+    height:420px;
+    background-color: rgb(11,95,176);
+    background: url(/pc/i/bg-1.png) no-repeat;
+    background-size: 100% 100%;
+    color: rgb(255,255,255);
+}
+.banner-container {
+    width: 1024px;
+    height:420px;
+    margin: 0 auto;
+    position: relative;
+}
+.banner-icon {
+    position: absolute;
+    width: 400px;
+    bottom: 0;
+}
+.banner-download {
+    position: absolute;
+    top: 50%;
+    right: 2%;
+    text-align: right;
+}
+.banner-text {  font-size: 4.3rem;  }
+.banner-video {  font-size: 1.6rem;  margin-top: 14px;  }
+.banner-video a, .banner-video a:visited { color: rgb(255,255,255); border-bottom: 0px solid;padding-bottom: 2px;}
+.openVideo:hover, .go-aboutus:hover {
+    border-bottom: 1px solid;
+    transition: all 100ms ease-in-out;
+}
+.video {
+    width: 100%;
+    text-align: center;
+    background: #0078e8;
+    z-index: 99999;
+    position: fixed;
+    top:0;
+    left: 0;
+    display: none;
+    padding-top: 100px;
+}
+#jinr-desc {  width:50%; height:450px;  }
+.video .v-close {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background: url(../../pc/i/close.png) no-repeat;
+    background-size: 100% 100%;
+    position: absolute;
+    right: 8%;
+    cursor: pointer;
+}
+.download {
+    display: inline-block;
+    color: rgb(255,255,255);
+    margin-top: 26px;
+    font-size: 2.2rem;
+    letter-spacing: 2px;
+    border: 1px solid rgb(255,255,255);
+    padding: 8px 32px;
+    border-radius: 40px;
+    margin-right: 10px;
+}
+/*下载弹窗*/
+.download-box {
+    display: none;
+    width: 60%;
+    position: fixed;
+    top:10%;
+    left: 20%;
+    background-color: rgba(38,38,38,.96);
+    z-index: 9999;
+    text-align: center;
+}
+.d-close {
+    display: block;
+    width: 35px;
+    height: 35px;
+    background: url(../../pc/i/close.png) no-repeat;
+    background-size: 100% 100%;
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    cursor: pointer;
+}
+.qr-con {
+    display: inline-block;
+    width: 35%;
+    margin-top: 100px;
+    padding-bottom: 80px;
+}
+.qr-con img {width: 70%;}
+.qr-con p {
+    color: rgb(255,255,255);
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+    margin-top: 4%;
+}
+.qr-weixin {}
+.qr-app {}
+/**/
+.home-data .blue {color: rgb(31,126,234);}
+.home-data {
+    width: 1000px;
+    height: 260px;
+    margin: 0 auto;
+}
+.home-data-show {
+    display: inline-block;
+    width: 31%;
+    text-align: center;
+    margin-top: 70px;
+    color: rgb(128,128,128);
+    letter-spacing: 1px;
+    float: left;
+    font-family: Arial;
+}
+.people {    position: relative;  left: -20px;}
+.profit {    position: relative;  left: 20px;}
+.home-data-show p:nth-of-type(1) {  font-size: 16px;  }
+.home-data-show p:nth-of-type(2) {  font-size: 42px;  margin-top: 20px;  }
+.home-data-show:nth-of-type(2) {
+    width: 37%;
+    border-left: 1px solid rgb(228,228,219);
+    border-right: 1px solid rgb(228,228,219);
+}
+section.compare-profit{
+    width:100%;
+    height: 420px;
+    background-color: rgb(242,242,242);
+}
+section.multi-protect{
+    width:100%;
+    height: 510px;
+    background-color: rgb(242,242,242);
+}
+section.home-advanced {
+    width:100%;
+    height: 410px;
+    background-color: rgb(255,255,255);
+}
+section .section-title {
+    color: rgb(31,126,234);
+    border-left: .3rem solid;
+    font-size: 1.8rem;
+    padding-left: 14px;
+    position: relative;
+    top: 30px;
+    left: 60px;
+    z-index: 9;
+    height: 1.6rem;
+    line-height: 1.6rem;
+}
+/*收益对比*/
+.compare-container {
+    width: 1000px;
+    margin: 0 auto;
+    display: -webkit-box;
+}
+#chart-compare {
+    display: inline-block;
+    width: 50%;
+    position: relative;
+    top: 110px;
+    left: -60px;
+    float: left;
+    transform: scale(.9);
+    -webkit-transform: scale(.9);
+    -moz-transform: scale(.9);
+}
+.app-show {
+    display: inline-block;
+    width: 50%;
+    position: relative;
+    right: 5%;
+    float: right;
+}
+.app-img-1 {
+    width: 460px;
+    height: 324px;
+    position: relative;
+    top: 340px;
+    opacity: 0;
+}
+.app-text-1,
+.app-text-2 {
+    position: absolute;
+}
+.app-text-1 {
+    width: 40%;
+    left:60%;
+    top: 32px;
+    opacity: 0;
+}
+.app-text-2 {
+    width: 40%;
+    left: -35%;
+    top: 115px;
+    opacity: 0;
+}
+.app-text-3 {
+    position: absolute;
+    width: 40%;
+    top: 272px;
+    left: -25%;
+    opacity: 0;
+}
+/*4大优势*/
+.advanced-container {
+    width: 1000px;
+    margin: 0 auto;
+}
+.advanced-container .blue {color: rgb(31,126,234);}
+.advanced {
+    display: inline-block;
+    width: 25%;
+    float: left;
+    text-align: center;
+    color: rgb(157,158,158);
+    position: relative;
+    top: 95px;
+}
+.advanced img {  width: 60%;  }
+.advanced p:nth-of-type(1) {
+    margin-top: 30px;
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+}
+.advanced p:nth-of-type(2) {
+    margin-top: 10px;
+    margin-bottom: 4px;
+    font-size: 1rem;
+}
+.advanced p:nth-of-type(3) {  }
+/*多重保障*/
+.pro-container {
+    width: 1000px;
+    margin:0 auto;
+    position: relative;
+}
+.pro-container ul li {
+    display: inline-block;
+    width:270px;
+    height: 298px;
+    border:1px solid rgb(31,126,234);
+    border-radius: 5px;
+    text-align: center;
+    background-color: rgb(255,255,255);
+    transition: all 600ms ease-in-out;
+    -webkit-transition: all 600ms ease-in-out;
+    top: 100px;
+}
+.pro-container ul li:hover {
+    -moz-box-shadow: 0 0 10px rgb(31,126,234);
+    -webkit-box-shadow: 0 0 10px rgb(31,126,234);
+    box-shadow: 0 0 10px rgb(31,126,234);
+}
+.pro-title {
+    background-color: rgb(31,126,234);
+    color: rgb(255,255,255);
+    line-height: 50px;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+.pro-text {
+    text-align: justify;
+    font-size: 15px;
+    padding: 2px 16px;
+    letter-spacing: 1px;
+    color: rgb(89,89,89);
+}
+.pro-container .pro-icon {
+    display: inline-block;
+    width: 86px;
+    height: 98px;
+    background: url(/pc/i/icons.png) no-repeat;
+    background-size: 560px 600px;
+    margin: 30px 0 24px 0;
+}
+.pro-container .pro-icon1 {
+    background-position: -343px -53px;
+}
+.pro-container .pro-icon2 {
+    background-position: -266px -52px;
+}
+.pro-container .pro-icon3 {
+    background-position: 0 -72px;
+}
+.pro-container .pro-icon4 {
+    background-position: -82px -64px;
+}
+.pro-container .pro-icon5 {
+    background-position: -179px -52px;
+}
+/*合作伙伴*/
+.partner-container {
+    width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 24px;
+}
+.partner-title {
+    font-size: 2.2rem;
+    color: rgb(51,51,51);
+    letter-spacing: 2px;
+    position: relative;
+}
+.partner-title:before, .partner-title:after {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    top:50%;
+    width: 30%;
+    height: 1px;
+    background: -webkit-linear-gradient(left,rgb(251,251,251),rgb(212,212,212) 50%,rgb(251,251,251));
+    background: -moz-linear-gradient(left,rgb(251,251,251),rgb(212,212,212) 50%,rgb(251,251,251));
+    background: -o-linear-gradient(left,rgb(251,251,251),rgb(212,212,212) 50%,rgb(251,251,251));
+}
+.partner-title:before {left: 10%;}
+.partner-title:after {right: 10%;}
+.home .home-partner {
+    width:100%;
+    height: 245px;
+    background-color: rgb(255,255,255);
+}
+.partner-list {  margin-top: 30px;  }
+.partner-list li {
+    display: inline-block;
+    width: 25%;
+    float: left;
+    margin-bottom: 8px;
+}
+.partner-list a {
+    display: inline-block;
+    width: 200px;
+    height: 55px;
+    background: url(/pc/i/icons.png) no-repeat;
+    background-size: 560px 600px;
+}
+.partner-list .list-1 {
+    background-position: -5px -185px;
+}
+.partner-list .list-2 {
+    background-position: -268px -183px;
+}
+.partner-list .list-3 {
+    background-position: -5px -266px;
+}
+.partner-list .list-4 {
+    background-position: -268px -266px;
+}
+.partner-list .list-5 {
+    background-position: -5px -345px;
+}
+.partner-list .list-6 {
+    background-position: -249px -345px;
+}
+
+@media screen and (max-width: 1024px) {
+    .banner-download {  top: 140px;  }
+}
