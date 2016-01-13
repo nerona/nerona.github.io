@@ -35,7 +35,13 @@ table { border-collapse: collapse; border-spacing: 0; }
 a[href], input[type='submit'], input[type='image'], label[for], select, button, .pointer {
     cursor: pointer;
 }
-
+@font-face {font-family: "numberFont";
+    src: url('../../../src/pc/fonts/_gbk-webfont.eot'); /* IE9*/
+    src: url('../../../src/pc/fonts/_gbk-webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../../../src/pc/fonts/_gbk-webfont.woff') format('woff'), /* chrome、firefox */
+    url('../../../src/pc/fonts/_gbk-webfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('../../../src/pc/fonts/_gbk-webfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
 /*header*/
 header {
     width:1000px;
@@ -49,7 +55,7 @@ ul li {float: left;}
     display: inline-block;
     width: 155px;
     height: 55px;
-    background: url(/pc/i/icons.png) no-repeat 0 0;
+    background: url(../../../src/pc/i/icons.png) no-repeat 0 0;
     background-size: 560px 600px;
     margin-top: 10px;
     margin-right: 6px;
@@ -58,7 +64,7 @@ ul li {float: left;}
 .kefu-title {
     width: 165px;
     height: 18px;
-    background: url(/pc/i/icons.png) no-repeat -159px 0;
+    background: url(../../../src/pc/i/icons.png) no-repeat -159px 0;
     background-size: 560px 600px;
     position: relative;
     top: -15px;
@@ -107,7 +113,7 @@ ul li {float: left;}
 .service-item {
     width: 56px;
     height: 56px;
-    background: url(/pc/i/icons.png) no-repeat;
+    background: url(../../../src/pc/i/icons.png) no-repeat;
     background-size: 420px 450px;
     cursor: pointer;
 }
@@ -170,23 +176,24 @@ ul li {float: left;}
 /*投资入口*/
 .home-invest {
     width:100%;
-    height: 120px;
+    height: 160px;
     background-color: rgb(0,6,33);
     color: rgb(68,70,79);
-    font-size: 1rem;
+    font-size: 12px;
     letter-spacing: 1px;
     position: absolute;
+    font-family: "Microsoft Yahei";
 }
-.invest-container {  width: 1000px;  margin: 0 auto; padding-left: 70px; }
-.invest-container p {  line-height: 20px;  }
-.invest-container p:nth-of-type(1) {  padding-top: 24px;  }
+.invest-container {  width: 1000px;  margin: 0 auto; position: relative }
+.invest-container p {  line-height: 24px;  }
+.invest-container p:nth-of-type(1) {  padding-top: 35px;  }
 .join-us, .help-center {
     color: rgb(255,255,255);
     position: absolute;
-    top:24px;
-    right: 16%;
+    top:35px;
+    right: 2%;
 }
-.join-us {right: 23%;}
+.join-us {right: 12%;}
 
 @media screen and (max-width: 1024px) {
     html {font-size: 50%}

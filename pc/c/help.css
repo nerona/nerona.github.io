@@ -76,7 +76,7 @@ html {  font-size: 62.5%;  }
     display: inline-block;
     width: 8px;
     height: 68px;
-    background: url(/pc/i/icons.png) no-repeat -545px 0;
+    background: url(../../../src/pc/i/icons.png) no-repeat -545px 0;
     background-size: 560px 600px;
     position: absolute;
     left: 100%;
@@ -100,7 +100,7 @@ html {  font-size: 62.5%;  }
     display: inline-block;
     width:35px;
     height: 35px;
-    background: url(/pc/i/icons.png) no-repeat -369px 0;
+    background: url(../../../src/pc/i/icons.png) no-repeat -369px 0;
     background-size: 560px 600px;
 }
 .question-title {
@@ -117,7 +117,7 @@ html {  font-size: 62.5%;  }
     min-width: 846px;
     padding: 20px 35px;
     margin-top: 10px;
-    /*    background: url(/pc/i/h-02.png) no-repeat;
+    /*    background: url(../../../src/pc/i/h-02.png) no-repeat;
         background-size: 100% 100%;*/
     color: rgb(137, 137, 137);
     font-size: 14px;

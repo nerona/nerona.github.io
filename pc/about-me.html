@@ -9,8 +9,8 @@
     <!-- Set render engine for 360 browser -->
     <meta name="renderer" content="webkit">
     <title>关于我们</title>
-    <link rel="stylesheet" href="c/reset.css">
-    <link rel="stylesheet" href="c/aboutMe.css">
+    <link rel="stylesheet" href="../../src/pc/c/reset.css">
+    <link rel="stylesheet" href="../../src/pc/c/aboutMe.css">
 </head>
 
 <body>
@@ -53,11 +53,11 @@
     </header>
     <!-- 梦 -->
     <div class="banner">
-        <img class="img-response" src="i/cMebg.png" alt="">
+        <img class="img-response" src="../../src/pc/i/cMebg.png" alt="">
     </div>
     <!-- 寻找那个他 -->
     <div class="find">
-        <img class="img-block" src="i/cfinding.png" alt="">
+        <img class="img-block" src="../../src/pc/i/cfinding.png" alt="">
         <div class="find-text m-t-4">鲸鱼金融以创建中国80后互联网金融黄埔军校为己任，</div>
         <div class="find-text ">信奉军事化管理和培养！</div>
         <div class="find-text ">鲸鱼梦想团队信奉乐观、务实、激情、高效的工作方式，</div>
@@ -68,42 +68,42 @@
     <!-- 加入我们吧，少年 -->
     <div class="join">
         <div class="join-content">
-            <img class="img-block" src="i/cjoinin.png" alt="">
+            <img class="img-block" src="../../src/pc/i/cjoinin.png" alt="">
             <p class="join-hr m-t-6">简历投递邮箱</p>
             <p class="join-hr m-b-11">hr@usfund.com.cn</p>
             <div class="join-box">
                 <div class="join-boxitem">
-                    <div class="join-smallbox">
+                    <div id="b1" class="join-smallbox">
                         <div class="join-icon1"></div>
                         <div class="join-text1">移动互联网产品人才</div>
                     </div>
-                    <div class="join-smallbox">
+                    <div id="b2" class="join-smallbox">
                         <div class="join-icon2"></div>
                         <div class="join-text1">产品研发人才</div>
                     </div>
-                    <div class="join-smallbox">
+                    <div id="b3" class="join-smallbox">
                         <div class="join-icon3"></div>
                         <div class="join-text1">PHP开发人才</div>
                     </div>
-                    <div class="join-smallbox m-r-0">
+                    <div id="b4" class="join-smallbox m-r-0">
                         <div class="join-icon4"></div>
                         <div class="join-text1">Android工程师</div>
                     </div>
                 </div>
                 <div class="join-boxitem">
-                    <div class="join-smallbox">
+                    <div id="b5" class="join-smallbox">
                         <div class="join-icon5"></div>
                         <div class="join-text2">测试工程师人才</div>
                     </div>
-                    <div class="join-smallbox">
+                    <div id="b6" class="join-smallbox">
                         <div class="join-icon6"></div>
                         <div class="join-text2">财务专员人才</div>
                     </div>
-                    <div class="join-smallbox">
+                    <div id="b7" class="join-smallbox">
                         <div class="join-icon7"></div>
                         <div class="join-text2">UI设计人才</div>
                     </div>
-                    <div class="join-smallbox m-r-0">
+                    <div id="b8" class="join-smallbox m-r-0">
                         <div class="join-icon8"></div>
                         <div class="join-text2">数据分析人才</div>
                     </div>
@@ -113,7 +113,7 @@
     </div>
     <!-- 给我打电话 -->
     <div class="call">
-        <img class="call-title" src="i/cline.png" alt="">
+        <img class="call-title" src="../../src/pc/i/cline.png" alt="">
         <div class="call-status">
             <div class="call-item">
                 <div class="call-icon1"></div>
@@ -132,21 +132,306 @@
                 <div class="call-text">厦门市软件园二期望海路14号106单元</div>
             </div>
         </div>
+
     </div>
-    
+
     <footer class="home-invest">
         <div class="invest-container">
             <p>客服热线：400-840-2015（8:00-23:00）</p>
             <p>投资入口：http://www.jinr.com</p>
             <p>© Copyright 2015 JINGYUBAO.COM ALL Rights Reserved.闽ICP备14014561号-6</p>
-            <a href="about-me.html" class="join-us">加入我们&gt;&gt;</a>
+            <a href="#" class="join-us">加入我们&gt;&gt;</a>
             <a href="help.html" class="help-center">帮助中心&gt;&gt;</a>
         </div>
     </footer>
-    
-    
-        
-    
+    <script src="../../src/public_JS/jqueryPC.js"></script>
+    <script>
+        ;
+        (function($, window, document, undefined) {
+            /* 定义插件 */
+            var JoinBox = function(ele, opt) {
+                    this.$ele = ele;
+                    this.defaults = {
+                        joinDialogTitle: "移动互联网产品人才",
+                        joinDialogUlOne: "职业描述：",
+                        joinDialogUlOneli: [
+                            "1、根据公司的发展战略，负责落实公司安排的项目，确保产品设计、开发、运营与维护的进度；",
+                            "2、负责产品的市场调研、需求分析、根据市场和用户需求,参与移动互联产品的设计和开发,提出产品发展计划；",
+                            "3、协调产品生命周期内的研发，设计，营销各环节的部门协作，持续完善和优化已有产品功能；",
+                            "4、推动产品上线及运营期间用户反馈信息，竞争对手的信息收集。"
+                        ],
+                        joinDialogUlTwo: "职业要求:",
+                        joinDialogUlTwoli: [
+                            "1、具有一年以上APP相关的产品经理经验；",
+                            "2、对市场发展趋势有敏锐的洞察力和创新意识，对互联网产品具有足够热情，并长期关注；",
+                            "3、熟悉互联网或软件产品整体实现过程，包括从需求分析到产品发布，深刻理解用户需求；",
+                            "4、数据分析能力强及良好的定性分析、研判能力；",
+                            "5、作风务实，工作积极主动，有一定的抗压能力。"
+                        ],
+                    };
+                    this.options = $.extend({}, this.defaults, opt);
+                }
+                /* 定义插件的功能 */
+            JoinBox.prototype = {
+                showBox: function() {
+                    /* joinBox */
+                    var ccjoinBox = $("<div>", {
+                        class: "joinBox"
+                    });
+                    /* joinDialog-close */
+                    var ccjoinDialogClose = $("<div>", {
+                        text: "×",
+                        class: "joinDialog-close"
+                    });
+                    /* joinDialog */
+                    var ccjoinDialog = $("<div>", {
+                        class: "joinDialog"
+                    });
+                    /* joinDialog-title */
+                    var ccjoinDialogTitle = $("<div>", {
+                        class: "joinDialog-title"
+                    });
+                    /* joinDialog-ul */
+                    var ccjoinDialogUlOne = $("<div>", {
+                        class: "joinDialog-ul"
+                    });
+                    var ccjoinDialogUlTwo = $("<div>", {
+                        class: "joinDialog-ul"
+                    });
+                    /* joinDialog-ulTitle */
+                    var ccjoinDialogUlOneTitle = $("<div>", {
+                        class: "joinDialog-ulTitle"
+                    });
+                    var ccjoinDialogUlTwoTitle = $("<div>", {
+                        class: "joinDialog-ulTitle"
+                    });
+
+                    /* 数据初始化 */
+                    var LiOnes = this.options.joinDialogUlOneli.map(function(item, index) {
+
+                        var ccjoinDialogUlLi = $("<div>", {
+                            html: item,
+                            class: "joinDialog-li"
+                        });
+
+                        return ccjoinDialogUlLi;
+                    });
+                    var LiTwos = this.options.joinDialogUlTwoli.map(function(item, index) {
+
+                        var ccjoinDialogUlLi = $("<div>", {
+                            html: item,
+                            class: "joinDialog-li"
+                        });
+
+                        return ccjoinDialogUlLi;
+                    });
+                    ccjoinDialogUlOne.html(LiOnes);
+                    ccjoinDialogUlTwo.html(LiTwos);
+                    /* 招聘人才类型 */
+                    ccjoinDialogTitle.html(this.options.joinDialogTitle);
+                    ccjoinDialogUlOneTitle.html(this.options.joinDialogUlOne);
+                    ccjoinDialogUlTwoTitle.html(this.options.joinDialogUlTwo);
+                    ccjoinDialogUlOne.prepend(ccjoinDialogUlOneTitle);
+                    ccjoinDialogUlTwo.prepend(ccjoinDialogUlTwoTitle);
+                    ccjoinDialog.append(ccjoinDialogTitle);
+                    ccjoinDialog.append(ccjoinDialogUlOne);
+                    ccjoinDialog.append(ccjoinDialogUlTwo);
+                    ccjoinBox.append(ccjoinDialogClose);
+                    ccjoinBox.append(ccjoinDialog);
+                    $(".join").append(ccjoinBox);
+                    /* 按钮事件 */
+                    ccjoinDialogClose.on("click", function() {
+                        ccjoinBox.fadeOut(function() {
+                            ccjoinBox.remove();
+                        });
+
+                    });
+                    ccjoinBox.fadeIn();
+
+                }
+            };
+
+            /* 将插件绑定到jQuery上 */
+            $.fn.myJoinBox = function(options) {
+                var joinBox = new JoinBox(this, options);
+                joinBox.showBox();
+            }
+        })(jQuery, window, document);
+    </script>
+    <script>
+        $(function() {
+            /* 移动产品狗 */
+            $("#b1").on("click", function() {
+                $("#b1").myJoinBox({
+                    joinDialogTitle: "移动互联网产品人才",
+                    joinDialogUlOne: "职业描述：",
+                    joinDialogUlOneli: [
+                        "1、根据公司的发展战略，负责落实公司安排的项目，确保产品设计、开发、运营与维护的进度；",
+                        "2、负责产品的市场调研、需求分析、根据市场和用户需求,参与移动互联产品的设计和开发,提出产品发展计划；",
+                        "3、协调产品生命周期内的研发，设计，营销各环节的部门协作，持续完善和优化已有产品功能；",
+                        "4、推动产品上线及运营期间用户反馈信息，竞争对手的信息收集。"
+                    ],
+                    joinDialogUlTwo: "职业要求:",
+                    joinDialogUlTwoli: [
+                        "1、具有一年以上APP相关的产品经理经验；",
+                        "2、对市场发展趋势有敏锐的洞察力和创新意识，对互联网产品具有足够热情，并长期关注；",
+                        "3、熟悉互联网或软件产品整体实现过程，包括从需求分析到产品发布，深刻理解用户需求；",
+                        "4、数据分析能力强及良好的定性分析、研判能力；",
+                        "5、作风务实，工作积极主动，有一定的抗压能力。"
+                    ],
+                });
+            });
+            /* 产品狗 */
+            $("#b2").on("click", function() {
+                $("#b2").myJoinBox({
+                    joinDialogTitle: "产品研发人才",
+                    joinDialogUlOne: "职业描述：",
+                    joinDialogUlOneli: [
+                        "1、负责制定产品运营策略，根据数据表现策划运营活动；",
+                        "2、负责相关产品的内容运营，能够洞察网上及社会流行热点，策划内容需求，提升产品人气和用户粘性；",
+                        "3、负责产品相关产品的运营工作，主要包括：产品运营数据分析、客服渠道管理、用户反馈整理和跟进等；",
+                        "4、负责行业观察、竞品分析、定期输出分析报告。"
+                    ],
+                    joinDialogUlTwo: "职业要求:",
+                    joinDialogUlTwoli: [
+                        "1、本科以上学历，对产品和服务的缺陷敏感、善于数据分析、归纳总结；",
+                        "2、积极主动，具备良好的文字表达能力、沟通能力、学习能力和团队协作能力；",
+                        "3、富有激情、能适应工作压力；",
+                        "4、良好的市场敏感度和创新意识岗位职责。",
+                    ],
+                });
+            });
+            /*  PHP */
+            $("#b3").on("click", function() {
+                $("#b3").myJoinBox({
+                    joinDialogTitle: "PHP开发人才",
+                    joinDialogUlOne: "职业描述：",
+                    joinDialogUlOneli: [
+                        "1、负责PHP网站程序的开发与维护，与网站运营人员、前端人员配合完成网站以及需求功能构建；",
+                        "2、负责用户交互功能的网站功能实现，包括页面、后台、数据库等；",
+                        "3、根据业务变化，不断改善产品的系统架构设计，保证系统的性能、稳定性及可靠性；",
+                        "4、相关技术文档的编写及整理 。"
+                    ],
+                    joinDialogUlTwo: "职业要求:",
+                    joinDialogUlTwoli: [
+                        "1、一年以上PHP MYSQL编程开发经验；",
+                        "2、熟练使用ThinkSNS,wordpress,thinkphp等主流开源框架的使用，并了解YIIPHP,CIPHP 等技术使用；",
+                        "3、熟悉基于lamp/lnmp web开发,有完整的PHP web项目开发经验，熟悉各主流框架；",
+                        "4、了解html5+css3，对手机版/wap前端开发有所了解；",
+                        "5、具有较强的沟通学习能力，对技术有热情，善于主动跟踪和学习最新的软件技术。"
+                    ],
+                });
+            });
+            /* 安卓开发 */
+            /* 产品这么写的，不管前端的事 */
+            $("#b4").on("click", function() {
+                $("#b4").myJoinBox({
+                    joinDialogTitle: "Andriod开发人才",
+                    joinDialogUlOne: "职业描述：",
+                    joinDialogUlOneli: [
+                        "1、参与系统体系结构分析、设计，系统性能优化、接口设计等；",
+                        "2、所负责模块的设计、开发、测试等工作；",
+                        "3、所负责模块的维护、问题分析、优化等。"
+                    ],
+                    joinDialogUlTwo: "职业要求:",
+                    joinDialogUlTwoli: [
+                        "1、精通JavaScript、Ajax等Web开发技术-精通HTML/XHTML、CSS等网页制作技术；",
+                        "2、熟悉页面架构和布局-熟练使用Linux系统，对算法、数据结构以及后台开发（PHP等）有一定了解；",
+                        "3、熟悉W3C标准，对表现与数据分离、Web语义化等有深刻理解-对Web技术发展有强烈兴趣；",
+                        "4、有良好的学习能力和强烈的进取心-良好的沟通与表达能力、思路清晰，较强的动手能力与逻辑分析能力-对用户体验、交互操作流程、及用户需求有深入理解。"
+                    ],
+                });
+            });
+            /* 测试 */
+            $("#b5").on("click", function() {
+                $("#b5").myJoinBox({
+                    joinDialogTitle: "测试工程师人才",
+                    joinDialogUlOne: "职业描述：",
+                    joinDialogUlOneli: [
+                        "1、参与项目需求、研发设计的相关讨论，从测试的角度帮助提升产品功能性、使用性及产品质量；",
+                        "2、根据项目计划制定项目测试计划、编写测试用例，保证项目质量和进度；",
+                        "3、设计与执行测试用例，协助开发跟踪定位产品软件中的缺陷或问题；",
+                        "4、与项目相关人员就项目进度和问题进行沟通；",
+                        "5、能够开发合适的测试工具或提出好的解决方案，提高测试效率。"
+                    ],
+                    joinDialogUlTwo: "职业要求:",
+                    joinDialogUlTwoli: [
+                        "1、正规高校计算机或者相关专业,本科以上学历，1年以上测试开发相关工作经验；",
+                        "2、熟悉多种软件测试工具（动态测试工具、性能测试工具等）；",
+                        "3、对软件测试有浓厚的兴趣和丰富的经验，有很强的分析能力和定位问题的能力；",
+                        "4、有互联网工作经验，从事金融、电子商务领域开发测试工作者优先；",
+                        "5、逻辑思维能力、学习能力强、较强沟通能力。"
+                    ],
+                });
+            });
+            /* 财务 */
+            $("#b6").on("click", function() {
+                $("#b6").myJoinBox({
+                    joinDialogTitle: "财务专员人才",
+                    joinDialogUlOne: "职业描述：",
+                    joinDialogUlOneli: [
+                        "1、负责财务管理、会计核算、预算管理、成本管理、财务分析、资金运作等相关的财务类业务；",
+                        "2、编制公司的总帐、明细帐、现金、银行日记帐；",
+                        "3、制作、管理会计凭证，进行帐务处理，日常费用报销；",
+                        "4、成本核算，固定资产的管理、核对与盘点；",
+                        "5、准备并提交单据及报表，完成报税，缴纳税费；",
+                        "6、协助主管进行预算控制、财务分析和资金管理。",
+                    ],
+                    joinDialogUlTwo: "职业要求:",
+                    joinDialogUlTwoli: [
+                        "1、会计、财务等相关专业大专以上学历，有会计从业资格证书优先；",
+                        "2、有财务会计工作经历者优先；",
+                        "3、了解国家财经政策和会计、税务法规，熟悉会计报表的处理，熟练使用财务软件；",
+                        "4、善于处理流程性事务、较强的学习能力、独立工作能力和财务分析能力。"
+                    ],
+                });
+            });
+            /*  UI设计师 */
+            $("#b7").on("click", function() {
+                $("#b7").myJoinBox({
+                    joinDialogTitle: "UI设计人才",
+                    joinDialogUlOne: "职业描述：",
+                    joinDialogUlOneli: [
+                        "1、负责移动产品的整体UI设计；",
+                        "2、负责产品官网、Banner、UI、logo、品牌宣传的设计和美化；",
+                        "3、负责完成活动页面及其他相关设计工作。"
+                    ],
+                    joinDialogUlTwo: "职业要求:",
+                    joinDialogUlTwoli: [
+                        "1、大专及以上学历，美术相关专业；",
+                        "2、1年以上设计经验，半年以上移动产品UI设计经验；",
+                        "3、熟悉设计理论，有良好的审美感和创造力，能独立进行产品设计；",
+                        "4、具有扎实的美术基础和丰富的页面操作体验，了解页面制作流程；",
+                        "5、熟练使用PHOTOSHOP、ILLUSTRATOR等相关图标设计工具；",
+                        "6、热爱设计，善于沟通，富有工作激情及较强的责任心。 "
+                    ],
+                });
+            });
+            
+            $("#b8").on("click", function() {
+                $("#b8").myJoinBox({
+                    joinDialogTitle: "数据分析人才",
+                    joinDialogUlOne: "职业描述：",
+                    joinDialogUlOneli: [
+                        "1、 实现对业务数据分析模型的研究、搭建和优化；",
+                        "2、参与公司大数据产品建设，协助公司研发人员进行产品建设，提供数据分析功能模块的设计方案，并跟进行业发展实时更新数据分析模型，保证公司产品的竞争力；",
+                        "3、完成数据模型的搭建与实现；",
+                        "4、探索并归纳各项行业数据及指标，了解行业发展方向及数据情况，为优化产品的设计提供支持。"
+                        
+                    ],
+                    joinDialogUlTwo: "职业要求:",
+                    joinDialogUlTwoli: [
+                        "1、计算机、统计学、数学等相关专业，本科以上学历；",
+                        "2、至少3年以上数据分析、挖掘工作经验；",
+                        "3、 熟悉常见的数据挖掘和机器学习算法，具有良好的数据模型设计能力；",
+                        "4、 具有海量数据挖掘、分析相关项目经验，曾经参与过比较完整数据采集、整理、分析和建模工作；",
+                        "5、 具备良好的逻辑分析能力，对商业及业务有一定的敏感性。"
+                    ],
+                });
+            });
+
+        });
+    </script>
 </body>
 
 </html>

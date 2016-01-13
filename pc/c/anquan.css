@@ -48,21 +48,21 @@ html {  font-size: 62.5%;  }
 .third-part .desc-title {
     width: 58%;
     height: 32px;
-    background: url(/pc/i/title-1.png) no-repeat;
+    background: url(../../../src/pc/i/title-1.png) no-repeat;
     background-size: 238px 111px;
     background-position: 0 -39px;
 }
 .same-card .desc-title {
     width: 38%;
     height: 32px;
-    background: url(/pc/i/title-1.png) no-repeat;
+    background: url(../../../src/pc/i/title-1.png) no-repeat;
     background-size: 238px 111px;
     background-position: 0 0;
 }
 .all-percent .desc-title {
     width: 60%;
     height: 32px;
-    background: url(/pc/i/title-1.png) no-repeat;
+    background: url(../../../src/pc/i/title-1.png) no-repeat;
     background-size: 238px 111px;
     background-position: 0 -80px;
 }
@@ -143,7 +143,7 @@ html {  font-size: 62.5%;  }
     display: inline-block;
     width: 90px;
     height: 95px;
-    background: url(/pc/i/icons.png) no-repeat;
+    background: url(../../../src/pc/i/icons.png) no-repeat;
     background-size: 420px 450px;
     margin: 30px 0 24px 0;
 }

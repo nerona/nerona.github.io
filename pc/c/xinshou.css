@@ -16,7 +16,7 @@ html {  font-size: 62.5%;  }
     width: 383px;
     margin: 0 auto;
     height: 50px;
-    background: url(/pc/i/x-menu.png) no-repeat;
+    background: url(../../../src/pc/i/x-menu.png) no-repeat;
     background-position: -295px 1px;
     position: relative;
     top:75px;
@@ -43,7 +43,7 @@ html {  font-size: 62.5%;  }
     display: inline-block;
     width: 140px;
     height: 140px;
-    background: url(/pc/i/x-menu.png) no-repeat;
+    background: url(../../../src/pc/i/x-menu.png) no-repeat;
     background-size: 982px 260px;
 }
 .step-icon1 {
@@ -65,7 +65,7 @@ html {  font-size: 62.5%;  }
     display: inline-block;
     width: 20px;
     height: 34px;
-    background: url(/pc/i/x-menu.png) no-repeat -159px -184px;
+    background: url(../../../src/pc/i/x-menu.png) no-repeat -159px -184px;
     background-size: 982px 260px;
     margin: 0 25px;
     position: relative;
@@ -127,22 +127,22 @@ html {  font-size: 62.5%;  }
     border: 1px solid rgb(218,218,218);
 }
 .step-icon-even {
-    width: 400px;
+    width: 480px;
     position: relative;
-    top: 177px;
+    top: 112px;
     left: 200px;
     opacity: 0;
 }
 .step-icon-odd {
-    width: 360px;
+    width: 440px;
     position: relative;
-    top: 147px;
+    top: 78px;
     opacity: 0;
     left: -15px;
 }
-.step3 .step-icon-even {top: 181px}
-.step4 .step-icon-odd {top: 145px}
-.step5 .step-icon-even {top: 176px}
+.step3 .step-icon-even {top: 117px}
+.step4 .step-icon-odd {top: 75px}
+.step5 .step-icon-even {top: 110px}
 .step2 .step-baseline, .step4 .step-baseline {  top: 458px;  }
 
 @media screen and (max-width: 1024px) {

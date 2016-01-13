@@ -21,16 +21,15 @@ html {  font-size: 62.5%;  }
     color: rgb(128,128,128);
     letter-spacing: 1px;
     float: left;
-    font-family: Arial;
 }
 .people-profit {    position: relative;  left: -20px;}
 .zhaiquan {    position: relative;  left: 20px;}
 .data-data-show p:nth-of-type(1) {  font-size: 16px;  }
-.data-data-show p:nth-of-type(2) {  font-size: 42px;  margin-top: 20px;  }
-.data-data-show:nth-of-type(2) {
-    width: 37%;
-    border-left: 1px solid rgb(228,228,219);
-    border-right: 1px solid rgb(228,228,219);
+.data-data-show p:nth-of-type(2) {  font-size: 40px;  padding-top: 20px; font-family: numberFont; }
+.data-data-show:nth-of-type(2) { width: 37%;  }
+.pingjun p:nth-of-type(2) {
+    border-left: 2px solid rgb(228,228,219);
+    border-right: 2px solid rgb(228,228,219);
 }
 /*charts*/
 .chart {
@@ -68,11 +67,12 @@ html {  font-size: 62.5%;  }
     margin: 0 auto;
     height: 56px;
     line-height: 56px;
-    font-size: 30px;
+    font-size: 26px;
     padding: 18px 0;
     color: rgb(255,255,255);
     background-color: rgb(31,126,234);
 }
+.pro-nav a span {font-size: 20px}
 .pro-nav .pro-active a {color: #66C8FF}
 .nav-item a, .nav-item a:visited, .nav-item a:active { color: rgb(255,255,255);}
 .nav-item {display: inline-block;width: 333px;float: left;text-align: left}
@@ -137,13 +137,14 @@ html {  font-size: 62.5%;  }
 .zq-mask p:last-child {margin-bottom: 20px;margin-top: 10px}
 .zq-mask p:last-child a {  color: rgb(203,157,85);position:relative;left:45px  }
 .pagination {
-    width: 700px;
     height: 50px;
     margin: 0 auto;
     margin-bottom: 60px;
     font-size: 19px;
+    text-align: center;
 }
 .pagination li {
+    display: inline-block;
     width: 46px;
     height: 36px;
     line-height: 36px;
@@ -151,11 +152,25 @@ html {  font-size: 62.5%;  }
     border: 1px solid rgb(212,212,213);
     margin-right: 5px;
     cursor: pointer;
+    float: none;
 }
 .pagination li a {
     display: inline-block;
     width: 46px;
     line-height: 36px;
+}
+.pagination-next a{
+    width: 20px;
+    height: 20px;
+    position: relative;
+    top: -10px;
+    left: -18px;
+}
+.pagination-prev a {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    top: -10px;
 }
 .pagination .pagination-prev {
     width: 0;
@@ -164,7 +179,7 @@ html {  font-size: 62.5%;  }
     border-style: solid;
     border-color: transparent rgb(157,158,158) transparent transparent;
     position: relative;
-    top: 8px;
+    top: 18px;
     left: -8px;
 }
 .pagination .pagination-next {
@@ -174,7 +189,7 @@ html {  font-size: 62.5%;  }
     border-style: solid;
     border-color: transparent transparent transparent rgb(157,158,158);
     position: relative;
-    top: 8px;
+    top: 18px;
     left: 8px;
 }
 .pagination li a,.pagination li a:visited, .pagination li a:active {color: rgb(157,158,158)}
@@ -267,14 +282,14 @@ html {  font-size: 62.5%;  }
 .jingyubao-text, .jingyujinrong-text {
     margin-top: 20px;
     font-size: 16px;
-    color: rgb(172,173,173);
+    color: rgb(127,128,128);
     line-height: 30px;
     text-align: justify;
     letter-spacing: 1px;
 }
 .jingyubao-video {
     display: inline-block;
-    width: 30%;
+    margin-left: 150px;
     text-align: center;
     color: rgb(117,117,117);
     font-size: 14px;
@@ -284,7 +299,7 @@ html {  font-size: 62.5%;  }
     width: 110px;
     height: 110px;
     margin: 0 auto;
-    background: url(/pc/i/about-01.png) no-repeat -351px 0;
+    background: url(../../../src/pc/i/about-01.png) no-repeat -351px 0;
     background-size: 634px 551px;
     margin-bottom: 10px;
     cursor: pointer;
@@ -340,7 +355,7 @@ html {  font-size: 62.5%;  }
     width: 310px;
     height: 45px;
     margin: 0 auto;
-    background: url(/pc/i/about-01.png) no-repeat 0 -111px;
+    background: url(../../../src/pc/i/about-01.png) no-repeat 0 -111px;
     background-size: 634px 551px;
     position: relative;
     top:37px;
@@ -355,7 +370,7 @@ html {  font-size: 62.5%;  }
 .things-icon {
     width: 300px;
     height: 60px;
-    background: url(/pc/i/about-01.png) no-repeat;
+    background: url(../../../src/pc/i/about-01.png) no-repeat;
     background-size: 634px 551px;
 }
 .things-text {
@@ -442,7 +457,7 @@ html {  font-size: 62.5%;  }
 .things-plane {
     width: 324px;
     height: 146px;
-    background: url(/pc/i/about-01.png) no-repeat -315px -170px;
+    background: url(../../../src/pc/i/about-01.png) no-repeat -315px -170px;
     background-size: 634px 551px;
     position: absolute;
     right: 100px;
@@ -451,7 +466,7 @@ html {  font-size: 62.5%;  }
 .about-teams {
     width: 100%;
     height: 650px;
-    background: url(/pc/i/about-03.png) no-repeat;
+    background: url(../../../src/pc/i/about-03.png) no-repeat;
     background-size: 100% 100%;
     overflow: hidden;
 }
@@ -467,13 +482,13 @@ html {  font-size: 62.5%;  }
     width: 1000px;
     margin: 0 auto;
     height: 450px;
-    background: url(/pc/i/about-04.png) no-repeat;
+    background: url(../../../src/pc/i/about-04.png) no-repeat;
     background-size: 100% 100%;
     margin-top: 50px;
     position: relative;
 }
 .teams-con ul li {
-    width: 106px;
+    width: 160px;
     height: 106px;
     display: none;
 }
@@ -496,15 +511,12 @@ html {  font-size: 62.5%;  }
     cursor: pointer;
 }
 .teams-desc {
-    display: inline-block;
+    display: none;
     color: rgb(255,255,255);
     font-size: 14px;
     position: relative;
     top: -80px;
     left: 120px;
-    opacity: 0;
-    width: 0;
-    height: 0;
 }
 .teams-desc p {  line-height: 25px;  letter-spacing: 1px;  }
 
@@ -630,6 +642,7 @@ html {  font-size: 62.5%;  }
     height: 650px;
     margin-top: -2px;
     background-color: rgb(242,242,242);
+    position: relative;
 }
 .company-title {
     text-align: center;
@@ -646,12 +659,13 @@ html {  font-size: 62.5%;  }
     margin: 0 auto;
     height: 415px;
     overflow: hidden;
+    position: relative;
 }
 .about-prev {
     display: inline-block;
     width: 54px;
     height: 112px;
-    background: url(/pc/i/about-01.png) no-repeat -502px 0;
+    background: url(../../../src/pc/i/about-01.png) no-repeat -502px 0;
     background-size: 634px 551px;
     float: left;
     margin-top: 168px;
@@ -661,7 +675,7 @@ html {  font-size: 62.5%;  }
     display: inline-block;
     width: 55px;
     height: 112px;
-    background: url(/pc/i/about-01.png) no-repeat -580px 1px;
+    background: url(../../../src/pc/i/about-01.png) no-repeat -580px 1px;
     background-size: 634px 551px;
     float: right;
     margin-top: 168px;
@@ -734,15 +748,16 @@ html {  font-size: 62.5%;  }
 /**/
 .img-large {
     width: 100%;
+    height: 490px;
     text-align: center;
-    position: fixed;
+    position: absolute;
     left: 0;
-    top: 0;
-    background-color: rgb(242,242,242);
+    top: 160px;
+    background-color: rgba(38,38,38,.96);
     display: none;
     z-index: 9999999;
 }
-.img-large .v-close {
+.img-large .i-close {
     display: inline-block;
     width: 40px;
     height: 40px;
@@ -754,8 +769,8 @@ html {  font-size: 62.5%;  }
     cursor: pointer;
 }
 .img-large img {
-    width: 680px;
+    width: 700px;
     height: 460px;
     margin: 0 auto;
-    padding-top: 50px;
+    padding-top: 15px;
 }

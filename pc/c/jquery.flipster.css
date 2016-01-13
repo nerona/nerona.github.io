@@ -163,11 +163,11 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 .flipster-carousel .flip-past {
-  -webkit-transform: translateX(-120%) translateZ(0) rotateY(20deg) scale(0.82);
-  -moz-transform: translateX(-120%) translateZ(0) rotateY(20deg) scale(0.82);
-  -o-transform: translateX(-120%) translateZ(0) rotateY(20deg) scale(0.82);
-  -ms-transform: translateX(-120%) translateZ(0) rotateY(20deg) scale(0.82);
-  transform: translateX(-120%) translateZ(0) rotateY(20deg) scale(0.82);
+  -webkit-transform: translateX(-130%) translateZ(0) rotateY(20deg) scale(0.82);
+  -moz-transform: translateX(-130%) translateZ(0) rotateY(20deg) scale(0.82);
+  -o-transform: translateX(-130%) translateZ(0) rotateY(20deg) scale(0.82);
+  -ms-transform: translateX(-130%) translateZ(0) rotateY(20deg) scale(0.82);
+  transform: translateX(-130%) translateZ(0) rotateY(20deg) scale(0.82);
 }
 .flipster-carousel.no-rotate .flip-past {
   -webkit-transform: translateX(-80%) translateZ(0)  scale(0.65);
@@ -190,11 +190,11 @@
   height: 50%;
 }
 .flipster-carousel .flip-future {
-  -webkit-transform: translateX(120%) translateZ(0) rotateY(-10deg) scale(0.82);
-  -moz-transform: translateX(120%) translateZ(0) rotateY(-10deg) scale(0.82);
-  -o-transform: translateX(120%) translateZ(0) rotateY(-10deg) scale(0.82);
-  -ms-transform: translateX(120%) translateZ(0) rotateY(-10deg) scale(0.82);
-  transform: translateX(120%) translateZ(0) rotateY(-10deg) scale(0.82);
+  -webkit-transform: translateX(130%) translateZ(0) rotateY(-10deg) scale(0.82);
+  -moz-transform: translateX(130%) translateZ(0) rotateY(-10deg) scale(0.82);
+  -o-transform: translateX(130%) translateZ(0) rotateY(-10deg) scale(0.82);
+  -ms-transform: translateX(130%) translateZ(0) rotateY(-10deg) scale(0.82);
+  transform: translateX(130%) translateZ(0) rotateY(-10deg) scale(0.82);
 }
 
 .flipster-carousel.no-rotate .flip-future {
