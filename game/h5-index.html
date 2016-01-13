@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我出本金你赚钱</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!-- Set render engine for 360 browser -->
+    <meta name="renderer" content="webkit">
+    <link rel="stylesheet" href="../../src/tuiguang-new/c/style.css">
+
+    <!--[if IE]>
+    <script src="../../src/j/jquery-1.8.0.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+<div class="page">
+    <div class="banner">
+        <img src="../../src/tuiguang-new/i/1-1.png" class="banner">
+    </div>
+    <!--输入表单信息-->
+    <form class="form-area" method="post" action="#">
+        <div class="row row1">
+            <i class="phoneIcon"></i>
+            <input type="tel" placeholder="请输入手机号" class="phone" maxlength="11">
+        </div>
+<!-- 图形验证码位置互换 直接换代码位置没有其他修改-->
+        <div class="row row3">
+            <i class="againIcon"></i>
+            <input type="tel" placeholder="请输入校验码" class="checkAgain">
+        </div>
+        <img src="../../src/tuiguang-new/i/num.png" class="codeImg">
+        <span class="refresh">
+                <i class="refreshIcon"></i>
+            </span>
+        <span class="getCode">获取验证码</span>
+        <div class="row row2">
+            <i class="checkIcon"></i>
+            <input type="tel" placeholder="请输入验证码" class="checkCode">
+        </div>
+
+<!-- end -->
+        <div class="row row4">
+            <i class="psdIcon"></i>
+            <input type="text" placeholder="设置6~16位字母数字密码组合" class="psd" maxlength="16">
+        </div>
+        <div class="jinr-xieyi">
+                <span class="checkItem">
+                    <i class="yes"></i>
+                </span>
+            我已阅读并同意<a href="http://www.jinr.com/User/xieyi/id/5">《鲸鱼用户协议》</a>
+        </div>
+        <div class="kefu">
+            客服热线 : <a href="tel:4008402015">400-840-2015 &gt;</a>
+        </div>
+        <div class="form-submit">注册鲸鱼宝</div>
+    </form>
+    <!--为什么鲸鱼宝-->
+    <div class="why-jinr">
+        <img src="../../src/tuiguang-new/i/2.png" class="title">
+
+        <p>
+            鲸鱼宝是由平安集团旗下陆金所的最大债权持仓机构鲸鱼金融打造，
+            产品100%对接陆金所顶级债权“稳盈-安e”，为用户提供0风险、高收益、超便捷的活期理财务。
+        </p>
+        <img src="../../src/tuiguang-new/i/3.png" class="show">
+    </div>
+    <!--平台数据-->
+    <div class="jinr-data">
+        <img src="../../src/tuiguang-new/i/4.png" class="title">
+
+        <p class="all">累计交易额:<span>3,768,066,502</span></p>
+
+        <p class="zhuanqu">为投资人赚取 : <span>24,792,311.05</span><span>元</span></p>
+
+        <p class="allusers">总用户数 ：<span>131.2941</span><span>万</span></p>
+
+        <p class="safe">安全运营 ：<span>391</span><span>天</span></p>
+    </div>
+    <!--战略合作伙伴-->
+    <div class="jinr-partner">
+        <img src="../../src/tuiguang-new/i/5.png" alt="" class="title">
+        <img src="../../src/tuiguang-new/i/6.png" alt="" class="list">
+    </div>
+    <!--APP下载链接-->
+    <div class="download">
+        <img src="../../src/tuiguang-new/i/7.png" alt="" class="icon">
+
+        <p>
+            <span>鲸鱼宝</span><br>
+            注册就送5000元红包
+        </p>
+        <!--app下载链接-->
+        <a href="http://um0.cn/1m5VtW">
+            <img src="../../src/tuiguang-new/i/8.png" alt="" class="downIcon">
+        </a>
+    </div>
+    <div class="errMsg"></div>
+</div>
+
+<script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+<!--<script src="../../src/tuiguang-new/j/jquery.placeholder.min.js"></script>-->
+<script>
+    $(document).ready(function () {
+        //ie placeholder兼容
+//        $('input').placeholder();
+        $('.checkItem').click(function () {
+            $('.yes').toggle();
+        });
+        var handler = function() {
+            $('.getCode').empty()
+                    .html('<span class="moment">60</span>秒后重新获取')
+                    .css('backgroundColor', 'rgb(245,245,245)')
+                    .css('color', 'rgb(111,111,111)').off('click',handler);
+            var i = 60;
+            var timeLeft = setInterval(function () {
+                i--;
+                $('.moment').html(i);
+                if (i < 0) {
+                    clearInterval(timeLeft);
+                    $('.getCode').empty()
+                            .html('重新获取验证码')
+                            .css('backgroundColor', 'rgb(34,74,162)')
+                            .css('color', 'rgb(255,255,255)').on('click',handler);
+                }
+            }, 1000);
+        };
+        $('.getCode').on('click', handler);
+        /*错误提示框*/
+        function showError(msg) {
+            $err = $('.errMsg');
+            $err.html(msg).show();
+            setTimeout(function () {
+                $err.hide();
+            },15000)
+        }
+        //showError('123');
+    });
+    /*pc端适配*/
+    var wid = $(window).width();
+    var hei = $(window).height();
+    if (wid > 450) {
+        $('body').css('backgroundColor', '#fafafa');
+        $('.page').css('width', '450px').css('margin', '0 auto');
+        var errLeft = (wid - 300) / 2;
+        $('.errMsg').css('width', '300px').css('left',errLeft);
+        $('.download .icon').css('margin-left', '6%');
+        $('.download p').css('top', '6px').css('margin-left', '3%');
+        $('.download .downIcon').css('width', '28%').css('right', '10%');
+        $('.row2').css('width', '50%');
+        $('.row3').css('width', '42%');
+    }
+</script>
+</body>
+</html>
