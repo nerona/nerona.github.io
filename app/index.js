@@ -4,6 +4,7 @@
  * description: ...
  */
 require('./css/normalize.css');
+require('./components/snow.js');
 
 var Header = require('./components/header.js');
 var React = require('react');
