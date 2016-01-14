@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nav</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,maximum-scale=1.0">
+    <style>
+        body, ul, li, a {
+            margin: 0;
+            padding: 0;
+        }
+        .mainNav {
+            background-color: rgba(0, 0, 0, .1);
+            display: -webkit-flex;
+            display: flex;
+            justify-content: flex-end;
+            /*align-items: center;*/
+            list-style: none;
+        }
+        .mainNav a {
+            color: white;
+            display: block;
+            font-weight: bold;
+            font-size: 20px;
+            padding: .6em 1em;
+            text-decoration: none;
+        }
+        .mainNav a:hover {
+            background-color: rgba(0, 0, 0, .5);
+        }
+        .wrapper {
+            display: -webkit-flex;
+            display: flex;
+        }
+        nav {
+            background-color: #4d2926;
+            -webkit-flex: 1;
+            flex: 1;
+            -webkit-order: 1;
+            order: 1;
+            padding: .6em 1em;
+            width: 20%;
+        }
+        section {
+            background-color: #8A6343;
+            -webkit-order: 2;
+            order: 2;
+            padding: .6em 1em;
+            width: 60%;
+        }
+        section p {
+            margin: 0 0 1em 0;
+            word-wrap: break-word;
+        }
+        aside {
+            background-color: #7b007b;
+            -webkit-flex: 1;
+            flex: 1;
+            -webkit-order: 3;
+            order: 3;
+            padding: .6em 1em;
+            width: 20%;
+        }
+        footer {
+            background-color: #00ee00;
+            padding: 1em 0;
+            text-align: center;
+        }
+
+        @media all and (max-width: 800px) {
+            .mainNav {
+                justify-content: space-around;
+            }
+        }
+
+        @media all and (max-width: 600px) {
+            .mainNav {
+                flex-flow: column wrap;
+            }
+
+            .mainNav a {
+                text-align: center;
+                border-bottom: 1px solid white;
+                border-top: 1px solid white;
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <ul class="mainNav">
+        <li><a href="#">Item</a></li>
+        <li><a href="#">Item</a></li>
+        <li><a href="#">Item</a></li>
+        <li><a href="#">Item</a></li>
+    </ul>
+</header>
+<div class="wrapper">
+    <nav class="subNav">
+        <h1>subNav</h1>
+        <ul>
+            <li><a href="#">sub</a></li>
+            <li><a href="#">sub</a></li>
+            <li><a href="#">sub</a></li>
+        </ul>
+    </nav>
+    <section>
+        <h2>Content</h2>
+        <p class="content">
+            A.B.C.D.E.F.G.H.I.J.K.L.M.N.O.P.Q.R.S.T.U.V.W.X.Y.Z.A.B.C.D.E.F.G.H.I.J.K.L.M.N.O.P.Q.R.S.T.U.V.W.X.Y.Z.A.B.C.D.E.F.G.H.I.J.K.L.M.N.O.P.Q.R.S.T.U.V.W.X.Y.Z.A.B.C.D.E.F.G.H.I.J.K.L.M.N.O.P.Q.R.S.T.U.V.W.X.Y.Z.</p>
+    </section>
+    <aside>
+        <h3>Comments</h3>
+        <div class="comments">
+            <p>Name:neron</p>
+            <p>text:...</p>
+        </div>
+    </aside>
+</div>
+<footer>
+    <address>
+        xxx.xxx.xxx.xxx
+    </address>
+</footer>
+</body>
+</html>
