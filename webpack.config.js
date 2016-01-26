@@ -29,7 +29,7 @@ module.exports = {
             },
             {
                 test: /\.less$/,
-                loaders: ['style', 'css', 'less'],
+                loaders: ['style', 'css', 'postcss','less'],
                 //include: APP_PATH
             },
             {
@@ -43,8 +43,19 @@ module.exports = {
                // query: {
                 //    presets: ['es2015']
                // }
+            },
+            {
+                test: /\.jsx?$/,
+                exclude: /(node_modules|bower_components)/,
+                loader: 'babel', // 'babel-loader' is also a legal name to reference
+                query: {
+                    presets: ['react', 'es2015']
+                }
             }
         ]
+    },
+    resolve: {
+        extensions: ['', '.js', '.jsx', '.css', '.less']
     },
     //添加我们的插件 会自动生成一个html文件
     plugins: [
