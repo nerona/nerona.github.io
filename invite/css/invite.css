@@ -18,11 +18,11 @@ button, input, select, textarea { font-size: 100%; }
 table { border-collapse: collapse; border-spacing: 0; }
 ::-webkit-scrollbar {width:0;}
 .page {
-    width:100%;
+/*    width:100%;
     min-height: 100%;
     overflow: hidden;
     position: absolute;
     top:0;
-    left:0;
+    left:0;*/
     background-color: lightpink;
 }
