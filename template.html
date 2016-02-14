@@ -10,17 +10,22 @@
     <meta name="renderer" content="webkit">
     <!-- No Baidu Siteapp-->
     <meta http-equiv="Cache-Control" content="no-siteapp"/>
-    <link rel="alternate icon" type="image/png" href="i/favicon.png">
-    <link rel="apple-touch-icon-precomposed" href="i/app-icon72x72@2x.png">
     <meta name="apple-mobile-web-app-title" content="AMUI React"/>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <link rel="stylesheet" href="http://cdn.amazeui.org/amazeui/2.5.0/css/amazeui.min.css"/>
-    <script src="http://cdn.amazeui.org/react/0.14.3/react.min.js"></script>
-    <script src="http://cdn.amazeui.org/react/0.14.3/react-dom.min.js"></script>
-    <script src="path/to/amazeui.react.min.js"></script>
 </head>
 <body>
 <div id="page"></div>
+<script>
+    (function () {
+        document.addEventListener('DOMContentLoaded', function () {
+            var html = document.documentElement;
+            var windowWidth = html.clientWidth;
+            console.log('windowWidth: ' + windowWidth);
+            html.style.fontSize = windowWidth / 6.4  + 'px';
+        }, false);
+    })();
+</script>
 </body>
 </html>

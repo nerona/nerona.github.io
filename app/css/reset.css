@@ -35,11 +35,6 @@ blockquote:before, blockquote:after,
 q:before, q:after { content: ''; }
 table { border-collapse: collapse; border-spacing: 0; }
 a img{ border:0; }
-h1{ font-size:24px; }
-h2{ font-size:20px; }
-h3{ font-size:18px; }
-h4{ font-size:14px; }
-h5, h6{ font-size:12px; }
 a { text-decoration:none; }
 a:hover { text-decoration:underline; }
 div{display:block;}

@@ -40,12 +40,12 @@ module.exports = {
                 test: /\.js$/,
                 loader: 'jsx?harmony',
                 //include: APP_PATH,
-               // query: {
-                //    presets: ['es2015']
                // }
             },
             {
                 test: /\.jsx?$/,
+                // query: {
+                //    presets: ['es2015']
                 exclude: /(node_modules|bower_components)/,
                 loader: 'babel', // 'babel-loader' is also a legal name to reference
                 query: {

@@ -17,9 +17,16 @@
 </div>
 
 <script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
-<script src="./js/invite.js"></script>
+<!--<script src="./js/invite.js"></script>-->
 <script>
-
+    (function () {
+        document.addEventListener('DOMContentLoaded', function () {
+            var html = document.documentElement;
+            var windowWidth = html.clientWidth;
+            console.log('windowWidth: ' + windowWidth);
+            html.style.fontSize = windowWidth / 6.4  + 'px';
+        }, false);
+    })();
 </script>
 </body>
 </html>
