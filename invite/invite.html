@@ -9,15 +9,31 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-capable" content="yes">
 
+    <link href="//cdn.bootcss.com/fullPage.js/2.7.7/jquery.fullPage.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/invite.css" >
 </head>
 <body>
 <div class="page" id="page">
-
+    <div class="section">第一屏</div>
+    <div class="section">第二屏</div>
+    <div class="section">
+        <div class="slide">第三屏的第一屏</div>
+        <div class="slide">第三屏的第二屏</div>
+        <div class="slide">第三屏的第三屏</div>
+        <div class="slide">第三屏的第四屏</div>
+    </div>
+    <div class="section">第四屏</div>
 </div>
 
 <script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/fullPage.js/2.7.7/vendors/jquery.easings.min.js"></script>
+<script src="//cdn.bootcss.com/fullPage.js/2.7.7/jquery.fullPage.min.js"></script>
 <!--<script src="./js/invite.js"></script>-->
+<script>
+    $(function(){
+        $('#page').fullpage();
+    });
+</script>
 <script>
     (function () {
         document.addEventListener('DOMContentLoaded', function () {
