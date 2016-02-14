@@ -14,10 +14,34 @@
 </head>
 <body>
 <div class="page" id="page">
-    <div class="section section1">第一屏</div>
-    <div class="section section2">第二屏</div>
-    <div class="section section3">第三屏</div>
-    <div class="section section4">第四屏</div>
+    <div class="section section1">
+        <img src="img/h31.jpg" alt="">
+    </div>
+    <div class="section section2">
+        <img src="img/h24.jpg" alt="">
+        <img src="img/h21.jpg" alt="" class="i1">
+        <img src="img/h22.jpg" alt="" class="i2">
+        <img src="img/h23.jpg" alt="" class="i3">
+        <img src="img/h25.jpg" alt="" class="i4">
+        <img src="img/h26.jpg" alt="" class="i5">
+    </div>
+    <div class="section section3">
+        <img src="img/h11.jpg" alt="" class="i6">
+        <img src="img/h12.jpg" alt="" class="i7">
+    </div>
+    <div class="section section4">
+        <img src="img/h29.jpg" alt="">
+        <img src="img/h18.jpg" alt="" class="i8">
+        <img src="img/h19.jpg" alt="" class="i9">
+        <img src="img/h27.jpg" alt="" class="i10">
+        <img src="img/h29.jpg" alt="" class="i11">
+    </div>
+    <div class="section section5">
+        <img src="img/h14.jpg" alt="" class="i12">
+        <img src="img/h15.jpg" alt="" class="i13">
+        <img src="img/h5.jpg" alt="" class="i14">
+        <img src="img/h7.jpg" alt="" class="i15">
+    </div>
 </div>
 
 <script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
@@ -27,7 +51,98 @@
 <script>
     $(function(){
         $('#page').fullpage({
-            loopBottom: true
+            loopBottom: true,
+            anchors: ['page1', 'page2', 'page3', 'page4', 'page5','page6','page7','page8'],
+            afterLoad: function(anchorLink, index){
+                if(index == 2){
+                    $('.section2').find('.i1').delay(500).animate({
+                        top: '0'
+                    }, 1500, 'easeOutExpo').end().find('.i2').delay(500).animate({
+                        bottom: '5%'
+                    }, 1500, 'easeOutExpo').end().find('.i3').delay(1500).animate({
+                        left: '12%'
+                    }, 1500, 'easeOutExpo').end().find('.i5').delay(2500).animate({
+                        right: '9%'
+                    }, 1500, 'easeOutExpo').end().find('.i4').delay(3500).animate({
+                        top: '0'
+                    }, 1500, 'easeOutExpo');
+
+                }
+                if(index == 3){
+                    $('.section3').find('.i6').delay(500).animate({
+                        left: '0'
+                    }, 1500, 'easeOutExpo').end().find('.i7').delay(1000).animate({
+                        right: '0'
+                    }, 1500, 'easeOutExpo');
+                }
+                if(index == 4){
+                    $('.section4').find('.i8').delay(500).animate({
+                        left: '0'
+                    }, 1500, 'easeOutExpo').end().find('.i9').delay(1000).animate({
+                        right: '0'
+                    }, 1500, 'easeOutExpo').end().find('.i10').delay(1500).animate({
+                        left: '0'
+                    }, 1500, 'easeOutExpo').end().find('.i11').delay(3000).animate({
+                        bottom: '0'
+                    }, 1500, 'easeOutExpo');
+                }
+                if(index == 5){
+                    $('.section5').find('.i12').delay(100).animate({
+                        opacity: '1'
+                    }, 1500, 'easeInExpo').end().find('.i13').delay(1000).animate({
+                        opacity: '1'
+                    }, 1500, 'easeInExpo').end().find('.i14').delay(3500).animate({
+                        top: '0'
+                    }, 1500, 'easeOutExpo').end().find('.i15').delay(5000).animate({
+                        bottom: '0'
+                    }, 1500, 'easeOutExpo');
+                }
+            },
+            onLeave: function(index, nextIndex, direction){
+                if(index == 2){
+                    $('.section2').find('.i1').delay(500).animate({
+                        top: '-40%'
+                    }, 500, 'easeOutExpo').end().find('.i2').delay(500).animate({
+                        bottom: '-60%'
+                    }, 500, 'easeOutExpo').end().find('.i3').delay(500).animate({
+                        left: '-90%'
+                    }, 500, 'easeOutExpo').end().find('.i5').delay(500).animate({
+                        right: '-90%'
+                    }, 500, 'easeOutExpo').end().find('.i4').delay(500).animate({
+                        top: '-60%'
+                    }, 500, 'easeOutExpo');
+
+                }
+                if(index == 3){
+                    $('.section3').find('.i6').delay(500).animate({
+                        left: '-100%'
+                    }, 500, 'easeOutExpo').end().find('.i7').delay(500).animate({
+                        right: '-100%'
+                    }, 500, 'easeOutExpo');
+                }
+                if(index == 4){
+                    $('.section4').find('.i8').delay(500).animate({
+                        left: '-100%'
+                    }, 500, 'easeOutExpo').end().find('.i9').delay(500).animate({
+                        right: '-100%'
+                    }, 500, 'easeOutExpo').end().find('.i10').delay(500).animate({
+                        left: '-100%'
+                    }, 500, 'easeOutExpo').end().find('.i11').delay(500).animate({
+                        bottom: '-90%'
+                    }, 500, 'easeOutExpo');
+                }
+                if(index == 5){
+                    $('.section5').find('.i12').delay(100).animate({
+                        opacity: '0'
+                    }, 500, 'easeInExpo').end().find('.i13').delay(500).animate({
+                        opacity: '0'
+                    }, 500, 'easeInExpo').end().find('.i14').delay(500).animate({
+                        top: '-90%'
+                    }, 500, 'easeOutExpo').end().find('.i15').delay(500).animate({
+                        bottom: '-90%'
+                    }, 500, 'easeOutExpo');
+                }
+            }
         });
     });
 </script>

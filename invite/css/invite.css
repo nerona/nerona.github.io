@@ -17,9 +17,91 @@ fieldset, img { border: 0; }
 button, input, select, textarea { font-size: 100%; }
 table { border-collapse: collapse; border-spacing: 0; }
 ::-webkit-scrollbar {width:0;}
+.section {overflow: hidden}
 .section1, .section3 {
     background-color: lightpink;
 }
 .section2, .section4 {
     background-color: lightblue;
+}
+img {
+    width: 100%;
+}
+.overhide {
+    display: none;
+}
+.section1 img {
+    height: 100%;
+}
+.section2 .i1 {
+    position: absolute;
+    top: -40%;
+}
+.section2 .i2 {
+    position: absolute;
+    bottom: -60%;
+    z-index: 10;
+}
+.section2 .i3 {
+    width: 80%;
+    position: absolute;
+    top: 6%;
+    left: -90%;
+    -webkit-transform: rotate(-22deg);
+    transform: rotate(-22deg);
+}
+.section2 .i5 {
+    width: 80%;
+    position: absolute;
+    top: 6%;
+    right: -90%;
+    -webkit-transform: rotate(22deg);
+    transform: rotate(22deg);
+}
+.section2 .i4 {
+    position: absolute;
+    top: -60%;
+    left: 0;
+    z-index: 9;
+}
+.section3 .i6 {
+    position: relative;
+    left: -100%;
+}
+.section3 .i7 {
+    position: relative;
+    right: -100%;
+}
+.section4 .i8 {
+    position: absolute;
+    top: 0;
+    left: -100%;
+}
+.section4 .i9 {
+    position: absolute;
+    bottom: 0;
+    right: -100%;
+    z-index: 2;
+}
+.section4 .i10 {
+    position: absolute;
+    bottom: 0;
+    left: -100%;
+    z-index: 3;
+}
+.section4 .i11 {
+    position: absolute;
+    bottom: -90%;
+    z-index: 3;
+}
+.section5 .i12,.section5 .i13 {
+    opacity: 0;
+}
+.section5 .i14 {
+    position: absolute;
+    top: -90%;
+}
+.section5 .i15 {
+    position: absolute;
+    bottom: -90%;
 }
