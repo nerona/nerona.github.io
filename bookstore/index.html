@@ -12,6 +12,7 @@
     <meta name="apple-mobile-web-app-title" content="bookstore">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -19,22 +20,22 @@
     <img src="img/02.png" alt="" class="banner">
     <nav>
         <ul class="top-menu">
-            <li class="category">
+            <li class="category menu-item">
                 <span class="newer-tips"></span>
                 <i class="menu-icon"></i>
                 <p>分类</p>
             </li>
-            <li class="range">
+            <li class="range menu-item">
                 <span class="newer-tips"></span>
                 <i class="menu-icon"></i>
                 <p>排行</p>
             </li>
-            <li class="cheap">
+            <li class="cheap menu-item">
                 <span class="newer-tips"></span>
                 <i class="menu-icon"></i>
                 <p>超值</p>
             </li>
-            <li class="free">
+            <li class="free menu-item">
                 <span class="newer-tips"></span>
                 <i class="menu-icon"></i>
                 <p>免费</p>
@@ -156,5 +157,16 @@
     <p>Copyright@2016-2116 Nerona.All Rights Reserved</p>
     <p>http://nerona.github.io</p>
 </footer>
+
+<script>
+    var sub_menu = document.getElementsByClassName('menu-item');
+    console.log(sub_menu);
+    document.addEventListener('DOMContentLoaded', function(){
+        var html = document.documentElement;
+        var eleWidth = html.clientWidth;
+        console.log(eleWidth);
+        html.style.fontSize = eleWidth /　6.4 + 'px';
+    }, false);
+</script>
 </body>
 </html>

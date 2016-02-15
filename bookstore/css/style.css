@@ -27,12 +27,12 @@ body {
 .banner {
     display: block;
     width: 100%;
-    height: 123px;
+    height: 2.5rem;
 }
 .top-menu {
     display: -webkit-box;
     width: 100%;
-    height: 60px;
+    height: 1.2rem;
     background-color: #f8f9f9;
 }
 .top-menu > li {
@@ -45,16 +45,16 @@ body {
     background-color: #f8f9f9;
 }
 .top-menu p {
-    font-size: 14px;
+    font-size: .2rem;
     color: #777;
-    line-height: 20px;
+    line-height: .3rem;
 }
 .menu-icon {
     display: block;
-    width: 26px;
-    height: 26px;
+    width: .5rem;
+    height: .5rem;
     background-repeat: no-repeat;
-    background-size: 26px auto;
+    background-size:  100%;
 }
 .category .menu-icon {
     background-image: url(./../img/icon_category.png);
@@ -69,7 +69,7 @@ body {
     background-image: url(./../img/icon_free.png);
 }
 .panel {
-    margin-bottom: 10px;
+    margin-bottom: .2rem;
     background-color: #fff;
 }
 .panel-heading {
@@ -78,22 +78,23 @@ body {
     -webkit-box-pack: center;
     -webkit-box-align: center;
     -webkit-box-orient: vertical;
-    padding: 20px 0;
+    padding: .4rem 0;
 }
 .panel-heading h2 {
-    line-height: 30px;
+    line-height: .6rem;
+    font-size: .4rem;
 }
 .panel-heading p {
-    font-size: 13px;
+    font-size: .2rem;
     color: #777;
 }
 .panel-heading p:before {
     content: '[';
-    margin-right: 5px;
+    margin-right: .1rem;
 }
 .panel-heading p:after {
     content: ']';
-    margin-left: 5px;
+    margin-left: .1rem;
 }
 .book-list {position: relative}
 .book-list:after {
@@ -111,7 +112,7 @@ body {
 .book-item {
     display: -webkit-box;
     position: relative;
-    margin: 0 10px;
+    margin: 0 .2rem;
 }
 .book-item:first-child:before {
     content: '';
@@ -136,16 +137,16 @@ body {
 .book-item > a {
     display: -webkit-box;
     position: relative;
-    margin-bottom: 10px;
+    margin-bottom: .2rem;
     overflow: hidden;
     width: 100%;
 }
 .book-item .book-img {
     position: relative;
-    width: 95px;
-    height: 140px;
+    width: 1.9rem;
+    height: 2.8rem;
     background-color: rgba(222,222,222,.1);
-    margin: 10px 10px 10px 0;
+    margin: .2rem .2rem .2rem 0;
 }
 .book-img span {
     display: block;
@@ -154,12 +155,12 @@ body {
 }
 .book-item .book-info {
     display: -webkit-box;
-    padding: 10px 0;
+    padding: .2rem 0;
     -webkit-box-flex: 1;
     -webkit-box-pack: center;
     -webkit-box-align: center;
     -webkit-box-orient: vertical;
-    min-height: 140px;
+    min-height: 2.8rem;
     position: relative;
 }
 .book-info h4 {
@@ -167,7 +168,7 @@ body {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    font-size: 17px;
+    font-size: .3rem;
     line-height: 2;
     color: rgb(0,0,0);
 }
@@ -191,9 +192,9 @@ body {
 .book-author .label {
     color: #87ccd0;
     display: inline-block;
-    width: 30px;
-    margin-left: 5px;
-    line-height: 14px;
+    width: .6rem;
+    margin-left: .1rem;
+    line-height: .3rem;
     position: relative;
     font-size: 12px;
     text-align: center;
@@ -203,7 +204,7 @@ body {
 }
 .book-more {
     display: block;
-    padding: 20px 0;
+    padding: .4rem 0;
     color: #44c8d8;
     width: 100%;
     text-align: center;
@@ -217,7 +218,7 @@ body {
     top: 3px;
 }
 .suggest-list {
-    margin: 0 10px;
+    margin: 0 .2rem;
     display: -webkit-box;
     display: -webkit-flex;
     display: flex;
@@ -234,7 +235,7 @@ body {
     min-width: 100%;
     font-size: 15px;
     color: rgb(127,127,127);
-    margin-top: 10px;
+    margin-top: .2rem;
     line-height: 1.3;
     overflow: hidden;
     white-space: nowrap;
@@ -254,10 +255,10 @@ footer {
     color: #777;
     text-align: center;
     line-height: 1.4;
-    padding: 8px 0;
+    padding: .2rem 0;
     background-color: #fff;
 }
 footer span {
     color: #0b97c4;
-    margin-left: 10px;
+    margin-left: .2rem;
 }
