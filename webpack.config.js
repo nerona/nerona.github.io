@@ -60,7 +60,7 @@ module.exports = {
     //添加我们的插件 会自动生成一个html文件
     plugins: [
         new HtmlwebpackPlugin({
-            title: 'Nerona 音乐盒',
+            title: 'Nerona',
             template: 'template.html', // Load a custom template
             inject: 'body' // Inject all scripts into the body
         })
