@@ -262,3 +262,20 @@ footer span {
     color: #0b97c4;
     margin-left: .2rem;
 }
+.shine-box {
+    position: fixed;
+    width: 100%;
+    bottom: 30px;
+    margin: 0 auto;
+    line-height: 50px;
+    font-size: 25px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    background-image: -webkit-linear-gradient(0deg, rgba(255,255,255,.6) 40%, rgb(255,255,255) 50%, rgba(255,255,255,.6) 60%);
+    background-size: 200%;
+    -webkit-animation: shine 3s infinite;
+}
+@-webkit-keyframes shine {
+    0% {background-position: 100%}
+    100% {background-position: 0}
+}

@@ -158,15 +158,20 @@
     <p>http://nerona.github.io</p>
 </footer>
 
+<div class="shine-box">
+    滑动解锁》》》
+</div>
+
 <script>
-    var sub_menu = document.getElementsByClassName('menu-item');
-    console.log(sub_menu);
     document.addEventListener('DOMContentLoaded', function(){
         var html = document.documentElement;
         var eleWidth = html.clientWidth;
         console.log(eleWidth);
         html.style.fontSize = eleWidth /　6.4 + 'px';
     }, false);
+
+    var sub_menu = document.getElementsByClassName('menu-item');
+    console.log(sub_menu.length);
 </script>
 </body>
 </html>
