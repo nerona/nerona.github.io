@@ -1,3 +1,8 @@
+/**
+ * Author :  neron
+ * time   : 2016/2/16
+ * description: ...
+ */
 
 var path = require('path');
 var HtmlwebpackPlugin = require('html-webpack-plugin');
@@ -6,28 +11,12 @@ var ROOT_PATH = path.resolve(__dirname);
 var APP_PATH = path.resolve(ROOT_PATH, 'app');
 var BUILD_PATH = path.resolve(ROOT_PATH, 'build');
 
-var deps = [
-    'react/dist/react.min.js',
-    'react-router/dist/react-router.min.js',
-    'moment/min/moment.min.js',
-    'underscore/underscore-min.js'
-];
-
-deps.forEach(function (dep) {
-    var depPath = path.resolve(node_modules_dir, dep);
-    config.resolve.alias[dep.split(path.sep)[0]] = depPath;
-    config.module.noParse.push(depPath);
-});
-
-var config = {
+module.exports = {
     //项目的文件夹 可以直接用文件夹名称 默认会找index.js 也可以确定是哪个文件名字
-    entry: {
-        app: './app/index.js',
-        vendors: ['react']
-    },
+    entry: './app/index.js',
     //输出的文件名 合并以后的js会命名为bundle.js
     output: {
-       // path: BUILD_PATH,
+        // path: BUILD_PATH,
         filename: './bundle.js'
     },
     devServer: {
@@ -56,7 +45,7 @@ var config = {
                 test: /\.js$/,
                 loader: 'jsx?harmony',
                 //include: APP_PATH,
-               // }
+                // }
             },
             {
                 test: /\.jsx?$/,
@@ -68,12 +57,10 @@ var config = {
                     presets: ['react', 'es2015']
                 }
             }
-        ],
-        noParse: []
+        ]
     },
     resolve: {
-        extensions: ['', '.js', '.jsx', '.css', '.less'],
-        alias: []
+        extensions: ['', '.js', '.jsx', '.css', '.less']
     },
     //添加我们的插件 会自动生成一个html文件
     plugins: [
@@ -81,9 +68,6 @@ var config = {
             title: 'Nerona',
             template: 'template.html', // Load a custom template
             inject: 'body' // Inject all scripts into the body
-        }),
-        new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js')
+        })
     ]
 };
-
-module.exports = config;
