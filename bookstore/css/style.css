@@ -21,6 +21,7 @@ body {
     font-family: "Helvetica Neue",Helvetica,STHeiTi,sans-serif;
     -webkit-user-select: none;
     background-color: #f2f2f2;
+    overflow-x: hidden;
 }
 ::-webkit-scrollbar {width: 0}
 /*bookstore*/
@@ -261,6 +262,17 @@ footer {
 footer span {
     color: #0b97c4;
     margin-left: .2rem;
+}
+/*
+        text-align: -webkit-center;   块级元素居中
+*/
+.marquee {
+    white-space: nowrap;
+    overflow: -webkit-marquee;
+    width: 70px;
+    -webkit-marquee-direction: forwards;
+    -webkit-marquee-style: alternate;
+    -webkit-marquee-speed: slow;
 }
 .shine-box {
     position: fixed;
