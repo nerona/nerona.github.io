@@ -29,7 +29,9 @@ var config = {
     //输出的文件名 合并以后的js会命名为bundle.js
     output: {
        // path: BUILD_PATH,
-        filename: './bundle.js'
+        filename: './bundle.js',
+        libraryTarget: 'umd',
+        library: 'MyLibrary'
     },
     devServer: {
         historyApiFallback: true,
@@ -80,6 +82,10 @@ var config = {
         extensions: ['', '.js', '.jsx', '.css', '.less'],
         alias: []
     },
+    externals: {
+        react: 'react',
+        'react/addons': 'react'
+    },
     //添加我们的插件 会自动生成一个html文件
     plugins: [
         new HtmlwebpackPlugin({
@@ -88,7 +94,12 @@ var config = {
             inject: 'body' // Inject all scripts into the body
         }),
         new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js'),
-        new webpack.HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: false
+            }
+        })
     ]
 };
 

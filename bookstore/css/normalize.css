@@ -86,6 +86,13 @@ template {
  * Remove the gray background color from active links in IE 10.
  */
 
+button, input[type="text"] {
+  border: none;
+  background: none;
+  -webkit-appearance: none;
+  outline: none;
+}
+
 a {
   background-color: transparent;
 }
