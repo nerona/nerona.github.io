@@ -5,6 +5,7 @@ var HtmlwebpackPlugin = require('html-webpack-plugin');
 var ROOT_PATH = path.resolve(__dirname);
 var APP_PATH = path.resolve(ROOT_PATH, 'app');
 var BUILD_PATH = path.resolve(ROOT_PATH, 'build');
+var node_modules_dir = path.join(__dirname, 'node_modules');
 
 var deps = [
     'react/dist/react.min.js',
@@ -63,10 +64,14 @@ var config = {
                 // query: {
                 //    presets: ['es2015']
                 exclude: /(node_modules|bower_components)/,
-                loader: 'babel', // 'babel-loader' is also a legal name to reference
+                loaders: ['react-hot', 'babel'], // 'babel-loader' is also a legal name to reference
                 query: {
                     presets: ['react', 'es2015']
                 }
+            },
+            {
+                test: path.resolve(node_modules_dir, deps[0]),
+                loader: "expose?React"
             }
         ],
         noParse: []
@@ -82,7 +87,8 @@ var config = {
             template: 'template.html', // Load a custom template
             inject: 'body' // Inject all scripts into the body
         }),
-        new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js')
+        new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js'),
+        new webpack.HotModuleReplacementPlugin()
     ]
 };
 
