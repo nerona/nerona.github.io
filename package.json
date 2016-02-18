@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/nerona/nerona.github.io#readme",
   "devDependencies": {
+    "assets-webpack-plugin": "^3.3.0",
     "autoprefixer-loader": "^3.2.0",
     "babel-core": "^6.5.2",
     "babel-loader": "^6.2.2",
@@ -26,6 +27,7 @@
     "css-loader": "^0.23.0",
     "expose-loader": "^0.7.1",
     "file-loader": "^0.8.5",
+    "fs": "0.0.2",
     "history": "^2.0.0-rc2",
     "html-webpack-plugin": "^1.7.0",
     "jquery": "^2.1.4",
@@ -49,6 +51,7 @@
     "url-loader": "^0.5.7",
     "webpack": "^1.12.9",
     "webpack-dev-server": "^1.14.0",
-    "webpack-html-plugin": "^0.1.0"
+    "webpack-html-plugin": "^0.1.0",
+    "worker-loader": "^0.7.0"
   }
 }
