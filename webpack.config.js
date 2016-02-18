@@ -39,6 +39,7 @@ var config = {
         libraryTarget: 'umd',
         library: 'MyLibrary'
     },
+    devtool: 'source-map',
     devServer: {
         historyApiFallback: true,
         hot: true,
