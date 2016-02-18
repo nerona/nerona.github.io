@@ -20,6 +20,7 @@
   "homepage": "https://github.com/nerona/nerona.github.io#readme",
   "devDependencies": {
     "assets-webpack-plugin": "^3.3.0",
+    "autoprefixer": "^6.3.3",
     "autoprefixer-loader": "^3.2.0",
     "babel-core": "^6.5.2",
     "babel-loader": "^6.2.2",
@@ -36,7 +37,7 @@
     "less-loader": "^2.2.2",
     "path": "^0.12.7",
     "postcss": "^5.0.12",
-    "postcss-loader": "^0.8.0",
+    "postcss-loader": "^0.8.1",
     "rctui": "^0.5.0",
     "react": "^0.14.3",
     "react-bootstrap": "^0.28.1",

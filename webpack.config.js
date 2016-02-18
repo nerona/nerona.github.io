@@ -2,7 +2,8 @@
 var path = require('path');
 var HtmlwebpackPlugin = require('html-webpack-plugin');
 var AssetsPlugin = require('assets-webpack-plugin');
-var assetsPluginInstance = new AssetsPlugin();
+var assetsPluginInstance = new AssetsPlugin({filename: 'assets.json'});
+var autoprefixer = require('autoprefixer');
 
 //定义了一些文件夹的路径
 var ROOT_PATH = path.resolve(__dirname);
@@ -48,7 +49,7 @@ var config = {
         loaders: [
             {
                 test: /\.css$/,
-                loaders: ['style', 'css'],
+                loaders: ['style', 'css', 'postcss'],
                 //include: APP_PATH
             },
             {
@@ -83,6 +84,7 @@ var config = {
         ],
         noParse: []
     },
+    postcss: [ autoprefixer({ browsers: ['last 2 versions'] }) ],
     resolve: {
         extensions: ['', '.js', '.jsx', '.css', '.less'],
         alias: []
