@@ -1,11 +1,15 @@
 
 var path = require('path');
 var HtmlwebpackPlugin = require('html-webpack-plugin');
+var AssetsPlugin = require('assets-webpack-plugin');
+var assetsPluginInstance = new AssetsPlugin();
+
 //定义了一些文件夹的路径
 var ROOT_PATH = path.resolve(__dirname);
 var APP_PATH = path.resolve(ROOT_PATH, 'app');
 var BUILD_PATH = path.resolve(ROOT_PATH, 'build');
 var node_modules_dir = path.join(__dirname, 'node_modules');
+
 
 var deps = [
     'react/dist/react.min.js',
@@ -28,8 +32,9 @@ var config = {
     },
     //输出的文件名 合并以后的js会命名为bundle.js
     output: {
-       // path: BUILD_PATH,
-        filename: './bundle.js',
+        path: path.join(__dirname, "build", "js"),
+        publicPath: '/js/',
+        filename: 'bundle-[hash].js',
         libraryTarget: 'umd',
         library: 'MyLibrary'
     },
@@ -88,6 +93,7 @@ var config = {
     },
     //添加我们的插件 会自动生成一个html文件
     plugins: [
+        assetsPluginInstance,
         new HtmlwebpackPlugin({
             title: 'Nerona',
             template: 'template.html', // Load a custom template
