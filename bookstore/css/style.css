@@ -287,6 +287,8 @@ footer span {
     background-image: -webkit-linear-gradient(0deg, rgba(255,255,255,.6) 40%, rgb(255,255,255) 50%, rgba(255,255,255,.6) 60%);
     background-size: 200%;
     -webkit-animation: shine 3s infinite;
+    pointer-events: none;
+    -webkit-user-select: none;
 }
 @-webkit-keyframes shine {
     0% {background-position: 100%}

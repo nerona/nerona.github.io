@@ -9,11 +9,15 @@ var webpackDev = require('webpack-dev-server');
 var gutil = require('gulp-util');
 var sourcemaps = require('gulp-sourcemaps');
 var through = require('through2');
+var uglify = require('gulp-uglify');
+var rename = require('gulp-rename');
 
 gulp.task('webpack', function (callback) {
     return gulp.src('src/entry.js')
         .pipe(webpack(require('./webpack.config.js')))
         .pipe(sourcemaps.init({loadMaps: true}))
+        .pipe(uglify())
+        .pipe(rename('entry.min.js'))
         .pipe(through.obj(function (file, enc, cb) {
             // Dont pipe through any source map files as it will be handled
             // by gulp-sourcemaps
