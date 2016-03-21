@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cn">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>账号信息</title>
+    <meta name="renderer" content="webkit">
+    <!-- No Baidu Siteapp-->
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <meta name="apple-mobile-web-app-title" content="AMUI React"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <style>
+        body, div, img, ul, li, a, p {margin: 0;padding: 0;}
+        .div_dept_save {
+            padding: 5px;
+            text-align: center;
+            margin: 0 auto;
+            width: 100%;
+        }
+        .header-icon {margin-top: 45px;}
+        .header-icon > img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            background-color: rgb(93,93,93);
+        }
+        .i-btn {
+            display: inline-block;
+            width: 120px;
+            margin-top: 24px;
+            color: rgb(255,255,255);
+            font-size: 16px;
+            letter-spacing: 1px;
+            background-color: rgb(54,146,62);
+            border-radius: 8px;
+            text-align: center;
+            padding: 7px 0;
+            position: relative;
+            cursor: pointer;
+        }
+        .no-vip {display: none}
+        .no-vip > p {
+            font-size: 15px;
+            color: rgb(164,0,0);
+            margin-top: 22px;
+        }
+        .is-vip > p {
+            font-size: 18px;
+            color: rgb(54,146,62);
+            margin: 12px 0;
+        }
+        .i-list {margin-top: 30px;position: relative;}
+        .i-recharge, .re-left {display: inline-block;}
+        .i-recharge {margin-right: 40px;}
+        .i-card {
+            width: 320px;
+            height: 198px;
+            background: url(./../img/vip.png) no-repeat;
+            background-size: 100% 100%;
+            position: relative;
+            color: rgb(242,223,126);
+            font-family: Tahoma, "Microsoft YaHei", "微软雅黑", Arial, Helvetica, sans-serif;
+            font-size: 14px;
+        }
+        /*卡信息*/
+        .i-left {
+            position: absolute;
+            top: 16px;
+            right: 30px;
+        }
+        .i-level, .i-number, .i-star,  .i-next-level {width: 156px;}
+        .i-level {
+            position: absolute;
+            left: 25px;
+            top: 86px;
+            letter-spacing: 6px;
+        }
+        .i-number {
+            position: absolute;
+            left: 22px;
+            top: 105px;
+            font-size: 12px;
+        }
+        .i-star {
+            position: absolute;
+            left: 22px;
+            top: 128px;
+            padding-bottom: 2px;
+            border-bottom: 1px solid ;
+        }
+        .i-star > img {
+            width: 25px;
+        }
+        .i-next-level {
+            position: absolute;
+            left: 21px;
+            top: 160px;
+            font-size: 12px;
+        }
+        /*返利余额*/
+        .re-money {
+            position: absolute;
+            left: 50px;
+            top: 45%;
+            font-size: 15px;
+        }
+        .i-input {
+            width: 280px;
+            margin: 0 auto;
+            margin-top: 14px;
+        }
+        .i-input > p {display: inline-block;}
+        .i-input input[type="text"] {
+            border: none;
+            padding: 8px 0;
+            font-size: 16px;
+            width: 168px;
+            outline: none;
+            color: rgb(171,172,171);
+        }
+        .i-input-name {
+            color: rgb(54,146,62);
+            font-size: 15px;
+        }
+        .i-input-text {
+            border: 1px solid rgb(54,146,62);
+            color: rgb(171,172,171);
+            border-radius: 4px;
+            padding: 0 10px;
+            font-size: 16px;
+        }
+        .i-go-charge {position: relative;}
+        .i-detail {
+            position: absolute;
+            left: 74%;
+            top: 33px;
+            color: rgb(54,146,62);
+            font-size: 13px;
+            cursor: pointer;
+        }
+        .i-go-charge .i-btn {
+            position: relative;
+            left: -25px;
+        }
+        .i-go-cash .i-btn:nth-child(2) {margin-left: 24px;}
+        .i-card .i-detail {
+            left: 50px;
+            top: 58%;
+            color: rgb(242,223,126);
+        }
+        @media screen and (max-width: 760px) {
+            .i-recharge {margin-right: 0;}
+        }
+    </style>
+</head>
+<body>
+<div id="div_dept_save" class="div_dept_save">
+    <div class="header-icon">
+        <img src="./../img/qq.png" alt="">
+    </div>
+    <p class="i-btn">熊佳婧</p>
+    <!--未加入-->
+    <div class="no-vip">
+        <p>未加入蟠桃会共享富贵体系</p>
+        <div class="i-btn">立即加入</div>
+    </div>
+    <!--已加入-->
+    <div class="is-vip">
+        <p>LV.<span>9</span></p>
+    </div>
+    <!--卡-->
+    <div class="i-list">
+        <div class="i-recharge">
+            <!--卡信息-->
+            <div class="i-card">
+                <p class="i-left">富贵卡余额 : <span>998</span>元</p>
+                <p class="i-level">三星会员</p>
+                <p class="i-number">12312312321</p>
+                <div class="i-star">
+                    <img src="./../img/5.png" alt="">
+                    <img src="./../img/5.png" alt="">
+                    <img src="./../img/5.png" alt="">
+                </div>
+                <p class="i-next-level">再消费<span>700</span>元升级至四星会员</p>
+            </div>
+            <!--充值金额-->
+            <div class="i-input">
+                <p class="i-input-name">金额 : </p>
+                <p class="i-input-text">
+                    <span>￥:</span>
+                    <input type="text" placeholder="100.00" maxlength="10">
+                </p>
+            </div>
+            <!--充值确定-->
+            <div class="i-go-charge">
+                <p class="i-btn">充值</p>
+                <span class="i-detail">查看明细</span>
+            </div>
+        </div>
+        <div class="re-left">
+            <div class="i-card">
+                <p class="re-money">返利余额 : <span>9000</span>元</p>
+                <span class="i-detail">查看明细</span>
+            </div>
+            <div class="i-input">
+                <p class="i-input-name">金额 : </p>
+                <p class="i-input-text">
+                    <span>￥:</span>
+                    <input type="text" placeholder="100.00" maxlength="10">
+                </p>
+            </div>
+            <!--提现确定-->
+            <div class="i-go-cash">
+                <p class="i-btn">转入富贵卡</p>
+                <p class="i-btn">提现</p>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

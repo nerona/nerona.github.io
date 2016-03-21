@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="./../main.css">
+    <style>
+        .m31_bank {
+            float: left;
+            margin-right: 20px;
+            margin-bottom: 20px;
+            /*IE CSS3 support*/
+            position:relative;
+            z-index:2;
+            border-radius: 15px;
+            behavior: url(./../../bookstore/css/ie-css3.htc);
+        }
+    </style>
+</head>
+<body>
+<div id="div_dept_save" style="padding: 5px; text-align: center; margin: 0 auto; width: 100%;">
+
+    <div style="padding-top: 30px;">
+        <div style="width: 150px;  display:inline-block; text-align: center;">
+            <span class="m31_span_left">真实姓名：</span>
+        </div>
+        <div style="width: 300px;  display:inline-block; text-align: left;">
+            <input name="realName" id="realName" value="1" class="m31_span_right_input" />
+        </div>
+
+        <div style="width: 120px;  display:inline-block; text-align: center;">
+          <!--  <c:if test="${ userFx.realNameCheck==0 }"> <span style="color: red;">（未认证）</span></c:if>
+            <c:if test="${ userFx.realNameCheck==1 }"> <span style="color: #36923e;">（已认证）</span></c:if>-->
+          <!--  <c:if test="${ userFx.realNameCheck==2 }">--> <span>（待审核）</span> <!--</c:if>-->
+        </div>
+
+    </div>
+
+    <div style="padding-top: 10px;">
+        <div style="width: 150px;  display:inline-block; text-align: center;">
+            <span class="m31_span_left">身份证号码：</span>
+        </div>
+        <div style="width: 300px;  display:inline-block; text-align: left;">
+            <input name="idCard" id="idCard" value="11" class="m31_span_right_input" />
+        </div>
+
+        <div style="width: 120px;  display:inline-block; text-align: center;">
+            <!--<c:if test="${ userFx.idCardCheck==0 }"> <span style="color: red;">（未认证）</span></c:if>
+            <c:if test="${ userFx.idCardCheck==1 }"> <span style="color: #36923e;">（已认证）</span></c:if>-->
+            <!--<c:if test="${ userFx.idCardCheck==2 }">--><span>（待审核）</span> <!-- </c:if>-->
+        </div>
+    </div>
+
+    <div style="padding-top: 10px;">
+        <div style="width: 150px;  display:inline-block; text-align: center;">
+            <span class="m11_span_left">&nbsp;</span>
+        </div>
+        <div style="width: 300px;  display:inline-block; text-align: left;">
+            <input type="button"  value="认 证" id="btn_idCard" class="m31_btn"/>
+        </div>
+
+        <div style="width: 120px;  display:inline-block; text-align: center;">&nbsp;</div>
+
+    </div>
+
+    <div style="padding-top: 50px;">
+        <div style="width: 150px;  display:inline-block; text-align: center;">
+            <span class="m31_span_left">支付密码：</span>
+        </div>
+        <div style="width: 300px;  display:inline-block; text-align: left;">
+            <input type="password" name="payPass" id="payPass" value="" class="m31_span_right_input" />
+        </div>
+
+        <div style="width: 120px;  display:inline-block; text-align: center;">
+            <span class="m31_span_right_input_tip">修改支付密码</span>
+        </div>
+    </div>
+
+    <div style="padding-top: 50px;margin: 0 auto;width: 780px ;">
+                    <div class="m31_bank">
+
+                    </div>
+
+                    <div class="m31_bank">
+
+                    </div>
+
+                    <div class="m31_bank">
+
+                    </div>
+        <div class="m31_bank">
+
+        </div>
+        <div class="m31_bank">
+
+        </div>
+        <div class="m31_bank">
+
+        </div>
+                    <div class="m31_bank">
+                        <img width="236px" alt="" src="./../img/bank.png">
+                    </div>
+    </div>
+
+</div>
+</body>
+</html>

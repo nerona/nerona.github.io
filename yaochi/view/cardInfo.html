@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cn">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>账号信息</title>
+    <meta name="renderer" content="webkit">
+    <!-- No Baidu Siteapp-->
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <meta name="apple-mobile-web-app-title" content="AMUI React"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <style>
+        body,div, img, ul, li, a, p {margin: 0;padding: 0;}
+        .div_dept_save {
+            padding: 5px;
+            text-align: center;
+            margin: 0 auto;
+            width: 100%;
+        }
+        .header-icon {margin-top: 45px;}
+        .header-icon > img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            background-color: rgb(93,93,93);
+        }
+        .per-info {margin-top: 30px;}
+        .per-line {
+            line-height: 50px;
+            font-size: 18px;
+            color: rgb(54,146,62);
+        }
+        .per-line > p {
+            display: inline-block;
+            text-align: left;
+        }
+        .line-name {
+            width: 110px;
+            letter-spacing: 4px;
+        }
+        .line-text {
+            width: 300px;
+            letter-spacing: 1px;
+        }
+        .line-tip {
+            width: 120px;
+            position: absolute;
+            left: 100%;
+            top: 2px;
+            font-size: 13px;
+        }
+        input {border: none;}
+        input[type="text"] {
+            width: 93%;
+            border-radius: 4px;
+            border: 1px solid rgb(152,176,146);
+            color: rgb(160,160,160);
+            padding: 6px 0 6px 12px;
+        }
+        .vip-status {
+            display: inline-block;
+            border: 1px solid rgb(152,176,146);
+            line-height: 26px;
+            padding: 0 5px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .icon-vip-no {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            background: url(./../img/yesno.png) no-repeat;
+            background-position: -24px 0;
+            background-size: 40px 18px;
+            position: relative;
+            left: 5px;
+            top: 3px;
+            margin-right: 5px;
+        }
+        .icon-vip-yes {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            background: url(./../img/yesno.png) no-repeat;
+            background-position: -2px 0;
+            background-size: 40px 20px;
+            position: relative;
+            left: 18px;
+            top: 3px;
+            margin-right: 24px;
+        }
+        .po-relative { position: relative;}
+        .join-vip-no {color: rgb(171,38,38);}
+        .join-vip-yes {display: none;}
+        .ls11 {letter-spacing: 11px;}
+        .color-gray {color: rgb(160,160,160);}
+    </style>
+</head>
+<body>
+<div id="div_dept_save" class="div_dept_save">
+    <div class="header-icon">
+        <img src="./../img/qq.png" alt="">
+    </div>
+    <div class="per-info">
+        <div class="per-line">
+            <p class="line-name">姓&nbsp;&nbsp;名:</p>
+            <p class="line-text po-relative">
+                张小凡
+            </p>
+            <!--审核状态-->
+            <!--<p class="line-text po-relative">
+                <input type="text" class="nick-name" placeholder="张三" readonly>
+                <span class="line-tip">待审核</span>
+            </p>-->
+        </div>
+        <div class="per-line">
+            <p class="line-name">昵&nbsp;&nbsp;称:</p>
+            <p class="line-text">
+                <input type="text" class="nick-name" placeholder="张三">
+            </p>
+        </div>
+        <div class="per-line">
+            <p class="line-name">登录账号:</p>
+            <p class="line-text color-gray">12312312312</p>
+        </div>
+        <div class="per-line">
+            <p class="line-name ls11">推荐人:</p>
+            <p class="line-text po-relative">
+                <input type="text" class="nick-name" placeholder="张三" maxlength="16">
+                <span class="line-tip">可填写不可更改</span>
+            </p>
+        </div>
+        <div class="per-line">
+            <p class="line-name">身份标识:</p>
+            <p class="line-text">
+                蟠桃会共享富贵体系
+                <span class="vip-status join-vip-no">立即加入<span class="icon-vip-no"></span></span>
+                <span class="vip-status join-vip-yes">已加入<span class="icon-vip-yes"></span></span>
+            </p>
+        </div>
+    </div>
+</div>
+<script>
+/*    (function () {
+        document.addEventListener('DOMContentLoaded', function () {
+            var html = document.documentElement;
+            var windowWidth = html.clientWidth;
+            console.log('windowWidth: ' + windowWidth);
+            html.style.fontSize = windowWidth / 6.4  + 'px';
+        }, false);
+    })();*/
+</script>
+</body>
+</html>

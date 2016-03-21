@@ -1,0 +1,363 @@
+/* 
+    Document   : main
+    Created on : 2013-9-2, 12:19:21
+    Author     : airuisi
+    Description:
+        Purpose of the stylesheet follows.
+*/
+* {
+	font-family: Tahoma, "Microsoft YaHei", "宋体", Arial, Helvetica,
+		sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+root {
+	display: block;
+}
+
+body {
+	text-align: center;
+	margin: 0;
+	padding: 0;
+	background-color: white;
+	font-family: Tahoma, "Microsoft YaHei", "微软雅黑", Arial, Helvetica, sans-serif;
+}
+#div_dept_save{
+	background-color: white;
+}
+a {
+	text-decoration: none;
+	cursor: hand;
+}
+
+.span_tip {
+	font-family: Tahoma, "Microsoft YaHei", "宋体", Arial, Helvetica,
+		sans-serif;
+	margin: 0px;
+	padding: 1px;
+	font-size: 0.9em;
+	text-align: right;
+}
+.span_tip_required{
+	color: red;
+	padding: 2px;
+}
+
+.table_common{
+	margin: 0;
+	padding: 0;
+	width: 95%;
+}
+.table_common td{
+	margin: 3px;
+	padding: 3px;
+	font-size: 0.9em;
+}
+
+.table_view{
+	margin: 0;
+	padding: 0;
+	width: 95%;
+}
+.table_view td{
+	margin: 3px;
+	padding: 3px;
+	font-size: 0.9em;
+}
+.table_view tr:nth-child(odd){background:#F4F4F4;}
+.table_view td:nth-child(even){color: #228B22;}
+
+/* .table_common tr:nth-child(5){background:#73B1E0;color:#FFF;} */
+.ul_x {
+	list-style: none;
+}
+
+.ul_x li {
+	float: left;
+	width: 80px;
+	text-align: center;
+	padding: 5px;
+	cursor: pointer;
+}
+
+.input_normal {
+	width: 200px;
+}
+
+.input_180 {
+	width: 180px;
+}
+
+.input_all {
+	width: 100%;
+}
+
+.user_menu_span {
+	font-family: Tahoma, "Microsoft YaHei", "宋体", Arial, Helvetica,
+		sans-serif;
+	margin: 0px;
+	padding: 5px;
+	font-size: 0.9em;
+	text-align: center;
+	color: white;
+}
+
+.search_div_outer{
+	padding: 5px; 
+	border: 1px dashed #c0c0c0;
+}
+
+.color_red{
+	color: red;
+	font-size: 1.1em;
+}
+
+.ul_splb {
+	list-style: none;
+}
+.ul_splb li {
+	text-align: left;
+	padding-top: 20px;
+	padding-left: 20px;
+}
+.ul_splb li input{
+	width: 80%;
+}
+.vip_p_bottom{
+	width: 310px; 
+	position: relative;
+	display: inline-block;
+}
+.vip_p{
+	background-image:  url(./img/vip.png);
+	width: 310px; 
+	height: 198px; 
+	position: relative;
+	display: inline-block;
+}
+.vip_c{
+	width: 300px; 
+	height: 50px; 
+	position: absolute;
+	right: 15px;
+	top: 15px;
+	font-family: Tahoma, "Microsoft YaHei", "微软雅黑", Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #d6b538;
+	text-align: right;
+}
+.vip_d1{
+	width: 180px; 
+	height: 50px;
+	position: absolute;
+	left: 10px;
+	top: 65px;
+	font-family: Tahoma, "Microsoft YaHei", "微软雅黑", Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	color: #d6b538;
+	text-align: center;
+	letter-spacing: 10px;
+}
+.vip_d2{
+	width: 180px; 
+	height: 50px;
+	position: absolute;
+	left: 5px;
+	top: 90px;
+	font-family: Tahoma, "Microsoft YaHei", "微软雅黑", Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	color: #d6b538;
+	text-align: center;
+}
+.vip_d3{
+	width: 180px; 
+	height: 50px;
+	position: absolute;
+	left: 5px;
+	top: 125px;
+	font-family: Tahoma, "Microsoft YaHei", "微软雅黑", Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	color: #d6b538;
+	text-align: center;
+}
+.vip_d4{
+	width: 180px; 
+	height: 50px;
+	position: absolute;
+	left: 15px;
+	top: 155px;
+	font-family: Tahoma, "Microsoft YaHei", "微软雅黑", Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	color: #d6b538;
+	text-align: center;
+}
+.vip_d5{
+	width: 180px; 
+	height: 50px;
+	position: absolute;
+	left: 5px;
+	top: 165px;
+	font-family: Tahoma, "Microsoft YaHei", "微软雅黑", Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #d6b538;
+	text-align: center;
+}
+
+.commission_d2{
+	width: 220px; 
+	height: 30px;
+	position: absolute;
+	left: 5px;
+	top: 90px;
+	font-family: Tahoma, "Microsoft YaHei", "微软雅黑", Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	color: #d6b538;
+	text-align: center;
+}
+
+.commission_p{
+	background-color: #c0c0c0; 
+	width: 300px; 
+	height: 100px; 
+	position: relative;
+}
+.commission_c{
+	width: 120px; 
+	height: 50px; 
+	position: absolute;
+	left: 50px;
+	top: 30px;
+	
+	font-family: Tahoma, "Microsoft YaHei", "宋体", Arial, Helvetica, sans-serif;
+	font-size: 20px;
+	color: white;
+}
+
+.btn_submit{
+	color: white;
+    font-family: 幼圆;
+    font-size: 12px;
+    background-color: #00B0F0;
+    border-radius: 10px;
+    width: 200px;
+    height: 25px;
+    line-height: 25px;
+    cursor: hand;
+    text-align: center;
+}
+ ul {
+		list-style: none;
+		padding: 1px;
+		margin: 1px;
+	}
+ ul li{
+		padding-top: 10px;
+	}
+
+.m11_span_left{
+	width: 80px; 
+	height: 40px;
+	font-family: Tahoma, "Microsoft YaHei", "微软雅黑", Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	color: #36923e;
+	text-align: right;
+	display: inline-block;
+}
+.m11_span_right{
+	height: 30px;
+	line-height: 30px;
+	font-family: Tahoma, "Microsoft YaHei", "微软雅黑", Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	color: #36923e;
+	text-align: left;
+	display: inline-block;
+}
+.m11_span_right_input{
+	width: 200px;
+	height: 30px;
+	line-height: 30px;
+	font-family: Tahoma, "Microsoft YaHei", "微软雅黑", Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	color: #a0a0a0;
+	text-align: center;
+	display: inline-block;
+	border: 1px #3d6b32 solid;
+}
+.m11_span_box_ok{
+	width: 80px;
+	height: 30px;
+	line-height: 30px;
+	font-family: Tahoma, "Microsoft YaHei", "微软雅黑", Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	color: #36923e;
+	text-align: left;
+	display: inline-block;
+	border: 1px #3d6b32 solid;
+	padding: 0 10px;
+}
+.m11_span_box_cancel{
+	width: 100px;
+	height: 30px;
+	line-height: 30px;
+	font-family: Tahoma, "Microsoft YaHei", "微软雅黑", Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	color: #a40000;
+	text-align: left;
+	display: inline-block;
+	border: 1px #3d6b32 solid;
+	padding: 0 10px;
+}
+
+
+.m31_span_left{
+	width: 120px; 
+	height: 40px;
+	font-family: Tahoma, "Microsoft YaHei", "微软雅黑", Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	color: #36923e;
+	text-align: right;
+	display: inline-block;
+}
+.m31_span_right_input{
+	width: 300px; 
+	height: 40px;
+	line-height: 40px;
+	font-family: Tahoma, "Microsoft YaHei", "微软雅黑", Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	color: #36923e;
+	text-align: center;
+	display: inline-block;
+	border: 1px #3d6b32 solid;
+}
+.m31_span_right_input_tip{
+	height: 23px;
+	line-height: 25px;
+	font-family: Tahoma, "Microsoft YaHei", "微软雅黑", Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #36923e;
+	text-align: center;
+	display: inline-block;
+	border-bottom: 1px #36923e solid;
+	cursor: hand;
+}
+.m31_btn{
+	height: 40px;
+	line-height: 40px;
+	font-family: Tahoma, "Microsoft YaHei", "微软雅黑", Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	text-align: center;
+	width: 300px;
+	background-color: #36923e; 
+	color: white; 
+	border-radius: 10px; 
+	border:0px;
+}
+.m31_bank{
+	background-color: #3e6b32; 
+	width: 236px;  
+	height: 148px;
+	display:inline-block;
+	text-align: center;
+	border-radius: 5px; 
+}
