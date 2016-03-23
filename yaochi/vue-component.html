@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>vue</title>
+    <meta name="renderer" content="webkit">
+    <!-- No Baidu Siteapp-->
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <meta name="apple-mobile-web-app-title" content="AMUI React"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <script src="//cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/vue/1.0.17/vue.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <!--props from parent-->
+    <input type="text" v-model="parentMsg" placeholder="Name">
+    <my-component :msG="parentMsg"></my-component>   <!--修饰符.sync.once-->
+
+    <!---->
+    <!--子组件模板-->
+    <template id="child-template">
+        <input type="text" v-model="msg">
+        <button @click="notify">Dispatch Event</button>
+    </template>
+    <!--父组件模板-->
+    <div id="events-example">
+        <p>Message is: {{ message | json }}</p>
+        <child v-on:child-msg="handleIt" v-ref:list1></child>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function(){
+        /*activate*/
+        Vue.component('activate-example', {
+            activate: function (done) {
+                var self = this;
+                loadDataAsync(function (data) {
+                    self.someData = data;
+                    done();
+                })
+            }
+        });
+
+        Vue.component('child', {
+            template: "#child-template",
+            data: function(){
+                return { msg: "hello"};
+            },
+            methods: {
+                notify: function(){
+                    if(this.msg.trim()) {
+                        this.$dispatch('child-msg', this.msg);
+                        this.msg = '';
+                    }
+                }
+            }
+        });
+
+        var parent = new Vue({
+            el: '#events-example',
+            data: {
+                message: []
+            },
+            /*events: {
+                'handleIt': function(msg){
+                    this.message.push(msg);
+                }
+            },*/
+            methods: {
+                handleIt: function(msg){
+                    this.message.push(msg);
+                }
+            }
+        });
+
+        var child = parent.$refs.list1;
+        console.log(child);
+       /* var MyComponent = Vue.extend({
+            template: '<div>A Custom Component!</div>'
+        });*/
+        /*名字形式为 camelCase 的 prop 用作特性时，需要转为 kebab-case（短横线隔开）*/
+        /*全局注册组件*/
+        Vue.component('my-component', {
+            props: ['msG'],
+            template: '<div>I am {{msG}}</div>',
+           /* data: function(){
+                return {a: 1};
+            },
+            el: function(){}*/
+        });
+        /*局部注册*/
+       /* var Child = Vue.extend({});
+        var Parent = Vue.extend({
+            template: '<div>局部注册</div>',
+            components: {
+                'my-component': Child
+                'my-component': {
+                    template: '<div>A Custom Component!</div>'
+                }
+            }
+        });*/
+
+        var exampleData = {};
+        var vm = new Vue({
+            el: '#app',
+            data: exampleData,
+            computed: {
+
+            },
+            methods: {
+
+            }
+        });
+    });
+</script>
+</body>
+</html>

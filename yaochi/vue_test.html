@@ -15,6 +15,92 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <script src="//cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
     <script src="//cdn.bootcss.com/vue/1.0.17/vue.min.js"></script>
+    <style>
+        .expand-transition {
+            transition: all .3s ease;
+            height: 30px;
+            padding: 10px;
+            background-color: #eee;
+            overflow: hidden;
+        }
+        .expand-enter {
+            height: 0;
+            padding: 0 10px;
+            opacity: 0;
+        }
+        .expand-leave {
+            height: 0;
+            padding: 0 10px;
+            opacity: 0;
+        }
+        .bounce-transition {
+            display: inline-block;
+        }
+        .bounce-enter {
+            -webkit-animation: bounce-in .5s;
+            animation: bounce-in .5s;
+        }
+        .bounce-leave {
+            -webkit-animation: bounce-out .5s;
+            animation: bounce-out .5s;
+        }
+        @keyframes bounce-in {
+            0% {
+                -webkit-transform: scale(0);
+                transform: scale(0);
+            }
+            50% {
+                -webkit-transform: scale(1.5);
+                transform: scale(1.5);
+            }
+            100% {
+                -webkit-transform: scale(1);
+                transform: scale(1);
+            }
+        }
+        @keyframes bounce-out {
+            0% {
+                -webkit-transform: scale(1);
+                transform: scale(1);
+            }
+            50% {
+                -webkit-transform: scale(1.5);
+                transform: scale(1.5);
+            }
+            100% {
+                -webkit-transform: scale(0);
+                transform: scale(0);
+            }
+        }
+        @-webkit-keyframes bounce-in {
+            0% {
+                -webkit-transform: scale(0);
+                transform: scale(0);
+            }
+            50% {
+                -webkit-transform: scale(1.5);
+                transform: scale(1.5);
+            }
+            100% {
+                -webkit-transform: scale(1);
+                transform: scale(1);
+            }
+        }
+        @-webkit-keyframes bounce-out {
+            0% {
+                -webkit-transform: scale(1);
+                transform: scale(1);
+            }
+            50% {
+                -webkit-transform: scale(1.5);
+                transform: scale(1.5);
+            }
+            100% {
+                -webkit-transform: scale(0);
+                transform: scale(0);
+            }
+        }
+    </style>
 </head>
 <body>
     <div id="app">
@@ -86,7 +172,7 @@
                     {{ $key }} : {{ value }}
                 </li>
             </template>
-            <hr>
+
             <template v-for="(key, val) in object">
                 <li>
                     {{ key }} : {{ val }}
@@ -123,7 +209,7 @@
             <span>Checked names: {{checkNames | json}}</span>
             <br>
             <hr>
-            
+
             <input type="radio" id="one" value="one" v-model="picked">
             <label for="one">one</label>
             <input type="radio" id="two" value="two" v-model="picked">
@@ -140,11 +226,33 @@
             </select>
             <br>
             <span>Selected: {{selected}}</span>
+            <br>
+            <hr>
+            <br>
+        </div>
+
+        <!--transition-->
+        <div v-if="checked" transition="expand">
+            hello
+        </div>
+        <div class="demo">
+            <span v-show="show" transition="bounce">Look at me!</span>
+            <br>
+            <button @click="show = !show">Toggle</button>
         </div>
     </div>
 <script>
     $(document).ready(function(){
+        /*component*/
+        var MyComponent = Vue.extend({
+
+        });
+        /*全局注册组件， tag为my-component*/
+        Vue.component('my-component', MyComponent);
+
+
         var exampleData = {
+            show: true,
             checkNames: [],
             object: {
                 fName: 'Lin',
@@ -152,9 +260,9 @@
                 age: 25
             },
             items: [
-                {msg: 'item'},
-                {msg: 'item'},
-                {msg: 'item'}
+                { msg: 'item' },
+                { msg: 'item' },
+                { msg: 'item' }
             ],
             ok: true,
             nok: false,
@@ -181,8 +289,8 @@
             greeting: true,
             newtodo: '',
             todos: [
-                {text: "todo one"},
-                {text: "add some todos"}
+                { text: "todo one" },
+                { text: "add some todos" }
             ]
         };
         var vm = new Vue({
@@ -216,6 +324,32 @@
                     },
                     set: function(val){
                         this.a = val;
+                    }
+                }
+            },
+            transitions: {
+                css: false,
+                expand: {
+                    beforeEnter: function (el) {
+                        el.textContent = 'beforeEnter';
+                    },
+                    enter: function (el, done) {
+                        el.textContent = 'enter';
+                        $(el)
+                                .css('opacity', 0)
+                                .animate({ opacity: 1 }, 1000, done);
+                    },
+                    afterEnter: function (el) {
+                        el.textContent = 'afterEnter';
+                    },
+                    beforeLeave: function (el) {
+                        el.textContent = 'beforeLeave';
+                    },
+                    leave: function (el) {
+                        el.textContent = 'leave';
+                    },
+                    afterLeave: function (el) {
+                        el.textContent = 'afterLeave';
                     }
                 }
             },
