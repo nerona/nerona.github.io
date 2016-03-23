@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>vue</title>
+    <meta name="renderer" content="webkit">
+    <!-- No Baidu Siteapp-->
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <meta name="apple-mobile-web-app-title" content="AMUI React"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <script src="//cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/vue/1.0.17/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p>{{message | capitalize}}</p>
+        <input type="text" v-model="message" placeholder="">
+        <button @click="reverseMessage">Reverse</button> <!--简写-->
+
+        <br>
+        <p v-if="greeting">v-if</p>
+        <br>
+        <input type="text" v-model="newtodo" v-on:keyup.enter="addTodo" placeholder="">
+        <ul>
+            <li v-for="todo in todos">
+                <span>{{$index + 1}}.{{todo.text}}</span>
+                <button v-on:click="removeTodo($index)">X</button>
+            </li>
+        </ul>
+
+        <br>
+        <br>
+        <a :href="url">bind href</a>  <!--简写-->
+        <br>
+        <br>
+        a = {{a}} && b = a * a = {{b}} && c = {{c}}
+
+        <!-- style &&-->
+        <div class="static" v-bind:class="{'class-a': isA, 'class-b': isB }">
+            bind style
+        </div>
+        <div class="static" v-bind:class="classList">
+            bind style
+        </div>
+        <div class="static" v-bind:class="[classA, classB]">
+            bind style
+        </div>
+        <div class="static" v-bind:class="[classA, isB ? classB :　'']">
+            bind style
+        </div>
+        <div class="static" v-bind:style="{color: fontColor, fontSize: fontSize + 'px'}">
+            bind style
+        </div>
+        <div class="static" v-bind:style="fontObject">
+            bind style
+        </div>
+
+        <!--template-->
+        <!-- v-if 有更高的切换消耗而 v-show 有更高的初始渲染消耗-->
+        <template v-if="ok">
+            <h1>ok---H1</h1>
+            <h1 v-show="nok">Hello!</h1>
+            <div v-if="Math.random() > 0.5">
+                Sorry
+            </div>
+            <div v-else>
+                Not sorry
+            </div>
+        </template>
+        <!---->
+        <ul>
+            <template v-for="item in items">
+                <li>{{$index}}-{{item.msg}}</li>
+                <li class="divider"></li>
+            </template>
+        </ul>
+        <!---->
+        <ul>
+            <template v-for="value in object">
+                <li>
+                    {{ $key }} : {{ value }}
+                </li>
+            </template>
+            <hr>
+            <template v-for="(key, val) in object">
+                <li>
+                    {{ key }} : {{ val }}
+                </li>
+            </template>
+        </ul>
+        <div>
+            <span v-for="n in 10">{{n}}-</span>
+        </div>
+
+        <!---->
+        <h2 v-on:click.stop.prevent.self="show1">show1</h2>
+
+        <!---->
+        <div>
+            <p>Message is: {{Msg}}</p>
+            <p>Message is: {{Msg | capitalize}}</p>
+            <p>Message is: {{Msg | uppercase}}</p>
+            <p>Message is: {{Msg | lowercase}}</p>
+            <p>Message is: {{Msg | currency}}</p>
+            <p>Message is: {{Msg | currency '￥'}}</p>
+            <input type="text" v-model="Msg" placeholder="edit me" debounce="300"> <!--debounce number lazy-->
+
+            <input type="checkbox" name="checkbox" id="checkbox" v-model="checked">
+            <label for="checkbox">{{checked}}</label>
+
+            <input type="checkbox" id="jack" value="Jack" v-model="checkNames">
+            <label for="jack">Jack</label>
+            <input type="checkbox" id="john" value="John" v-model="checkNames">
+            <label for="john">John</label>
+            <input type="checkbox" id="mike" value="Mike" v-model="checkNames">
+            <label for="mike">Mike</label>
+            <br>
+            <span>Checked names: {{checkNames | json}}</span>
+            <br>
+            <hr>
+            
+            <input type="radio" id="one" value="one" v-model="picked">
+            <label for="one">one</label>
+            <input type="radio" id="two" value="two" v-model="picked">
+            <label for="two">two</label>
+            <br>
+            <span>Picked: {{picked}}</span>
+            <br>
+            <hr>
+            
+            <select v-model="selected">
+                <option value="A" selected>A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+            </select>
+            <br>
+            <span>Selected: {{selected}}</span>
+        </div>
+    </div>
+<script>
+    $(document).ready(function(){
+        var exampleData = {
+            checkNames: [],
+            object: {
+                fName: 'Lin',
+                lName: 'nerona',
+                age: 25
+            },
+            items: [
+                {msg: 'item'},
+                {msg: 'item'},
+                {msg: 'item'}
+            ],
+            ok: true,
+            nok: false,
+            fontObject: {
+                color: 'green',
+                fontSize: '20px',
+                boxShadow: '1px 1px 3px red',
+                transform: 'scale(1.2)'
+            },
+            fontColor: 'red',
+            fontSize: 20,
+            classA: 'class-a',
+            classB: 'class-b',
+            classList: {
+                'class-a': false,
+                'class-b': true
+            },
+            isA: true,
+            isB: false,
+            a: 5,
+            c: 1,
+            url: "http://nerona.github.io",
+            message: "hello, Vue",
+            greeting: true,
+            newtodo: '',
+            todos: [
+                {text: "todo one"},
+                {text: "add some todos"}
+            ]
+        };
+        var vm = new Vue({
+            el: "#app",
+            data: exampleData,
+            methods: {
+                reverseMessage: function(){
+                    this.message = this.message.split('').reverse().join('')
+                },
+                addTodo: function(){
+                    var text = this.newtodo.trim();
+                    if(text){
+                        this.todos.push({text: text});
+                        this.newtodo = '';
+                    }
+                },
+                removeTodo: function(index){
+                    this.todos.splice(index, 1);
+                },
+                show1: function(){
+                    console.log(event.target.tagName);
+                }
+            },
+            computed: {
+                b: function(){
+                    return this.a * this.a;
+                },
+                c: {
+                    get: function(){
+                        return this.a * 10;
+                    },
+                    set: function(val){
+                        this.a = val;
+                    }
+                }
+            },
+            created: function(){
+                console.log('created!');
+            },
+            compiled: function(){
+                console.log('compiled');
+            },
+            ready: function(){
+                console.log('ready');
+            },
+            destroyed: function(){
+                console.log('destroyed');
+            }
+        });
+        vm.$watch('a', function(val){
+            this.c = val * 10;
+        });
+    });
+</script>
+</body>
+</html>
