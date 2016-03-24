@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:v-demo="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,8 +15,86 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <script src="//cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
     <script src="//cdn.bootcss.com/vue/1.0.17/vue.min.js"></script>
+    <style>
+        * {margin: 0;padding: 0;box-sizing: border-box;}
+        ul, li {list-style: none;}
+        .cir {
+            width: 18em;
+            height: 18em;
+            position: fixed;
+            left: 50%;
+            margin-left: -9em;
+            overflow: hidden;
+            border-radius: 50%;
+            bottom: -9em;
+        }
+        .cir ul {position: relative;}
+        .cir-li {
+            position: absolute;
+            width: 9em;
+            height: 9em;
+            overflow: hidden;
+            -webkit-transform-origin: 100% 100%;
+            transform-origin: 100% 100%;
+            background-color: #eee;
+            border: 1px solid #ddd;
+            -webkit-transition: all 1s ease;
+            transition: all 1s ease;
+            left: 50%;
+            top: 50%;
+            margin-top: -1em;
+            margin-left: -10em;
+            transform: rotate(-10deg) skew(50deg);
+        }
+        .cir-li a {
+            width: 15em;
+            height: 15em;
+            position: absolute;
+            bottom: -7.5em;
+            right: -7.5em;
+            text-decoration: none;
+            color: white;
+            -webkit-transition: background-color .3s ease, -webkit-transform .8s ease;
+            transition: background-color .3s ease, transform .8s ease;
+            background-color: #7C5089;
+        }
+        .cir .cir-li:first-child {
+            -webkit-transform: rotate(-10deg) skew(50deg);
+            -ms-transform: rotate(-10deg) skew(50deg);
+            -moz-transform: rotate(-10deg) skew(50deg);
+            transform: rotate(-10deg) skew(50deg);
+        }
+
+        .cir .cir-li:nth-child(2) {
+            -webkit-transform: rotate(30deg) skew(50deg);
+            -ms-transform: rotate(30deg) skew(50deg);
+            -moz-transform: rotate(30deg) skew(50deg);
+            transform: rotate(30deg) skew(50deg);
+        }
+        .cir-li a {
+            transform: skew(-50deg) rotate(-70deg) scale(1);
+            border-radius: 50%;
+            text-align: center;
+            padding-top: 2em;
+        }
+    </style>
 </head>
 <body>
+<!--circle menu-->
+<div class="cir">
+    <ul>
+        <li class="cir-li">
+            <a href="#">
+                <span>*</span>
+            </a>
+        </li>
+        <li class="cir-li">
+            <a href="#">
+                <span>*</span>
+            </a>
+        </li>
+    </ul>
+</div>
 <div id="app">
     <!--props from parent-->
     <input type="text" v-model="parentMsg" placeholder="Name">
@@ -30,13 +108,39 @@
     </template>
     <!--父组件模板-->
     <div id="events-example">
+        <p>Timestamp is : {{example}}</p>
         <p>Message is: {{ message | json }}</p>
         <child v-on:child-msg="handleIt" v-ref:list1></child>
     </div>
+
+    <div id="demo" v-demo:hello.a.b="msg"></div>
 </div>
 
 <script>
     $(document).ready(function(){
+        /**/
+        var demo = new Vue({
+            el: '#demo',
+            data: {
+                msg: 'hello!'
+            }
+        });
+        Vue.directive('demo', {
+            bind: function(){
+                console.log('demo bound');
+            },
+            update: function(value){
+                this.el.innerHTML =
+                        'name - '       + this.name + '<br>' +
+                        'expression - ' + this.expression + '<br>' +
+                        'argument - '   + this.arg + '<br>' +
+                        'modifiers - '  + JSON.stringify(this.modifiers) + '<br>' +
+                        'value - '      + value;
+            },
+            unbind: function(){
+
+            }
+        });
         /*activate*/
         Vue.component('activate-example', {
             activate: function (done) {
@@ -77,6 +181,28 @@
                 handleIt: function(msg){
                     this.message.push(msg);
                 }
+            },
+            computed: {
+                example: {
+                    cache: false,
+                    get: function(){
+                        return Date.now() + this.message;
+                    }
+                }
+            }
+        });
+        Vue.directive('my-directive', {
+            bind: function(){
+                // 准备工作
+                // 例如，添加事件处理器或只需要运行一次的高耗任务
+            },
+            update: function(){
+                // 值更新时的工作
+                // 也会以初始值为参数调用一次
+            },
+            unbind: function(){
+                // 清理工作
+                // 例如，删除 bind() 添加的事件监听器
             }
         });
 
