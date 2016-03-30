@@ -12,324 +12,171 @@
             margin: 0 auto;
             width: 100%;
         }
-        .phone-con {
-            padding-left: 22%;
-            text-align: left;
-            margin-top: 25px;
-            font-family: "微软雅黑";
-        }
-        .p-title {
-            font-size: 13px;
-            padding-left: 20px;
-            background: url("./../img/p-tip.png") no-repeat;
-            line-height: 20px;
-            color: rgb(113,113,113);
-        }
-        .p-line {
-            margin-top: 20px;
-            font-size: 16px;
-            color: rgb(107,107,107);
-        }
-        .p-name {
+        .no_auth {display: none;}
+        .no_auth > p {
             display: inline-block;
-            width: 100px;
+            margin: 0 auto;
+            padding: 0 20px;
+            line-height: 32px;
+            border-radius: 3px;
+            letter-spacing: 1px;
+            font-size: 18px;
+            text-align: center;
+            background-color: rgb(54,146,62);
+            color: rgb(255,255,255);
+            margin-top: 2.5em;
         }
-        .p-pre {
-            display: inline-block;
-            width: 35px;
-        }
-        .p-after {
+        .per_line {
+            padding-left: 18%;
+            line-height: 60px;
             color: rgb(54,146,62);
-            font-size: 15px;
-            text-decoration: underline;
-            margin-left: 10px;
-            cursor: pointer;
+            text-align: left;
+            font-size: 16px;
         }
-        .p-text {
-            display: inline-block;
-            width: 200px;
+        .line_name, .line_text, .forget_psw {display: inline-block;}
+        .line_name {width: 110px;}
+        .line_text input[type="password"] { width: 190px;}
+        .line_text input[type="text"] { width: 100px;}
+        .line_text input {
+            font-size: 15px;
             line-height: 22px;
-            color: rgb(113,113,113);
+            color: rgb(128,128,128);
             padding-left: 8px;
         }
-        .p-btn {
-            display: inline-block;
-            width: 120px;
-            text-align: center;
-            background-color: rgb(220,220,220);
-            color: rgb(95,95,95);
-            padding: 3px 0;
-            font-size: 15px;
-            border: 1px solid rgb(188,188,188);
-            border-radius: 3px;
-        }
-        .p-btn:active {
-            background-color: rgb(54,146,62);
-            color: rgb(255,255,255);
-        }
-        .p-sure {
-            letter-spacing: 5px;
-            background-color: rgb(54,146,62);
-            color: rgb(255,255,255);
-        }
-        .p-sure:active {
-            background-color: rgb(220,220,220);
-            color: rgb(95,95,95);
-        }
-        .p-pub {
-            width: 80%;
-            margin: 0 auto;
-            background-color: rgb(255,251,237);
-            border: 1px solid rgb(250,242,218);
-            margin-top: 40px;
-            padding: 35px 35px;
-            text-align: left;
-            font-size: 13px;
-            color: rgb(121,121,120);
-        }
-        .p-pub > p {
-            line-height: 20px;
-        }
-        .p-pub > p:first-child {
-            font-size: 15px;
-            color: rgb(115,123,130);
-            padding-bottom: 8px;
-        }
-        .new-phone-con {
-            display: none;
-            padding-left: 22%;
-            text-align: left;
-            margin-top: 25px;
-            font-family: "微软雅黑";
-            padding-bottom: 30px;
-        }
-        .new-phone-con .p-title {
-            padding-left: 0;
-            background: none;
-        }
-        .new-phone-con .p-name {vertical-align: top;}
-        .new-phone-con .p-sure {width: 210px;}
-        textarea {height: 120px;}
-        .ls1 {letter-spacing: 1px;}
-        .ls2 {letter-spacing: 2px;}
-        .p-id-name {
-            margin-top: 20px;
-            font-size: 16px;
-            color: rgb(107,107,107);
-        }
-        .id-img {
-            height: 180px;
-        }
-        .id-pic {
-            display: inline-block;
-            width: 240px;
-            height: 150px;
-            margin-top: 15px;
-            border: 1px solid rgb(215,215,215);
-            text-align: center;
-            color: rgb(167,167,167);
-            font-size: 15px;
-            position: relative;
+        .forget_psw {
+            margin-left: 6px;
+            text-decoration: underline;
             cursor: pointer;
         }
-        .id-pic img {
-            width: 240px;
-            height: 150px;
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
-        .id-pic > p {
+        .get_phone_code {
+            display: inline-block;
+            width: 84px;
+            line-height: 26px;
+            border-radius: 3px;
+            letter-spacing: 1px;
+            font-size: 14px;
+            float: right;
             position: relative;
-            top: 90px;
+            top: 17px;
+            margin-left: 6px;
+            text-align: center;
+            background-color: rgb(54,146,62);
+            color: rgb(255,255,255);
+            cursor: pointer;
         }
-        .id-pic > p:before {
-            content: '';
-            display: inline-block;
-            width: 30px;
-            height: 5px;
-            background-color: rgb(160,160,160);
-            position: absolute;
-            left: 50%;
-            margin-left: -15px;
-            top: -32px;
+        .btn_psw_reset {
+            margin-left: 18%;
+            width: 317px;
+            margin-top: 8px;
+            line-height: 30px;
+            border-radius: 3px;
+            letter-spacing: 6px;
+            font-size: 16px;
+            text-align: center;
+            background-color: rgb(54,146,62);
+            color: rgb(255,255,255);
+            cursor: pointer;
         }
-        .id-pic > p:after {
-            content: '';
-            display: inline-block;
-            width: 30px;
-            height: 5px;
-            background-color: rgb(160,160,160);
-            position: absolute;
-            left: 50%;
-            margin-left: -15px;
-            top: -32px;
-            -webkit-transform: rotate(90deg);
-            -moz-transform: rotate(90deg);
-            -ms-transform: rotate(90deg);
-            transform: rotate(90deg);
-        }
-        .id-img .id-pic:first-child {margin-right: 16px;}
+        .psw_forget {display: none;}
+        ::-webkit-input-placeholder {color: rgb(214,214,214);}
+        .ls3 {letter-spacing: 3px;}
     </style>
 </head>
 <body>
 <div id="div_dept_save" class="div_dept_save">
-    <!--手机号变更-->
-    <form method="post" action="" class="phone-con">
-        <p class="p-title">我们不会泄露您的手机信息</p>
-        <!---->
-        <div class="p-line">
-            <span class="p-name">身份证号码 :</span>
-            <span class="p-pre"></span>
-            <input type="text" placeholder="" class="p-text" maxlength="11">
+    <!--密码设置-->
+    <div class="psw_reset">
+        <div class="per_line">
+            <p class="line_name ls3">原支付密码:</p>
+            <div class="line_text">
+                <input type="password" placeholder="">
+            </div>
+            <span class="forget_psw">忘记原密码</span>
         </div>
-        <!---->
-        <div class="p-line">
-            <span class="p-name">原手机号码 :</span>
-            <span class="p-pre">+86</span>
-            <input type="text" placeholder="" class="p-text" maxlength="11">
-            <span class="p-after">原手机不可接受短信</span>
+        <div class="per_line">
+            <p class="line_name ls3">新支付密码:</p>
+            <div class="line_text">
+                <input type="password" placeholder="">
+            </div>
         </div>
-        <!--按钮-->
-        <div class="p-line">
-            <span class="p-name"></span>
-            <span class="p-pre"></span>
-            <a href="javascript:void(0);" class="p-btn">免费获取验证码</a>
+        <div class="per_line">
+            <p class="line_name">确认支付密码:</p>
+            <div class="line_text">
+                <input type="password" placeholder="">
+            </div>
         </div>
-        <!---->
-        <div class="p-line">
-            <span class="p-name">验&nbsp;&nbsp;&nbsp;证&nbsp;&nbsp;&nbsp;码 :</span>
-            <span class="p-pre"></span>
-            <input type="text" placeholder="" class="p-text" maxlength="11">
+        <div class="per_line">
+            <p class="line_name ls3">手机验证码:</p>
+            <div class="line_text">
+                <input type="text" placeholder="" maxlength="11">
+                <span class="get_phone_code">获取验证码</span>
+            </div>
         </div>
-        <!---->
-        <div class="p-line">
-            <span class="p-name">新手机号码 :</span>
-            <span class="p-pre">+86</span>
-            <input type="text" placeholder="" class="p-text" maxlength="11">
-        </div>
-        <!--按钮-->
-        <div class="p-line">
-            <span class="p-name"></span>
-            <span class="p-pre"></span>
-            <a href="javascript:void(0);" class="p-btn">免费获取验证码</a>
-        </div>
-        <!---->
-        <div class="p-line">
-            <span class="p-name">验&nbsp;&nbsp;&nbsp;证&nbsp;&nbsp;&nbsp;码 :</span>
-            <span class="p-pre"></span>
-            <input type="text" placeholder="" class="p-text" maxlength="11">
-        </div>
-        <!--按钮-->
-        <div class="p-line">
-            <span class="p-name"></span>
-            <span class="p-pre"></span>
-            <a href="javascript:void(0);" class="p-btn p-sure">确定</a>
-        </div>
-    </form>
-    <div class="p-pub">
-        <p>没收到短信验证码</p>
-        <p>1、网络通信异常可能造成短信丢失，请重新获取或稍后再试。</p>
-        <p>2、请核实手机是否欠费停机，或者屏蔽了系统短信。</p>
+        <div class="btn_psw_reset">确定</div>
     </div>
-    <!--原手机号不可接收-->
-    <form class="new-phone-con">
-        <p class="p-title">用户个人信息栏(请填写真实信息)</p>
-        <div class="p-line">
-            <span class="p-name">真实姓名 :</span>
-            <input type="text" placeholder="" class="p-text">
-        </div>
-        <div class="p-line">
-            <span class="p-name">证件名称 :</span>
-            <input type="text" placeholder="" class="p-text">
-        </div>
-        <div class="p-line">
-            <span class="p-name">证件号码 :</span>
-            <input type="text" placeholder="" class="p-text">
-        </div>
-        <div class="p-line">
-            <span class="p-name">联系电话 :</span>
-            <input type="text" placeholder="" class="p-text">
-        </div>
-        <div class="p-line">
-            <span class="p-name">申诉理由 :</span>
-            <textarea  placeholder="" class="p-text"></textarea>
-        </div>
-        <div class="p-line">
-            <span class="p-name">账号昵称 :</span>
-            <input type="text" placeholder="" class="p-text">
-        </div>
-        <div class="p-line">
-            <span class="p-name">注册时间 :</span>
-            <input type="text" placeholder="" class="p-text">
-        </div>
-        <div class="p-line">
-            <span class="p-name">注册城市 :</span>
-            <input type="text" placeholder="" class="p-text">
-        </div>
-        <div class="p-line">
-            <span class="p-name ls1">推&nbsp;荐&nbsp;人 :</span>
-            <input type="text" placeholder="电话号码" class="p-text">
-        </div>
-        <!--身份证-->
-        <p class="p-id-name">上传身份证正反面 :</p>
-        <div class="id-img">
-            <div class="id-pic id-left">
-                <p>
-                    身份证正面
-                </p>
-                <!--文件上传动态添加-->
-                <img src="" alt="">
+    <!--忘记原密码 && 未实名认证-->
+    <div class="no_auth">
+        <p>请先通过实名认证</p>
+    </div>
+    <!--忘记原密码 && 已实名认证-->
+    <div class="psw_forget">
+        <div class="per_line">
+            <p class="line_name ls3">身份证号码:</p>
+            <div class="line_text">
+                <input type="password" placeholder="">
             </div>
-            <div class="id-pic id-right">
-                <p>
-                    身份证反面
-                </p>
-                <!--文件上传动态添加-->
-                <img src="" alt="">
+        </div>
+        <div class="per_line">
+            <p class="line_name ls3">新支付密码:</p>
+            <div class="line_text">
+                <input type="password" placeholder="">
             </div>
-            <input type="file" style="display: none;" class="id-left-input">
-            <input type="file" style="display: none;" class="id-right-input">
         </div>
-        <!---->
-        <div class="p-line">
-            <span class="p-name">新手机号码 :</span>
-            <span class="p-pre">+86</span>
-            <input type="text" placeholder="" class="p-text" maxlength="11">
+        <div class="per_line">
+            <p class="line_name">确认支付密码:</p>
+            <div class="line_text">
+                <input type="password" placeholder="">
+            </div>
         </div>
-        <!--按钮-->
-        <div class="p-line">
-            <span class="p-name"></span>
-            <span class="p-pre"></span>
-            <a href="javascript:void(0);" class="p-btn">免费获取验证码</a>
+        <div class="per_line">
+            <p class="line_name ls3">手机验证码:</p>
+            <div class="line_text">
+                <input type="text" placeholder="" maxlength="11">
+                <span class="get_phone_code">获取验证码</span>
+            </div>
         </div>
-        <!---->
-        <div class="p-line">
-            <span class="p-name ls1">验&nbsp;&nbsp;证&nbsp;&nbsp;码 :</span>
-            <span class="p-pre"></span>
-            <input type="text" placeholder="" class="p-text" maxlength="11">
-        </div>
-        <!---->
-        <div class="p-line">
-            <span class="p-name ls2">支付密码 :</span>
-            <span class="p-pre"></span>
-            <input type="text" placeholder="若未设置过支付密码则忽略" class="p-text" maxlength="11">
-        </div>
-        <!--按钮-->
-        <div class="p-line">
-            <span class="p-name"></span>
-            <span class="p-pre"></span>
-            <a href="javascript:void(0);" class="p-btn p-sure">确定</a>
-        </div>
-    </form>
+        <div class="btn_psw_reset">确定</div>
+    </div>
 </div>
 <script>
-    /*原手机号码不可接收*/
+    /*进入忘记密码表单*/
+    $('.forget_psw').on('click', function(){
+        $('.psw_reset').hide();
+        $('.psw_forget').show();
+    });
+    /*获取验证码计时器*/
+    function myHandler(){
+        var temp = 60;
+        var $self = $('.get_phone_code');
+        $self.off('click', myHandler);
+        var run = setInterval(function(){
+            temp --;
+            if(temp < 1) {
+                $self.html("重新获取");
+                clearInterval(run);
+                $self.on('click', myHandler);
+            }else {
+                $self.empty().html(temp + '秒');
+            }
+        },1000);
+    }
+    $('.get_phone_code').on('click',myHandler);
+/*    /!*原手机号码不可接收*!/
     $('.p-after').on('click',function () {
         $('.phone-con, .p-pub').fadeOut();
         $('.new-phone-con').fadeIn();
     });
-    /*获取身份证正面*/
+    /!*获取身份证正面*!/
     $('.id-left').on('click', function(){
         $('.id-left-input').click().change(function() {
             var $file = $(this);
@@ -343,7 +190,7 @@
             }
         });
     });
-    /*获取身份证反面*/
+    /!*获取身份证反面*!/
     $('.id-right').on('click', function(){
         $('.id-right-input').click().change(function() {
             var $file = $(this);
@@ -356,7 +203,7 @@
                 $item.attr('src', dataURL);
             }
         });
-    });
+    });*/
 
 </script>
 </body>

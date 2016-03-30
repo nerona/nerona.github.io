@@ -109,7 +109,7 @@
     <!--父组件模板-->
     <div id="events-example">
         <p>Timestamp is : {{example}}</p>
-        <p>Message is: {{ message | json }}</p>
+        <p>Message is: {{ message | json | wrap '$' '.00'}}</p>
         <child v-on:child-msg="handleIt" v-ref:list1></child>
     </div>
 
@@ -118,12 +118,79 @@
 
 <script>
     $(document).ready(function(){
+        /*store*/
+        var store = {
+            state: {
+                message: 'hello'
+            },
+            actionA: function(){
+                this.state.message = 'action A triggered!';
+            },
+            actionB: function(){
+                this.state.message = 'action B triggered!';
+            }
+        };
+        var vmA = new Vue({
+            el: '#app',
+            data: {
+                private: {},
+                ShareData: store.state
+            }
+        });
+        var vmB = new Vue({
+            el: '#app',
+            data: {
+                private: {},
+                ShareData: store.state
+            }
+        });
+        console.log(vmA.ShareData);
+        console.log(vmB.ShareData);
+        /*plugin*/
+       /* MyPlugin.install = function(Vue, options){
+            Vue.myGlobalMethod = function(){};
+            Vue.directive('my-directive',{});
+            Vue.prototype.$myMethod = function(){};
+        };
+        Vue.use(MyPlugin, {someOption: true});*/
+
+        /*mixins*/
+        var mixin = {
+            created: function(){
+                this.hello();
+            },
+            methods: {
+                hello: function(){
+                    console.log('hello from mixin!');
+                }
+            }
+        };
         /**/
         var demo = new Vue({
             el: '#demo',
             data: {
                 msg: 'hello!'
+            },
+            mixins: [mixin]
+        });
+        Vue.filter('currencyFilter', {
+            // model -> view
+            // 在更新 `<input>` 元素之前格式化值
+            read: function(val){
+                return '$' + val.toFixed(2);
+            },
+            // view -> model
+            // 在写回数据之前格式化值
+            write: function(val, oldVal){
+                var number = +val.replace('/[^\d.]/g', '');
+                return isNaN(number) ? 0 : parseFloat(number.toFixed(2));
             }
+        });
+        Vue.filter('reverse', function(value){
+            return value.split('').reverse().join('');
+        });
+        Vue.filter('wrap',function(value, begin, end){
+            return begin + value + end;
         });
         Vue.directive('demo', {
             bind: function(){
