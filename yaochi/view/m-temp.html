@@ -24,7 +24,7 @@
         body {
             font-family: "microsoft yahei", sans-serif;
             font-size: 12px;
-            -webkit-tap-highlight-color: rgba(0,0,0,0);
+            -webkit-tap-highlight-color: transparent;
         }
         .page_reg {
             width: 100%;
@@ -95,6 +95,8 @@
             font-size: 14px;
         }
         .item_icon_check {
+            width: 20px;
+            height: 20px;
             position: relative;
             background-position: 0 -22px;
         }
@@ -184,7 +186,6 @@
             var $self = $('.get_code');
             $self.off('tap', myHandler);
             var run = setInterval(function(){
-                temp --;
                 if(temp < 1) {
                     $self.html("重新获取");
                     clearInterval(run);
@@ -192,10 +193,11 @@
                 }else {
                     $self.empty().html(temp + '秒后重新获取');
                 }
+                temp --;
             },1000);
         }
         $('.get_code').on('tap',myHandler);
-        /*Toast提示框*/
+        /*Toast错误提示框*/
         function showBox(msg) {
             var errorBox = $('<div id="errorBox"><p></p></div>');
             errorBox.find('p').html(msg);
@@ -222,6 +224,7 @@
                 errorBox.remove();
             }, 2000);
         }
+        /*test*/
         $('.btn_reg').on('tap', function(){
             showBox(123123412344);
         });
