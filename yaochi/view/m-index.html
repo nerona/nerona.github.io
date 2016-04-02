@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0,user-scalable=no">
+    <title>注册</title>
+    <meta name="renderer" content="webkit">
+    <!-- No Baidu Siteapp-->
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/touchjs/0.2.14/touch.min.js"></script>
+    <style>
+        html, body, div, p, a, form, label, input, span, ul, li, i, img, header, nav, footer, section, h3 {
+            margin: 0;
+            padding: 0;
+        }
+        ul, ul li {list-style: none;}
+        input {border: none;outline: none;}
+        ::-webkit-input-placeholder {color: rgb(160,160,160);}
+        body {
+            font-family: "microsoft yahei", sans-serif;
+            font-size: 12px;
+            -webkit-tap-highlight-color: transparent;
+            width: 100%;
+            min-height: 100%;
+            background-color: rgb(234,234,234);
+            position: absolute;
+            top: 0;
+            left: 0;
+            overflow-x: hidden;
+        }
+        .page_index {}
+        header {background-color: rgb(79,153,39);}
+        .page_index header > img {width: 100%;}
+        .i-container {
+            width: 100%;
+            background-color: rgb(255,255,255);
+        }
+        .i-line {
+            width: 96%;
+            margin: 0 auto;
+            padding-top: 2%;
+        }
+        .i-line > img {width: 49%;}
+        .i-line > img:last-child {float: right;}
+        .i-pro {
+            width: 100%;
+            margin: 0 auto;
+            display: -webkit-box;
+            background-color: rgb(255,255,255);
+            margin-top: 3%;
+        }
+        .pro-icon, .pro-text {width: 50%;  }
+        .pro-icon > img {
+            width: 94%;
+            padding: .12rem;
+        }
+        .pro-text {padding-left: .12rem;}
+        .pro-text > h3 {
+            color: rgb(102,174,52);
+            font-size: .32rem;
+            margin: .2rem 0;
+        }
+        .pro-text > p{
+            color: rgb(124,124,124);
+            font-size: .24rem;
+        }
+        .pro-price {
+            color: rgb(255,68,0);
+            font-size: .36rem;
+            margin-top: .24rem;
+            text-align: left;
+            position: relative;
+            left: -3px;
+        }
+        .pro-love {
+            display: inline-block;
+            width: 22px;
+            height: 22px;
+            background: url(./../img/icon2.png) no-repeat;
+            background-size: 112px 54px;
+            background-position: -91px 2px;
+            position: absolute;
+            right: 6%;
+            top: 0;
+        }
+        /*nav*/
+        nav {
+            width: 100%;
+            height: .9rem;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            z-index: 9;
+            background-color: rgb(255,255,255);
+        }
+        nav > ul {
+            display: -webkit-box;
+        }
+        .tab li {
+            -webkit-box-flex: 1;
+            text-align: center;
+            font-size: .24rem;
+            color: rgb(108,105,104);
+        }
+        .tab-icon {
+            display: inline-block;
+            width: 25px;
+            height: 25px;
+            background: url(./../img/icon2.png) no-repeat;
+            background-size: 104px 50px;
+            position: relative;
+            top: 4px;
+        }
+        .tab-icon-home {background-position: 0px -26px;}
+        .tab-icon-fugui {background-position: -28px -26px;}
+        .tab-icon-reg {background-position: -56px -26px;}
+        /**/
+        .tab-active p {color: rgb(102,174,52);}
+        .tab-active .tab-icon-home {background-position: 0px 0px;}
+        .tab-active .tab-icon-fugui {background-position: -28px 1px;}
+        .tab-active .tab-icon-reg {background-position: -56px 1px;}
+        /*mask*/
+        .page_mask {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: rgba(0,0,0,.8);
+            font-size: .4rem;
+            color: rgb(255,255,255);
+            z-index: 2;
+            display: none;
+        }
+        .page_mask > p{
+            width: 100%;
+            line-height: 30px;
+            height: 30px;
+            margin-top: 40%;
+            text-align: center;
+        }
+        /*reg*/
+        .page_reg {display: none;}
+        .line_item {
+            width: 86%;
+            margin: 0 auto;
+            padding: 20px 0;
+            position: relative;
+            display: -webkit-box;
+            -webkit-box-align: center;
+            padding-left: 20px;
+        }
+        .line_item:after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 1px;
+            background-color: rgb(160,160,160);
+            -webkit-transform: scaleY(.5);
+            transform: scaleY(.5);
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 2;
+        }
+        form .line_item:last-child:after, .item_submit .line_item:after {
+            content: '';
+            visibility: hidden;
+        }
+        .page_reg > form {
+            border-bottom: 1px solid rgb(210, 209, 209);
+            background-color: rgb(255,255,255);
+        }
+        .item_needed {position: relative;}
+        .item_needed:after {
+            content: '*';
+            position: absolute;
+            left: -20px;
+            height: 0;
+            top: -2px;
+            color: rgb(235,97,0);
+            font-size: 22px;
+        }
+        .item_icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 2%;
+            background: url(./../img/icons.png) no-repeat;
+            background-size: 110px 41px;
+        }
+        .item_icon_phone {background-position: 0 0;}
+        .item_icon_msg {background-position: -23px 0;}
+        .item_icon_psw1 {background-position: -45px 0;}
+        .item_icon_psw2 {background-position: -68px 0;}
+        .item_icon_phone2 {background-position: -91px 0;}
+        .line_item input {
+            width: 140%;
+            line-height: 22px;
+            color: rgb(160,160,160);
+            padding-left: 4px;
+            font-size: 14px;
+        }
+        .item_icon_check {
+            width: 20px;
+            height: 20px;
+            position: relative;
+            background-position: 0 -22px;
+        }
+        .icon_checked {
+            width: 20px;
+            height: 20px;
+            background: url(./../img/icons.png) no-repeat;
+            background-size: 110px 41px;
+            background-position: -21px -22px;
+            position: absolute;
+            top: 5px;
+            left: -2px;
+        }
+        .item_submit {text-align: center;}
+        .protocol_detail {
+            color: rgb(34,68,48);
+            font-size: 14px;
+            text-decoration: underline;
+        }
+        .btn_reg {
+            display: inline-block;
+            width: 86%;
+            margin-top: 18px;
+            line-height: 35px;
+            background-color: rgb(0,48,19);
+            color: rgb(255,255,255);
+            font-size: 16px;
+            text-decoration: none;
+            letter-spacing: 10px;
+            border-radius: 3px;
+        }
+        .line_item .code_area {width: 50%;}
+        .get_code {
+            display: inline-block;
+            width: 36%;
+            text-align: center;
+            background-color: rgb(128,194,105);
+            color: rgb(255,255,255);
+            font-size: 13px;
+            padding: 3px 0;
+            margin-bottom: 4%;
+            border-radius: 3px;
+            position: absolute;
+            right: 8%;
+        }
+    </style>
+    <script>
+        (function () {
+            document.addEventListener('DOMContentLoaded', function () {
+                var html = document.documentElement;
+                var windowWidth = html.clientWidth;
+                html.style.fontSize = windowWidth / 6.4  + 'px';
+            }, false);
+        })();
+    </script>
+</head>
+<body>
+<div class="page">
+    <!--index-->
+    <div class="page_index">
+        <header>
+            <img src="./../img/b-1.png" alt="">
+        </header>
+        <!--img-list-->
+        <div class="i-container">
+            <div class="i-line">
+                <img src="./../img/c-1.png" alt="">
+                <img src="./../img/c-2.png" alt="">
+            </div>
+            <div class="i-line">
+                <img src="./../img/c-3.png" alt="">
+                <img src="./../img/c-4.png" alt="">
+            </div>
+        </div>
+        <!---->
+        <div class="i-pro">
+            <div class="pro-icon">
+                <img src="./../img/d-1.png" alt="">
+            </div>
+            <div class="pro-text">
+                <h3>琇莹玉——弥勒佛</h3>
+                <p>大肚能容，容天下难容之事。 </p>
+                <p>开口便笑，笑世间可笑之人。</p>
+                <div class="pro-price">
+                    ￥: <span>26800</span> <span class="pro-love"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--register-->
+    <div class="page_reg">
+        <!---->
+        <form action="#" method="post" name="form1">
+            <div class="line_item">
+                <div class="item_icon item_icon_phone item_needed"></div>
+                <input type="tel" placeholder="请输入您的手机号" maxlength="11">
+            </div>
+            <div class="line_item">
+                <div class="item_icon item_icon_msg item_needed"></div>
+                <input type="tel" placeholder="短信验证码" class="code_area">
+                <span class="get_code">获取验证码</span>
+            </div>
+            <div class="line_item">
+                <div class="item_icon item_icon_psw1 item_needed"></div>
+                <input type="password" placeholder="请输入6-20个字符，数字和字母的组合">
+            </div>
+            <div class="line_item">
+                <div class="item_icon item_icon_psw2 item_needed"></div>
+                <input type="password" placeholder="请再次输入登录密码">
+            </div>
+            <div class="line_item">
+                <div class="item_icon item_icon_phone2"></div>
+                <input type="tel" placeholder="请输入推荐人手机号" maxlength="11">
+            </div>
+        </form>
+        <!---->
+        <div class="item_submit">
+            <div class="line_item">
+                <div class="item_icon item_icon_check"><i class="icon_checked"></i></div>
+                <a href="#" class="protocol_detail">已阅读并同意加入共享富贵体系</a>
+            </div>
+            <a class="btn_reg" href="#">立即注册</a>
+        </div>
+    </div>
+    <!--tab-->
+    <nav class="tab">
+        <ul>
+            <li class="tab-active tab-index">
+                <span class="tab-icon tab-icon-home"></span>
+                <p>首页</p>
+            </li>
+            <li class="tab-fugui">
+                <span class="tab-icon tab-icon-fugui"></span>
+                <p>共享富贵</p>
+            </li>
+            <li class="tab-reg">
+                <span class="tab-icon tab-icon-reg"></span>
+                <p>注册</p>
+            </li>
+        </ul>
+    </nav>
+    <!--mask-->
+    <div class="page_mask">
+        <p>更多精彩，敬请期待！</p>
+    </div>
+</div>
+
+<script>
+    $(function(){
+        /*nav*/
+        $('.tab li').on('tap', function(){
+            $(this).parent().find('.tab-active').removeClass('tab-active');
+            $(this).addClass('tab-active');
+            if($(this).hasClass('tab-index')){
+                $('.page_mask').hide();
+                $('.page_reg').hide();
+                $('.page_index').show();
+            } else if($(this).hasClass('tab-fugui')){
+                $('.page_mask').show();
+                $('.page_reg').hide();
+                $('.page_index').show();
+            } else if($(this).hasClass('tab-reg')){
+                $('.page_mask').hide();
+                $('.page_index').hide();
+                $('.page_reg').show();
+            }
+        });
+        $('.item_icon_check').on('tap', function(){
+            $(this).find('i').toggleClass('icon_checked');
+        });
+        /*获取验证码计时器*/
+        function myHandler(){
+            var temp = 60;
+            var $self = $('.get_code');
+            $self.off('tap', myHandler);
+            var run = setInterval(function(){
+                if(temp < 1) {
+                    $self.html("重新获取");
+                    clearInterval(run);
+                    $self.on('tap', myHandler);
+                }else {
+                    $self.empty().html(temp + '秒后重新获取');
+                }
+                temp --;
+            },1000);
+        }
+        $('.get_code').on('tap',myHandler);
+    });
+</script>
+</body>
+</html>

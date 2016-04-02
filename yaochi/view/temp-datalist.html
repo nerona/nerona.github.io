@@ -34,7 +34,7 @@
         .data_btns {
             margin-top: 20px;
         }
-        .data_charge, .data_pay {
+        .data_all, .data_charge, .data_pay {
             display: inline-block;
             width: 130px;
             height: 30px;
@@ -44,6 +44,7 @@
             font-size: 15px;
             letter-spacing: 1px;
         }
+        .data_all {margin-right: 4%;}
         .data_charge {margin-right: 4%;}
         .data_btns .btn_active {background-color: rgb(54,146,62);}
         .data_search {
@@ -58,7 +59,8 @@
     <div class="data_title">富贵卡明细</div>
     <!---->
     <div class="data_btns">
-        <a class="data_charge btn_active" href="#">充值明细</a>
+        <a class="data_all btn_active" href="#">全部</a>
+        <a class="data_charge" href="#">充值明细</a>
         <a class="data_pay" href="#">支付明细</a>
     </div>
     <!--datagrid-->
@@ -71,7 +73,7 @@
 
         $('#div_dept_save').height( $('#w_tree').height()-10 );
         /* btn 按钮点击效果*/
-        $('.data_charge, .data_pay').on('click', function(){
+        $('.data_all, .data_charge, .data_pay').on('click', function(){
             $(this).parent().find('.btn_active').removeClass('btn_active');
             $(this).addClass('btn_active');
         });
