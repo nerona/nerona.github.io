@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>shiming</title>
+    <meta name="renderer" content="webkit">
+    <!-- No Baidu Siteapp-->
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <style>
+        * {margin: 0; padding: 0;font-family: "Microsoft YaHei";}
+        input {border: none;}
+        a {text-decoration: none;}
+        .line {
+            padding-left: 26%;
+            line-height: 70px;
+            color: rgb(111,171,116);
+            font-size: 18px;
+        }
+        .line-name, .line-input, .line-status {display: inline-block;}
+        .line-name {
+            width: 115px;
+            text-align: left;
+            letter-spacing: 1px;
+            vertical-align: top;
+        }
+        .line-input {
+            width: 250px;
+            text-align: center;
+            border: 1px solid rgb(152,176,146);
+            color: rgb(111,171,116);
+            border-radius: 5px;
+            font-size: 18px;
+            padding: 6px 0;
+            margin-right: 6px;
+        }
+        .line-status {font-size: 14px;}
+        .line-pic {
+            display: inline-block;
+            width: 250px;
+            height: 160px;
+            background-color: rgb(61,107,50);
+            color: rgb(160,160,160);
+            text-align: center;
+            border-radius: 5px;
+            margin-top: 22px;
+            cursor: pointer;
+            position: relative;
+        }
+        .line-pic:before {
+            content: '';
+            display: inline-block;
+            width: 50px;
+            height: 6px;
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            margin-left: -25px;
+            background-color: rgb(160,160,160);
+        }
+        .line-pic:after {
+            content: '';
+            display: inline-block;
+            width: 50px;
+            height: 6px;
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            margin-left: -25px;
+            background-color: rgb(160,160,160);
+            -moz-transform: rotate(90deg);
+            -ms-transform: rotate(90deg);
+            -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+        }
+        .line-pic > img {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 2;
+        }
+        .line-pic > p {
+            width: 100%;
+            position: absolute;
+            top: 50%;
+            text-align: center;
+        }
+        .line-tip {
+            padding-left: 115px;
+            font-size: 15px;
+            color: rgb(157,157,157);
+            line-height: 24px;
+        }
+        .line-submit {
+            margin-top: 20px;
+            padding-left: 115px;
+        }
+        .line-submit > a {
+            display: inline-block;
+            width: 250px;
+            height: 34px;
+            line-height: 34px;
+            text-align: center;
+            background-color: rgb(61,107,50);
+            color: rgb(255,255,255);
+            font-size: 18px;
+            letter-spacing: 16px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .ml26 {margin-left: 26%;}
+        .ls7 {letter-spacing: 7px;}
+    </style>
+</head>
+<body>
+    <div class="div_dept_save">
+        <div class="line">
+            <span class="line-name ls7">真实姓名:</span>
+            <input type="text" placeholder="真实姓名" value="" class="line-input">
+            <span class="line-status">(审核中)</span>
+        </div>
+        <div class="line">
+            <span class="line-name">身份证号码 :</span>
+            <input type="text" placeholder="身份证号码" value="" class="line-input">
+            <span class="line-status">(审核中)</span>
+        </div>
+        <div class="line">
+            <span class="line-name">身份证照片 :</span>
+            <div class="line-pic">
+                <p>点击上传证件正面照</p>
+                <img src="" alt="">
+            </div>
+        </div>
+        <div class="line-tip ml26">
+            <p>注意：请上传以上证件的原件扫描件，证件要求：</p>
+            <p>证件必须是彩色原件电子版，可以是扫描件或者数码拍摄照片。</p>
+            <p>仅支持.jpg.bmp.png的图片格式且色彩模式为RGB。图片大小不超过3M。</p>
+        </div>
+        <div class="line-submit ml26">
+            <a href="#">提交</a>
+        </div>
+        <form method="post" action="#" style="display: none">
+            <input type="file" accept="" class="line-id">
+        </form>
+    </div>
+<script>
+    $(function(){
+        $('.line-pic').on('click', function(){
+            $('.line-id').click().change(function() {
+                var $file = $(this);
+                var fileObj = $file[0];
+                var windowURL = window.URL || window.webkitURL;
+                var dataURL;
+                var $item = $(".line-pic > img");
+                if (fileObj && fileObj.files && fileObj.files[0]) {
+                    dataURL = windowURL.createObjectURL(fileObj.files[0]);
+                    $item.attr('src', dataURL);
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>

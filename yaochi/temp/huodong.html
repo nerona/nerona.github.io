@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>wodeyinhangka</title>
+<meta name="renderer" content="webkit">
+<!-- No Baidu Siteapp-->
+<meta http-equiv="Cache-Control" content="no-siteapp"/>
+<link rel="stylesheet" href="./../main.css">
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<style>
+    * {margin: 0; padding: 0;}
+    .huodong_mask {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(128,128,128,.5);
+        text-align: center;
+    }
+    .huodong_box {
+        width: 350px;
+        margin: 0 auto;
+        background-color: rgb(255,255,255);
+        font-size: 18px;
+        border-radius: 15px;
+        margin-top: 25%;
+    }
+    .huodong_title {
+        font-size: 24px;
+        padding: 20px 0 20px 0;
+        color: rgb(255,68,0);
+        letter-spacing: 2px;
+    }
+    .huodong_content {margin-bottom: 14px;text-align: left;}
+    .huodong_btns {padding-bottom: 16px;}
+    .huodong_icon {
+        display: inline-block;
+        width: 60px;
+        height: 60px;
+        background: url(./../img/hd_i.png) no-repeat;
+        background-size: 100% 100%;
+        margin-left: 6px;
+        margin-right: 2px;
+    }
+    .huodong_text {
+        display: inline-block;
+        width: 270px;
+        text-align: left;
+        vertical-align: top;
+        color: rgb(171,149,29);
+        line-height: 26px;
+        position: relative;
+        top: 3px;
+    }
+    .huodong_yes, .huodong_no {
+        display: inline-block;
+        width: 86px;
+        height: 32px;
+        line-height: 32px;
+        color: rgb(255,255,255);
+        cursor: pointer;
+        border-radius: 5px;
+        letter-spacing: 5px;
+    }
+    .huodong_yes {
+        background-color: rgb(79,153,39);
+        margin-right: 76px;
+    }
+    .huodong_no {background-color: rgb(160,160,160);}
+</style>
+</head>
+<body>
+<div id="div_dept_save" class="div_dept_save">
+    <!--试营业期间活动弹窗-->
+    <div class="huodong_mask">
+        <div class="huodong_box">
+            <p class="huodong_title">是否要立即提升等级？</p>
+            <div class="huodong_content">
+                <span class="huodong_icon"></span>
+                <div class="huodong_text">
+                    瑶瑶友情提示 : 在试营业期间，只有一次免费提升等级的机会噢！
+                </div>
+            </div>
+            <div class="huodong_btns">
+                <a href="#" class="huodong_yes">确定</a>
+                <a href="#" class="huodong_no">取消</a>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function(){
+        /*点击取消关闭活动弹窗*/
+        $('.huodong_no').on('click', function(){
+            $('.huodong_mask').hide();
+        });
+    });
+</script>
+</body>
+</html>
