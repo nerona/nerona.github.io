@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>登录</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="my.css">
+    <script>
+        (function () {
+            document.addEventListener('DOMContentLoaded', function () {
+                var html = document.documentElement;
+                var windowWidth = html.clientWidth;
+                html.style.fontSize = windowWidth / 6.4 + 'px';
+            }, false);
+        })();
+    </script>
+</head>
+<body>
+<div class="app">
+    <!--common-->
+    <!--header-->
+    <header class="menu icon-hide">
+        <div class="icon-left">
+            <span class="icon icon-back"></span>
+            <span class="icon-text">推荐人</span>
+        </div>
+        <div class="icon-right">
+            <span class="icon icon-settings"></span>
+            <span class="icon icon-menu"></span>
+        </div>
+    </header>
+    <!--我的-->
+    <!--未登录-->
+    <!--content-->
+    <div class="m-content-login">
+        <img class="m-l-logo" src="./../img/l-1.png" alt="">
+        <div class="m-l-form">
+            <div class="m-l-line">
+                <div class="m-l-icon">
+                    <span class="m-l-icon-1"></span>
+                </div>
+                <input class="m-l-input" type="text" placeholder="用户名">
+            </div>
+            <div class="m-l-line">
+                <div class="m-l-icon">
+                    <span class="m-l-icon-2"></span>
+                </div>
+                <input class="m-l-input" type="password" placeholder="密码">
+            </div>
+        </div>
+        <!---->
+        <a class="m-l-login" href="my-logout.html">登&nbsp;录</a>
+        <!---->
+        <div class="m-l-forget">
+            <a href="javascript:void(0);">忘记密码</a>
+            <a class="m-l-reg" href="javascript:void(0);">立即注册</a>
+        </div>
+    </div>
+    <!--common-->
+    <!--tab-->
+    <nav class="tab">
+        <ul>
+            <li class="tab-home">
+                <div class="tab-icon tab-icon-home"></div>
+                <p>首页</p>
+            </li>
+            <li class="tab-fugui">
+                <div class="tab-icon tab-icon-fugui"></div>
+                <p>共享富贵</p>
+            </li>
+            <li class="tab-my tab-active">
+                <div class="tab-icon tab-icon-my"></div>
+                <p>我的</p>
+            </li>
+        </ul>
+    </nav>
+</div>
+<script src="zepto.min.js"></script>
+<script>
+    $(function(){
+        adjust();
+        function adjust() {
+            var wid = $(window).width();
+            var hei = $(window).height();
+            /*iphone4*/
+            if(wid <= 320 && hei <= 416) {
+                $('.m-l-logo').css('margin-top','12%');
+                $('.m-l-form').css('margin-top','10%');
+            }
+            if(wid >= 320 && hei <= 520) {
+                $('.m-l-logo').css('margin-top','12%');
+                $('.m-l-form').css('margin-top','10%');
+            }
+        }
+    })
+</script>
+</body>
+</html>

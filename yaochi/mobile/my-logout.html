@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>我的</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="my.css">
+    <script>
+        (function () {
+            document.addEventListener('DOMContentLoaded', function () {
+                var html = document.documentElement;
+                var windowWidth = html.clientWidth;
+                html.style.fontSize = windowWidth / 6.4 + 'px';
+            }, false);
+        })();
+    </script>
+</head>
+<body>
+<div class="app">
+    <!--common-->
+    <!--header-->
+    <header class="menu">
+        <div class="icon-left icon-hide">
+            <span class="icon icon-back"></span>
+            <span class="icon-text">我的</span>
+        </div>
+        <div class="icon-right">
+            <span class="icon icon-settings"></span>
+            <span class="icon icon-menu"></span>
+        </div>
+    </header>
+    <!--我的-->
+    <!--已登录-->
+    <!--content-->
+    <div class="m-content-logout">
+        <div class="m-pic">
+            <img src="./../img/j-1.png" alt="">
+        </div>
+        <p class="m-phone">18659232341</p>
+        <div class="m-status">
+            <!--审核中-->
+            <span class="iconfont icon-yduiwenhao"></span>
+            <span class="m-status-text">审核中</span>
+            <!--未实名认证-->
+            <!-- <span class="iconfont icon-yduicuowukongxin"></span>
+            <span class="m-status-text">未实名认证</span>-->
+            <!--已认证-->
+            <!-- <span class="status-active">
+                <span class="iconfont icon-yduizhengquekongxin"></span>
+                <span class="m-status-text">已认证</span>
+            </span>-->
+        </div>
+        <!---->
+        <div class="m-sug">
+            <div class="m-tjr">
+                <a href="my-referee.html" class="m-tj-box">
+                    <span class="icon-p-one"></span>
+                    推荐人
+                </a>
+            </div>
+            <div class="m-tjlink">
+                <a href="my-referlink.html" class="m-tj-box">
+                    <span class="icon-p-two"></span>
+                    推荐链接
+                </a>
+            </div>
+        </div>
+        <!---->
+        <a class="btn-logout" href="my-login.html">退出账户</a>
+    </div>
+    <!--common-->
+    <!--tab-->
+    <nav class="tab">
+        <ul>
+            <li class="tab-home">
+                <div class="tab-icon tab-icon-home"></div>
+                <p>首页</p>
+            </li>
+            <li class="tab-fugui">
+                <div class="tab-icon tab-icon-fugui"></div>
+                <p>共享富贵</p>
+            </li>
+            <li class="tab-my tab-active">
+                <div class="tab-icon tab-icon-my"></div>
+                <p>我的</p>
+            </li>
+        </ul>
+    </nav>
+</div>
+<script src="zepto.min.js"></script>
+<script>
+    $(function(){
+        adjust();
+        function adjust() {
+            var wid = $(window).width();
+            var hei = $(window).height();
+            /*iphone4*/
+            if(wid <= 320 && hei <= 416) {
+             $('.m-pic').css('margin-top', '2%');
+             $('.btn-logout').css('margin-top', '2%').css('margin-bottom', '20%');
+            }
+            if(wid >= 360 && hei <= 520) {
+                $('.m-pic').css('margin-top', '2%');
+                $('.btn-logout').css('margin-top', '2%').css('margin-bottom', '20%');
+            }
+        }
+    })
+</script>
+</body>
+</html>

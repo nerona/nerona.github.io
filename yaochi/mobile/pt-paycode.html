@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>pt</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="zepto.min.js">
+    <link rel="stylesheet" href="qrcode.min.js">
+    <script>
+        (function () {
+            document.addEventListener('DOMContentLoaded', function () {
+                var html = document.documentElement;
+                var windowWidth = html.clientWidth;
+                html.style.fontSize = windowWidth / 6.4 + 'px';
+            }, false);
+        })();
+    </script>
+    <style>
+        .pt-content-pc {
+            text-align: center;
+        }
+        .pc-set {
+            line-height: .6rem;
+            margin: 10% 6% 8% 6%;
+            display: -webkit-box;
+        }
+        .pc-set-name {
+            width: 38%;
+            text-align: left;
+            font-size: .28rem;
+            color: rgb(0,0,0);
+        }
+        .pc-set-input {
+            -webkit-box-flex: 1;
+            position: relative;
+        }
+        .pc-set-input > input {
+            width: 90%;
+            height: .48rem;
+            line-height: .48rem;
+            border: 1px solid rgb(46,146,52);
+            border-radius: 3px;
+            color: rgb(160,160,160);
+            padding-left: .2rem;
+        }
+        .pc-tip {
+            padding: 0 6%;
+            color: rgb(137,137,137);
+            font-size: .24rem;
+            text-align: justify;
+            line-height: .38rem;
+        }
+        .pc-set-phone {
+            margin: 6% 6% 8% 6%;
+        }
+        .pc-set-phone .pc-set-name {
+            letter-spacing: 2px;
+        }
+        .pc-send {
+            position: absolute;
+            top: 130%;
+            left: 4%;
+            height: .46rem;
+            line-height: .46rem;
+            background-color: rgb(79,153,39);
+            color: #fff;
+            padding: 0 .2rem;
+            border-radius: 1px;
+        }
+        .pc-send-result {
+            position: absolute;
+            top: 230%;
+            left: 4%;
+            height: .36rem;
+            line-height: .36rem;
+            color: rgb(137,137,137);
+            text-align: justify;
+            font-size: .24rem;
+        }
+        .pc-sure {
+            display: inline-block;
+            width: 88%;
+            background-color: rgb(79,153,39);
+            color: #fff;
+            font-size: .3rem;
+            height: .6rem;
+            line-height: .6rem;
+            border-radius: 5px;
+            margin-top: 20%;
+        }
+    </style>
+</head>
+<body>
+<div class="app">
+    <!--common-->
+    <!--header-->
+    <header class="menu">
+        <div class="icon-left">
+            <a href="my-logout.html"><span class="icon icon-back"></span></a>
+            <span class="icon-text">设置支付密码</span>
+        </div>
+        <div class="icon-right">
+            <span class="icon icon-settings"></span>
+            <span class="icon icon-menu"></span>
+        </div>
+    </header>
+    <!---->
+    <!--->
+    <!--content-->
+    <div class="pt-content-pc">
+        <div class="pc-set">
+            <div class="pc-set-name">
+                设置支付密码 :
+            </div>
+            <div class="pc-set-input">
+                <input type="password" placeholder="">
+            </div>
+        </div>
+        <div class="pc-tip">
+            <p>1、您在蟠桃会使用余额购买商品及提现时，均需通过支付密码进行身份验证；</p>
+            <p>2、您在蟠桃会使用富贵卡余额购买商品时，均需通过支付密码进行身份验证；</p>
+            <p>3、支付密码将作为您在蟠桃会网站的重要依据，请慎重设置。</p>
+        </div>
+        <div class="pc-set pc-set-phone">
+            <div class="pc-set-name">
+                手机验证码 :
+            </div>
+            <div class="pc-set-input">
+                <input type="password" placeholder="">
+                <a class="pc-send" href="javascript:void(0);">获取验证码</a>
+                <p class="pc-send-result">已经给 <span>18065927667</span> 发送验证码，请注意查收。</p>
+            </div>
+        </div>
+        <a href="#" class="pc-sure">确&nbsp;&nbsp;定</a>
+    </div>
+    <!--common-->
+    <!--tab-->
+    <nav class="tab">
+        <ul>
+            <li class="tab-home">
+                <div class="tab-icon tab-icon-home"></div>
+                <p>首页</p>
+            </li>
+            <li class="tab-fugui tab-active">
+                <div class="tab-icon tab-icon-fugui"></div>
+                <p>共享富贵</p>
+            </li>
+            <li class="tab-my">
+                <div class="tab-icon tab-icon-my"></div>
+                <p>我的</p>
+            </li>
+        </ul>
+    </nav>
+</div>
+</body>
+</html>

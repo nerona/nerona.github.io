@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>pt</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="zepto.min.js">
+    <link rel="stylesheet" href="qrcode.min.js">
+    <script>
+        (function () {
+            document.addEventListener('DOMContentLoaded', function () {
+                var html = document.documentElement;
+                var windowWidth = html.clientWidth;
+                html.style.fontSize = windowWidth / 6.4 + 'px';
+            }, false);
+        })();
+    </script>
+    <style>
+        .pt-content-i {
+            text-align: center;
+        }
+
+        .i-top {
+            width: 100%;
+            background-color: rgb(61, 107, 50);
+            position: relative;
+            padding-top: 3%;
+        }
+
+        .i-try-level {
+            position: absolute;
+            width: .5rem;
+            height: .7rem;
+            background: url(./../img/pt-1.png) no-repeat;
+            background-size: 100% 100%;
+            left: -105%;
+            top: 22%;
+        }
+
+        .i-show {
+            display: inline-block;
+            width: 1.2rem;
+            height: 1.2rem;
+            background-color: #fff;
+            border-radius: 50%;
+            text-align: center;
+            position: relative;
+        }
+
+        .i-show > img {
+            width: 1rem;
+            height: 1rem;
+            margin-top: .1rem;
+        }
+
+        .pt-username {
+            color: rgb(195, 189, 102);
+            margin-top: 2%;
+            font-size: .32rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .i-spent {
+            position: absolute;
+            left: 124%;
+            top: 12%;
+            font-size: .24rem;
+            color: rgb(249, 231, 135);
+        }
+
+        .pt-p1 {
+            font-size: .26rem;
+            color: rgb(245, 247, 245);
+        }
+
+        .pt-p2 {
+            padding-top: 3px;
+            width: 118%;
+            text-align: left;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .pt-p3 {
+            color: rgb(223, 190, 80);
+            padding-top: 2px;
+        }
+
+        .i-left-money {
+            width: 100%;
+            display: -webkit-box;
+            margin-top: 4%;
+        }
+
+        .i-left {
+            -webkit-box-flex: 1;
+            margin-bottom: 2%;
+        }
+
+        .i-card-money {
+            border-right: 1px solid #fff;
+        }
+
+        .i-icon-money {
+            display: inline-block;
+            width: .3rem;
+            height: .3rem;
+            background: url(./../img/pt-2.png) no-repeat;
+            background-size: 100% 100%;
+            vertical-align: top;
+        }
+
+        .i-left-line {
+            display: inline-block;
+            color: #fff;
+            font-size: .26rem;
+            text-align: left;
+            line-height: .32rem;
+        }
+
+        /**/
+        .i-middle {
+            width: 100%;
+            height: .6rem;
+            line-height: .6rem;
+            background-color: rgb(61, 107, 50);
+            margin-top: 1%;
+            text-align: center;
+        }
+
+        .i-direct {
+            display: inline-block;
+            width: 50%;
+            float: left;
+            color: #fff;
+            font-size: .26rem;
+        }
+
+        .i-direct-active {
+            background-color: rgb(79, 153, 39);
+            text-decoration: underline;
+        }
+
+        /**/
+        .i-tip {
+            width: 100%;
+            margin-top: 1%;
+            height: .6rem;
+            line-height: .6rem;
+            background: -webkit-linear-gradient(top, rgb(254, 239, 145), rgb(235, 207, 104) 20%, rgb(235, 207, 104), rgb(235, 207, 104) 80%, rgb(254, 239, 145));
+            color: rgb(164, 0, 0);
+            position: relative;
+        }
+
+        .i-icon-money-fill {
+            display: inline-block;
+            width: .4rem;
+            height: .4rem;
+            background: url(./../img/pt-7.png) no-repeat;
+            background-size: 100% 100%;
+            vertical-align: middle;
+        }
+
+        .i-detail {
+            position: absolute;
+            right: 4%;
+            color: rgb(61, 107, 50);
+            text-decoration: underline;
+        }
+
+        /**/
+        .i-sub-menu {
+            margin-top: 2%;
+        }
+        .i-sub-line {
+            width: 100%;
+            display: -webkit-box;
+            margin-bottom: 3%;
+        }
+        .i-sub-item {
+            display: block;
+            -webkit-box-flex: 1;
+            color: rgb(108,105,104);
+            font-size: .26rem;
+        }
+        .i-sub-item > p {
+            margin-top: 3px;
+        }
+        .i-icon-menu {
+            display: inline-block;
+            width: 1.4rem;
+            height: 1.4rem;
+            border-radius: 50%;
+            -webkit-box-shadow: 0 3px 3px rgb(218,218,218);
+            box-shadow: 0 3px 3px rgb(218,218,218);
+        }
+        .i-icon-menu-name {
+            background-color: rgb(66,139,196);
+        }
+        .i-icon-menu-card {
+            background-color: rgb(140,151,203);
+        }
+        .i-icon-menu-psw {
+            background-color: rgb(210,191,85);
+        }
+        .i-icon-menu-offline {
+            background-color: rgb(0,158,150);
+        }
+        .i-icon-menu-name > span {
+            display: inline-block;
+            width: .5rem;
+            height: .9rem;
+            background: url(./../img/pt-3.png);
+            background-size: 100% 100%;
+            margin-top: .25rem;
+        }
+        .i-icon-menu-card > span {
+            display: inline-block;
+            width: .8rem;
+            height: .5rem;
+            background: url(./../img/pt-4.png);
+            background-size: 100% 100%;
+            margin-top: .45rem;
+        }
+        .i-icon-menu-psw > span {
+            display: inline-block;
+            width: .6rem;
+            height: .7rem;
+            background: url(./../img/pt-5.png);
+            background-size: 100% 100%;
+            margin-top: .3rem;
+        }
+        .i-icon-menu-offline > span {
+            display: inline-block;
+            width: .6rem;
+            height: .7rem;
+            background: url(./../img/pt-6.png);
+            background-size: 100% 100%;
+            margin-top: .35rem;
+        }
+    </style>
+</head>
+<body>
+<div class="app">
+    <!--common-->
+    <!--header-->
+    <header class="menu">
+        <div class="icon-left icon-hide">
+            <a href="my-logout.html"><span class="icon icon-back"></span></a>
+            <span class="icon-text"></span>
+        </div>
+        <div class="icon-right">
+            <span class="icon icon-settings"></span>
+            <span class="icon icon-menu"></span>
+        </div>
+    </header>
+    <!---->
+    <!--->
+    <!--content-->
+    <div class="pt-content-i">
+        <div class="i-top">
+            <!--头像-->
+            <div class="i-show">
+                <!--上箭头-->
+                <div class="i-try-level"></div>
+                <img src="./../img/j-1.png" alt="">
+                <!--信息-->
+                <div class="i-spent">
+                    <p class="pt-p1">高级合伙人</p>
+                    <p class="pt-p2">再消费<span>12343.00</span>元</p>
+                    <p class="pt-p3">升级至<span>至尊合伙人</span></p>
+                </div>
+            </div>
+            <!--用户名-->
+            <p class="pt-username">18383991302</p>
+            <!--余额-->
+            <div class="i-left-money">
+                <div class="i-left i-card-money">
+                    <span class="i-icon-money"></span>
+                    <div class="i-left-line">
+                        <p>富贵卡余额</p>
+                        <p>￥ <span>500.00</span></p>
+                    </div>
+                </div>
+                <div class="i-left i-account-money">
+                    <span class="i-icon-money"></span>
+                    <div class="i-left-line">
+                        <p>账户余额</p>
+                        <p>￥ <span>500.00</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--直推间推-->
+        <div class="i-middle">
+            <a href="#" class="i-direct i-direct-active">直推<span>4</span>人</a>
+            <a href="#" class="i-direct">间推<span>8</span>人</a>
+        </div>
+        <!--返额总利-->
+        <div class="i-tip">
+            <span class="i-icon-money-fill"></span>
+            返利总额 : <span>5000.00</span>元
+            <a href="#" class="i-detail">明细</a>
+        </div>
+        <!--sub menu-->
+        <div class="i-sub-menu">
+            <div class="i-sub-line">
+                <a href="#" class="i-sub-item i-sub-name">
+                    <div class="i-icon-menu i-icon-menu-name"><span></span></div>
+                    <p>实名认证</p>
+                </a>
+                <a href="#" class="i-sub-item i-sub-card">
+                    <div class="i-icon-menu i-icon-menu-card"><span></span></div>
+                    <p>银行卡</p>
+                </a>
+            </div>
+            <div class="i-sub-line">
+                <a href="#" class="i-sub-item i-sub-psw">
+                    <div class="i-icon-menu i-icon-menu-psw"><span></span></div>
+                    <p>支付密码</p>
+                </a>
+                <a href="#" class="i-sub-item i-sub-offline">
+                    <div class="i-icon-menu i-icon-menu-offline"><span></span></div>
+                    <p>线下订单</p>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!--common-->
+    <!--tab-->
+    <nav class="tab">
+        <ul>
+            <li class="tab-home">
+                <div class="tab-icon tab-icon-home"></div>
+                <p>首页</p>
+            </li>
+            <li class="tab-fugui tab-active">
+                <div class="tab-icon tab-icon-fugui"></div>
+                <p>共享富贵</p>
+            </li>
+            <li class="tab-my">
+                <div class="tab-icon tab-icon-my"></div>
+                <p>我的</p>
+            </li>
+        </ul>
+    </nav>
+</div>
+</body>
+</html>

@@ -1,0 +1,117 @@
+*{margin: 0;padding: 0;list-style: none;}
+/** 清除内外边距 **/
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, /* structural elements 结构元素 */
+dl, dt, dd, ul, ol, li, /* list elements 列表元素 */
+pre, /* text formatting elements 文本格式元素 */
+form, fieldset, legend, button, input, textarea, /* form elements 表单元素 */
+th, td /* table elements 表格元素 */ {margin: 0;padding: 0;}
+/** 重置列表元素 **/
+ul, ol { list-style: none; }
+/** 重置文本格式元素 **/
+a { text-decoration: none; }
+ul li {list-style: none;  }
+body {font-size: 12px;-webkit-tap-highlight-color: rgba(0,0,0,0);}
+::-webkit-scrollbar {width: 0;}
+
+/*menu*/
+.menu {
+    height: .8rem;
+    background-color: rgb(67,67,67);
+    color: #fff;
+    position: relative;
+    padding: 0 .2rem;
+}
+.icon-left, .icon-right {
+    display: inline-block;
+}
+.icon-left a {display: inline-block;}
+.icon-hide {
+    display: none;
+}
+.icon-right {
+    position: absolute;
+    right: .3rem;
+}
+.icon {
+    display: inline-block;
+    width: .5rem;
+    height: .5rem;
+    margin-top: .15rem;
+}
+.icon-back {
+    background: url(./../img/back.png) no-repeat;
+    background-size: 100% 100%;
+}
+.icon-settings {
+    background: url(./../img/settings.png) no-repeat;
+    background-size: 100% 100%;
+    margin-right: .2rem;
+}
+.icon-menu {
+    background: url(./../img/menu.png) no-repeat;
+    background-size: 100% 100%;
+}
+.icon-text {
+    display: inline-block;
+    height: .8rem;
+    line-height: .8rem;
+    vertical-align: top;
+    font-size: .35rem;
+    margin-left: .1rem;
+}
+
+/*tab*/
+.tab {
+    width: 100%;
+    height: 1rem;
+    background-color: rgb(229, 229, 229);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+.tab ul {
+    display: -webkit-box;
+}
+.tab ul li {
+    -webkit-box-flex: 1;
+    text-align: center;
+    font-size: .24rem;
+    color: rgb(137, 137, 137);
+    height: 1rem;
+    display: -webkit-box;
+    -webkit-box-pack: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-align: center;
+}
+.tab-icon {
+    display: inline-block;
+    width: .4rem;
+    height: .4rem;
+}
+.tab-icon-home {
+    background: url(./../img/home.png) no-repeat;
+    background-size: 100% 100%;
+}
+.tab-icon-fugui {
+    background: url(./../img/tree.png) no-repeat;
+    background-size: 100% 100%;
+}
+.tab-icon-my {
+    background: url(./../img/my.png) no-repeat;
+    background-size: 100% 100%;
+}
+.tab-active p {
+    color: rgb(102,174,52);
+}
+.tab-active .tab-icon-home {
+    background: url(./../img/home-a.png) no-repeat;
+    background-size: 100% 100%;
+}
+.tab-active .tab-icon-fugui {
+    background: url(./../img/tree-a.png) no-repeat;
+    background-size: 100% 100%;
+}
+.tab-active .tab-icon-my {
+    background: url(./../img/my-a.png) no-repeat;
+    background-size: 100% 100%;
+}
