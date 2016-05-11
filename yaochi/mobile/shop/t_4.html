@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>我的生活</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" href="./../reset.css">
+
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/??sm.min.css,sm-extend.min.css">
+
+    <link rel="stylesheet" href="shop.css">
+    <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+</head>
+<body>
+<div class="page-group">
+    <div class="page page-cart">
+        <!--title-->
+        <header class="bar bar-nav">
+            <a class="button button-link button-nav pull-left" href="#" data-transition='slide-out'>
+                <span class="icon-n icon-back"></span>
+            </a>
+            <button class="button pull-right">编辑</button>
+            <h1 class="title">购物车</h1>
+        </header>
+        <div class="content">
+            <!--如果购物车为空-->
+            <!--<div class="cart-empty">
+                <div class="cart-empty-icon">
+                    <span></span>
+                </div>
+                <p>购物车没有商品哦</p>
+            </div>-->
+            <!--如果购物车不为空-->
+            <div class="cart-item">
+                <div class="pro-media">
+                    <div class="cart-select">
+                        <input type="hidden">
+                        <span class="icon-circle icon-circle-select"></span>
+                    </div>
+                    <div class="pro-img">
+                        <img src="./../../img/sh-02.png" alt="">
+                    </div>
+                    <div class="pro-text">
+                        <div class="pro-name">我是商品我是商品</div>
+                        <div class="cart-item-money">&yen; 5800.00</div>
+                        <div class="pro-type">款式 : 耳坠</div>
+                    </div>
+                </div>
+                <div class="cart-item-ctrl">
+                    <span class="ctrl-minus">-</span> <span class="ctrl-count">1</span> <span class="ctrl-plus">+</span>
+                </div>
+            </div>
+            <!---->
+            <div class="cart-item">
+                <div class="pro-media">
+                    <div class="cart-select">
+                        <input type="hidden">
+                        <span class="icon-circle"></span>
+                    </div>
+                    <div class="pro-img">
+                        <img src="./../../img/sh-02.png" alt="">
+                    </div>
+                    <div class="pro-text">
+                        <div class="pro-name">我是商品我是商品</div>
+                        <div class="cart-item-money">&yen; 5800.00</div>
+                        <div class="pro-type">款式 : 耳坠</div>
+                    </div>
+                </div>
+                <div class="cart-item-ctrl">
+                    <span class="ctrl-minus">-</span> <span class="ctrl-count">1</span> <span class="ctrl-plus">+</span>
+                </div>
+            </div>
+            <!--无货-->
+            <div class="cart-item cart-item-lack">
+                <div class="pro-media">
+                    <div class="pro-img">
+                        <img src="./../../img/sh-02.png" alt="">
+                        <div class="cart-item-tag">无货</div>
+                    </div>
+                    <div class="pro-text">
+                        <div class="pro-name">我是商品我是商品</div>
+                        <div class="cart-item-money">&yen; 5800.00</div>
+                        <div class="pro-type">款式 : 耳坠</div>
+                    </div>
+                </div>
+            </div>
+            <!--已下架-->
+            <div class="cart-item cart-item-lack">
+                <div class="pro-media">
+                    <div class="pro-img">
+                        <img src="./../../img/sh-02.png" alt="">
+                        <div class="cart-item-tag">已下架</div>
+                    </div>
+                    <div class="pro-text">
+                        <div class="pro-name">我是商品我是商品</div>
+                        <div class="cart-item-money">&yen; 5800.00</div>
+                        <div class="pro-type">款式 : 耳坠</div>
+                    </div>
+                </div>
+            </div>
+            <!--fixed-->
+            <div class="cart-go-pay">
+                <span class="icon-circle-white"></span>全选
+                <span class="cart-go-all">合计 : 58000.00</span>
+                <a href="#">去结算(3)</a>
+            </div>
+        </div>
+    </div>
+   <!-- <div class="box-mask">
+        <div class="tip-box">
+            <div class="tip-title">提&nbsp;&nbsp;示</div>
+            <div class="tip-con">
+                <div class="tip-icon"></div>
+                <div class="tip-text">XXXXXXXXXX</div>
+            </div>
+            <div class="tip-btns">
+                <a href="javascript:void(0)" class="tip-btn btn-cancel">Cancel</a>
+                <a href="javascript:void(0)" class="tip-btn btn-sure">Yes</a>
+            </div>
+        </div>
+    </div>-->
+</div>
+<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/??sm.min.js,sm-extend.min.js'
+        charset='utf-8'></script>
+<script>
+    $(function(){
+        /*select*/
+        $('.icon-circle').on('click', function(){
+            $(this).toggleClass('icon-circle-select');
+        });
+        $('.icon-circle-white').on('click', function(){
+            $(this).toggleClass('icon-circle-select');
+            $('.icon-circle').addClass('icon-circle-select');
+            if(!$(this).hasClass('icon-circle-select')) {
+                $('.icon-circle').removeClass('icon-circle-select');
+            }
+        });
+        /*-/+*/
+        function deal() {
+            /*-*/
+            $('.ctrl-minus').on('click', function(){
+                var val = parseInt($(this).parent().find('.ctrl-count').html());
+                if(val >= 1){
+                    $(this).parent().find('.ctrl-count').html(val - 1);
+                }
+                /* <1 */
+            });
+            /*+*/
+            $('.ctrl-plus').on('click', function(){
+                var val = parseInt($(this).parent().find('.ctrl-count').html());
+                /* 超出库存限制  Todo*/
+
+                /**/
+                $(this).parent().find('.ctrl-count').html(val + 1)
+            });
+        }
+        deal();
+    });
+</script>
+</body>
+</html>

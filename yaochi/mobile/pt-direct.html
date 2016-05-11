@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>pt</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="zepto.min.js">
+    <link rel="stylesheet" href="qrcode.min.js">
+    <script>
+        (function () {
+            document.addEventListener('DOMContentLoaded', function () {
+                var html = document.documentElement;
+                var windowWidth = html.clientWidth;
+                html.style.fontSize = windowWidth / 6.4 + 'px';
+            }, false);
+        })();
+    </script>
+    <style>
+        .pt-content-direct {
+            text-align: center;
+        }
+        .d-pic {
+            text-align: center;
+            display: inline-block;
+            width: 2rem;
+            height: 2rem;
+            margin: 0 auto;
+            border: 1px solid rgb(54,146,62);
+            border-radius: 50%;
+            margin-top: 4%;
+        }
+        .d-pic > img {
+            width: 1.8rem;
+            height: 1.8rem;
+            margin-top: .1rem;
+        }
+        .d-num {
+            font-size: .26rem;
+            width: 60%;
+            margin: 0 auto;
+            margin-top: 2%;
+            padding: .06rem 0;
+            color: #fff;
+            background-color: rgb(54,146,62);
+            border-radius: 1px;
+        }
+        .d-t-list {
+            width: 100%;
+            line-height: .6rem;
+            border-collapse: collapse;
+            margin-top: 2%;
+            margin-bottom: 20%;
+        }
+        .d-t-list thead {
+            color: rgb(159,160,160);
+            background-color: rgb(229,229,229);
+            font-size: .28rem;
+            letter-spacing: 1px;
+        }
+        .d-t-list thead th {font-weight: normal;}
+        .d-t-list thead th:nth-child(1) {width: 45%;}
+        .d-t-list thead th:nth-child(2) {width: 35%;}
+        .d-t-list tbody tr {border-bottom: 1px solid rgb(220,220,220);}
+        .d-t-list tbody td {
+            font-size: .26rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .d-t-list tr td:nth-child(1) {color: rgb(159,160,160);}
+        .d-t-list tr td:last-child > a {
+            display: inline-block;
+            width: 100%;
+            color: rgb(159,160,160);
+            text-decoration: underline;
+            position: relative;
+        }
+        .d-t-list tr td:last-child > a:after {
+            content: '';
+            display: inline-block;
+            width: 0;
+            height: 0;
+            border-width: 5px;
+            border-style: solid;
+            border-color: transparent transparent transparent rgb(160,160,160);
+            position: absolute;
+            top: .2rem;
+            margin-left: .1rem;
+        }
+    </style>
+</head>
+<body>
+<div class="app">
+    <!--common-->
+    <!--header-->
+    <header class="menu">
+        <div class="icon-left">
+            <a href="pt-index.html"><span class="icon icon-back"></span></a>
+            <span class="icon-text">直推人</span>
+        </div>
+        <div class="icon-right">
+            <span class="icon icon-settings"></span>
+            <span class="icon icon-menu"></span>
+        </div>
+    </header>
+    <!---->
+    <!--->
+    <!--content-->
+    <div class="pt-content-direct">
+        <div class="d-pic">
+            <img src="./../img/j-1.png" alt="">
+        </div>
+        <div class="d-num">直推<span>4</span>人</div>
+        <table border="0" class="d-t-list">
+            <thead>
+                <tr>
+                    <th>会&nbsp;员</th>
+                    <th>返利总额</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <span></span>
+                        19823498123
+                    </td>
+                    <td>
+                        ￥400.00
+                    </td>
+                    <td>
+                        <a href="#">详情</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span></span>
+                        19823498123
+                    </td>
+                    <td>
+                        ￥4000.00
+                    </td>
+                    <td>
+                        <a href="#">详情</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span></span>
+                        19823498123
+                    </td>
+                    <td>
+                        ￥40000000.00
+                    </td>
+                    <td>
+                        <a href="#">详情</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!--common-->
+    <!--tab-->
+    <nav class="tab">
+        <ul>
+            <li class="tab-home">
+                <div class="tab-icon tab-icon-home"></div>
+                <p>首页</p>
+            </li>
+            <li class="tab-fugui tab-active">
+                <div class="tab-icon tab-icon-fugui"></div>
+                <p>共享富贵</p>
+            </li>
+            <li class="tab-my">
+                <div class="tab-icon tab-icon-my"></div>
+                <p>我的</p>
+            </li>
+        </ul>
+    </nav>
+</div>
+</body>
+</html>

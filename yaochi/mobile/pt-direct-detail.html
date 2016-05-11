@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>pt</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="zepto.min.js">
+    <link rel="stylesheet" href="qrcode.min.js">
+    <script>
+        (function () {
+            document.addEventListener('DOMContentLoaded', function () {
+                var html = document.documentElement;
+                var windowWidth = html.clientWidth;
+                html.style.fontSize = windowWidth / 6.4 + 'px';
+            }, false);
+        })();
+    </script>
+    <style>
+        .pt-content-dd {
+            text-align: center;
+        }
+        .dd-level {
+            margin-top: 2%;
+            font-size: .24rem;
+        }
+        .dd-t-list {margin-top: 4%;}
+        .dd-t-list thead th:nth-child(1) {width: 38%;}
+        .dd-t-list thead th:nth-child(2) {width: 34%;}
+        .dd-t-list thead th:nth-child(3) {width: 28%;}
+        .dd-t-list tr td:nth-child(3) {color: rgb(159,160,160);}
+        .dd-search {margin-top: 3%;}
+        .dd-item {
+            margin-left: 20%;
+            text-align: left;
+            height: .35rem;
+            line-height: .35rem;
+            position: relative;
+            margin-bottom: 3%;
+        }
+        .dd-item > input {
+            width: 20%;
+            text-align: center;
+            color: rgb(159,160,160);
+            font-size: .26rem;
+            line-height: .35rem;
+            border: 1px solid rgb(46,146,52);
+        }
+        .dd-item-text {
+            color: rgb(159,160,160);
+            margin-left: 6%;
+            font-size: .26rem;
+        }
+        .dd-icon {
+            display: inline-block;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: .15rem;
+            position: absolute;
+            top: 15%;
+        }
+        .dd-icon-left {
+            border-color: transparent rgb(46,146,52) transparent transparent;
+            left: -8%;
+        }
+        .dd-icon-right {
+            border-color: transparent transparent transparent rgb(46,146,52);
+            left: 23%;
+        }
+
+
+        .d-pic {
+            text-align: center;
+            display: inline-block;
+            width: 2rem;
+            height: 2rem;
+            margin: 0 auto;
+            border: 1px solid rgb(54,146,62);
+            border-radius: 50%;
+            margin-top: 4%;
+        }
+        .d-pic > img {
+            width: 1.8rem;
+            height: 1.8rem;
+            margin-top: .1rem;
+        }
+        .d-num {
+            font-size: .26rem;
+            width: 60%;
+            margin: 0 auto;
+            margin-top: 2%;
+            padding: .06rem 0;
+            color: #fff;
+            background-color: rgb(54,146,62);
+            border-radius: 1px;
+        }
+        .d-t-list {
+            width: 100%;
+            line-height: .6rem;
+            border-collapse: collapse;
+            margin-top: 2%;
+            margin-bottom: 20%;
+        }
+        .d-t-list thead {
+            color: rgb(159,160,160);
+            background-color: rgb(229,229,229);
+            font-size: .28rem;
+            letter-spacing: 1px;
+        }
+        .d-t-list thead th {font-weight: normal;}
+        .d-t-list tbody tr {border-bottom: 1px solid rgb(220,220,220);}
+        .d-t-list tbody td {
+            font-size: .26rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .d-t-list tr td:nth-child(1) {color: rgb(159,160,160);}
+        .d-t-list tr td:last-child > a {
+            display: inline-block;
+            width: 100%;
+            color: rgb(159,160,160);
+            text-decoration: underline;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+<div class="app">
+    <!--common-->
+    <!--header-->
+    <header class="menu">
+        <div class="icon-left">
+            <a href="pt-direct.html"><span class="icon icon-back"></span></a>
+            <span class="icon-text">直推详情</span>
+        </div>
+        <div class="icon-right">
+            <span class="icon icon-settings"></span>
+            <span class="icon icon-menu"></span>
+        </div>
+    </header>
+    <!---->
+    <!--->
+    <!--content-->
+    <div class="pt-content-dd">
+        <div class="d-pic">
+            <img src="./../img/j-1.png" alt="">
+        </div>
+        <div class="dd-level"><span class="d-level-icon"></span>五星合伙人</div>
+        <div class="d-num">18659568945</div>
+        <div class="dd-search">
+            <div class="dd-item">
+                <span class="dd-icon dd-icon-left"></span>
+                <input type="text" value="2016" readonly placeholder="">
+                <span class="dd-icon dd-icon-right"></span>
+                <span class="dd-item-text">
+                    年返利总额:<span>333333.00</span>元
+                </span>
+            </div>
+            <div class="dd-item">
+                <span class="dd-icon dd-icon-left"></span>
+                <input type="text" value="2016/春" readonly placeholder="">
+                <span class="dd-icon dd-icon-right"></span>
+                <span class="dd-item-text">
+                    季返利总额:<span>3333333.00</span>元
+                </span>
+            </div>
+            <div class="dd-item">
+                <span class="dd-icon dd-icon-left"></span>
+                <input type="text" value="2016/4" readonly placeholder="">
+                <span class="dd-icon dd-icon-right"></span>
+                <span class="dd-item-text">
+                    月返利总额:<span>33333333.00</span>元
+                </span>
+            </div>
+        </div>
+        <table border="0" class="d-t-list dd-t-list">
+            <thead>
+            <tr>
+                <th>时&nbsp;间</th>
+                <th>返利金额</th>
+                <th>返利来源</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    2016-04-04 12:00
+                </td>
+                <td>
+                    ￥400.00
+                </td>
+                <td>
+                    直接返利
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    2016-04-04 12:00
+                </td>
+                <td>
+                    ￥4000.00
+                </td>
+                <td>
+                    直接返利
+                </td>
+            </tr>
+            <tr>
+                <td>
+                   2016-04-04 12:00
+                </td>
+                <td>
+                    ￥40000000.00
+                </td>
+                <td>
+                    直接返利
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <!--common-->
+    <!--tab-->
+    <nav class="tab">
+        <ul>
+            <li class="tab-home">
+                <div class="tab-icon tab-icon-home"></div>
+                <p>首页</p>
+            </li>
+            <li class="tab-fugui tab-active">
+                <div class="tab-icon tab-icon-fugui"></div>
+                <p>共享富贵</p>
+            </li>
+            <li class="tab-my">
+                <div class="tab-icon tab-icon-my"></div>
+                <p>我的</p>
+            </li>
+        </ul>
+    </nav>
+</div>
+</body>
+</html>
