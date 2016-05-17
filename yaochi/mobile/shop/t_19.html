@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>签到</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" href="./../reset.css">
+
+    <link rel="stylesheet" href="qiandao.css">
+
+    <script>
+        /*html font reset*/
+        (function () {
+            document.addEventListener('DOMContentLoaded', function () {
+                var html = document.documentElement;
+                var windowWidth = html.clientWidth;
+                if (windowWidth > 550) {
+                    html.style.fontSize = '80px';
+                } else {
+                    html.style.fontSize = windowWidth / 6.4 + 'px';
+                }
+            }, false);
+        })();
+    </script>
+
+</head>
+<body>
+<div class="page-qiandao">
+    <div class="qd-result">
+        <div class="qd-img">
+            <img src="./../../img/j-1.png" alt="">
+        </div>
+        <div class="qd-text">
+            <div>尊敬的<span>熊XX</span> : </div>
+            <img src="./../../img/qd-03.png" alt="">
+        </div>
+    </div>
+
+    <img src="./../../img/r-06.png" alt="" class="qd-tip">
+</div>
+
+
+<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+<script src="touch.min.js"></script>
+<script>
+    $(function () {
+        /*左右滑动*/
+        $('.pro-item').on('swipeleft', function(){
+            $(this).css({
+                'padding-right': '3rem'
+            }).find('.item-cover').css({
+                'opacity': '1'
+            }).find('.item-delete').css({
+                'right': '0'
+            }).on('tap', function(){
+                $(this).parent().parent().remove();
+            });
+            $(this).on('swiperight', function(){
+                $(this).css({
+                    'padding-right': '1rem'
+                }).find('.item-cover').css({
+                    'opacity': '0'
+                }).find('.item-delete').css({
+                    'right': '-2.8rem'
+                });
+            });
+        });
+    });
+</script>
+</body>
+</html>

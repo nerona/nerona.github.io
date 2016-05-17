@@ -139,6 +139,11 @@
 <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
 <script>
     $(function(){
+        /**/
+        $('.search-bar > input').on('focus' ,function(){
+            window.location.href = 't_15.html';
+        });
+        /**/
         $('.icon-menu2').on('click', function () {
             $('.box-mask').show().on('click', function (event) {
                 var _target = $(event.target);

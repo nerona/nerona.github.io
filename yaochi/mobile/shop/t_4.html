@@ -77,6 +77,9 @@
             </div>
             <!--无货-->
             <div class="cart-item cart-item-lack">
+                <div class="item-cover">
+                    <div class="item-delete">删除</div>
+                </div>
                 <div class="pro-media">
                     <div class="pro-img">
                         <img src="./../../img/sh-02.png" alt="">
@@ -91,6 +94,9 @@
             </div>
             <!--已下架-->
             <div class="cart-item cart-item-lack">
+                <div class="item-cover">
+                    <div class="item-delete">删除</div>
+                </div>
                 <div class="pro-media">
                     <div class="pro-img">
                         <img src="./../../img/sh-02.png" alt="">
@@ -102,6 +108,7 @@
                         <div class="pro-type">款式 : 耳坠</div>
                     </div>
                 </div>
+
             </div>
             <!--fixed-->
             <div class="cart-go-pay">
@@ -127,8 +134,29 @@
 </div>
 <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/??sm.min.js,sm-extend.min.js'
         charset='utf-8'></script>
+<script src="touch.min.js"></script>
 <script>
     $(function(){
+        /*左右滑动*/
+        $('.cart-item').on('swipeleft', function(){
+            $(this).css({
+                'padding-left': '1rem',
+                'padding-right': '3rem'
+            });
+            $(this).find('.item-cover').show()
+                    .find('.item-delete').on('tap', function(){
+                $(this).parent().parent().remove();
+            });
+            $(this).on('swiperight', function(){
+                $(this).css({
+                    'padding-left': '2.8rem',
+                    'padding-right': '1rem'
+                });
+                $(this).find('.item-cover').hide();
+            });
+        });
+
+
         /*select*/
         $('.icon-circle').on('click', function(){
             $(this).toggleClass('icon-circle-select');
