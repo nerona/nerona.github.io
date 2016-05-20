@@ -21,7 +21,7 @@
     <div class="page page-cart">
         <!--title-->
         <header class="bar bar-nav">
-            <a class="button button-link button-nav pull-left" href="#" data-transition='slide-out'>
+            <a class="button button-link button-nav pull-left" href="t_5.html" data-transition='slide-out'>
                 <span class="icon-n icon-back"></span>
             </a>
             <button class="button pull-right">编辑</button>
@@ -136,7 +136,9 @@
         charset='utf-8'></script>
 <script src="touch.min.js"></script>
 <script>
+    $.config = {router: false};
     $(function(){
+
         /*左右滑动*/
         $('.cart-item').on('swipeleft', function(){
             $(this).css({
