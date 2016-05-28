@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>推广链接</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="my.css">
+    <link rel="stylesheet" href="zepto.min.js">
+    <link rel="stylesheet" href="qrcode.min.js">
+    <script>
+        (function () {
+            document.addEventListener('DOMContentLoaded', function () {
+                var html = document.documentElement;
+                var windowWidth = html.clientWidth;
+                html.style.fontSize = windowWidth / 6.4 + 'px';
+            }, false);
+        })();
+    </script>
+</head>
+<body>
+<div class="app">
+    <!--common-->
+    <!--header-->
+    <header class="menu">
+        <div class="icon-left">
+            <a href="my-logout.html"><span class="icon icon-back"></span></a>
+            <span class="icon-text">推广链接</span>
+        </div>
+        <div class="icon-right">
+            <span class="icon icon-settings"></span>
+            <span class="icon icon-menu"></span>
+        </div>
+    </header>
+    <!--我的-->
+    <!--推广链接-->
+    <!--content-->
+    <div class="m-content-referlink">
+        <div class="m-pic">
+            <img src="./../img/j-1.png" alt="">
+        </div>
+        <p class="m-phone">18659232341</p>
+        <div class="m-status">
+            <!--审核中-->
+            <span class="iconfont icon-yduiwenhao"></span>
+            <span class="m-status-text">审核中</span>
+            <!--未实名认证-->
+            <!-- <span class="iconfont icon-yduicuowukongxin"></span>
+            <span class="m-status-text">未实名认证</span>-->
+            <!--已认证-->
+            <!-- <span class="status-active">
+                <span class="iconfont icon-yduizhengquekongxin"></span>
+                <span class="m-status-text">已认证</span>
+            </span>-->
+        </div>
+        <div class="m-rl-line m-rl-link">http://www.baidu.com?afdfdfdfd123412341234&&a=1&&b=1</div>
+        <div class="m-rl-line m-rl-copy">复制链接</div>
+        <div id="qrcode"></div>
+    </div>
+    <!--common-->
+    <!--tab-->
+    <nav class="tab">
+        <ul>
+            <li class="tab-home">
+                <div class="tab-icon tab-icon-home"></div>
+                <p>首页</p>
+            </li>
+            <li class="tab-fugui">
+                <div class="tab-icon tab-icon-fugui"></div>
+                <p>共享富贵</p>
+            </li>
+            <li class="tab-my tab-active">
+                <div class="tab-icon tab-icon-my"></div>
+                <p>我的</p>
+            </li>
+        </ul>
+    </nav>
+</div>
+</body>
+</html>

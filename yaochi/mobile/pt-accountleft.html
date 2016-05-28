@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>pt</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="zepto.min.js">
+    <link rel="stylesheet" href="qrcode.min.js">
+    <script>
+        (function () {
+            document.addEventListener('DOMContentLoaded', function () {
+                var html = document.documentElement;
+                var windowWidth = html.clientWidth;
+                html.style.fontSize = windowWidth / 6.4 + 'px';
+            }, false);
+        })();
+    </script>
+    <style>
+        .pt-content-al {
+            text-align: center;
+        }
+        .al-icon {
+            width: 34%;
+            margin-top: 12%;
+        }
+        .al-money {
+            margin-top: 6%;
+            color: rgb(108,105,104);
+            font-size: .4rem;
+        }
+        .al-in {
+            display: inline-block;
+            width: 80%;
+            background-color: rgb(79,153,39);
+            color: #fff;
+            font-size: .3rem;
+            height: .6rem;
+            line-height: .6rem;
+            border-radius: 6px;
+            margin-top: 8%;
+            letter-spacing: 2px;
+        }
+        .al-out {
+            display: inline-block;
+            width: 80%;
+            background-color: rgb(216,214,213);
+            color: rgb(108,105,104);
+            font-size: .3rem;
+            height: .6rem;
+            line-height: .6rem;
+            border-radius: 6px;
+            margin-top: 8%;
+        }
+    </style>
+</head>
+<body>
+<div class="app">
+    <!--common-->
+    <!--header-->
+    <header class="menu">
+        <div class="icon-left icon-hide">
+            <a href="my-logout.html"><span class="icon icon-back"></span></a>
+            <span class="icon-text"></span>
+        </div>
+        <div class="icon-right">
+            <span class="icon icon-settings"></span>
+            <span class="icon icon-menu"></span>
+        </div>
+    </header>
+    <!---->
+    <!--->
+    <!--content-->
+    <div class="pt-content-al">
+        <img class="al-icon" src="./../img/pt-9.png" alt="">
+        <div class="al-money">￥<span>12341234.23</span></div>
+        <div class="al-in">转入富贵卡</div>
+        <div class="al-out">提&nbsp;&nbsp;现</div>
+    </div>
+    <!--common-->
+    <!--tab-->
+    <nav class="tab">
+        <ul>
+            <li class="tab-home">
+                <div class="tab-icon tab-icon-home"></div>
+                <p>首页</p>
+            </li>
+            <li class="tab-fugui tab-active">
+                <div class="tab-icon tab-icon-fugui"></div>
+                <p>共享富贵</p>
+            </li>
+            <li class="tab-my">
+                <div class="tab-icon tab-icon-my"></div>
+                <p>我的</p>
+            </li>
+        </ul>
+    </nav>
+</div>
+</body>
+</html>

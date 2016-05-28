@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>wodeyinhangka</title>
+    <meta name="renderer" content="webkit">
+    <!-- No Baidu Siteapp-->
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <link rel="stylesheet" href="./../main.css">
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <style>
+        * {margin: 0;padding: 0;}
+        ul li {
+            list-style: none;
+            padding-top: 0;
+            display: inline-block;
+            float: left;
+        }
+        .div_dept_save {
+            padding: 5px;
+            text-align: center;
+            margin: 0 auto;
+            width: 100%;
+            position: relative;
+        }
+        .team_header {
+            display: block;
+            width: 120px;
+            height: 120px;
+            margin: 0 auto;
+            border-radius: 50%;
+            border: 1px solid rgb(88, 115, 68);
+            margin-top: 40px;
+        }
+        .team_return {
+            font-size: 20px;
+            padding: 14px 0;
+            letter-spacing: 1px;
+            color: rgb(126, 180, 97);
+        }
+        .team_level {
+            width: 80%;
+            margin: 0 auto;
+            height: 460px;
+            border-bottom: 1px dashed rgb(137, 137, 137);
+        }
+        .team_title {width: 100%;}
+        .clearfix:after {
+            content: '';
+            display: block;
+            height: 0;
+            visibility: hidden;
+            clear: both;
+        }
+        .team_title > li {
+            width: 50%;
+            height: 35px;
+            line-height: 35px;
+            font-size: 16px;
+            background-color: rgb(61, 107, 50);
+        }
+        .team_title a {
+            color: rgb(255, 255, 255);
+            cursor: default
+        }
+        .team_title .team_active, .team_title .team_active a {cursor: pointer;}
+        .team_title .team_active, .team_picker .team_active {
+            background-color: rgb(54, 146, 62);
+            color: rgb(255, 255, 255);
+        }
+        .team_search {
+            text-align: left;
+            margin-top: 18px;
+            font-size: 14px;
+            color: rgb(66, 66, 66);
+        }
+        .team_search > span {
+            padding-left: 16px;
+            padding-right: 8px;
+        }
+        .team_search > input {
+            width: 140px;
+            height: 24px;
+            line-height: 24px;
+            padding-left: 8px;
+            font-size: 15px;
+            color: rgb(127, 127, 127);
+            border: 1px solid rgb(61, 107, 50);
+        }
+        .team_picker {display: inline-block;}
+        .team_picker > li {
+            float: none;
+            width: 98px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            font-size: 15px;
+            cursor: pointer;
+        }
+        .team_list {
+            width: 100%;
+            text-align: center;
+            margin-top: 22px;
+            font-size: 14px;
+            letter-spacing: 4px;
+            color: rgb(66, 66, 66);
+        }
+        thead th {
+            border-top: 1px dashed rgb(213, 213, 213);
+            border-bottom: 1px dashed rgb(213, 213, 213);
+            padding: 5px 0;
+        }
+        thead th {width: 25%;}
+        tbody {margin-top: 14px}
+        tbody td {
+            height: 30px;
+            line-height: 30px;
+            letter-spacing: 1px;
+            color: rgb(166, 163, 163);
+            font-size: 14px;
+        }
+        .team_win .team_time {color: rgb(166, 163, 163);  }
+        .team_win .team_money {color: rgb(54, 146, 62);  }
+        .team_lost .team_time {color: rgb(99, 124, 81);  }
+        .team_lost .team_money {color: rgb(99, 124, 81);  }
+        .team_page {
+            width: 80%;
+            margin: 0 auto;
+            position: relative;
+        }
+        .team_page > ul {
+            position: absolute;
+            right: 0;
+            top: 6px;
+        }
+        .team_page li {
+            padding: 0 8px;
+            height: 22px;
+            line-height: 22px;
+            text-align: center;
+            border: 1px solid rgb(54,146,62);
+            margin-right: 6px;
+            cursor: pointer;
+        }
+        .team_page li a {color: rgb(158,158,158);}
+        .team_page .page_pre, .team_page .page_next {
+            display: inline-block;
+            width: 22px;
+            height: 22px;
+            position: relative;
+            padding: 0;
+        }
+        .team_page .page_pre:after {
+            content: '';
+            display: inline-block;
+            width: 0;
+            height: 0;
+            border-width: 8px;
+            border-style: solid;
+            border-color: transparent rgb(137,137,137) transparent transparent;
+            position: absolute;
+            left: -2px;
+            top: 3px;
+        }
+        .team_page .page_next:after {
+            content: '';
+            display: inline-block;
+            width: 0;
+            height: 0;
+            border-width: 8px;
+            border-style: solid;
+            border-color: transparent transparent transparent rgb(137,137,137);
+            position: absolute;
+            left: 8px;
+            top: 3px;
+        }
+        .team_page .page_all {border: none;}
+        .team_page .page_active {background-color: rgb(54,146,62);}
+        .team_page .page_active a {color: rgb(255,255,255);}
+    </style>
+</head>
+<body>
+<div id="div_dept_save" class="div_dept_save">
+    <img src="./../img/qq.png" class="team_header">
+    <p class="team_return">返利总额 : <span>123432.23</span>元</p>
+    <div class="team_level">
+        <ul class="team_title clearfix">
+            <li class="team_active">
+                <a href="#">直推<span>16</span>人</a>
+            </li>
+            <li>
+                <a href="#">间推<span>16</span>人</a>
+            </li>
+        </ul>
+        <!--search-->
+        <div class="team_search">
+            <span>时间</span>
+            <input type="text" placeholder="20160201"> &nbsp;-&nbsp;
+            <input type="text" placeholder="20160202">
+            <span>最近:</span>
+            <ul class="team_picker">
+                <li>1 周</li>
+                <li class="team_active">1个月</li>
+                <li>1 年</li>
+            </ul>
+        </div>
+        <!--list-->
+        <table class="team_list" border="0">
+            <thead>
+            <tr>
+                <th>日期</th>
+                <!--占位-->
+                <th></th>
+                <th></th>
+                <th>返利</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="team_win">
+                <td><span class="team_time">2016-04-23 11:00</span></td>
+                <!--占位-->
+                <td></td>
+                <td></td>
+                <td><span class="team_money">+500.00</span></td>
+            </tr>
+            <tr class="team_win">
+                <td><span class="team_time">2016-04-23 11:00</span></td>
+                <!--占位-->
+                <td></td>
+                <td></td>
+                <td><span class="team_money">+500.00</span></td>
+            </tr>
+            <tr class="team_lost">
+                <td><span class="team_time">2016-04-23 11:00</span></td>
+                <!--占位-->
+                <td></td>
+                <td></td>
+                <td><span class="team_money">+500.00</span></td>
+            </tr>
+            <tr class="team_lost">
+                <td><span class="team_time">2016-04-23 11:00</span></td>
+                <!--占位-->
+                <td></td>
+                <td></td>
+                <td><span class="team_money">+500.00</span></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <!--分页-->
+    <div class="team_page">
+    <ul class="clearfix">
+        <li class="page_pre"></li>
+        <!---->
+        <li class="page_active"><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li class="page_all">...</li>
+        <li class="page_last"><a href="#">10</a></li>
+        <li class="page_next"></li>
+    </ul>
+    </div>
+</div>
+<script>
+    $(function () {
+        $('.team_picker > li').on('click', function () {
+            $(this).parent().find('.team_active').removeClass('team_active');
+            $(this).addClass('team_active');
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>pt</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="zepto.min.js">
+    <link rel="stylesheet" href="qrcode.min.js">
+    <script>
+        (function () {
+            document.addEventListener('DOMContentLoaded', function () {
+                var html = document.documentElement;
+                var windowWidth = html.clientWidth;
+                html.style.fontSize = windowWidth / 6.4 + 'px';
+            }, false);
+        })();
+    </script>
+    <style>
+        .pt-content-cl {
+            text-align: center;
+        }
+        .cl-card {
+            width: 80%;
+            margin-top: 12%;
+        }
+        .cl-money {
+            padding: 0 ;
+            text-align: left;
+            font-size: .4rem;
+            color: rgb(108,105,104);
+            margin: 6% 14% 0;
+            position: relative;
+        }
+        .cl-money-detail {
+            position: absolute;
+            right: 0;
+            top: .1rem;
+            color: rgb(171,149,29);
+            font-size: .28rem;
+            text-decoration: underline;
+        }
+        .cl-money-charge {
+            display: inline-block;
+            width: 80%;
+            background-color: rgb(79,153,39);
+            color: #fff;
+            font-size: .3rem;
+            height: .6rem;
+            line-height: .6rem;
+            border-radius: 6px;
+            margin-top: 12%;
+        }
+    </style>
+</head>
+<body>
+<div class="app">
+    <!--common-->
+    <!--header-->
+    <header class="menu">
+        <div class="icon-left icon-hide">
+            <a href="my-logout.html"><span class="icon icon-back"></span></a>
+            <span class="icon-text"></span>
+        </div>
+        <div class="icon-right">
+            <span class="icon icon-settings"></span>
+            <span class="icon icon-menu"></span>
+        </div>
+    </header>
+    <!---->
+    <!--->
+    <!--content-->
+    <div class="pt-content-cl">
+        <img class="cl-card" src="./../img/pt-8.png" alt="">
+        <div class="cl-money">
+            ￥ <span>1341234.23</span> <a href="#" class="cl-money-detail">明细</a>
+        </div>
+        <a class="cl-money-charge" href="#">充&nbsp;&nbsp;值</a>
+    </div>
+    <!--common-->
+    <!--tab-->
+    <nav class="tab">
+        <ul>
+            <li class="tab-home">
+                <div class="tab-icon tab-icon-home"></div>
+                <p>首页</p>
+            </li>
+            <li class="tab-fugui tab-active">
+                <div class="tab-icon tab-icon-fugui"></div>
+                <p>共享富贵</p>
+            </li>
+            <li class="tab-my">
+                <div class="tab-icon tab-icon-my"></div>
+                <p>我的</p>
+            </li>
+        </ul>
+    </nav>
+</div>
+</body>
+</html>

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title></title>
+    <meta name="renderer" content="webkit">
+    <!-- No Baidu Siteapp-->
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <link rel="stylesheet" href="./../main.css">
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        /*common*/
+        .dialog_mask {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: rgba(128,128,128,.5);
+            text-align: center;
+        }
+        .dialog {
+            width: 350px;
+            margin: 0 auto;
+            background-color: rgb(255,255,255);
+            font-size: 18px;
+            margin-top: 25%;
+        }
+        .dialog_title {
+            width: 100%;
+            height: 40px;
+            background-color: rgb(54,146,62);
+            position: relative;
+            color: rgb(255,255,255);
+        }
+        .dialog_close {
+            font-size: 26px;
+            position: absolute;
+            right: 5%;
+            line-height: 40px;
+            cursor: pointer;
+        }
+        .dialog_btns {padding-bottom: 22px;}
+        .dialog_btn {
+            display: inline-block;
+            width: 100px;
+            height: 32px;
+            line-height: 32px;
+            color: rgb(255,255,255);
+            background-color: rgb(54,146,62);
+            cursor: pointer;
+            letter-spacing: 4px;
+        }
+        .dialog_title_text {
+            line-height: 40px;
+            position: absolute;
+            left: 5%;
+        }
+        .dialog_yes {margin-right: 40px;}
+        .dialog_tip {
+            font-size: 14px;
+            color: rgb(232,38,51);
+        }
+        /*未绑卡*/
+        .dialog_notext {
+            font-size: 20px;
+            padding: 22px 0;
+        }
+        /*余额转入富贵卡*/
+        .dialog_yue_in  .dialog_content {padding-bottom: 14px;}
+        .dialog_con_title {
+            text-align: left;
+            font-size: 14px;
+            color: rgb(207,208,208);
+            padding: 8px 0 8px 5%;
+        }
+        .dialog_input_area {
+            text-align: left;
+            padding: 0 0 2px 5%;
+        }
+        .dialog_input_name {
+            display: inline-block;
+            width: 108px;
+        }
+        .dialog_input_area input {
+            width: 175px;
+            font-size: 16px;
+            padding: 8px 0 8px 8px;
+            color: rgb(214,215,215);
+            letter-spacing: 1px;
+        }
+        /*充值*/
+        .dialog_charge_in .dialog_content {padding-bottom: 14px;}
+        .dialog_charge_in .dialog_input_name {width: 50px;}
+        .dialog_charge_in .dialog_input_area input {width: 200px;}
+        /*提现*/
+        .dialog_cash .dialog_content {padding-bottom: 14px;}
+        .dialog_cardlist {
+            margin: 8px 12px;
+            border: 1px solid rgb(187,187,187);
+        }
+        .dialog_card {
+            height: 40px;
+            margin: 10px 24px 6px 24px;
+            border: 1px solid rgb(224,224,224);
+            text-align: left;
+            position: relative;
+        }
+        .dialog_card > img {
+            width: 150px;
+            height: 40px;
+            left: 0;
+            top: 0;
+        }
+        .dialog_card_num {
+            display: inline-block;
+            line-height: 40px;
+            height: 40px;
+            position: absolute;
+            right: 16px;
+        }
+        .dialog_card_tip {
+            text-align: left;
+            font-size: 14px;
+            color: rgb(232,38,51);
+            padding-left: 24px;
+            padding-bottom: 6px;
+        }
+        /**/
+        .dialog_tip {visibility: hidden;}
+        .dialog_nocard, .dialog_yue_in, .dialog_charge_in {display: none;}
+        @-webkit-keyframes up {
+            0% {
+                -webkit-transform: translate(0,0);
+            }
+            100% {
+                -webkit-transform: translate(0,-5px);
+            }
+        }
+    </style>
+</head>
+<body>
+<div id="div_dept_save" class="div_dept_save">
+    <div class="dialog_mask">
+        <!--未绑卡-->
+        <div class="dialog dialog_nocard">
+            <div class="dialog_title">
+                <span></span>
+                <span class="dialog_close">X</span>
+            </div>
+            <div class="dialog_content">
+                <p class="dialog_notext">请绑定银行卡，前往绑定银行卡</p>
+            </div>
+            <div class="dialog_btns">
+                <a href="#" class="dialog_btn dialog_yes">确定</a>
+                <a href="#" class="dialog_btn dialog_no">取消</a>
+            </div>
+        </div>
+        <!---->
+        <!--余额转入富贵卡-->
+        <div class="dialog dialog_yue_in">
+            <div class="dialog_title">
+                <span class="dialog_title_text">余额转入富贵卡</span>
+                <span class="dialog_close">X</span>
+            </div>
+            <div class="dialog_content">
+                <p class="dialog_con_title">转入富贵卡也能产生返利噢~</p>
+                <div class="dialog_input_area">
+                    <span class="dialog_input_name">可转入金额 : </span>
+                    <input type="text" placeholder="10000.00">
+                    <span>元</span>
+                </div>
+                <div class="dialog_input_area">
+                    <span class="dialog_input_name"></span>
+                    <span class="dialog_tip">注 : <span></span></span>
+                </div>
+            </div>
+            <div class="dialog_btns">
+                <a href="#" class="dialog_btn dialog_yes">确定</a>
+                <a href="#" class="dialog_btn dialog_no">取消</a>
+            </div>
+        </div>
+        <!---->
+        <!--富贵卡充值-->
+        <div class="dialog dialog_charge_in">
+            <div class="dialog_title">
+                <span class="dialog_title_text">富贵卡充值</span>
+                <span class="dialog_close">X</span>
+            </div>
+            <div class="dialog_content">
+                <p class="dialog_con_title">充值也能产生返利噢~</p>
+                <div class="dialog_input_area">
+                    <span class="dialog_input_name">金额 : </span>
+                    <input type="text" placeholder="10000.00">
+                    <span>元</span>
+                </div>
+                <div class="dialog_input_area">
+                    <span class="dialog_input_name"></span>
+                    <span class="dialog_tip">注：<span>...</span></span>
+                </div>
+            </div>
+            <div class="dialog_btns">
+                <a href="#" class="dialog_btn dialog_btn_sure">充值</a>
+            </div>
+        </div>
+        <!---->
+        <!--提现-->
+        <div class="dialog dialog_cash">
+            <div class="dialog_title">
+                <span class="dialog_title_text">提现</span>
+                <span class="dialog_close">X</span>
+            </div>
+            <div class="dialog_content">
+                <div class="dialog_cardlist">
+                    <div class="dialog_card">
+                        <img src="" alt="">
+                        <p class="dialog_card_num">尾号&nbsp;<span>1234</span></p>
+                    </div>
+                    <p class="dialog_card_tip">注：<span>每周仅限提现一次</span></p>
+                </div>
+                <div class="dialog_input_area">
+                    <span class="dialog_input_name">可提现金额 : </span>
+                    <input type="text" placeholder="10000.00">
+                    <span>元</span>
+                </div>
+                <div class="dialog_input_area">
+                    <span class="dialog_input_name"></span>
+                    <span class="dialog_tip">注：<span>...</span></span>
+                </div>
+            </div>
+            <div class="dialog_btns">
+                <a href="#" class="dialog_btn dialog_yes">确定</a>
+                <a href="#" class="dialog_btn dialog_no">取消</a>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function(){
+        /*close*/
+        $('.dialog_close').on('click', function(){
+            $(this).parent().parent().parent().hide();
+        });
+        /*输入框失去焦点时验证数据*/
+        $('.dialog_yue_in input').blur(function(){
+            var val = $(this).val();
+            if(val < 33){
+                $('.dialog_yue_in .dialog_tip').css('visibility', 'visible').find('span').html('金额不小于33元');
+            } else {
+                $('.dialog_yue_in .dialog_tip').css('visibility', 'hidden').find('span').html(' ');
+            }
+        });
+        $('.dialog_charge_in input').blur(function(){
+            var val = $(this).val();
+            if(val < 33){
+                $('.dialog_charge_in .dialog_tip').css('visibility', 'visible').find('span').html('充值金额不小于33元');
+            } else {
+                $('.dialog_charge_in .dialog_tip').css('visibility', 'hidden').find('span').html(' ');
+            }
+        });
+        $('.dialog_cash input').blur(function(){
+            var val = $(this).val();
+            if(val < 100){
+                $('.dialog_cash .dialog_tip').css('visibility', 'visible').find('span').html('金额不小于100元');
+            } else {
+                $('.dialog_cash .dialog_tip').css('visibility', 'hidden').find('span').html(' ');
+            }
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+/** 清除内外边距 **/
+html, body, h1, h2, h3, h4, h5, h6, p, div, span, img, i, form, input, textarea, ul, li {margin: 0;padding: 0;}
+/** 重置文本格式元素 **/
+a { text-decoration: none; }
+ul li {list-style: none;  }
+img {width: 100%}
+input {outline: none;border: 0;}
+body {font-size: 12px;-webkit-tap-highlight-color: rgba(0,0,0,0);font-family: "Microsoft Yahei";}
+::-webkit-scrollbar {width: 0;}
+
+.page-feedback {
+    width: 100%;
+    min-height: 100%;
+    background: url(fb-4.jpg) no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #fff;
+    overflow-x: hidden;
+}
+.fb-btn {
+    width: 3.4rem;
+    height: .8rem;
+    line-height: .8rem;
+    margin: 0 auto;
+    background: url(fb-1.png) no-repeat;
+    background-size: 100% 100%;
+    margin-top: 8%;
+    text-align: center;
+    font-size: .28rem;
+    letter-spacing: 1px;
+}
+.fb-list li {
+    padding-left: 8%;
+    margin-top: 6%;
+}
+.fb-item-title {
+    color: #fc3;
+    font-size: .24rem;
+}
+.fb-star {
+    display: inline-block;
+    width: .3rem;
+    height: .28rem;
+    background: url(fb-2.png) no-repeat;
+    background-size: 100% 100%;
+}
+.fb-line {
+    display: -webkit-box;
+    padding-left: 6%;
+    margin-top: 5%;
+    font-size: .22rem;
+}
+.fb-line .fb-select {
+    -webkit-box-flex: 1;
+    width: 50%;
+    text-align: left;
+    position: relative;
+}
+.fb-select .fb-radio {
+    display: inline-block;
+    width: .3rem;
+    height: .3rem;
+    background-color: #d2d2d2;
+    border-radius: 50%;
+    position: absolute;
+    right: .6rem;
+}
+.fb-select .fb-radio-active {
+    background: url(fb-3.png) no-repeat;
+    background-size: 100% 100%;
+}
+.fb-item-input > textarea {
+    resize: none;
+    border-radius: 3px;
+    color: rgb(128,128,128);
+    font-family: "Microsoft Yahei";
+    padding: .1rem;
+    margin-top: 4%;
+    width: 86%;
+    height: 1rem;
+}
+.fb-submit {
+    margin-bottom: 10%;
+}
+.shine {
+    -webkit-animation: shine 800ms 300ms ease infinite;
+    animation: shine 800ms 300ms ease infinite;
+}
+@-webkit-keyframes shine {
+    0% {opacity: 1;}
+    100% {opacity: 0;}
+}

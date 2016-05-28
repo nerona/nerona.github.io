@@ -12,6 +12,8 @@
     <meta http-equiv="Cache-Control" content="no-siteapp"/>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
     <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
     <script src="//cdn.bootcss.com/touchjs/0.2.14/touch.min.js"></script>
     <style>
@@ -61,7 +63,7 @@
             width: 94%;
             padding: .12rem;
         }
-        .pro-text {padding-left: .12rem;}
+        .pro-text {padding-left: .04rem;}
         .pro-text > h3 {
             color: rgb(102,174,52);
             font-size: .32rem;
@@ -151,11 +153,10 @@
         .line_item {
             width: 86%;
             margin: 0 auto;
-            padding: 20px 0;
+            padding: 20px 0 20px 20px;
             position: relative;
             display: -webkit-box;
             -webkit-box-align: center;
-            padding-left: 20px;
         }
         .line_item:after {
             content: '';
@@ -255,6 +256,23 @@
             position: absolute;
             right: 8%;
         }
+        .item_submit .line_item {padding: 10px 0 0 20px;}
+
+        /* 矮胖小屏手机适配 */
+        @media all and (max-height: 520px) and (min-width: 321px ) {
+            .i-pro {
+                margin-bottom: 20%;
+            }
+        }
+        /* iphone4 */
+        @media all and (max-height: 480px) and (max-width: 321px ) {
+            .i-pro {
+                margin-bottom: 18%;
+            }
+            .item_submit {
+                padding-bottom: 18%;
+            }
+        }
     </style>
     <script>
         (function () {
@@ -327,6 +345,14 @@
         </form>
         <!---->
         <div class="item_submit">
+            <div class="line_item">
+                <div class="item_icon item_icon_check"><i class="icon_checked"></i></div>
+                <a href="#" class="protocol_detail">已阅读并同意加入共享富贵体系</a>
+            </div>
+            <div class="line_item">
+                <div class="item_icon item_icon_check"><i class="icon_checked"></i></div>
+                <a href="#" class="protocol_detail">已阅读并同意加入共享富贵体系</a>
+            </div>
             <div class="line_item">
                 <div class="item_icon item_icon_check"><i class="icon_checked"></i></div>
                 <a href="#" class="protocol_detail">已阅读并同意加入共享富贵体系</a>
