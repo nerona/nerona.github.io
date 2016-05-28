@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.5,maximum-scale=1.0 , user-scalable=0">
+    <base href="../../../"/>
+    <link rel="stylesheet" href="css/common/jquery.mobile-1.4.5.min.css">
+    <link rel="stylesheet" href="css/style-final.css"/>
+    <link rel="stylesheet" href="css/customer/activity/apply-list.css">
+</head>
+<body>
+<section id="page1" data-role="page">
+    <section data-role="header" data-theme="b" class="my-header" id="my-header">
+        <a href="javascript:history.back();"  data-role="none" class="my-header-back-btn"></a>
+        <h2>报名名单</h2>
+        <a href="#" class="my-header-right-btn-ad" data-role="none"><span>.</span><span>.</span><span>.</span></a>
+    </section>
+    <div data-role="content" class="activity-bm-list" >
+        <ul data-role="none" data-icon="false" class="my-apply-list-view">
+            <li>
+                <a>
+
+                    <table>
+                        <tr>
+                            <td  rowspan="3" class="head-img">
+                                <img src="images/test-img/goods.png">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>王八厅</td>
+                            <td class="right-apply red">90主办方</td>
+                        </tr>
+                        <tr>
+                            <td>手机号：133759279</td>
+                            <td class="right-apply">2016-04-23</td>
+                        </tr>
+                    </table>
+
+                </a>
+            </li>
+            <li>
+                <a>
+
+                    <table>
+                        <tr>
+                            <td  rowspan="3" class="head-img">
+                                <img src="images/test-img/goods.png">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>王八厅</td>
+                            <td class="right-apply red"></td>
+                        </tr>
+                        <tr>
+                            <td>手机号：133759279</td>
+                            <td class="right-apply">2016-04-23</td>
+                        </tr>
+                    </table>
+
+                </a>
+            </li>
+            <li>
+                <a>
+
+                    <table>
+                        <tr>
+                            <td  rowspan="3" class="head-img">
+                                <img src="images/test-img/goods.png">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>王八厅</td>
+                            <td class="right-apply red"></td>
+                        </tr>
+                        <tr>
+                            <td>手机号：133759279</td>
+                            <td class="right-apply">2016-04-23</td>
+                        </tr>
+                    </table>
+
+                </a>
+            </li>
+            <li>
+                <a>
+
+                    <table>
+                        <tr>
+                            <td  rowspan="3" class="head-img">
+                                <img src="images/test-img/goods.png">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>王八厅</td>
+                            <td class="right-apply red"></td>
+                        </tr>
+                        <tr>
+                            <td>手机号：133759279</td>
+                            <td class="right-apply">2016-04-23</td>
+                        </tr>
+                    </table>
+
+                </a>
+            </li>
+        </ul>
+    </div>
+</section>
+</body>
+<script src="js/common/jquery.min.js"></script>
+<script>
+    $(document).bind('mobileinit', function () {
+        $.mobile.changePage.defaults.changeHash = false;
+        $.mobile.hashListeningEnabled = false;
+        $.mobile.pushStateEnabled = false;
+    });
+</script>
+<script src="js/common/jquery.mobile-1.4.5.min.js"></script>
+<script src="js/common/common.js"></script>
+</html>

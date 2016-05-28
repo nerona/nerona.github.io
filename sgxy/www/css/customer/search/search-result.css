@@ -1,0 +1,257 @@
+﻿a:link,a:visited{
+    text-decoration:none;
+    color:black;
+}
+.search-result-main {
+    background: #ffffff;
+}
+.ui-icon-splb-fl:after{
+    background:url('../../../images/hdpi/splb_fl.png') no-repeat  right;
+    background-size: contain;
+    top: 6px;
+}
+
+.ui-icon-splb-xs:after{
+    background: url('../../../images/hdpi/splb_xs.png') no-repeat right;
+    background-size: contain;
+}
+.ui-icon-splb-xx:after{
+    background: url('../../../images/hdpi/splb_xx.png') no-repeat right;
+    background-size: contain;
+}
+.ui-icon-splb-sx:after{
+    background: url('../../../images/hdpi/splb_sx.png') no-repeat right;
+    background-size: contain;
+}
+.ui-btn-icon-left:after, .ui-btn-icon-right:after, .ui-btn-icon-top:after, .ui-btn-icon-bottom:after, .ui-btn-icon-notext:after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 37px;
+    height: 25px;
+    top: 6px;
+}
+#my-navbarId {
+    background: #ffffff!important;
+}
+#my-navbarId a{
+    text-align: left;
+    width: 61px;
+    background-color: #ffffff;
+}
+.
+.ui-btn-icon-top {
+    padding-top: 0.7em;
+}
+.ui-navbar li .ui-btn {
+    font-size: 1.6rem;
+}
+.ui-btn-icon-left:after, .ui-btn-icon-right:after, .ui-btn-icon-top:after, .ui-btn-icon-bottom:after, .ui-btn-icon-notext:after {
+    -webkit-border-radius: 0em;
+    border-radius: 0em;
+}
+#my-navbarId,.ui-btn, label.ui-btn{
+    border: none;
+}
+
+.ui-page-theme-a .ui-btn.ui-btn-active, html .ui-bar-a .ui-btn.ui-btn-active, html .ui-body-a .ui-btn.ui-btn-active, html body .ui-group-theme-a .ui-btn.ui-btn-active, html head+body .ui-btn.ui-btn-a.ui-btn-active, .ui-page-theme-a .ui-checkbox-on:after, html .ui-bar-a .ui-checkbox-on:after, html .ui-body-a .ui-checkbox-on:after, html body .ui-group-theme-a .ui-checkbox-on:after, .ui-btn.ui-checkbox-on.ui-btn-a:after, .ui-page-theme-a .ui-flipswitch-active, html .ui-bar-a .ui-flipswitch-active, html .ui-body-a .ui-flipswitch-active, html body .ui-group-theme-a .ui-flipswitch-active, html body .ui-flipswitch.ui-bar-a.ui-flipswitch-active, .ui-page-theme-a .ui-slider-track .ui-btn-active, html .ui-bar-a .ui-slider-track .ui-btn-active, html .ui-body-a .ui-slider-track .ui-btn-active, html body .ui-group-theme-a .ui-slider-track .ui-btn-active, html body div.ui-slider-track.ui-body-a .ui-btn-active {
+    background-color: inherit;
+    border-color: inherit;
+    color: #000;
+    text-shadow: none;
+}
+.ui-page-theme-a .ui-btn:focus, html .ui-bar-a .ui-btn:focus, html .ui-body-a .ui-btn:focus, html body .ui-group-theme-a .ui-btn:focus, html head+body .ui-btn.ui-btn-a:focus, .ui-page-theme-a .ui-focus, html .ui-bar-a .ui-focus, html .ui-body-a .ui-focus, html body .ui-group-theme-a .ui-focus, html head+body .ui-btn-a.ui-focus, html head+body .ui-body-a.ui-focus {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: 0 0 12px #38c;
+    /* box-shadow: 0 0 12px #38c; */
+}
+#good-grid-id .good-grid-a img{
+    width:100%;
+}
+#good-grid-id .good-grid-b,#good-grid-id .good-grid-c {
+    height: 3rem;
+    line-height: 3rem;
+}
+
+.ui-popup-container .ui-popup-active{
+    left: 0px;
+}
+#splb-fl-popup-popup{
+    left: 0px;
+}
+#splb-fl-popup{
+    margin-top: 1.7rem;
+}
+.ok-order-btn,.del-order-btn  {
+    padding: 5px 18px;
+    font-size: 1.2rem;
+}
+.menu-div {
+    position: absolute;
+    background: #fff;
+    z-index: 100;
+    display: none;
+    width: 100%;
+}
+#menu-b li{
+    background-color: #F2F2F2;
+}
+#menu-c li{
+    background-color: #E6E6E6;
+}
+#bottom-btn{
+    float:right;
+}
+#searchFilterPopup{
+    border-top: 1px solid #999999;
+}
+#searchFilterPopup form{
+    font-size: 1.5rem;
+}
+#searchFilterPopup span{
+    margin-left: 0.5rem;
+}
+#searchFilterPopup .ui-grid-b div{
+    height: 3rem;
+}
+fieldset {
+    width: 100%;
+}
+form {
+    background-color: #fff;
+}
+.ui-controlgroup, fieldset.ui-controlgroup {
+    margin: 0 1rem 2rem 0;
+}
+.ui-btn-icon-top {
+    padding: 10px;
+}
+#priceGroupId{
+    margin-top: 1rem;
+    background-color: #ffffff;
+}
+#priceGroupId input{
+    margin-left: 1rem;
+    margin-right: 1rem;
+    width: 10rem;
+}
+.ui-controlgroup-controls{
+    background-color: #fff;
+    margin: 0 5px;
+}
+.ui-mobile label, div.ui-controlgroup-label{
+    font-size: 1.4rem;
+}
+
+#searchFilterPopup form, button, .ui-btn {
+    line-height: 100%;
+    font-family: sans-serif;
+    word-wrap: normal;
+    font-style: normal;
+}
+#good-grid-id ul {
+ padding:0 10px;
+}
+#good-grid-id li:nth-child(2n){
+    float: left;
+    width: 49%;
+    list-style-type:none;
+    background: #ffffff!important;
+    margin-bottom: 5px;
+    border-radius:2px ;
+}
+#good-grid-id li:nth-child(2n+1){
+    float: right;
+    width: 49%;
+    list-style-type:none;
+    background: #ffffff!important;
+    margin-bottom: 5px;
+    border-radius:2px ;
+}
+#good-grid-id ul>div {
+    padding: 5px;
+}
+#good-grid-id .good-grid-info div:not(:first-child) {
+    padding: 5px;
+}
+#good-grid-id .good-grid-a+div span {
+    display: inline-block;
+    width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    overflow: hidden;
+}
+#good-grid-id .good-grid-a img {
+    width: 100%;
+    max-height: 300px;
+}
+#good-grid-id .good-grid-info {
+    color: #000!important;
+}
+#good-grid-id .good-grid-b span:last-child,.good-grid-c span:last-child {
+    display: inline-block;
+    float: right;
+    width: 3rem;
+    height: 3rem;
+
+}
+#good-grid-id .good-grid-c>span,#good-grid-id .good-grid-b>span,#good-grid-id .good-grid-c>span>em,#good-grid-id .good-grid-b>span>em {
+    color: #999;
+    font-size: 1.4rem;
+}
+#good-grid-id .good-grid-c>span>em {
+    font-size: 20px;
+    color: #FF5555;
+}
+#good-grid-id .good-grid-b span:last-child img {
+    width: 100%;
+}
+#good-grid-id .good-grid-c>span {
+    width: auto;
+}
+
+.ui-content{
+    padding-top:0px;
+}
+#filter-group {
+    margin:0 1rem 1rem 0;
+}
+#priceGroupId{
+    margin-top: 0px;
+}
+#priceGroupId span,#priceGroupId input{
+    float:left;
+    line-height: 2rem;
+   margin: 0 0 0 5px;
+}
+#priceGroupId input{
+    width: 29%;
+    border-radius:7px;
+    background-color: #E8E4E4;
+    border: 0; /* 方法1 */
+    -webkit-appearance: none; /* 方法2 */
+}
+
+.filter-title-c{
+    margin-top: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 0.6rem;
+    margin-left: 2rem;
+}
+#bottom-btn {
+    background-color: #fff;
+}
+#bottom-btn input{
+    border-radius: 6px;
+    margin-bottom: 0.7rem;
+    margin-right: 1rem;
+}
+
+#teaNavbarPopup table {
+    border-collapse: collapse;
+}
+#teaNavbarPopup table td {
+    height: 2.5rem;
+    padding-left: 1rem;
+}

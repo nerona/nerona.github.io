@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5,maximum-scale=0.65 , user-scalable=0">
+    <base href="../../../"/>
+    <link rel="stylesheet" href="css/common/jquery.mobile-1.4.5.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/common/common.css" />
+    <link rel="stylesheet" href="css/style2.css"/>
+</head>
+<style>
+    .about-main,body {
+        text-align: center;
+        border: 0;
+        margin: 0;
+        background-color: #ffffff;
+    }
+    .share-bottom-bar-a {
+        height: 68px;
+        width: 30px;
+        background: url("imgs/an/hdpi/yxtg_fx.png") no-repeat;
+        background-position-y: 12px;
+        background-size: 50px;
+    }
+    .img-wfb {
+        max-height:150px;
+        max-width: 150px;
+        display: inline-flex;
+        margin-top:50px ;
+    }
+    .img-wfb img {
+        width: 100%;
+        border-radius: 10px;
+    }
+    .footer-content {
+        /*margin-top:90% ;*/
+        padding-bottom:10% ;
+    }
+</style>
+<body>
+<section data-role="header" data-theme="b" class="my-header" id="my-header">
+    <a href="javascript:history.back();" data-rel="back" data-role="none" class="my-header-back-btn"></a>
+    <h2>关于我们</h2>
+    <a href="#" class="my-header-ddd-btn share-bottom-bar-a" id="share-bottom-bar-a" data-role="none"></a>
+</section>
+<section data-role="content" role="main" class ="about-main">
+    <div class="img-list">
+        <div class="img-wfb">
+            <img id="backImage"/>
+        </div>
+        <!--<div class="version-wfb">
+            <span>版本v1.0</span>
+        </div>-->
+
+        <div class="footer-content">
+        </div>
+    </div>
+</section>
+<div class="my-ui-share-bottom hidden" id="share-bottom-bar-div">
+
+    <div class="share-content">
+        <p>分享到</p>
+        <ul>
+            <li><a href="#"><img src="imgs/test-img/share-wx.png"/><span>微信</span></a></li>
+            <li><a href="#"><img src="imgs/test-img/share-fd.png"/><span>朋友圈</span></a></li>
+            <li><a href="#"><img src="imgs/test-img/share-sina.png"/><span>微博</span></a></li>
+        </ul>
+    </div>
+</div>
+</body>
+<script src="js/common/jquery.min.js"></script>
+<script src="js/common/common.js"></script>
+<script>
+    $(document).bind('mobileinit', function () {
+        $.mobile.changePage.defaults.changeHash = false;
+        $.mobile.hashListeningEnabled = false;
+        $.mobile.pushStateEnabled = false;
+    });
+    $(function () {
+        var url = Util.common.baseUrl +"/module/text/mobile/our.do";
+        var param = {};
+        // {"id":"3453453543","type":1,"fileUrl":"http://7xk1l7.dl1.z0.glb.clouddn.com/146234630170241a3157.jpg","content":"346t3454646456456"}
+        Util.common.executeAjaxCallback(url ,param,function(data){
+            //执行提交后台后代码
+            //data = {"id":"3453453543","type":1,"fileUrl":"imgs/test-img/about.png","content":"346t3454646456456"};
+            $("#backImage").attr('src',data.fileUrl);
+            $(".footer-content").html(data.content);
+        })
+    });
+</script>
+<script src="js/common/jquery.mobile-1.4.5.min.js"></script>
+<script src="js/business/common/common.js"></script>
+</html>

@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8"/>
+<meta charset="utf-8"/>
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.5,maximum-scale=0.65 , user-scalable=0">
+<base href="../../../"/>
+<link rel="stylesheet" href="css/common/jquery.mobile-1.4.5.min.css"/>
+<link rel="stylesheet" type="text/css" href="css/common/common.css" />
+<link rel="stylesheet" href="css/style2.css"/>
+<link rel="stylesheet" type="text/css" href="css/common/flexslider.css" />
+<link rel="stylesheet" href="css/business/activity/details.css"/>
+</head>
+<body>
+<div data-role="page" class="jqm-main" data-quicklinks="true">
+    <section data-role="header" data-theme="b" class="my-header" id="my-header">
+        <a href="javascript:history.back();" data-rel="back" data-role="none" class="my-header-back-btn"></a>
+        <h2>活动详情</h2>
+        <a href="#" class="my-header-ddd-btn share-bottom-bar-a my-header-share-a" id="share-bottom-bar-a" data-role="none"></a>
+    </section>
+    <section data-role="content" role="main">
+        <!-- 幻灯片 开始 -->
+        <!--图片滚动-->
+        <div id="slider-content" class="flexslider">
+            <ul class="slides">
+                <!--<li><a href="#"><img src="images/test-img/sp-xq.png" /></a></li>
+                <li><a href="#"><img src="images/test-img/goods.png" /></a></li>
+                <li><a href="#"><img src="images/test-img/sp-xq.png" /></a></li>-->
+            </ul>
+        </div>
+        <div id="detailsId" class="activity-main">
+            <!--<ul>
+                <li class="activity-title">
+                    <img src="images/test-img/activity/activity.png" style="width: 100%;">
+                    <h1>【演出地点】华润深圳湾体育中心春茧大地广场（即春茧西门深圳湾木棉花酒店南侧</h1>
+                    <p class="bm-time-ps">报名截止时间：<em>2016-05-30 12:12:12</em> <span>15</span></p>
+                </li>
+                <li>
+                    <a href="#" class="btn-right-a activity-address-a" data-role="none"><span>北京市东花市北里20号楼6单元501室</span></a>
+                </li>
+                <li>
+                    <p class="activity-bm-time"> <span>2016-05-30 12:12:12</span></p>
+                </li>
+                <li style="border: none">
+                    <p class="activity-bm-type"><span>户外旅行</span></p>
+                </li>
+            </ul>
+            <div style="clear: both"></div>
+            <dl>
+                <dd >
+                    <h3>活动介绍</h3>
+                </dd>
+
+                <dd style="border-top:1px solid #eee;">
+                    <p>主办方介绍，组织者:<span>张毅</span></p>
+                    <p>主办地点：<span>深圳俱乐部（室外）</span></p>
+                    <p>集合地点：<span>华润深圳湾体育中心春茧大地广场</span></p>
+                </dd>
+            </dl>
+            <dl>
+                <dd style="padding: 0 25px">
+                    <h3>主办方</h3> <span style="float: right;line-height: 55px ">张毅</span>
+                </dd>
+            </dl>
+            <dl>
+                <dd style="padding: 0 25px">
+                    <h3>报名人数</h3><a href="#" class="btn-right-a btn-bm-num-a" data-role="none"> <span>3人</span></a>
+                </dd>
+            </dl>-->
+        </div>
+
+        <dl>
+            <dd style="padding: 0 25px">
+                <h3>评论</h3>
+            </dd>
+            <dd style="border-top: 1px solid #eee" class="ac-comment-ul">
+                <ul class="my-apply-list-view" id="commentId">
+                    <!--
+                <li>
+                    <a>
+                        <table>
+                            <tr>
+                                <td  rowspan="3" class="head-img">
+                                    <img src="images/test-img/goods.png">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="right-apply" colspan="2">2016-04-23</td>
+                            </tr>
+                            <tr>
+                                <td><b>幻听一直都在：</b></td>
+                                <td class="right-apply"></td>
+                            </tr>
+0                                <td></td>
+                                <td colspan="2" class="judge-content">手机号：133759279手机号：133759279手机号：133759279手机号：133759279手机号：133759279手机号：133759279手机号：133759279手机号：133759279133759279手机号：133759279手机号：133759279</td>
+                            </tr>
+                        </table>
+                    </a>
+                </li>
+                    <li>
+                        <a>
+                            <table>
+                                <tr>
+                                    <td  rowspan="3" class="head-img">
+                                        <img src="images/test-img/goods.png">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="right-apply" colspan="2">2016-04-23</td>
+                                </tr>
+                                <tr>
+                                    <td><b>幻听一直都在：</b></td>
+                                    <td class="right-apply"></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td colspan="2" class="judge-content">手机号：133759279手机号：133759279手机号：133759279手机号：133759279手机号：133759279手机号：133759279手机号：133759279手机号：133759279133759279手机号：133759279手机号：133759279</td>
+                                </tr>
+                            </table>
+                        </a>
+                    </li>
+                    <li>
+                        <a>
+                            <table>
+                                <tr>
+                                    <td  rowspan="3" class="head-img">
+                                        <img src="images/test-img/goods.png">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="right-apply" colspan="2">2016-04-23</td>
+                                </tr>
+                                <tr>
+                                    <td><b>幻听一直都在：</b></td>
+                                    <td class="right-apply"></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td colspan="2" class="judge-content">手机号：133759279手机号：133759279手机号：133759279手机号：133759279手机号：133759279手机号：133759279手机号：133759279手机号：133759279133759279手机号：133759279手机号：133759279</td>
+                                </tr>
+                            </table>
+                        </a>
+                    </li>-->
+                </ul>
+            </dd>
+        </dl>
+    </section>
+
+    <section  data-role="footer"  data-disable-page-zoom="false" data-position="fixed" class="my-ui-footer-bar" style="background-color: #ffffff;">
+        <ul>
+            <li>
+                <input type="text" data-role="none" class="ext-text-eee" id="public_comment_text" style="height: 2rem" placeholder="说点什么吧..."/>
+                <a href="#" class="judge-put-a" onclick="business.activityDetails.publishComment();"><b>发表</b></a></li>
+        </ul>
+    </section>
+
+
+    <div class="my-ui-share-bottom hidden" id="share-bottom-bar-div">
+
+        <div class="share-content">
+            <p>分享到</p>
+            <ul>
+                <li><a href="#"><img src="imgs/test-img/share-wx.png"/><span>微信</span></a></li>
+                <li><a href="#"><img src="imgs/test-img/share-fd.png"/><span>朋友圈</span></a></li>
+                <li><a href="#"><img src="imgs/test-img/share-sina.png"/><span>微博</span></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--<div class="my-activity-bm-btn">
+    <a href="#" ></a>
+</div>-->
+</body>
+
+<script src="js/common/jquery.min.js"></script>
+<script>
+    $(document).bind('mobileinit', function () {
+        $.mobile.changePage.defaults.changeHash = false;
+        $.mobile.hashListeningEnabled = false;
+        $.mobile.pushStateEnabled = false;
+    });
+    $(function () {
+        $(".judge-put-a").on("click", function () {
+            $("#my-bm-ok-popup").popup("open");
+        });
+        $(".ok-order-btn-radius").on("click",function () {
+            $("#my-bm-ok-popup").popup("close");
+        });
+        var myPopup = '  <div data-role="popup" id="my-bm-ok-popup" style="{parent_style}" data-dismissible="false" class="text-center">'+
+                '<a href="#" data-rel="back" class="ui-btn-right dialog_close"><img src="{dialog_close}"/></a>'+
+                '<div class="my-popup-img-notice"><img src="{notice_img}"/></div>'+
+                '<p class="text-center">{notice_title}</p>'+
+                '<p class="text-center">{notice_content}</p>'+
+                '<p class="ok-btn-container" style="margin-top: 10px">'
+                '<a href="#" data-role="none" class="ok-order-btn-radius" >确 定</a> </p> </div>';
+
+       var options = {
+                 parent_width:0.8,
+                 //parent_height:0.5,
+                 parent_background:'#fff',
+                 id:'my-bm-ok-popup',
+                 parent_opacity:1,
+                 dialog_close:{
+                     status:true,
+                 //    imgUrl:''
+                   },
+                content:{
+                    notice_img:'',
+                    notice_title:'提示',
+                    notice_content:'添加成功啦'
+                },
+               buttons:{
+                 ok:{
+                     status:true,
+                      style:''
+                  } ,
+                  cancel:{
+                      status:true,
+                      style:''
+                  }
+                  /*, diy_btn:{
+                       style:'',
+                       class:'',
+                       text:'diy'
+                   }*/
+               }
+       }
+        showPopup(options);
+    });
+    function showPopup(options) {
+       var default_ok_btn_class='ok-btn-c-dialog';
+        var default_cancel_btn_class='cancel-btn-c-dialog';
+        var default_div_style = 'width: 100%;text-align: center;';
+        var str = '<div data-position-to="window" data-role="popup" id="{id}" style="{parent_style}" data-dismissible="false" >';
+        var parent_style = 'margin-right: auto;margin-left: auto;padding: 20px;';
+        if(typeof(options.parent_width)=='undefined'){
+            options.parent_width = screen.width*0.8+'px';
+        }else {
+            options.parent_width = screen.width*options.parent_width+'px';
+        }
+        if(typeof(options.parent_height)=='undefined'){
+            options.parent_height = 'auto';
+        }else {
+            options.parent_height = screen.height*options.parent_height+'px';
+        }
+        if(typeof(options.parent_background)=='undefined'){
+            options.parent_background = '#fff';
+        }
+        if(typeof(options.parent_opacity)=='undefined'){
+            options.parent_opacity = 1;
+        }
+        if(typeof(options.id)=='undefined' ){
+            options.id= 'my-ok-popup-xxj';
+        }
+        parent_style += 'width:'+options.parent_width+';'+'height:'+options.parent_height+';'+'background:'+options.parent_background+';'
+                      +'opacity:'+options.parent_opacity;
+        str = str.replace(/\{parent_style\}/,parent_style).replace(/\{id\}/,options.id);
+        if(typeof(options.dialog_close)!='undefined'){
+            if(typeof(options.dialog_close.imgUrl)=='undefined'){
+               options.dialog_close.imgUrl = 'imgs/an/hdpi/home_dc.png';
+            }
+            str +='<a href="#" data-rel="back" class="ui-btn-right dialog_close" style="right:0;top:0;"><img src="'+options.dialog_close.imgUrl+'"/></a>';
+        }
+        if(typeof(options.content.notice_img)!='undefined'){
+            str += '<div class="my-popup-notice-img" style="'+default_div_style+'"><img src="'+options.content.notice_img+'"/></div>';
+        }
+        if(typeof(options.content.notice_title)!='undefined'){
+            str += '<div class="my-popup-notice-title" style="margin-top: 20px;'+default_div_style+'">'+options.content.notice_title+'</div>';
+        }
+        if(typeof(options.content.notice_content)=='undefined'){
+            options.content.notice_content = 'success';
+        }
+        str += '<div class="my-popup-notice-content" style="margin-top: 20px;'+default_div_style+'">'+options.content.notice_content+'</div>';
+        if(typeof(options.buttons)=='undefined'){
+           options.buttons = {
+               ok:{
+                 status:true,
+                  style:''
+               }
+           };
+        }
+        str += '<div class="my-popup-btn" style="bottom: 35px;text-align: center;display: inline-block;width: 100%;margin-top: 40px;">';
+        if(typeof(options.buttons.ok)!='undefined'&&options.buttons.ok.status) {
+            var ok_btn_style = 'margin: 0 5px;';
+            var ok_btn_class = default_ok_btn_class;
+            if(typeof (options.buttons.ok.style)!='undefined') {
+                ok_btn_style += options.buttons.ok.style;
+            }
+            if(typeof (options.buttons.ok.class)!='undefined') {
+                ok_btn_class = options.buttons.ok.class;
+            }
+         str += '<a href="#" data-role="none" class="'+ok_btn_class+'" style="'+ok_btn_style+'">确 定</a>';
+        }
+        if(typeof (options.buttons.cancel)!='undefined'){
+            var cancel_class = default_cancel_btn_class;
+            var cancel_btn_style = 'margin: 0 5px;'+options.buttons.cancel.style;
+            if(typeof(options.buttons.cancel.class)!='undefined' ) {
+                cancel_class = options.buttons.cancel.class;
+            }
+            str += '<a href="#" data-role="none" class="'+cancel_class+'" style="'+cancel_btn_style+'">取消</a>';
+        }
+        if(typeof (options.buttons.diy_btn)!='undefined'){
+            str += '<a href="#" data-role="none" class="'+options.buttons.diy_btn.class+'" style="'+options.buttons.diy_btn.style+'">'+options.buttons.diy_btn.text+'</a>';
+        }
+        str +='</div></div>';
+        console.log(str);
+        var popup = $(str);
+      //  $.mobile.activePage.append(popup);
+        $("body").append(popup);
+        popup.popup();
+        $("#"+options.id).popup("open");
+    }
+</script>
+<script src="js/common/jquery.mobile-1.4.5.min.js"></script>
+<script src="js/business/common/common.js"></script>
+<script src="js/slider/jquery.flexslider-min.js"></script>
+<script src="js/common/jquery.tmpl.min.js"></script>
+<script src="js/common/common.js"></script>
+<script src="js/business/activity/details.js"></script>
+</html>
+<!--初始化幻灯片-->
+<!--图片滚动-->
+<script type="text/x-jquery-tmpl" id="activity_images_t">
+      {{each(i,data) image}}
+        <li style="width: 100%; float: left; margin-right: -100%; position: relative; opacity: {{if i==0}}1{{/if}}{{if i!=0}}0{{/if}}; display: block; transition: opacity 0.8s ease; z-index: {{if i==0}}2{{/if}}{{if i!=0}}1{{/if}};" class="{{if i==0}}flex-active-slide{{/if}}">
+             <img src="${data.picUrl}" draggable="false">
+        </li>
+      {{/each}}
+</script>
+<!--活动信息-->
+<script type="text/x-jquery-tmpl" id="activity_details_t">
+               <ul>
+            <li class="activity-title">
+             <input type="text" id="bm_activity_id" value="${id}"/>
+                <h1>${title}</h1>
+                <p class="bm-time-ps">报名截止时间：<em>${regEndTime}</em> <span>${participation}</span></p>
+            </li>
+            <li>
+                <a href="#" class="btn-right-a activity-address-a" data-role="none" onclick="business.activityDetails.showMap(${activityLongitude},${activityLatitude})"><span>${activityAddress}</span></a>
+            </li>
+            <li>
+             <p class="activity-bm-time"> <span>${beginTime}</span></p>
+            </li>
+            <li style="border: none">
+                <p class="activity-bm-type"><span>${typeName}</span></p>
+            </li>
+        </ul>
+        <div style="clear: both"></div>
+      <dl>
+          <dd>
+            <h3>活动介绍</h3>
+          </dd>
+          <dd style="border-top:1px solid #eee;">
+              <p>主办方介绍，组织者:<span>${sponsorName}</span></p>
+              <p>主办地点：<span>${createAddress}</span></p>
+              <p>集合地点：<span>${activityAddress}</span></p>
+          </dd>
+      </dl>
+        <dl>
+            <dd style="padding: 0 25px">
+                <h3>主办方</h3> <span style="float: right;line-height: 55px ">${sponsorName}</span>
+            </dd>
+        </dl>
+        <dl>
+            <dd style="padding: 0 25px">
+                <h3>报名人数</h3><a href="html/business/activity/apply-list.html?id=${id}"  target="_top" class="btn-right-a btn-bm-num-a" data-role="none"> <span>3人</span></a>
+            </dd>
+        </dl>
+</script>
+<!--活动评论-->
+<script type="text/x-jquery-tmpl" id="activity_comment_t">
+<li>
+    <div class="comment-info">
+        <span class="left-apply"><img src="${headImgUrl}"></span>
+        <span class="left-apply comment-align"><b>${nickname}</b></span>
+        <span class="right-apply comment-align">2016-04-23</span>
+    </div>
+    <div style="clear: both;"></div>
+    <div class="judge-content">
+        ${content}
+    </div>
+</li>
+</script>

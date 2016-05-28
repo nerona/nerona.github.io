@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8"/>
+<meta charset="utf-8"/>
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.5,maximum-scale=1.0 , user-scalable=0">
+<base href="../../../"/>
+<link rel="stylesheet" href="css/common/jquery.mobile-1.4.5.min.css"/>
+<link rel="stylesheet" href="css/style-final.css"/>
+<link rel="stylesheet" href="css/customer/order/judge.css"/>
+</head>
+<body>
+<div data-role="page" class="jqm-main" data-quicklinks="true">
+    <section data-role="header" data-theme="b" class="my-header" id="my-header">
+        <a href="javascript:history.back();"  data-role="none" class="my-header-back-btn"></a>
+        <h2>评价</h2>
+        <a href="#" class="my-header-right-btn-ad" data-role="none"><span>.</span><span>.</span><span>.</span></a>
+    </section>
+    <section data-role="content" role="main" data-theme="a" class="judge-main">
+        <dl class="judge-img-star">
+            <dt><img  src="images/test-img/goods.png"></dt>
+            <dd>
+            <p>云南七子叶茶</p>
+            <p >
+                <span class="score-text">评分:</span>
+            <span class="judge-main-score"><img src="images/hdpi/wddd_pj.png" index="0"><img src="images/hdpi/wddd_pj.png" index="1"><img src="images/hdpi/wddd_pj.png" index="2"><img src="images/hdpi/wddd_pj.png" index="3"><img src="images/hdpi/wddd_pj.png" index="4"></span>
+            </p>
+            </dd>
+        </dl>
+        <dl class="judge-content-dl">
+            <dd>
+                <p>评价内容</p>
+                <p><textarea cols="65"  data-role="none" placeholder="请输写下你对宝贝的评价吧~长度在1-500字" ></textarea></p>
+            <p> <img src="images/hdpi/wddd_pj_xj.png"></p>
+            </dd>
+        </dl>
+
+    </section>
+    <div class="nm-judge-checkbox-div">
+        <input type="checkbox" data-role="none" id="nm-judge-radio" class="ext-box-select"/><label for="nm-judge-radio">匿名评价</label>
+
+    </div>
+    <section  data-role="footer"  data-disable-page-zoom="false" data-tap-toggle="false" data-position="fixed" style="background-color: #ffffff;padding: 10px">
+
+        <a  href="#my-dialog-popup" data-rel="popup" data-position-to="window" data-role="none" class="ok-order-btn-r">提交</a>
+
+    </section>
+
+    <div data-role="popup"  id="my-dialog-popup" class="ui-content" data-dismissible="false" >
+        <a href="#" data-rel="back" class="ui-btn-right dialog_close"><img src="images/hdpi/ts_gb.png"/></a>
+        <p class="text-center img-p-notice">
+        </p>
+        <p class="text-center">提示</p>
+        <p class="text-center">评价已成功评价已成功评价已成功评价已成功！！</p>
+        <p class="text-center">
+            <a data-role="none" class="ok-order-btn">确定</a>
+        </p>
+    </div>
+</div>
+
+</body>
+
+<script src="js/common/jquery.min.js"></script>
+<script>
+    $(document).bind('mobileinit', function () {
+        $.mobile.changePage.defaults.changeHash = false;
+        $.mobile.hashListeningEnabled = false;
+        $.mobile.pushStateEnabled = false;
+    });
+
+</script>
+<script src="js/common/jquery.mobile-1.4.5.min.js"></script>
+<script src="js/customer/order/judge.js"></script>
+<script src="js/common/common.js"></script>
+
+</html>

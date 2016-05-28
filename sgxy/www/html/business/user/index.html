@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.5,maximum-scale=0.65, user-scalable=0">
+    <base href="../../../"/>
+    <link rel="stylesheet" href="css/common/jquery.mobile-1.4.5.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/common/common.css" />
+    <link rel="stylesheet" href="css/style2.css"/>
+    <link rel="stylesheet" href="css/business/user/index.css"/>
+</head>
+<body>
+<section data-role="header" data-theme="b" class="my-header" id="my-header">
+    <a href="javascript:history.back();" data-rel="back" data-role="none" class="my-header-back-btn"></a>
+    <h2>个人中心</h2>
+    <a href="#" target="_top" class="my-header-ddd-btn"  data-role="none" onclick="business.user.toSetting()"></a>
+</section>
+<section data-role="content" role="main" class ="my-info-main">
+
+    <!--<div class="my-info-header-img">
+     <div class="my-background">
+         <div>
+       <span class="my-header-img-span"><img src="imgs/an/hdpi/mrtx_80.png"/><a href="#"></a></span>
+         <p>张拉拉</p>
+         </div>
+     </div>
+    </div>
+    <div class="my-info-menu">
+        <ul>
+            <li class="my-order">
+                <a href="html/business/order/index.html"  class="btn-right-a" target="_top" ><span>我的订单</span></a>
+            </li>
+            <li class="my-account"><a href="html/customer/collection/index.html" class="btn-right-a" target="_top"
+                                         ><span>我的账户</span></a></li>
+            <li class="my-exchange-card"><a href="html/business/user/exchange-card-list.html" class="btn-right-a" target="_top"
+                                      data-dismissible="false" ><span>卡券兑换</span></a></li>
+            <li class="my-activity-bl-list"><a href="html/business/user/my-activity-list.html" class="btn-right-a" target="_top" data-dismissible="false"
+                                       ><span>创建的活动</span></a>
+            </li><li class="my-fans">
+            <a href="html/business/user/fans.html" class="btn-right-a" target="_top" data-dismissible="false"
+                                       ><span>我的粉丝</span></a>
+          </li>
+        </ul>
+    </div>-->
+
+</section>
+</body>
+<script src="js/common/jquery.min.js"></script>
+<script>
+    $(document).bind('mobileinit', function () {
+        $.mobile.changePage.defaults.changeHash = false;
+        $.mobile.hashListeningEnabled = false;
+        $.mobile.pushStateEnabled = false;
+    });
+</script>
+<script src="js/common/jquery.mobile-1.4.5.min.js"></script>
+<script src="js/business/common/common.js"></script>
+<script src="js/common/common.js"></script>
+<script src="js/common/jquery.tmpl.min.js"></script>
+<script src="js/business/user/index.js"></script>
+</html>
+<!--初始化页面-->
+<script type="text/x-jquery-tmpl" id="index_t">
+	<div class="my-info-header-img">
+     <div class="my-background">
+         <div>
+       <span class="my-header-img-span"><img src="imgs/an/hdpi/mrtx_80.png"><a href="html/business/user/my-info.html?user=${userName}"  target="_top" class="ui-link"></a></span>
+         <p>${msg.userName}</p>
+         </div>
+     </div>
+    </div>
+    <div class="my-info-menu">
+        <ul>
+            <li class="my-order">
+                <a href="html/business/order/index.html?shopId=${msg.id}" class="btn-right-a ui-link" target="_top"><span>我的订单</span></a>
+            </li>
+            <li class="my-account"><a href="html/business/user/my-amount-info.html?shopId=${msg.id}" class="btn-right-a ui-link" target="_top"><span>我的账户</span></a></li>
+            <li class="my-exchange-card"><a href="html/business/user/exchange-card-list.html?shopId=${msg.id}" class="btn-right-a ui-link" target="_top" data-dismissible="false"><span>卡券兑换</span></a></li>
+            <li class="my-activity-bl-list"><a href="html/business/user/my-activity-list.html?shopId=${msg.id}" class="btn-right-a ui-link" target="_top" data-dismissible="false"><span>创建的活动</span></a>
+            </li><li class="my-fans">
+            <a href="html/business/user/fans.html?shopId=${msg.id}" class="btn-right-a ui-link" target="_top" data-dismissible="false"><span>我的粉丝</span></a>
+          </li>
+        </ul>
+    </div>
+</script>

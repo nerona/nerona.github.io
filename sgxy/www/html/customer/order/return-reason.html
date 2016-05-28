@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8" />
+ <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5,maximum-scale=1.0, user-scalable=0">
+<base href="../../../"/>
+  <link rel="stylesheet" href="css/common/jquery.mobile-1.4.5.min.css"/>
+  <link rel="stylesheet" href="css/style-final.css" />
+  <link rel="stylesheet" href="css/customer/order/address.css" />
+</head>
+<body>
+<div data-role="page" class="jqm-main" data-quicklinks="true">
+    <section data-role="header" data-theme="b" class="my-header" id="my-header">
+        <a href="javascript:history.back();"  data-role="none" class="my-header-back-btn"></a>
+        <h2>退货地址</h2>
+        <a href="#" class="my-header-right-btn-ad" data-role="none"><span>.</span><span>.</span><span>.</span></a>
+    </section>
+<section data-role="content" class="return-reason-main">
+<ul>
+    <li><label>退款原因：</label><a href="#" class="btn-right-a" id="return-cast-reason-a">与预期不符</a>
+    </li>
+    <li class="reason-li"><a href="#" class="reason"><span>与预期不符1</span></a></li>
+    <li  class="reason-li"><a href="#" class="reason"><span>与预期不符2</span></a></li>
+    <li  class="reason-li"><a href="#" class="reason"><span>与预期不符3</span></a></li>
+    <li  class="reason-li"><a href="#" class="reason"><span>与预期不符4</span></a></li>
+    <li  ><label>填写原因：</label>
+      <input type="text" class="reason-input" placeholder="请填写退款说明" data-role="none"/>
+    </li>
+</ul>
+
+
+
+</section>
+
+    </section>
+    <section  data-role="footer"  data-tap-toggle="false" data-disable-page-zoom="false" data-position="fixed" style="background-color: #ffffff;padding: 10px">
+
+        <a  href="#myPopup" data-rel="popup" data-position-to="window" data-role="none" class="ok-order-btn-r">提交退货</a>
+    </section>
+
+</div>
+
+</body>
+    
+     <script src="js/common/jquery.min.js"></script>
+ <script>
+    $(document).bind('mobileinit',function(){
+        $.mobile.changePage.defaults.changeHash = false;
+        $.mobile.hashListeningEnabled = false;
+        $.mobile.pushStateEnabled = false;
+    });
+    $(function () {
+        $(".reason").on("click",function () {
+             $("#return-cast-reason-a").html($(this).html());
+            $(".reason-li").hide();
+        });
+        $("#return-cast-reason-a").on("click",function () {
+            $(".reason-li").show();
+        });
+    });
+</script> 
+<script src="js/common/jquery.mobile-1.4.5.min.js" ></script>
+<script src="js/common/common.js"></script>
+
+</html>

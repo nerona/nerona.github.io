@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.5,maximum-scale=0.65 , user-scalable=0">
+    <base href="../../../"/>
+    <link rel="stylesheet" href="css/common/jquery.mobile-1.4.5.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/common/common.css" />
+    <link rel="stylesheet" href="css/style2.css"/>
+    <link rel="stylesheet" href="css/business/user/settings.css"/>
+</head>
+<body>
+<section data-role="header" data-theme="b" class="my-header" id="my-header">
+    <a href="javascript:history.back();" data-rel="back" data-role="none" class="my-header-back-btn"></a>
+    <h2>设置</h2>
+</section>
+<section data-role="content" role="main" class ="settings-main">
+<ul>
+    <li><a href="#" class="btn-right-a notice-settings"><span></span>消息托送设置</a></li>
+    <li><a href="html/business/user/edit-password-send.html" target="_top" class="btn-right-a edit-password"><span></span>修改密码 </a></li>
+    <li><a href="html/business/user/suggestions.html" target="_top" class="btn-right-a suggestions"><span></span>意见反馈 </a></li>
+    <li><a href="html/business/user/about.html"  target="_top" class="btn-right-a about"><span></span>关于我们 </a></li>
+    <li> <a href="html/business/user/agreement.html" target="_top" class="btn-right-a agreement"> <span></span>服务协议</a></li>
+    <li><a href=""  target="_top" class="btn-right-a check-update"><span></span>检查版本更新 <span class="text-right">v1.2</span></a></li>
+    <li><a href="" target="_top" class="btn-right-a clear-cache"><span></span> 清除缓存 <span class="text-right">1.4M</span></a></li>
+</ul>
+</section>
+<section class="login-out">
+    <div>
+        <a href="#" onclick="loginOut()">退出</a>
+    </div>
+</section>
+</body>
+<script src="js/common/jquery.min.js"></script>
+<script>
+    $(document).bind('mobileinit', function () {
+        $.mobile.changePage.defaults.changeHash = false;
+        $.mobile.hashListeningEnabled = false;
+        $.mobile.pushStateEnabled = false;
+    });
+    $(function () {
+        $(".my-header-edit").on("click",function () {
+         $(".my-ui-share-bottom").show();
+         });
+    });
+    //清除本地存储
+    function loginOut(){
+        //var userName = Util.common.getParameter("userInfo");
+        localStorage.clear();
+        //没取到缓存数据，跨回登录页面
+        document.location.href="html/business/user/login.html";
+    }
+
+</script>
+<script src="js/common/jquery.mobile-1.4.5.min.js"></script>
+<script src="js/business/common/common.js"></script>
+<script src="js/common/common.js"></script>
+</html>

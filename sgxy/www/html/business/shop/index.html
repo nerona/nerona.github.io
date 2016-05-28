@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <!--<meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.5,maximum-scale=0.65 , user-scalable=0">-->
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=0,minimal-ui">
+    <base href="../../../"/>
+    <link rel="stylesheet" href="css/common/jquery.mobile-1.4.5.min.css"/>
+    <link rel="stylesheet" href="css/style_index.css"/>
+    <link rel="stylesheet" href="css/business/shop/index.css"/>
+</head>
+<body>
+<section data-role="header" data-theme="b" class="my-header" id="my-header">
+    <h2>中国茶商</h2>
+</section>
+<section data-role="content" role="main" class="index_shop_main"  id="shopInfo">
+    <!--<fieldset>
+        <div class="shop-header-img">
+        <a href="#" data-role="none"><img src="imgs/test-img/header.png" /></a>
+        </div>
+        <div style="margin-top: 100px">
+            <h1>店铺名称</h1>
+        </div>
+        <div class="show-shop-num-div">
+            <div >
+                <h3>今日订单数</h3>
+                <h3 class="cFF5555">24</h3>
+                <h3>累计订单数</h3>
+                <h3 class="cFF5555">124</h3>
+            </div>
+            <div style="border-left: 2px dashed #bbb;">
+                <h3>今日交易额</h3>
+                <h3 class="cFF5555">4545</h3>
+                <h3>累计交易额</h3>
+                <h3 class="cFF5555">123455</h3>
+            </div>
+        </div>
+    </fieldset>
+    <div class="index-m-shop-bar">
+        <table>
+            <colgroup>
+                <col width="33%"/>
+                <col width="33%"/>
+                <col width="33%"/>
+            </colgroup>
+            <tr>
+                <td>
+                    <a href="html/business/shop/manager-shop.html" target="_top"><img src="imgs/an/hdpi/home_dpgl.png"/></a>
+                    <h3>店铺管理</h3>
+                </td>
+                <td>
+                    <a href="#"><img src="imgs/an/hdpi/home_hdbl.png"/></a>
+                    <h3>活动部落</h3>
+                </td>
+                <td>
+                    <a href="#"><img src="imgs/an/hdpi/home_yxtg.png"/></a>
+                    <h3>营销推广</h3>
+                </td>
+            </tr>
+            <tr class="down-tr-b">
+                <td>
+                    <a href="#"><img src="imgs/an/hdpi/home_xxly.png"/></a>
+                   <h3>学校乐园</h3>
+                </td>
+                <td>
+                    <a href="#"><img src="imgs/an/hdpi/home_grzx.png"/></a>
+                  <h3>个人中心</h3>
+                </td>
+                <td>
+                    <a href="#"><img src="imgs/an/hdpi/home_gd.png"/></a>
+                <h3>更多</h3>
+                </td>
+            </tr>
+
+
+        </table>
+
+    </div>-->
+    <div class="show-shop-num-div">
+        <div>
+            <h3>今日订单数</h3>
+            <h3 class="cFF5555">24</h3>
+            <h3>累计订单数</h3>
+            <h3 class="cFF5555">124</h3>
+        </div>
+        <div style="border-left: 2px dashed #bbb;">
+            <h3>今日交易额</h3>
+            <h3 class="cFF5555">4545</h3>
+            <h3>累计交易额</h3>
+            <h3 class="cFF5555">123455</h3>
+        </div>
+    </div>
+</section>
+</body>
+<script src="js/common/jquery.min.js"></script>
+<script>
+    $(document).bind('mobileinit', function () {
+        $.mobile.changePage.defaults.changeHash = false;
+        $.mobile.hashListeningEnabled = false;
+        $.mobile.pushStateEnabled = false;
+    });
+</script>
+<script src="js/common/jquery.mobile-1.4.5.min.js"></script>
+<script src="js/business/common/common.js"></script>
+<script src="js/common/common.js"></script>
+<script src="js/common/jquery.tmpl.min.js"></script>
+<script src="js/business/shop/index.js"></script>
+</html>
+
+<!--初始化页面-->
+<script type="text/x-jquery-tmpl" id="shopInfo_t">
+    <fieldset>
+        <div class="shop-header-img">
+        <a href="#" data-role="none"><img src="${msg.headImgUrl}"></a>
+        </div>
+        <div style="margin-top: 4rem">
+            <h1>${msg.name}</h1>
+        </div>
+        <div class="show-shop-num-div">
+            <div>
+                <h3>今日订单数</h3>
+                <h3 class="cFF5555">${orderTotal.todayNumTotal}</h3>
+                <h3>累计订单数</h3>
+                <h3 class="cFF5555">${orderTotal.historyNumTotal}</h3>
+            </div>
+            <div style="border-left: 1px dashed #bbb;">
+                <h3>昨日交易额</h3>
+                <h3 class="cFF5555">${orderTotal.tomorowAmtTotal}</h3>
+                <h3>累计交易额</h3>
+                <h3 class="cFF5555">${orderTotal.hostoryAmtTotal}</h3>
+            </div>
+        </div>
+     </fieldset>
+        <div class="index-m-shop-bar">
+        <table>
+            <colgroup>
+                <col width="33%">
+                <col width="33%">
+                <col width="33%">
+            </colgroup>
+            <tbody><tr>
+                <td>
+                    <a href="html/business/shop/manager-shop.html?shopId=${msg.id}" target="_top" class="ui-link"><img src="imgs/an/hdpi/home_dpgl.png"></a>
+                    <h3>店铺管理</h3>
+                </td>
+                <td>
+                    <a href="html/business/activity/activity-bl-list.html?shopId=${msg.id}&user=${userName}" target="_top" class="ui-link"><img src="imgs/an/hdpi/home_hdbl.png"></a>
+                    <h3>活动部落</h3>
+                </td>
+                <td>
+                    <a href="html/business/share/share-list.html?shopId=${msg.id}" target="_top" class="ui-link"><img src="imgs/an/hdpi/home_yxtg.png"></a>
+                    <h3>营销推广</h3>
+                </td>
+            </tr>
+            <tr class="down-tr-b">
+                <td>
+                    <a href="html/business/study/study-list.html?shopId=${msg.id}" target="_top" class="ui-link"><img src="imgs/an/hdpi/home_xxly.png"></a>
+                   <h3>学习乐园</h3>
+                </td>
+                <td>
+                    <a href="html/business/user/index.html?shopId=${msg.id}&user=${userName}" target="_top" class="ui-link"><img src="imgs/an/hdpi/home_grzx.png"></a>
+                  <h3>个人中心</h3>
+                </td>
+                <td>
+                    <a href="html/business/shop/shop-ewm-share.html?shopId=${msg.id}" target="_top" class="ui-link"><img src="imgs/an/hdpi/home_gd.png"></a>
+                <h3>更多</h3>
+                </td>
+            </tr>
+        </tbody></table>
+
+    </div>
+</script>

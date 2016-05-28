@@ -1,0 +1,57 @@
+.judge-main {
+    padding: 0;
+    margin-top: 1.3rem;
+}
+.judge-main img{
+    max-width: 200px;
+    max-height: 200px;
+}
+.judge-main dt,dd{
+    display: inline-block;
+    display: inline-block;
+    float: left;
+}
+.judge-img-star dt{
+  width:30% ;
+    max-width: 200px;
+}
+
+.judge-img-star dt>img {
+    width: 100%;
+    border-radius: 10px;
+}
+.judge-img-star dd {
+    margin: 0;
+    width: 66%;
+    padding-left: 3%;
+}
+.judge-img-star .score-text {
+    position: relative;
+    top: -8px;
+}
+.judge-content-dl {
+    width: 100%;
+    display: inline-block;
+}
+.judge-content-dl dd {
+    margin: 0;
+}
+.judge-main dl{
+    margin: 3px 0;
+    padding: 10px 10px;
+    background: #ffffff;
+    display: inline-block;
+}
+.judge-main textarea{
+    width: 95%!important;
+    border: 0;
+    font-size: 1.6rem;
+}
+.judge-main-score img {
+    width: 15%;
+    max-width: 36px;
+}
+.nm-judge-checkbox-div {
+    text-align: right;
+    margin: 20px;
+}

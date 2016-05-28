@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8"/>
+<meta charset="utf-8"/>
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.5,maximum-scale=0.65 , user-scalable=0">
+<base href="../../../"/>
+<link rel="stylesheet" href="css/common/jquery.mobile-1.4.5.min.css"/>
+<link rel="stylesheet" href="css/common/scrollbar.css"/>
+<link rel="stylesheet" href="css/style2.css"/>
+<link rel="stylesheet" type="text/css" href="css/common/common.css"/>
+<link rel="stylesheet" href="css/business/study/study-list.css"/>
+
+</head>
+<body>
+<div data-role="page" class="jqm-main" data-quicklinks="true">
+    <section data-role="header" data-theme="b" class="my-header" id="my-header" >
+        <a href="javascript:history.back();" data-rel="back" data-role="none" class="my-header-back-btn"></a>
+        <h2>学习乐园</h2>
+        <a href="#" class="my-header-ddd-btn share-bottom-bar-a" id="share-bottom-bar-a" data-role="none"></a>
+    </section>
+    <section data-role="header" data-theme="b" class="my-header my-header-search" style="display: none" >
+        <table width="100%">
+            <tr>
+                <td>
+                    <form class="ui-filterable">
+                        <div class="my-ui-input my-ui-search-input">
+                            <input id="goodSearchId" type="text"  data-role="none" placeholder="请输入商品名称" value="">
+                            <a href="#" data-role="none" class="clear-a-text"></a>
+                        </div>
+                    </form>
+                </td>
+                <td id="submitBtn" style="text-align: center">
+                    <a  class="goods-search-cancel-a" data-role="none" href="#" onclick="business.study.cancelBtn(this)">取消</a>
+                </td>
+            <tr>
+        </table>
+    </section>
+    <section data-role="content" class="article-list-show">
+        <div class="article-list-show-bar">
+            <ul>
+                <li><a href="#" class="all-type-p">全部分类</a></li>
+                <li><a href="#" onclick="business.study.setCreateTimeOrder(this)" >时间</a><span></span></li>
+                <li><a href="#" onclick="business.study.setReadNumOrder(this)">阅读量</a><span></span></li>
+            </ul>
+        </div>
+        <div style="clear: both"></div>
+        <div id="study_list">
+            <div class="article-list-view" id="scroller">
+                <div id="pullDown">
+                    <span id="pullDownIcon"></span><span class="pullDownLabel">下拉刷新...</span>
+                </div>
+                <ul id="thelist">
+                    <!--<li>
+                        <dt>
+                            <a href="html/business/study/index.html" target="_top">
+                                移动支付改变生活移动支付改变生活移动支付改变生活移动支付改变生活移动支付改变生活移动支付改变生活移动支付改变生活移动支付改变生活移动支付改变生活移动支付改变生活移动支付改变生活移动支付改变生活
+                            </a>
+                        <p class="c999"><span>2016-03-08</span><span>2423423</span></p>
+                        </dt>
+                        <dd>
+                            <img src="imgs/test-img/goods.png">
+                        </dd>
+                    </li>-->
+                </ul>
+                <div id="pullUp">
+                    <span class="pullUpIcon"></span><span class="pullUpLabel">上拉加载更多...</span>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<div class="article-bar-list hidden" id="article-bar-list">
+    <!--<div class="share-content">
+        <ul>
+            <li onclick="classifyClick(this,1)"><a href="#" >全部分类</a></li>
+            <li onclick="classifyClick(this,1)" class="article-type1"><a href="#">产品咨询</a></li>
+            <li onclick="classifyClick(this,1)" class="article-type2"><a href="#">趣味图文</a></li>
+            <li onclick="classifyClick(this,1)" class="article-type3"><a href="#">实时热点</a></li>
+        </ul>
+    </div>-->
+</div>
+</body>
+</html>
+<script src="js/common/jquery.min.js"></script>
+<script>
+    $(document).bind('mobileinit', function () {
+        $.mobile.changePage.defaults.changeHash = false;
+        $.mobile.hashListeningEnabled = false;
+        $.mobile.pushStateEnabled = false;
+    });
+</script>
+<script src="js/common/jquery.mobile-1.4.5.min.js"></script>
+<script src="js/business/common/common.js"></script>
+<script src="js/common/jquery.tmpl.min.js"></script>
+<script src="js/slider/iscroll.js"></script>
+<script src="js/common/common.js"></script>
+<script src="js/business/study/study-list.js"></script>
+<!--第一级商品分类-->
+<script type="text/x-jquery-tmpl" id="classify_a_t">
+	<div class="ui-grid-a share-content">
+		<div class="ui-block-a ui-grid-a" id="menu-a">
+			<ul data-role="listview" class="ui-listview">
+				{{each(i,classify) datas}}
+					<li class="ui-li-static ui-body-inherit" onclick="business.study.loadSecondClassify(this, ${classify.id})">${classify.name}</li>
+				{{/each}}
+			</ul>
+		</div>
+		<div class="ui-block-b" id="menu-b">
+		    <ul data-role="listview" class="ui-listview">
+		        <li class="ui-li-static ui-body-inherit" >全部</li>
+		    </ul>
+		</div>
+	</div>
+</script>
+<!--第二级商品分类-->
+<script type="text/x-jquery-tmpl" id="classify_b_t">
+	<li class="ui-li-static ui-body-inherit" onclick="business.study.classifyClick(${id},'${name}')">${name}</li>
+</script>
+<!--<li>
+    <dt>
+        <a href="${covePicUrl}" target="_top">
+            ${title}___
+        </a>
+    <p class="c999">
+        <span>${createTime}</span>
+        <span>${readNum}</span>
+    </p>
+    </dt>
+    <dd>
+        <img src="${picUrl}">
+    </dd>
+</li>-->
+<!--<script type="text/x-jquery-tmpl" id="class_list_t">
+    <li onclick="classifyClick(this,${id})" class="article-type1"><a href="#">${name}</a></li>
+</script>-->
+
+<script type="text/x-jquery-tmpl" id="study_list_t">
+    <li>
+        <dt>
+            <a href="html/business/study/index.html?id=${id}" target="_top">
+                ${title}___移动支付改变生活移动支付改变生活移动支付改变生活移动支付改变生活移动支付改变生活移动支付改变生活移动支付改变生活移动支付改变生活移动支付改变生活移动支付改变生活移动支付改变生活移动支付改变生活
+            </a>
+        <p class="c999">
+            <span>${createTime}</span>
+            <span>${readNum}</span>
+        </p>
+        </dt>
+        <dd>
+            {{if covePicUrl}}
+                <img src="${covePicUrl}">
+            {{else}}
+                <img src="imgs/test-img/goods.png">
+            {{/if}}
+        </dd>
+    </li>
+</script>
