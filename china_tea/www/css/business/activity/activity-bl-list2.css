@@ -1,0 +1,194 @@
+body {
+    background-color: #f5f5f5!important;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    font-style: normal;
+}
+#activityList{
+    width: 100%;
+    top: 1rem;
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+}
+
+.activity_bl_main {
+    padding: 0;
+}
+.my-list-view-t table {
+    width: 100%;
+    background: #fff;
+    margin-top: 10px;
+    border-collapse:collapse;
+}
+.my-list-view-t .goods-img-td{
+    text-align: center;
+}
+.my-list-view-t td {
+    padding: 14px 3px;
+}
+.my-list-view-t tr:nth-child(2n) td {
+    border-top: 1px solid #f5f5f5;
+    border-bottom: 5px solid #f5f5f5;
+}
+.goods-img-td {
+    width:10%;
+    height: 10%;
+}
+
+.my-list-view-t td div{
+    height: 38px;
+}
+.my-list-view-t td>div>p {
+    margin: 0;
+    line-height: 34px;
+}
+.my-list-view-t h2{
+    width: 96%;
+    padding: 0;
+    margin: 0;
+    font-size: 0.7rem;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+
+
+.tj-goods-ico-ing {
+    padding: 4px 10px;
+    background-color: #ff5555;
+    color: rgba(255,255,255,1);
+    border-radius: 6px;
+    margin-right: 20px;
+}
+.tj-goods-ico-djs {
+    padding: 4px 10px;
+    background-color: #ff5555;
+    color: rgba(255,255,255,0.7);
+    border-radius: 6px;
+    margin-right: 20px;
+}
+
+.tj-goods-ico-end {
+    padding: 4px 10px;
+    background-color: #ff5555;
+    color: rgba(255,255,255,0.5);
+    border-radius: 6px;
+    margin-right: 20px;
+}
+
+.address-back-img,.activity-time-img {
+    color: rgba(0, 0, 0, 0.47);
+    font-size: 24px;
+    padding-left: 55px;
+
+}
+.address-back-img {
+    background: url("../../../imgs/an/hdpi/hdbl_dd.png") no-repeat 0px -6px;
+    line-height: 35px;
+    vertical-align: middle;
+    margin: 0px;
+}
+.activity-time-img {
+    background: url("../../../imgs/an/hdpi/hdbl_sj.png") no-repeat 0px -6px;
+}
+/*.goods-count-p s{*/
+/*color: rgba(0, 0, 0, 0.26);*/
+/*}*/
+.goods-put-time-sw {
+    float: right;
+    margin-right: 20px;
+}
+
+.activity-options-td a{
+    text-align: center;
+    line-height: 2rem;
+    display: inline-block;
+    width: 27%;
+    text-align: right;
+    border-right: 1px dashed #cccccc;
+}
+.activity-options-td a span {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 46px;
+    display: inline-block;
+}
+.activity-judge-num>span {
+    background: url("../../../imgs/an/hdpi/hdbl_ly.png") no-repeat left;
+    color: #000000;
+}
+.activity-bm-num>span{
+    background: url("../../../imgs/an/hdpi/hdbl_bmry.png") no-repeat left;
+    color: #000000;
+}
+.activity-dz-num>span {
+    background: url("../../../imgs/an/hdpi/hdbl_dz_md.png") no-repeat left;
+    color: #000000;
+}
+.activity-dz-num-active>span {
+    background: url("../../../imgs/an/hdpi/hdbl_dz_dl.png") no-repeat left;
+    color: #FF5555;
+}
+
+
+/***
+*悬浮按钮
+*/
+
+.my-activity-bm-btn {
+    position: fixed;
+    z-index: 99999;
+    bottom: 128px;
+    right: 90px;
+    display: inline-block;
+    border-radius: 100%;
+    background: url("../../../imgs/an/hdpi/hdbl_tjhd.png") no-repeat;
+}
+
+.my-activity-bm-btn a{
+    width: 73px;
+    height: 73px;
+    display: inline-block;
+}
+
+
+
+/**
+*320px屏幕适屏
+*/
+@media only screen and (min-width: 300px) and (max-width:600px) {
+
+    .my-list-view-t ul div{
+
+    }
+    .activity-options-td ul a {
+        width: 31%;
+    }
+    .goods-img-td img {
+        border-radius: 10px;
+        max-width: 5rem;
+        max-height: 5rem;
+    }
+    .my-list-view-t td div {
+        height: 38px;
+    }
+}
+/**
+*大于320px样式
+*/
+@media only screen and (min-width:650px) {
+    .my-list-view-t ul td,.my-list-view-t ul div{
+        max-width: 100% ;
+    }
+    .activity-options-td a {
+        width: 28%;
+    }
+    .goods-img-td img {
+        border-radius: 10px;
+        max-width: 185px;
+        max-height: 185px;
+    }
+}

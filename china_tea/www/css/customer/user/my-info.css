@@ -1,0 +1,85 @@
+.my-info-main {
+    padding: 0;
+    margin-top:0;
+   background: #ffffff;
+}
+
+.my-info-main ul {
+    padding: 0;
+    margin:5px 0 ;
+}
+.my-info-main li {
+    padding: 0px 20px;
+    border-bottom: 1px solid #eee;
+}
+.my-info-main li:last-child {
+    border-bottom:0;
+}
+.my-info-main a{
+    display: inline-block;
+    width: 50%;
+    float: right;
+    text-align: right;
+    color: #999!important;
+}
+.my-info-main li:first-child {
+    height: 108px;
+    line-height: 108px;
+}
+.my-info-main li:first-child a{
+    display: inline-block;
+    line-height: 108px;
+    height: 108px;
+}
+.my-info-main li:first-child img {
+    width: 68px;
+    border-radius: 100%;
+    vertical-align: middle;
+}
+
+.my-info-main li:not(first-child) {
+    line-height: 50px;
+}
+.my-info-main li:not(first-child) a{
+    line-height: 50px;
+    height: 50px;
+}
+
+.my-info-main-2 {
+    padding: 0;
+    margin-top:0;
+    background: #ffffff;
+}
+
+.my-info-main-2 ul {
+    padding: 0;
+    margin:5px 0 ;
+}
+.my-info-main-2 li {
+    padding: 0px 20px;
+    border-bottom: 1px solid #eee;
+}
+.my-info-main-2 a{
+    display: inline-block;
+    width: 50%;
+    float: right;
+    text-align: right;
+    padding-right: 40px;
+    color: #999!important;
+}
+
+.my-info-main-2 li {
+    line-height: 50px;
+}
+.my-info-main-2 li a{
+    line-height: 50px;
+    height: 50px;
+}
+
+
+/**
+*拍照弹窗
+*/
+.my-ui-share-bottom>.share-content li {
+    width: 50%;
+}

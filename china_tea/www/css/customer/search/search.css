@@ -1,0 +1,55 @@
+.jqm-main {
+    background: #fff;
+}
+/*
+*搜索按钮样式
+*/
+.my-ui-search tr>td:last-child a {
+    width: 4.8rem;
+    line-height: 100%;
+    display: inline-block;
+    text-align: center;
+    font-size: 1.8rem;
+}
+#goodSearchListview{
+    border: 0;
+    border-radius:0;
+}
+#goodSearchListview li:first-child {
+    /*font-size: 2rem;*/
+   font-size: 1.8rem;
+    background: #fff;
+}
+#goodSearchListview li:first-child+li {
+    border-top: 0;
+}
+#goodSearchListview li:not(:first-child) {
+   font-size: 1.6rem;
+    color: #999;
+    padding: 1rem 2rem;
+}
+
+a:link,a:visited{
+    text-decoration:none;
+    color:black;
+}
+#clearHository{
+    margin-left:auto;
+    margin-right: auto;
+    /*width: 40%;*/
+   width: 26%;
+    height: .3rem;
+    line-height: .3rem;
+    font-size: 1.6rem;
+    background: #fff;
+    color: rgba(255, 85, 85, 0.6);
+    border: 1px solid rgba(255, 85, 85, 0.5);
+   padding: .7em .6em;
+}
+
+.ui-page-theme-a .ui-btn.ui-btn-active, html .ui-bar-a .ui-btn.ui-btn-active, html .ui-body-a .ui-btn.ui-btn-active, html body .ui-group-theme-a .ui-btn.ui-btn-active, html head+body .ui-btn.ui-btn-a.ui-btn-active, .ui-page-theme-a .ui-checkbox-on:after, html .ui-bar-a .ui-checkbox-on:after, html .ui-body-a .ui-checkbox-on:after, html body .ui-group-theme-a .ui-checkbox-on:after, .ui-btn.ui-checkbox-on.ui-btn-a:after, .ui-page-theme-a .ui-flipswitch-active, html .ui-bar-a .ui-flipswitch-active, html .ui-body-a .ui-flipswitch-active, html body .ui-group-theme-a .ui-flipswitch-active, html body .ui-flipswitch.ui-bar-a.ui-flipswitch-active, .ui-page-theme-a .ui-slider-track .ui-btn-active, html .ui-bar-a .ui-slider-track .ui-btn-active, html .ui-body-a .ui-slider-track .ui-btn-active, html body .ui-group-theme-a .ui-slider-track .ui-btn-active, html body div.ui-slider-track.ui-body-a .ui-btn-active {
+    background-color: inherit;
+    border-color: inherit;
+    color: #000;
+    text-shadow: none;
+}

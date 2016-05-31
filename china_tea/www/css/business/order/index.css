@@ -1,0 +1,230 @@
+.my-list-view .td-left a{ margin: 0 !important; padding: 0 !important; border: 0 !important; }
+#my-tabs-order {
+    padding: 0;
+    border: 0;
+}
+.ui-btn-left, .ui-btn-right {
+    top: -6px;
+}
+.ui-btn-left {
+    left: -0.6em;
+}
+#order_list_all {
+    width: 100%;
+}
+#my-tabs-order .my-tabs,li,a,button {
+    color: #000;
+    padding: 7px;
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+}
+#my-tabs-order  .ui-btn, html .ui-bar-a .ui-btn, html .ui-body-a .ui-btn, html body .ui-group-theme-a .ui-btn, html head+body .ui-btn.ui-btn-a, .ui-page-theme-a .ui-btn:visited, html .ui-bar-a .ui-btn:visited, html .ui-body-a .ui-btn:visited, html body .ui-group-theme-a .ui-btn:visited, html head+body .ui-btn.ui-btn-a:visited
+{
+    background-color: #FFF;
+    border-color: #FFF;
+    color: #000;
+    text-shadow: 0 0 0 #FFF;
+    font-size: 24px;
+
+}
+#my-tabs-order .my-tabs:focus,.my-tabs:active {
+    border-bottom: 2px solid #ff6e82;
+}
+.my-tabs-active {
+    border-bottom: 2px solid #ff6e82;
+}
+#my-tabs-order table td {
+    height: 1.7rem;
+    text-align: center;
+    border-right: 1px dashed #2F2D2D;
+}
+#my-tabs-order table td a{
+    padding: 0.4rem !important;
+    margin: 0 !important;
+}
+#my-tabs-order table td a b{
+    padding: 0.4rem;
+}
+#my-tabs-order table td:last-child {
+    border: 0;
+}
+
+
+#order_list_all {
+    z-index: 1;
+}
+#my-tabs-order .add-order-main{
+    text-align: center;
+    background-color: #fff;
+    font-size: inherit;
+    margin-top: 0px;
+}
+.my-list-view h1 {
+    width: 100%;
+    margin: 0!important;
+    padding: 0.2rem 0!important;
+    font-size: 0.8rem!important;
+    font-weight: normal;
+}
+.my-list-view table{
+    border-bottom: 2px solid #EFEFEF;
+}
+.my-list-view table,ul{
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+}
+.my-list-view li{
+    width: 97%;
+    border-top: 6px solid #EDEDED;
+    margin-right: 0;
+    overflow: hidden;
+}
+
+.my-list-view .td-left{
+/*    min-width: 6rem;
+    min-height: 6rem;
+    max-width: 6rem;
+    max-height: 6rem;*/
+}
+.my-list-view .td-right{
+    width: 80px;
+    text-align: right;
+    padding: 0 16px 0 0;
+    vertical-align: middle;
+}
+.my-list-view .td-middle{
+
+
+}
+.td-middle p{
+    margin: 0;
+}
+.td-middle h1 {
+    margin: 0;
+
+}
+.my-list-view img {
+
+    max-width: 100%;
+}
+
+.my-list-view em,span{
+    font-size:1.5rem;
+    padding-right:35px;
+    font-style:normal;
+    border:1em;
+    font-weight: 100;
+}
+.my-list-view span{
+    min-width:50px;
+    border:1px solid #eee;
+    padding: 7px 10px 7px 10px;
+    margin-right: 8%;
+    color:#999;
+    border-radius:8px;
+}
+.my-list-view .bar-b-tj dd,dt{
+    line-height: 100%;
+    padding: 0;
+    margin: 0;
+    font-size: 0.8rem;
+}
+.my-list-view .bar-b-tj em{
+    padding: 0!important;
+}
+.my-list-view .bar-b-tj button,.bar-b-tj  a{
+    padding: 11px;
+    float: right;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+.my-list-view .ok-order-btn{
+    background:#ff6e82;
+    color: #fff;
+    border: 0;
+}
+.my-list-view .del-order-btn {
+    background:#fff;
+    color: #000;
+    border: 1px solid;
+}
+.my-list-view .bar-b-tj button:focus{
+
+}
+#my-order-ok-popup p{
+    padding: .7rem;
+}
+#my-order-ok-popup .ok_popup{
+    background:#ff6e82;
+    color: #fff;
+    border: 0;
+    width: 40%;
+    text-align: center;
+    margin: auto;
+    border-radius: 10px;
+    border-radius: 30px;
+}
+#my-order-ok-popup .dialog_close{
+    background-color:rgba(255,255,255,0) ;
+    border: 0;
+}
+.bar-b-tj dl{
+    margin: 0;
+}
+.td-middle .pstatus {
+    float: right;
+    margin-top: 1rem;
+    margin-right: 1.5rem;
+}
+.td-middle .c999{
+    padding-top: 2rem;
+}
+
+.my-list-view td{
+    padding: 0.2rem;
+}
+.ui-grid-b{
+    width: 100%;
+    padding: 0.2rem 0;
+    border-bottom: solid 1px #EDEDED;
+}
+.ui-grid-b,.ui-grid-b div{
+    height: 5.1rem;
+}
+.ui-block-a{
+    padding-right: 0.4rem;
+}
+.ui-grid-b a{
+    margin: 0!important;
+    padding: 0!important;
+    border: 0!important;
+}
+.line_c{
+    position: relative;
+    width: 53.333%!important;
+}
+.line_c .c999{
+    position: absolute;
+    font-size: 0.6rem;
+    margin: 0;
+    padding: 0;
+    bottom: 0;
+}
+.line_r{
+    width: 13.333%!important;
+    word-break:keep-all;           /* 不换行 */
+    white-space:nowrap;          /* 不换行 */
+}
+.line_r .pstatus{
+    height: 5.1rem;
+    line-height: 5.1rem;
+    margin: 0;
+}
+.bar-b-tj{
+    padding: 0.6rem 0;
+
+}

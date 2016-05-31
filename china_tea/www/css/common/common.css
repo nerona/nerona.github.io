@@ -1,0 +1,44 @@
+.hidden {
+    display: none;
+}
+
+/**
+*分享底部框开始
+*/
+.my-ui-share-bottom {
+    width: 100%;
+    margin: 0;
+    left: 0!important;
+    position: absolute;
+    border: 1px solid #f2f2f2;
+    z-index: 9999;
+    background-color: rgba(0, 0, 0, 0.43);
+    top:0;
+    height: 100%;
+}
+.my-ui-share-bottom>.share-content {
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+    background-color: #fff;
+    text-align: center;
+}
+.my-ui-share-bottom>.share-content ul {
+    width: 100%;
+    padding: 0;
+}
+.my-ui-share-bottom>.share-content li {
+    width: 50%;
+    float: left;
+    padding:40px 0;
+}
+.my-ui-share-bottom>.share-content p {
+    margin: 24px 0;
+}
+.my-ui-share-bottom>.share-content li>a:hover {
+    color: #000;
+}
+.my-ui-share-bottom>.share-content li>a>span {
+    display: list-item;
+    margin-top: 20px;
+}

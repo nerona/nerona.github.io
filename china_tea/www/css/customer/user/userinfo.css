@@ -1,0 +1,117 @@
+.user-info-main .header-img {
+    width: 100%;
+    background: url(../../../images/test-img/user-info-header.png) no-repeat;
+    background-size: 100% auto !important;
+    text-align: center;
+}
+.user-info-main {
+    background-color: #fff!important;
+}
+.user-info-main p, h1 {
+    text-align: center;
+}
+
+.user-info-main ul {
+    width: 100%;
+    margin:0;
+    background-color: #FFFFFF;
+    padding: 0;
+}
+
+.user-info-main ul>li {
+    background-color: #FFFFFF;
+    /*padding: 10px 0;*/
+   padding-top: 1rem;
+    font-size: 2rem;
+    margin-right: auto;
+    margin-left: auto;
+    border-bottom: 1px solid #eee;
+    width: 85%;
+}
+.user-info-main ul>li a {
+    width: 100%;
+}
+.user-info-main .header-img > span {
+    max-width: 120px;
+    max-height: 120px;
+    width:30%;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+@media screen and (min-width:200px) and (max-width:410px){
+    .user-info-main .header-img > span {
+        margin-top: 6rem;
+        margin-left: 4rem;
+    }
+}
+@media screen and (min-width:410px) and (max-width:540px){
+    .user-info-main .header-img > span {
+        margin-top: 8rem;
+        margin-left: 4rem;
+    }
+}
+@media screen and (min-width:550px){
+    .user-info-main .header-img > span {
+        margin-top: 8rem;
+    }
+}
+.user-info-main .header-img img {
+    width: 100%;
+    border-radius: 100%;
+    border: 8px solid #fff;
+}
+.user-info-main .info-content>ul>li>a {
+    /*line-height: 50px;
+    height: 50px;*/
+   line-height: 3rem;
+   height: 3rem;
+   font-size: 1.6rem;
+}
+.user-info-main .info-content>ul>li>a>span {
+    display: inline-block;
+    /*padding: 2rem;*/
+   padding: 1.5rem;
+    float: left;
+}
+.user-info-main .my-order a>span {
+    background:url("../../../images/hdpi/grzx_wddd.png")no-repeat center;
+    background-size: 2rem;
+}
+
+.user-info-main .my-collection a>span {
+    background:url("../../../images/hdpi/grzx_wdsc.png")no-repeat center;
+    background-size: 2rem;
+}
+.user-info-main .my-address a>span {
+    background:url("../../../images/hdpi/grzx_sjdz.png")no-repeat center;
+    background-size: 2rem;
+}
+.user-info-main .my-settings a>span {
+    background:url("../../../images/hdpi/grzx_xtsj.png")no-repeat center;
+    background-size: 2rem;
+}
+
+
+.my-header-info-a-click {
+    display: inline-block;
+    width: 5rem;
+    position: relative;
+    height: 5rem;
+    z-index: 2;
+    top: 5px;
+    left: -28px;
+    background: url("../../../images/hdpi/grzx_bj.png");
+    background-size:contain ;
+}
+.info-content{
+	width: 80%;
+	margin: 2rem auto 0 auto;
+}
+.btn-right-a{
+	background-size: 2.5rem;
+}
+.user-info-main h1{
+	font-size: 1.8rem;
+}

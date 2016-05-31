@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5,maximum-scale=0.65 , user-scalable=0">
+    <base href="../../../"/>
+    <link rel="stylesheet" href="css/common/jquery.mobile-1.4.5.min.css"/>
+    <link rel="stylesheet" href="css/common/scrollbar.css" />
+    <link rel="stylesheet" href="css/style2.css"/>
+   <link rel="stylesheet" href="css/business/activity/activity-bl-list.css"/>
+</head>
+<body>
+     <section data-role="header" data-theme="b" class="my-header" id="my-header">
+         <a href="javascript:history.back();" data-rel="back" data-role="none" class="my-header-back-btn"></a>
+         <h2>活动部落</h2>
+     </section>
+
+     <section data-role="content" role="main" class ="manager_shop_main">
+
+         <div id="activityList" class="my-list-view-t">
+             <!--<table>
+                 <tr>
+                     <td class="goods-img-td"><img src="imgs/test-img/goods.png"></td>
+                     <td>
+                         <div><p><b class="cff5555">王梦婷</b><em style="float: right" class="goods-put-time-sw">2016-05-06</em></p></div>
+                         <div><h2>活动正在进行中活动正在进行中活动正在进行中活动正在进行中活动正在进行中</h2></div>
+                         <div><p class="address-back-img">深圳南山区深圳湾体育馆</p>
+                         </div>
+                         <div><p class="activity-time-img">2016-08-09</p></div>
+                    </td>
+                 </tr>
+                 <tr class="activity-options-td">
+                     <td colspan="2">
+                        <a href="html/business/activity/activity-judge-list.html" target="_top" class="activity-judge-num ui-link"><span>223</span></a>
+                    <a href="html/business/activity/activity-bl-list.html" target="_top"  class="activity-bm-num ui-link"><span>223</span></a>
+                         <a href="#" class="activity-dz-num"><span>223</span></a>
+                     </td>
+                 </tr>
+             </table>-->
+             <div id="scroller">
+                 <div id="pullDown">
+                     <span id="pullDownIcon"></span><span class="pullDownLabel">下拉刷新...</span>
+                 </div>
+                 <ul id="thelist">
+                     <!--列表内容部分-->
+
+                 </ul>
+                 <div id="pullUp">
+                     <span class="pullUpIcon"></span><span class="pullUpLabel">上拉加载更多...</span>
+                 </div>
+             </div>
+         </div>
+     </section>
+     <div class="my-activity-bm-btn">
+         <a href="html/business/activity/publish-activity.html" target="_top"></a>
+     </div>
+</body>
+<script src="js/common/jquery.min.js"></script>
+<script>
+    $(document).bind('mobileinit', function () {
+        $.mobile.changePage.defaults.changeHash = false;
+        $.mobile.hashListeningEnabled = false;
+        $.mobile.pushStateEnabled = false;
+    });
+
+</script>
+<script src="js/common/jquery.mobile-1.4.5.min.js"></script>
+<script src="js/business/common/common.js"></script>
+<script src="js/common/jquery.tmpl.min.js"></script>
+<script src="js/slider/iscroll.js"></script>
+<script src="js/common/common.js"></script>
+<script src="js/business/activity/activity-bl-list.js"></script>
+</html>
+<!--活动列表-->
+<script type="text/x-jquery-tmpl" id="activity_list_t">
+ {{each(i,data) resultList}}
+    <li>
+        <table>
+            <tbody><tr>
+                <td class="goods-img-td"><a href="#"  target="_top" onclick="business.activityList.toDetails(${data.id})"><img src="${data.image[0].picUrl}"></a></td>
+                <td>
+                    <div><p><b class="cff5555">${data.sponsorName}</b><em style="float: right" class="goods-put-time-sw">${data.regStartTime}</em></p></div>
+                    <div><p>${data.title}</p></div>
+                    <div><a href="#" onclick="business.activityList.showMap(${data.activityLongitude},${data.activityLatitude})"><p class="address-back-img">${data.activityAddress}</p></a>
+                    </div>
+                    <div><p class="activity-time-img">${data.beginTime}</p></div>
+                </td>
+            </tr>
+            <tr class="activity-options-td">
+                <td colspan="2">
+                    <a href="html/business/activity/activity-judge-list.html?id=${data.id}" class="activity-judge-num ui-link"  target="_top"><span>${data.commentNum}</span></a>
+                    <a href="html/business/activity/apply-list.html?id=${data.id}" class="activity-bm-num ui-link"  target="_top"><span>${data.participation}</span></a>
+                    <a href="#" class="activity-dz-num ui-link" types='0' id="click_lick_${id}" onclick="business.clickLike('${data.id}')"><span>${data.pointNum}</span></a>
+                </td>
+            </tr></tbody>
+        </table>
+    </li>
+   {{/each}}
+ </script>

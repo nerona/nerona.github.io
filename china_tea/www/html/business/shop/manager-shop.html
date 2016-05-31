@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.5,maximum-scale=0.65, user-scalable=0">
+    <base href="../../../"/>
+    <link rel="stylesheet" href="css/common/jquery.mobile-1.4.5.min.css"/>
+    <link rel="stylesheet" href="css/style2.css"/>
+    <link rel="stylesheet" href="css/common/scrollbar.css" />
+   <link rel="stylesheet" href="css/business/shop/manager-shop.css"/>
+    <style>
+        #scroll-list{
+            position: absolute;
+            z-index: 1;
+            top: 3.8rem;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+     <section data-role="header" data-theme="b" class="my-header" id="my-header">
+         <a href="javascript:history.back();" data-rel="back" data-role="none" class="my-header-back-btn"></a>
+         <h2>店铺管理</h2>
+         <a href="#" class="my-header-ddd-btn" data-role="none"></a>
+     </section>
+     <section data-role="header" data-theme="b" class="my-header my-header-search" style="display: none" >
+         <table width="100%">
+             <tr>
+                 <td>
+                     <form class="ui-filterable">
+                         <div class="my-ui-input my-ui-search-input">
+                             <input name="userName" id="goodSearchId" type="text"  data-role="none" placeholder="请输入商品名称" value="">
+                             <a href="#" data-role="none" class="clear-a-text"></a>
+                         </div>
+                     </form>
+                 </td>
+                 <td id="submitBtn" style="text-align: center">
+                     <a  class="goods-search-cancel-a" data-role="none" href="#" onclick="business.MangerShop.cancelBtn(this)">取消</a>
+                 </td>
+             <tr>
+         </table>
+     </section>
+     <section data-role="content" role="main" class ="manager_shop_main">
+         <ul class="manager-shop-top-bar">
+             <li><a href="#" class="manager-shop-bar-a-active" data-role="none" onclick="business.MangerShop.exchangeTab(1)"><b>出售中</b></a></li>
+             <li><a href="#" class="" onclick="business.MangerShop.exchangeTab(2)"><b>已下架</b></a></li>
+         </ul>
+         <div class="my-list-view-t" id="scroll-list">
+
+             <!--<table>
+                 <colgroup>
+                     <col width="220px">
+                     <col>
+                 </colgroup>
+                 <tbody>
+                 <tr>
+                     <td class="goods-img-td"><img src="imgs/test-img/goods.png"></td>
+                     <td>
+                     <div><p><span class="tj-goods-ico-ing">特价</span><b>特技新品安吉铁观音</b></p></div>
+                     <div><p class="goods-count-p">销量 <em>34</em> 库存 <em>33</em> 收藏 <em>44</em></p></div>
+                     <div><p class="cFF5555">活动正在进行中...</p></div>
+                     <div><p class="goods-count-p"><em class="cFF5555">￥99</em><em style="float: right" class="goods-put-time-sw">2016-05-06</em></p></div>
+                 </td></tr>
+                 </tbody>
+             </table>
+             -->
+                 <div id="scroller">
+                     <div id="pullDown">
+                         <span id="pullDownIcon"></span><span class="pullDownLabel">下拉刷新...</span>
+                     </div>
+                     <ul id="thelist">
+                         <!--列表内容部分-->
+
+                     </ul>
+                     <div id="pullUp">
+                         <span class="pullUpIcon"></span><span class="pullUpLabel">上拉加载更多...</span>
+                     </div>
+                 </div>
+
+         </div>
+     </section>
+     <section  data-role="footer"  data-disable-page-zoom="false" data-position="fixed" class="my-ui-footer-bar" style="background-color: #ffffff;">
+         <ul>
+             <li><a href="#" class="manager-shop-a-ico"><span>预览店铺</span></a></li>
+             <li><a href="html/business/shop/shop-ewm-share.html" target="_top" class="shop-ewm-a-ico"><span>店铺二维码</span></a></li>
+             <li><a href="#" target="_top" class="manager-batch-a-ico" onclick="business.MangerShop.toBatchManager()"><span>批量管理</span></a></li>
+         </ul>
+     </section>
+  <div class="my-ui-up-btn">
+      <a href="#" ></a>
+  </div>
+</body>
+</html>
+<script src="js/common/jquery.min.js"></script>
+<script>
+    $(document).bind('mobileinit', function () {
+        $.mobile.changePage.defaults.changeHash = false;
+        $.mobile.hashListeningEnabled = false;
+        $.mobile.pushStateEnabled = false;
+    });
+</script>
+<script src="js/common/jquery.mobile-1.4.5.min.js"></script>
+<script src="js/business/common/common.js"></script>
+<script src="js/common/jquery.tmpl.min.js"></script>
+<script src="js/slider/iscroll.js"></script>
+<script src="js/business/shop/manager-shop.js"></script>
+<script src="js/common/common.js"></script>
+<!--以下是模板文件-->
+<!--初始化加载列表-->
+<script type="text/x-jquery-tmpl" id="list_t">
+    <li>
+        <table>
+             <colgroup>
+                 <col width="30%">
+                 <col>
+             </colgroup>
+             <tbody>
+             <tr>
+                 <td class="goods-img-td"><a href="#" target="_top" onclick="business.MangerShop.toDetails(${id})"><img src="${showPicture}"></a></td>
+                 <td>
+                 <div><p><span class="tj-goods-ico-ing">${columnName}</span><b>${goodName}</b></p></div>
+                 <div><p class="goods-count-p">销量 <em>${saleNum}</em> 库存 <em>${stock}</em> 收藏 <em>${storeNum}</em></p></div>
+                 <div><p class="cFF5555">活动正在进行中...</p></div>
+                 <div><p class="goods-count-p"><em class="cFF5555">￥${salePrice}</em><em style="float: right" class="goods-put-time-sw">${startDate}</em></p></div>
+             </td></tr>
+             </tbody>
+         </table>
+    </li>
+</script>

@@ -1,0 +1,10 @@
+.my-activity-look-img-main {
+    padding: 0;
+    margin: 0;
+}
+.my-activity-look-img-main>.img-list {
+    padding:10px ;
+  }
+.my-activity-look-img-main>.img-list img{
+   width: 23%;
+  }

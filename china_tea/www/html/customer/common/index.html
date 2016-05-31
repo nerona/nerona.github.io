@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5,maximum-scale=0.4 , user-scalable=0">
+<base href="../../../"/>
+<link rel="stylesheet" href="css/common/jquery.mobile-1.4.5.min.css"/>
+<link rel="stylesheet" href="css/style.css"/>
+<style>
+
+
+</style>
+</head>
+<body>
+<div data-role="page"  data-quicklinks="true">
+    <section data-role="header" data-theme="b" class="my-header" id="my-header">
+        <a href="javascript:history.back();" data-rel="back" data-role="none" class="my-header-back-btn"><span><</span>返回</a>
+        <h2>我的订单</h2>
+        <a href="#" class="my-header-ddd-btn" data-role="none"><p>.</p><p>.</p><p>.</p></a>
+    </section>
+    <div class="ui-filterable my-ui-search">
+        <table width="100%">
+            <col width="95%"/>
+            <col width=""/>
+            <tr>
+                <td>
+                    <form class="ui-filterable">
+                        <input placeholder="请输入商品名称" data-lastval="" data-type="search" style="height: 50px">
+                        <!-- <a href="#" class="ui-my-input-search ui-btn-a ui-link"><img src="../images/hdpi/sy_ss.png" /></a>-->
+                    </form>
+                </td>
+                <td>
+                    <a href="" class="ui-filterablet ui-btn-a"><img src="images/hdpi/sy_grzx.png"></a>
+                </td>
+                <td>
+                    <a href="html/customer/goods/shopping-cart.html" target="_top" ><img
+                            src="images/hdpi/sy_gwch.png"></a>
+                </td>
+            <tr>
+        </table>
+    </div>
+    <a href="#my-bm-ok-popup"  data-rel="popup" data-position-to="window" data-role="button">弹窗</a>
+    <div data-role="popup" id="my-bm-ok-popup" class="ui-content my-bm-ok-popup" data-dismissible="false" style="width:800px;height: 400px" class="text-center">
+        <a href="#" data-rel="back" class="ui-btn-right dialog_close"><img src="images/hdpi/ts_gb.png"/></a>
+        <p class="text-center">
+            <img src="images/hdpi/zfcg.png"/>
+        </p>
+        <h4 class="text-center">提示</h4>
+        <p class="text-center">报名成功</p>
+        <p class="ok-btn-container" style="margin-top: 10px">
+            <a data-role="none" class="ok-order-btn-radius" >确 定</a>
+        </p>
+    </div>
+</div>
+
+
+</body>
+
+<script src="js/common/jquery.min.js"></script>
+<script>
+    $(document).bind('mobileinit', function () {
+        $.mobile.changePage.defaults.changeHash = false;
+        $.mobile.hashListeningEnabled = false;
+        $.mobile.pushStateEnabled = false;
+    });
+</script>
+<script src="js/common/jquery.mobile-1.4.5.min.js"></script>
+
+
+</html>

@@ -1,0 +1,199 @@
+input[type=checkbox] {
+    visibility: hidden;
+}
+::-webkit-scrollbar {width: 0}
+.my-goods {
+    padding: 0;
+    margin: 0;
+}
+.ui-icon-check:after, html .ui-btn.ui-checkbox-on.ui-checkbox-on:after {
+    background-image: url(../../../images/hdpi/gwc_xzg.png);
+    background-color: #FFFFFF;
+}
+
+.ui-content .ui-listview, .ui-panel-inner>.ui-listview {
+ margin: 10px 0;
+}
+.my-goods em{
+    border:1em;
+}
+.my-goods span{
+    border: 1px solid #bbb;
+    padding: 4px 10px;
+    margin-right: 10px;
+    color: #999;
+    border-radius: 5px;
+    font-size: 1.2rem!important;
+}
+.my-goods dl{
+    padding: 10px 0;
+    float: left;
+    margin: 0 0 0 7.2rem;
+    width: 48%;
+}
+
+.my-goods dd h1{
+    padding:0;
+    margin:0;
+}
+.my-goods dd,dt{
+    line-height: 100%;
+    padding:5px 0;
+}
+
+
+.my-goods .text-color{
+    color:#999;
+}
+.my-goods .text-color-red{
+    color:#ff6e82;
+}
+.my-goods .ui-listview .ui-li-has-thumb>img:first-child, .ui-listview .ui-li-has-thumb>.ui-btn>img:first-child, .ui-listview .ui-li-has-thumb .ui-li-thumb {
+    position: absolute;
+    left: 32px;
+    top: 12%;
+    max-height: 7rem;
+    max-width: 7rem;
+}
+.my-ui-checkbox label {
+    width: 10%;
+}
+.my-ui-checkbox label::before {
+    width: 4rem;
+    position: relative;
+    z-index: 3;
+    background-position: right;
+}
+.my-ui-checkbox label:not(:last-child)::before {
+
+}
+.my-ui-checkbox {
+    display: inline-block;
+    position: absolute;
+    top: 31%;
+    left: -8px;
+}
+
+.my-goods a{
+    width:100%;
+}
+.my-goods .edit-btn{
+    float:right;
+    text-align: center;
+    margin-top: 6px;
+}
+.my-goods .edit-btn em {
+    color: #bbb;
+}
+.my-goods .edit-btn>dd,dt{
+    font-weight:normal;
+    margin-top: 3px;
+}
+.edit-show-num{
+    font-size: 1.4rem;
+    position: relative;
+    top: 35px;
+}
+.my-goods .ui-btn{
+    margin:0;
+}
+.ui-checkbox {
+    position: initial;
+}
+
+#shopping-cart-list {
+    background-color: #ffffff;
+}
+#shopping-cart-list li {
+    background-color: #ffffff;
+    outline: none!important;
+}
+#shopping-cart-list li a{
+    background-color: #ffffff;
+    outline: none!important;
+    padding: 0;
+    margin: 0;
+}
+
+#shopping-cart-list li a:focus{
+    box-shadow: none;
+}
+#shopping-cart-list h1 {
+    font-weight:normal;
+    font-size: 1.6rem;
+}
+.options {
+    color: #000!important;
+    border: 0!important;
+    font-size: 1.6rem!important;
+}
+.ui-first-child {
+    border-top: 0;
+}
+.ok-order-btn-r {
+    font-size: 1.6rem!important;
+    padding: 0.2rem 0.5rem;
+    margin-right: 1rem;
+    position: relative;
+    border-radius: 5px;
+    top: 10px;
+}
+.my-footer-cart .ext-box-select {
+    display: none;
+}
+
+.my-footer-cart .ext-box-select label::before,.my-footer-cart .ext-box-select label {
+    width: 4rem;
+    position: relative;
+    z-index: 3;
+    background-position: right;
+}
+.my-ui-checkbox-all span,.my-ui-checkbox-all label,.my-ui-checkbox-all span em{
+   font-size: 1.5rem;
+}
+.my-ui-checkbox-all label {display: inline-block;}
+.my-ui-checkbox-all span,.my-ui-checkbox-all label {
+    position: relative;
+    top: 4px;
+}
+.del_ico {
+    background: url(../../../images/hdpi/wdsc_sc.png)no-repeat center;
+    width: inherit;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 24px;
+    border: 0;
+    height: 31px;
+    background-size: contain;
+}
+
+.del_ico:hover {
+    background: url(../../../images/hdpi/sy_sc.png) no-repeat center;
+    background-size: contain;
+}
+.edit-num-dd-cc {
+    height: 42px;
+    line-height: 42px!important;
+}
+.ext-text-eee {
+    width: 6rem;
+    height: 2rem;
+    text-align: center;
+    padding-left: 0px;
+    border-radius: 0px;
+    background: #f5f5f5;
+    padding-bottom: 5px;
+    font-size: 1.6rem;
+}
+.edit-num-dd-cc .ggdialog-d-a {
+    padding: 9px;
+    background-color: #f5f5f5;
+    border: 0;
+    border-radius: 0;
+}
+.edit-num-dd-cc .ggdialog-d-a:first-child {
+    margin: 0 -6px 0 0;
+}
+.edit-num-dd-cc .ggdialog-d-a:last-child {
+    margin: 0 0 0 -6px;
+}

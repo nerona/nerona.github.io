@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.5,maximum-scale=0.65 , user-scalable=0">
+    <base href="../../../"/>
+    <link rel="stylesheet" href="css/common/jquery.mobile-1.4.5.min.css"/>
+    <link rel="stylesheet" href="css/common/scrollbar.css" />
+    <link rel="stylesheet" type="text/css" href="css/common/common.css" />
+    <link rel="stylesheet" href="css/style2.css"/>
+    <link rel="stylesheet" href="css/business/user/fans.css"/>
+
+    <style>
+        #fans_list {
+            width: 100%;
+            /*top: 4rem;
+            position: absolute;
+            bottom: 0;*/
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+<section data-role="header" data-theme="b" class="my-header" id="my-header">
+    <a href="javascript:history.back();" data-rel="back" data-role="none" class="my-header-back-btn"></a>
+    <h2>粉丝管理</h2>
+</section>
+<section data-role="content" role="main" class ="fans-main">
+    <div id="fans_list">
+        <div id="scroller">
+            <div id="pullDown">
+                <span id="pullDownIcon"></span><span class="pullDownLabel">下拉刷新...</span>
+            </div>
+            <ul id="thelist">
+                <!--列表内容部分-->
+
+            </ul>
+            <div id="pullUp">
+                <span class="pullUpIcon"></span><span class="pullUpLabel">上拉加载更多...</span>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>
+<script src="js/common/jquery.min.js"></script>
+<script>
+    $(document).bind('mobileinit', function () {
+        $.mobile.changePage.defaults.changeHash = false;
+        $.mobile.hashListeningEnabled = false;
+        $.mobile.pushStateEnabled = false;
+    });
+</script>
+<script src="js/common/jquery.mobile-1.4.5.min.js"></script>
+<script src="js/business/common/common.js"></script>
+<script src="js/common/jquery.tmpl.min.js"></script>
+<script src="js/slider/iscroll.js"></script>
+<script src="js/common/common.js"></script>
+<script src="js/business/user/fans.js"></script>
+<!--粉丝列表-->
+<script type="text/x-jquery-tmpl" id="fans_list_t">
+	<li><img src="${picUrl}"><span>${nickName}</span></li>
+</script>

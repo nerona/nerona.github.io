@@ -1,0 +1,94 @@
+.ui-page {
+    background: #ffffff;
+}
+body{
+    
+    background: #ffffff;
+}
+.my-header-ddd-btn {
+    height: 2rem;
+    width: 1.5rem;
+    background: url("../../../imgs/an/hdpi/me_sz.png") no-repeat right;
+}
+.my-info-main {
+    margin: 0;
+    padding: 0;
+    background: #ffffff;
+}
+.my-info-header-img {
+    width: 102%;
+    height: 11rem;
+    background: url("../../../imgs/an/hdpi/me_grzx_bj.png") no-repeat;
+    background-size: 100%;
+}
+.my-header .my-header-ddd-btn  {
+    padding: 0 14px;
+    margin: 0;
+    right: 0px;
+}
+.my-info-header-img .my-background {
+    width: 100%;
+    height: 400px;
+    text-align: center;
+}
+.my-header-img-span {
+    display: inline-block;
+    height: 130px;
+}
+.my-header-img-span>img{
+    width: 130px;
+    border-radius: 100%;
+}
+.my-header-img-span a{
+    display: inline-block;
+    position: absolute;
+    bottom: 51px;
+    width: 49px;
+    height: 47px;
+    left: 52%;
+    background: url("../../../imgs/an/hdpi/me_hdxq_bj.png")no-repeat;
+}
+.my-background>div {
+    position: relative;
+    top: 25%;
+}
+.my-background p{
+    color: #ffffff;
+}
+.my-info-menu {
+    background: #ffffff;
+}
+.my-info-menu ul {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.my-info-menu ul>li {
+    padding: 0.5rem 0.4rem;
+    font-size: 2rem;
+}
+.my-info-menu>ul>li>a>span {
+    display: inline-block;
+    padding: 13px 72px;
+}
+.my-info-menu .my-order a>span {
+    background:url("../../../imgs/an/hdpi/me_wddd.png")no-repeat;
+    background-position-y: 3px;
+}
+
+.my-info-menu .my-account a>span {
+    background:url("../../../imgs/an/hdpi/me_wdzh.png")no-repeat;
+    background-position-y: 3px;
+}
+.my-info-menu .my-exchange-card a>span {
+    background:url("../../../imgs/an/hdpi/me_kjdh.png")no-repeat;
+    background-position-y: 3px;
+}
+.my-info-menu .my-activity-bl-list a>span {
+    background:url("../../../imgs/an/hdpi/me_cjhd.png")no-repeat;
+    background-position-y: 3px;
+}
+.my-info-menu .my-fans a>span {
+    background:url("../../../imgs/an/hdpi/me_fsgl.png")no-repeat;
+    background-position-y: 3px;
+}

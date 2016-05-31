@@ -1,0 +1,48 @@
+
+.activity-bm-list {
+    padding: 0;
+    margin: 0;
+}
+.my-apply-list-view{
+    background-color: #fff;
+    padding: 0;
+    margin-top:10px ;
+}
+.my-apply-list-view li{
+    border-bottom: 1px solid #eee;
+    padding:0 10px 0 5px;
+}
+.my-apply-list-view a{
+    color: #000000!important;
+    font-size: 1.5rem;
+}
+.my-apply-list-view img {
+    border-radius: 100%;
+    width: 45px;
+    margin-left: 1rem;
+}
+.my-apply-list-view table {
+    width: 100%;
+}
+.my-apply-list-view .head-img {
+    width: 60px;
+}
+.my-apply-list-view .right-apply {
+    text-align: right;
+    color: #999;
+}
+.my-apply-list-view li{
+	padding: 1rem 0;
+	text-shadow: none!important;
+}
+@media screen and (min-width: 350px) and (max-width: 380px) {
+	.my-apply-list-view .right-apply {
+    		padding-right: 1rem;
+	}
+}
+
+@media screen and (min-width: 380px) {
+	.my-apply-list-view .right-apply {
+    		padding-right: 1rem;
+	}
+}

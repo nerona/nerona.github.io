@@ -1,0 +1,149 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <title>地图初始加载定位到当前城市</title>
+    <link rel="stylesheet" href="http://cache.amap.com/lbs/static/main.css?v=1.0"/>
+    <script type="text/javascript" src="http://cache.amap.com/lbs/static/PlaceSearchRender.js"></script>
+    <script type="text/javascript"
+            src="http://webapi.amap.com/maps?v=1.3&key=6719bfed376de027b951319b47343e2e&plugin=AMap.Autocomplete,AMap.PlaceSearch,AMap.Geocoder"></script>
+    <style type="text/css">
+        #mapContainer {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<input id="tipinput"/>
+<div id="mapContainer"></div>
+<script type="text/javascript">
+    var Util = Util || {};
+
+    Util.Amap = {
+        marker:null,
+        map:null,
+        addressVar:null,
+        init:function(){
+            var self = this;
+            //初始化地图对象，加载地图
+            this.map = new AMap.Map('mapContainer', {
+                zoom: 13,
+                resizeEnable: true
+            });
+            //地图中添加地图操作ToolBar插件
+            this.map.plugin(['AMap.ToolBar'], function() {
+                //设置地位标记为自定义标记
+                var toolBar = new AMap.ToolBar();
+                self.map.addControl(toolBar);
+            });
+            //添加点标记，并使用自己的icon
+            this.marker = new AMap.Marker({
+                map: self.map,
+                position: self.map.getCenter(),
+                draggable: true,
+                icon: "http://webapi.amap.com/theme/v1.3/markers/n/mark_r.png"
+            });
+            //注册点击事件，重新设置标记
+            this.map.on('click', function(e) {
+                self.marker.setPosition([e.lnglat.getLng(), e.lnglat.getLat()]);
+                AMap.service(["AMap.Geocoder"], function() { //加载地理编码
+                    var geocoder = new AMap.Geocoder({
+                        radius: 1000,
+                        extensions: "all"
+                    });
+                    //通过服务对应的方法回调服务返回结果
+                    geocoder.getAddress([e.lnglat.getLng(), e.lnglat.getLat()], function(status, result){
+                        //根据服务请求状态处理返回结果
+                        if (status === 'complete' && result.info === 'OK') {
+                            self.addressVar = result.regeocode.formattedAddress;//返回地址描述
+                        }
+                    });
+                });
+            });
+
+            //输入提示
+            var auto = new AMap.Autocomplete({input: "tipinput"});
+            var placeSearch = new AMap.PlaceSearch({ map: self.map});
+            //构造地点查询类
+            AMap.event.addListener(auto,
+                "select", //注册监听，当选中某条记录时会触发
+                function(e) {
+                    placeSearch.setCity(e.poi.adcode);
+                    placeSearch.search(e.poi.name);  //关键字查询查询
+                }
+            );
+        },
+        //获取标记的经纬度
+        getTargetPosition:function (){
+            var lngVar = this.marker.getPosition().lng;
+            var latVar = this.marker.getPosition().lat;
+            return  {address : this.addressVar, lng : lngVar , lat : latVar}
+        },
+        test:function(){
+            var map = new AMap.Map("container", {
+                resizeEnable: true
+            });
+            var placeSearchOptions = { //构造地点查询类
+                pageSize: 5,
+                pageIndex: 1,
+                city: "021" //城市
+            };
+            var placeSearch = new AMap.PlaceSearch(placeSearchOptions);
+            //关键字查询
+            placeSearch.search('东方明珠', callback);
+            var placeSearchRender=new Lib.AMap.PlaceSearchRender();
+            function callback(status, result) {
+                if (status === 'complete' && result.info === 'OK') {
+                    placeSearchRender.autoRender({
+                        placeSearchInstance: placeSearch,
+                        methodName: "search",
+                        methodArgumments: ["东方明珠", callback],
+                        data: result,
+                        map: map,
+                        panel: "panel"
+                    });
+                }
+            }
+        }
+    }
+    Util.Amap1 = {
+        marker:null,
+        map:null,
+        init:function(lng,lat){
+            var self = this;
+            //初始化地图对象，加载地图
+            this.map = new AMap.Map('mapContainer', {
+                resizeEnable: true,
+                zoom: 13,
+                center: [lng,lat]
+            });
+            //地图中添加地图操作ToolBar插件
+            this.map.plugin(['AMap.ToolBar'], function() {
+                //设置地位标记为自定义标记
+                self.map.addControl(new AMap.ToolBar());
+            });
+            //添加点标记，并使用自己的icon
+            this.marker = new AMap.Marker({
+                map: self.map,
+                position: [lng,lat],
+                draggable: true,
+                icon: "http://webapi.amap.com/theme/v1.3/markers/n/mark_r.png"
+            });
+        },
+        test:function(){
+            this.init(113.976605, 22.584151);
+        }
+    }
+
+    Util.Amap.init();
+
+
+
+</script>
+</body>
+</html>
+

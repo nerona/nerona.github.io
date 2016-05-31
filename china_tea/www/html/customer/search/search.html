@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <base href="../../../" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5,maximum-scale=1.0 , user-scalable=0">
+  <link rel="stylesheet" href="css/common/jquery.mobile-1.4.5.min.css"/>
+  <link rel="stylesheet" href="css/style-final.css" />
+  <link rel="stylesheet" href="css/customer/search/search.css" />
+</head>
+<body>
+<div data-role="page" class="jqm-main" data-quicklinks="true">
+	<section data-role="header" data-theme="b" class="my-header" id="my-header">
+		<a href="javascript:history.back();" data-rel="back" data-role="none" class="my-header-back-btn"></a>
+		<h2>首页</h2>
+		<a href="#" class="my-header-right-btn-ad" data-role="none"><span>.</span><span>.</span><span>.</span></a>
+	</section>
+
+
+	<div class="ui-filterable my-ui-search" >
+		<table width="100%">
+			<tr>
+				<td>
+					<form class="ui-filterable">
+						<div class="my-ui-input my-ui-search-input">
+							<span class="img-user-name">1</span>
+							<input name="userName" id="goodSearchId" type="text"  data-role="none" placeholder="请输入商品名称类别" value="" onfocus="goodSearchFocus()">
+							<a href="#" data-role="none" class="clear-a-text"></a>
+						</div>
+					</form>
+				</td>
+				<td>
+						<a id="cancelAId" data-role="none" href="javascript:searchCancelClickEvents(1)" >取消</a>
+						<a id="searchAId" style="display: none;" data-role="none" href="javascript:searchCancelClickEvents(2)" >搜索</a>
+				</td>
+			 <tr>
+		</table>
+		<ul id="goodSearchListview" data-role="listview" data-inset="true">
+			<li data-role="list-divider" >历史搜索</li>
+		</ul>
+		<div>
+			<a id="clearHository" href="#" data-role="button" class="my-center">清空历史搜索</a>
+		</div>
+</div>
+</div>
+</body>
+</html>
+<script src="js/common/jquery.min.js"></script>
+<script type="text/javascript">
+	 $(document).bind('mobileinit',function(){
+			$.mobile.changePage.defaults.changeHash = false;
+			$.mobile.hashListeningEnabled = false;
+			$.mobile.pushStateEnabled = false;
+	 });
+</script>
+<script src="js/common/jquery.mobile-1.4.5.min.js" ></script>
+<script src="js/customer/search/search.js" ></script>
+<script src="js/common/common.js"></script>
