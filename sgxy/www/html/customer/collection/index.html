@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5,maximum-scale=1.0 , user-scalable=0">
+    <base href="../../../"/>
+    <link rel="stylesheet" href="css/common/jquery.mobile-1.4.5.min.css"/>
+    <link rel="stylesheet" href="css/style-final.css" />
+    <link rel="stylesheet" href="css/customer/collection/index.css" />
+</head>
+<body>
+<div data-role="page" class="jqm-main" data-quicklinks="true">
+    <section data-role="header" data-theme="b" class="my-header" id="my-header">
+        <a href="javascript:history.back();"  data-role="none" class="my-header-back-btn"></a>
+        <h2>我的收藏</h2>
+        <a href="#" class="my-header-right-btn-ad" data-role="none"><span>.</span><span>.</span><span>.</span></a>
+    </section>
+
+
+    <div  class="my-goods" data-role="content">
+
+        <ul id="collection_list" data-role="listview" data-icon="false">
+
+            <!--<li>
+                <a href="#" class="goods-a">
+                    <img  src="images/test-img/goods.png">
+                    <dl>
+                        <dd>
+                            <h1>云南七子饼普洱茶</h1>
+                        </dd>
+                        <dd><em class="text-color"><s>￥588</s></em> <em class="text-color">月销  188</em></dd>
+                    </dl>
+                    <div class="edit-btn"><dt><em>|</em><em class="text-color-red">￥588</em></dt>
+                        <dt><em></em><span class="" id="collection_del"></span> </dt></div>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="goods-a">
+                    <img  src="images/test-img/goods.png">
+                    <dl>
+                        <dd>
+                            <h1>云南七子饼普洱茶</h1>
+                        </dd>
+                        <dd><em class="text-color"><s>￥588</s></em> <em class="text-color">月销  188</em></dd>
+                    </dl>
+                    <div class="edit-btn"><dt><em>|</em><em class="text-color-red">￥588</em></dt>
+                        <dt><em></em><span class="" id="collection_del"></span> </dt></div>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="goods-a">
+                    <img  src="images/test-img/goods.png">
+                    <dl>
+                        <dd>
+                            <h1>云南七子饼普洱茶</h1>
+                        </dd>
+                        <dd><em class="text-color"><s>￥588</s></em> <em class="text-color">月销  188</em></dd>
+                    </dl>
+                    <div class="edit-btn"><dt><em>|</em><em class="text-color-red">￥588</em></dt>
+                        <dt><em></em><span class="" id="collection_del"></span> </dt></div>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="goods-a">
+                    <img  src="images/test-img/goods.png">
+                    <dl>
+                        <dd>
+                            <h1>云南七子饼普洱茶</h1>
+                        </dd>
+                        <dd><em class="text-color"><s>￥588</s></em> <em class="text-color">月销  188</em></dd>
+                    </dl>
+                    <div class="edit-btn"><dt><em>|</em><em class="text-color-red">￥588</em></dt>
+                        <dt><em></em><span class="" id="collection_del"></span> </dt></div>
+                </a>
+            </li>-->
+
+
+
+        </ul>
+
+
+
+    </div>
+
+</div>
+
+</body>
+
+<script src="js/common/jquery.min.js"></script>
+<script src="js/common/jquery.tmpl.min.js"></script>
+<script src="js/customer/collection/collection.js"></script>
+<script src="js/common/common.js"></script>
+<script>
+    $(document).bind('mobileinit',function(){
+        $.mobile.changePage.defaults.changeHash = false;
+        $.mobile.hashListeningEnabled = false;
+        $.mobile.pushStateEnabled = false;
+    });
+</script>
+<script src="js/common/jquery.mobile-1.4.5.min.js" ></script>
+<script src="js/common/common.js"></script>
+</html>
+<!--以下是模板文件-->
+<script type="text/x-jquery-tmpl" id="collection_list_t">
+{{each(i,data) datas}}
+    <li class="ui-li-has-thumb">
+        <a href="#" class="goods-a ui-btn">
+             <img src="${data.goodImgUrl}">
+
+            <div class="edit-btn"><dt><em class="c999">|</em><em class="text-color-red">￥{{if data.retailPrice!=''||data.retailPrice!=0.0}}${data.retailPrice}{{else}}${data.salePrice}{{/if}}</em></dt>
+                <dt><em></em><span class="" id="collection_del" onclick="customer.collection.delStore(${data.goodId})"></span> </dt></div>
+                  <dl>
+                <dd>
+                    <p>${data.goodTitle}</p>
+                </dd>
+                <dd><em class="text-color"><s>￥${data.marketPrice}</s></em> <em class="text-color">月销  ${data.goodCount}</em></dd>
+            </dl>
+        </a>
+    </li>
+{{/each}}
+</script>

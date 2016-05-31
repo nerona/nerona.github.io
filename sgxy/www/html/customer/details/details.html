@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<base href="../../../" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5,maximum-scale=1.0 , user-scalable=0">
+	<link rel="stylesheet" href="css/common/jquery.mobile-1.4.5.min.css"/>
+	<link rel="stylesheet" href="css/style-final.css" />
+	<link rel="stylesheet" type="text/css" href="css/common/flexslider.css" />
+	<link rel="stylesheet" type="text/css" href="css/common/common.css" />
+	<link rel="stylesheet" type="text/css" href="css/customer/details/details.css" />
+</head>
+<body>
+<div data-role="page">
+	<section data-role="header" data-theme="b" class="my-header" id="my-header">
+		<a href="javascript:history.back();" data-rel="back" data-role="none" class="my-header-back-btn"></a>
+		<h2 id="pageTitle">商品详情</h2>
+		<a href="#" class="my-header-right-btn-ad" data-role="none"><span>.</span><span>.</span><span>.</span></a>
+	</section>
+
+	<div data-role="ui-content">
+		<!--图片滚动-->
+		<div id="slider-content" class="flexslider">
+			<ul class="slides">
+				<li><a href="#"><img src="images/test-img/sp-xq.png" /></a></li>
+				<li><a href="#"><img src="images/test-img/sp-xq.png" /></a></li>
+				<li><a href="#"><img src="images/test-img/sp-xq.png" /></a></li>
+			</ul>
+		</div>
+		<!--商品描述-->
+		<div id="sp-desc-id">
+			<div class="sp-desc-a">
+				<!--<div><span >云南七子饼普洱茶云南七子饼普洱茶</span></div>
+				<div class="sp-desc-font-a">
+					<span style="color:#ff6e82;">￥188.88</span>
+					<span><em><s>￥1888</s></em></span>
+					<span class="sp-desc-font-e"><li>山国饮艺茶轩</li></span>
+				</div>-->
+			</div>
+			<div class="sc-share-div">
+				<a href="#" id="spxq_fx_dj_id" class="share-bottom-bar-a">分享</a>
+				<a href="#" id="spxq_sc_dj_id" class="">收藏</a>
+
+			</div>
+			<div style="clear: both"></div>
+			<div class="sp-desc-font-c" id="sp-desc-ysy">
+				<!--<ul>
+					<li>￥10.00<span>运费</span></li>
+					<li>567<span>收藏</span></li>
+					<li style="border-right:0">1681<span>月销量</span></li>
+				</ul>-->
+			</div>
+		</div>
+
+		<!--图片颜色尺寸数量-->
+		<a href="#" class="btn-right-a" onclick="showGoodSize()"><span>颜色/尺寸/数量</span></a>
+
+		<!--商品详情，买家评论-->
+		<div data-role="tabs" id="detailCommentTabs">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="html/customer/details/detailTab.html" data-ajax="false"><span>商品详情</span></a></li>
+					<li><a href="html/customer/details/commentTab.html"  data-ajax="false"><span>买家评论</span></a></li>
+				</ul>
+			</div>
+			<div class="comment-style-clear2"></div>
+		</div>
+
+	</div>
+	<div data-role="footer" data-position="fixed" data-disable-page-zoom="false"  data-tap-toggle="false">
+		<div data-role="navbar" id="footer-navbar-id">
+			<ul>
+				<li><a href="#" data-icon="spxq_wysr" class="ui-btn-icon-left">我要送人</a></li>
+				<li><a href="#" data-icon="spxq_zjy" class="ui-btn-icon-left">自己要</a></li>
+				<li><a href="#" data-icon="spxq_jrgwc" class="ui-btn-icon-left" onclick="customer.details.addCart();">加入购物车</a></li>
+			</ul>
+		</div>
+	</div>
+
+</div>
+<!-- 分享弹窗-->
+<div class="my-ui-share-bottom hidden" id="share-bottom-bar-div">
+	<div class="share-content">
+		<p>分享到</p>
+		<ul>
+			<li><a href="#"><img src="imgs/test-img/share-wx.png"/><span>微信</span></a></li>
+			<li><a href="#"><img src="imgs/test-img/share-fd.png"/><span>朋友圈</span></a></li>
+			<li><a href="#"><img src="imgs/test-img/share-sina.png"/><span>微博</span></a></li>
+		</ul>
+	</div>
+</div>
+<!--查价格窗口-->
+<div class="my-ui-goods-c-bottom hidden" id="goods-cass-div-box">
+
+	<!--<div class="share-content">
+		<div class="goods-sl-ico">
+			<a href="#" class="dialog_close" onclick="closeGoodSize(this)"><img src="images/hdpi/ts_gb.png"/></a>
+			<table>
+				<tr>
+					<td rowspan="3"><img src="images/test-img/sp-xq.png"/></td>
+					<td class="goods-ac-text-content">
+						<h1 class="cff5555bx">云南七子饼普洱茶</h1>
+						<p>
+							<span class="cff5555">588</span>
+							<span><s>288</s></span>
+							<span >库存<em >445</em></span>
+						</p>
+					</td>
+					<td class="c50end"></td>
+				</tr>
+				<tr>
+					<td colspan="2">
+					</td>
+				</tr>
+				<tr>
+					<td></td><td></td>
+				</tr>
+			</table>
+		</div>
+		<div class="goods-gg-cs-text">
+			<h1>重量:</h1>
+			<p class="goods-gg-cs-p2">
+				<input name="weight" id="weight1" type="radio" class="ext-box-btn wg-ext-box-btn" data-role="none"/>
+				<label for="weight1">200g</label>
+				<input name="weight" id="weight2" type="radio" class="ext-box-btn wg-ext-box-btn" data-role="none"/>
+				<label for="weight2">500g</label>
+				<input name="weight" id="weight3" type="radio" class="ext-box-btn wg-ext-box-btn" data-role="none"/>
+				<label for="weight3">1000g</label>
+			</p>
+		</div>
+		<div class="goods-gg-cs-text2">
+			<h1 >包装:</h1>
+			<p class="goods-gg-cs-p2">
+				<input name="goods-wrap" id="goods-wrap1" type="radio" class="ext-box-btn wg-ext-box-btn" data-role="none"/>
+				<label for="goods-wrap1">散装</label>
+				<input name="goods-wrap" id="goods-wrap2" type="radio" class="ext-box-btn wg-ext-box-btn" data-role="none"/>
+				<label for="goods-wrap2">精品装</label>
+				<input name="goods-wrap" id="goods-wrap3" type="radio" class="ext-box-btn wg-ext-box-btn" data-role="none"/>
+				<label for="goods-wrap3">豪华装</label>
+			</p>
+		</div>
+		<div class="ggdialog-d">
+			<h1>数量</h1>
+			<span class="ggdialog-d-a" onclick="numDec()">-</span>
+			<input type="text" id="quantity" value="1" class="ext-text-eee" data-role="none"/>
+			<span class="ggdialog-d-a" onclick="numAdd()">+</span>
+			<div style="clear: both"></div>
+		</div>
+
+		<div class="ggdialog-e">
+			<a href="#"><span>加入购物车</span></a>
+			<a href="#"><span class="ggdialog-e-a" style="">立即购买</span></a>
+		</div>
+	</div>-->
+</div>
+</body>
+</html>
+<script src="js/common/jquery.min.js"></script>
+<script src="js/common/common.js"></script>
+<script src="js/slider/jquery.flexslider-min.js"></script>
+<script type="text/javascript">
+	$(document).bind('mobileinit',function(){
+		$.mobile.changePage.defaults.changeHash = false;
+		$.mobile.hashListeningEnabled = false;
+		$.mobile.pushStateEnabled = false;
+	});
+</script>
+<script src="js/common/jquery.mobile-1.4.5.min.js" ></script>
+<script src="js/common/common.js"></script>
+<script src="js/customer/details/details.js"></script>
+<script src="js/common/jquery.tmpl.min.js"></script>
+
+<!--图片滚动-->
+<script type="text/x-jquery-tmpl" id="goodsDetail_showImage_t">
+    <ul class="slides">
+      {{each(i,data) images}}
+        <li style="width: 100%; float: left; margin-right: -100%; position: relative; opacity: {{if i==0}}1{{/if}}{{if i!=0}}0{{/if}}; display: block; transition: opacity 0.8s ease; z-index: {{if i==0}}2{{/if}}{{if i!=0}}1{{/if}};" class="{{if i==0}}flex-active-slide{{/if}}">
+             <img src="${data.url}" draggable="false">
+        </li>
+      {{/each}}
+    </ul>
+ </script>
+
+<!--商品描述-->
+<script type="text/x-jquery-tmpl" id="sp-desc-t">
+		<div><span >${name}</span></div>
+		<div class="sp-desc-font-a">
+			<span style="color:#ff6e82;">￥${salePrice}</span>
+			<span><em><s>￥${marketPrice}</s></em></span>
+			<span class="sp-desc-font-e"><li>x山国饮艺茶轩</li></span>
+		</div>
+ </script>
+<!--商品描述(运费,收藏,月销量)-->
+<script type="text/x-jquery-tmpl" id="sp-desc-ysy-t">
+	<ul>
+	<li>￥0<span>运费</span></li>
+	<li>0<span>收藏</span></li>
+	<li style="border-right:0">${saleNum}<span>月销量</span></li>
+	</ul>
+</script>
+<!--查价格窗口-->
+<script type="text/x-jquery-tmpl" id="goods-cass-div-t">
+<div class="share-content">
+	<div class="goods-sl-ico">
+		<a href="#" class="dialog_close" onclick="closeGoodSize(this)"><img src="images/hdpi/ts_gb.png"></a>
+		<table>
+			<tbody><tr>
+				<td rowspan="3"><img src="${smallImage}"></td>
+				<td class="goods-ac-text-content">
+					<h1 class="cff5555bx">${name}</h1>
+					<p>
+						<span class="cff5555">${goodSkuList[0].salePrice}</span>
+						<span><s>${goodSkuList[0].marketPrice}</s></span>
+						<span>库存<em>${goodSkuList[0].leftNums}</em></span>
+					</p>
+				</td>
+				<td class="c50end"></td>
+			</tr>
+			<tr>
+				<td colspan="2">
+				</td>
+			</tr>
+			<tr>
+				<td></td><td></td>
+			</tr>
+			</tbody></table>
+	</div>
+	<div class="goods-gg-cs-text">
+		<h1>重量:</h1>
+		<p class="goods-gg-cs-p2">
+			<input name="weight" id="weight1" type="radio" class="ext-box-btn wg-ext-box-btn" data-role="none">
+			<label for="weight1">200g</label>
+			<input name="weight" id="weight2" type="radio" class="ext-box-btn wg-ext-box-btn" data-role="none">
+			<label for="weight2">500g</label>
+			<input name="weight" id="weight3" type="radio" class="ext-box-btn wg-ext-box-btn" data-role="none">
+			<label for="weight3">1000g</label>
+		</p>
+	</div>
+	<div class="goods-gg-cs-text2">
+		<h1>包装:</h1>
+		<p class="goods-gg-cs-p2">
+			<input name="goods-wrap" id="goods-wrap1" type="radio" class="ext-box-btn wg-ext-box-btn" data-role="none">
+			<label for="goods-wrap1">散装</label>
+			<input name="goods-wrap" id="goods-wrap2" type="radio" class="ext-box-btn wg-ext-box-btn" data-role="none">
+			<label for="goods-wrap2">精品装</label>
+			<input name="goods-wrap" id="goods-wrap3" type="radio" class="ext-box-btn wg-ext-box-btn" data-role="none">
+			<label for="goods-wrap3">豪华装</label>
+		</p>
+	</div>
+	<div class="ggdialog-d">
+		<h1>数量</h1>
+		<span class="ggdialog-d-a" onclick="numDec()">-</span>
+		<input type="text" id="quantity" value="1" class="ext-text-eee" data-role="none">
+		<span class="ggdialog-d-a" onclick="numAdd()">+</span>
+		<div style="clear: both"></div>
+	</div>
+
+	<div class="ggdialog-e">
+		<a href="#" onclick="customer.details.addCart();"><span>加入购物车</span></a>
+		<a href="#"><span class="ggdialog-e-a" style="">立即购买</span></a>
+	</div>
+</div>
+</script>
+<!--图片详情-->
+<script type="text/x-jquery-tmpl" id="detailTab_t">
+    <img src="${url}">
+</script>
+<!--买家评论-->
+<script type="text/x-jquery-tmpl" id="commentTab_t">
+	<div class="comment-a">
+        <span class="ext-font-size">${username}</span>
+					<span>
+						<img src="images/hdpi/wddd_pj.png" index="0">
+						<img src="images/hdpi/wddd_pj.png" index="1">
+						<img src="images/hdpi/wddd_pj.png" index="2">
+						<img src="images/hdpi/wddd_pj.png" index="3">
+						<img src="images/hdpi/wddd_pj.png" index="4">
+					</span>
+        <span class="font-right-hw" style="float: right;">${evaluateTime}</span>
+    </div>
+    <div class="comment-style-clear1"></div>
+    <div class="comment-b">
+        <p>${content}</p>
+    </div>
+    <div class="comment-c">
+        <span class="font-right-hw">${skuName}</span>
+    </div>
+    <div>
+    	{{each(i,image) imageVoList}}
+		   <img src="${image.url}">
+		{{/each}}
+    </div>
+
+    <div class="comment-style-clear2"></div>
+</script>

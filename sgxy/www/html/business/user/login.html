@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.5,maximum-scale=1.0 , user-scalable=no">
+    <base href="../../../"/>
+    <link rel="stylesheet" href="css/common/jquery.mobile-1.4.5.min.css"/>
+    <link rel="stylesheet" href="css/style2.css"/>
+    <link rel="stylesheet" href="css/business/user/login.css"/>
+</head>
+<body>
+ <section data-role="content" role="main" class ="login_main">
+
+    <fieldset>
+        <div class="my-ui-input">
+            <input name="userName" id="userName" type="text"  data-role="none" placeholder="请输入用户名" value="">
+            <a href="#" data-role="none" class="clear-a-text"></a>
+        </div>
+        <div class="my-ui-input">
+        <input name="password" id="password" type="password" data-role="none" placeholder="请输入密码" value="">
+            <a href="#" data-role="none" class="clear-a-text"></a>
+        </div>
+        <div class="my-ui-input-xy">
+                  <dt><input type="checkbox" class="ext-box-select" id="login-box-btn" data-role="none" checked="checked"/><label for="login-box-btn"></label></dt>
+                  <dd><span>我已经同意条款</span><a href="html/business/user/agreement.html" target="_top" data-role="none" style="color: #FF5555">《服务条款》 </a></dd>
+        </div>
+        <div class="login-btn-div">
+            <a href="#" data-role="none" id="login-a-click" class="ok-login-btn login-no-checked" >登录</a>
+        </div>
+    </fieldset>
+    <a href="html/business/user/edit-password-send.html" target="_top" data-role="none" class="forget-password">忘记密码?</a>
+ </section>
+</body>
+</html>
+<script src="js/common/jquery.min.js"></script>
+<script src="js/common/common.js"></script>
+<script src="js/common/jQuery.md5.js"></script>
+<script>
+    $(document).bind('mobileinit', function () {
+        $.mobile.changePage.defaults.changeHash = false;
+        $.mobile.hashListeningEnabled = false;
+        $.mobile.pushStateEnabled = false;
+    });
+</script>
+<script src="js/common/jquery.mobile-1.4.5.min.js"></script>
+<script src="js/business/user/login.js"></script>
+<script src="js/business/common/common.js"></script>

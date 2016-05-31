@@ -1,0 +1,57 @@
+.order-pay-main{
+    margin: 0;
+    padding: 0;
+}
+.order-pay-main ul {
+    display: inline-block;
+    background-color: #ffffff;
+    margin:10px 0;
+    padding: 0;
+    width: 100%;
+}
+.order-pay-main dt,dd{
+    background-color:#fff ;
+    padding: 0;
+    text-align: left;
+    padding: 0;
+    margin-left: 0;
+}
+.order-pay-main dt{
+    float: left;
+    padding-right:10px ;
+}
+.order-pay-main dd{
+    float: left;
+}
+.order-pay-main ul img{
+}
+.order-pay-main li{
+    border-bottom: 1px solid #EEEEEE;
+    float: left;
+    width: 90%;
+    padding: 12px 5% 4px 5%;
+    list-style: none;
+}
+.order-pay-main  .pay-type-text{
+    width: auto;
+    float: left;
+}
+.order-pay-main  .pay-type-dd{
+    width: auto;
+    float: right;
+}
+.order-pay-main .pay-type-text p {
+    padding: 0;
+    margin: 0;
+}
+.pay-type-text .cbbb {
+    font-size: 1.2rem;
+}
+
+#my-dialog-popup .img-p-notice+p+p {
+    margin: 0;
+}
+#my-dialog-popup .img-p-notice+p{
+    font-size: 2.0rem;
+    top:-10px;
+}

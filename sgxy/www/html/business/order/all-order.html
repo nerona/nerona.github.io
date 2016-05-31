@@ -1,0 +1,61 @@
+<section class="add-order-main my-list-view" data-role="content" role="main">
+    <div id="order_list_all">
+        <div id="scroller">
+            <div id="pullUp">
+                <span id="pullDownIcon"></span><span class="pullDownLabel">下拉刷新...</span>
+            </div>
+
+            <ul id="thelist">
+        <<!--li>
+            <table >
+                <tr >
+                    <td class="td-left"><a href="html/business/order/order-detail.html" target="_top"><img  src="images/test-img/goods.png"></a></td>
+                    <td class="td-middle"><h1>订单号：22123423423423</h1>
+                        <p>订货人：内方违反 </p>
+                        <p class="c999">2012-15-16</p>
+                    </td>
+                    <td class="td-right cff5555">待付款</td>
+                </tr>
+            </table>
+            <div class="bar-b-tj">
+                <dl>
+                    <dd >共<em>2</em>件商品 合计:<em>￥588</em>(含运费:<em>￥0.00</em>)</dd>
+                </dl>
+            </div>
+        </li>
+
+        <li>
+            <table >
+                <tr >
+                    <td class="td-left"> <img  src="images/test-img/goods.png"></td>
+                    <td class="td-middle"><h1>订单号：22123423423423</h1>
+                        <p>订货人：内方违反 </p>
+                        <p class="c999">2012-15-16</p>
+                    </td>
+                    <td class="td-right cff5555">待付款</td>
+                </tr>
+            </table>
+            <div class="bar-b-tj">
+                <dl>
+                    <dd >共<em>2</em>件商品 合计:<em>￥588</em>(含运费:<em>￥0.00</em>)</dd>
+                </dl>
+            </div>
+        </li>-->
+            </ul>
+
+            <div id="pullDown" style="float: left;clear:both;">
+                <span class="pullUpIcon"></span><span class="pullUpLabel">上拉加载更多...</span>
+            </div>
+
+        </div>
+    </div>>
+</section>
+<script>
+    $(function(){
+        $(".my-list-view").on("click", ".ok-order-btn", function(){
+            $("#my-order-ok-popup").popup("open");
+        });
+        //初始化加载元素
+        business.order.loadList("#order_list_all #thelist",0);
+    });
+</script>

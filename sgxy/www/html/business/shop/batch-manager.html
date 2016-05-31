@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.5,maximum-scale=0.65 , user-scalable=0">
+    <base href="../../../"/>
+    <link rel="stylesheet" href="css/common/jquery.mobile-1.4.5.min.css"/>
+    <link rel="stylesheet" href="css/style2.css"/>
+    <link rel="stylesheet" href="css/common/scrollbar.css" />
+    <link rel="stylesheet" href="css/business/shop/batch-manager.css"/>
+</head>
+<body>
+<section data-role="header" data-theme="b" class="my-header" id="my-header">
+    <a href="javascript:history.back();" data-rel="back" data-role="none" class="my-header-back-btn"></a>
+    <h2>批量管理</h2>
+</section>
+<section data-role="content" role="main" class ="manager_shop_main">
+    <div class="my-list-view-t" id="scroll-list">
+
+        <div id="scroller">
+            <div id="pullDown">
+                <span id="pullDownIcon"></span><span class="pullDownLabel">下拉刷新...</span>
+            </div>
+            <ul id="thelist">
+                <!--列表内容部分-->
+                <li><div class="no-goods-notice">  <img src="imgs/test-img/no-goods.png"/></div></li>
+            </ul>
+            <div id="pullUp">
+                <span class="pullUpIcon"></span><span class="pullUpLabel">上拉加载更多...</span>
+            </div>
+        </div>
+
+    </div>
+</section>
+<section  data-role="footer"  data-disable-page-zoom="false" data-position="fixed" class="my-ui-footer-bar" style="background-color: #ffffff;padding: 10px">
+    <ul>
+        <li><input type="checkbox" class="ext-box-select manager-box-btn-all" id="manager-box-btn-all" data-role="none" /><label for="manager-box-btn-all"><b>全选</b> <span>已经选择<em>2</em>件商品</span></label></li>
+        <li id="managerSubmit"><!--<a href="#" class="manager-put-a-ico"><b>上架</b></a>--></li>
+    </ul>
+</section>
+<!--<div class="my-ui-up-btn">
+    <a href="#"></a>
+</div>-->
+</body>
+<script src="js/common/jquery.min.js"></script>
+<script>
+    $(document).bind('mobileinit', function () {
+        $.mobile.changePage.defaults.changeHash = false;
+        $.mobile.hashListeningEnabled = false;
+        $.mobile.pushStateEnabled = false;
+    });
+ $(function(){
+    $("#manager-box-btn-all").on("click", function(){
+        if($(this).is(":checked")) {
+            $(".my-list-view-t").find(".ext-box-select").prop("checked", true);
+            console.log($(this).is(":checked"));
+        }else {
+            $(".my-list-view-t").find(".ext-box-select").prop("checked", false);
+        }
+        var num = $(".my-list-view-t").find(".ext-box-select:checked").length;
+        $("#manager-box-btn-all").next().find("em").html(num);
+    }) ;
+    $(".my-list-view-t").on("change", ".ext-box-select", function(){
+         var num = $(".my-list-view-t").find(".ext-box-select:checked").length;
+        $("#manager-box-btn-all").next().find("em").html(num);
+    }) ;
+ });
+</script>
+<script src="js/common/jquery.mobile-1.4.5.min.js"></script>
+<script src="js/business/common/common.js"></script>
+<script src="js/common/jquery.tmpl.min.js"></script>
+<script src="js/slider/iscroll.js"></script>
+<script src="js/business/shop/batch-manager.js"></script>
+<script src="js/common/common.js"></script>
+</html>
+<script type="text/x-jquery-tmpl" id="list_t">
+    <li>
+        <table>
+            <colgroup>
+                <col width="5%">
+                <col width="200px">
+                <col>
+            </colgroup>
+            <tbody>
+            <tr>
+                <td><input name="goodId" type="checkbox" class="ext-box-select" id="manager-box-btn${id}" data-role="none" value="${id}"><label for="manager-box-btn${id}"></label></td>
+                <td class="goods-img-td" onclick="business.batchManger.toDetails(${id})">
+                    <a href="#" target="_top" >
+                    <img src="${showPicture}"></a>
+                 </td>
+                <td>
+                    <div><p><span class="tj-goods-ico-ing">${columnName}</span><b>${goodName}</b></p></div>
+                    <div><p class="goods-count-p">销量 <em>${saleNum}</em> 库存 <em>${stock}</em> 收藏 <em>${storeNum}</em></p></div>
+                    <div><p class="cFF5555">活动正在进行中...</p></div>
+                    <div><p class="goods-count-p"><em class="cFF5555">￥${salePrice}</em><em style="float: right" class="goods-put-time-sw">${startDate}</em></p></div>
+                </td></tr>
+            </tbody>
+        </table>
+     </li>
+</script>

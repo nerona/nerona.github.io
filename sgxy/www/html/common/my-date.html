@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+
+    <title>my-date</title>
+    <link href="../../css/common/mobiscroll.custom-2.6.2.min.css" rel="stylesheet" type="text/css"/>
+    <script src="../../js/common/jquery.min.js"></script>
+    <script src="../../js/common/mobiscroll.custom-2.6.2.min.js" type="text/javascript"></script>
+
+
+    <script type="text/javascript">
+        $(function () {
+            var opt = {
+                preset: 'date', //日期
+                theme: 'android-ics light', //皮肤样式
+                display: 'modal', //显示方式
+                mode: 'scroller', //日期选择模式
+                dateFormat: 'yy-mm-dd', // 日期格式
+                setText: '确定', //确认按钮名称
+                cancelText: '取消',//取消按钮名籍我
+                dateOrder: 'yymmdd', //面板中日期排列格式
+                dayText: '日', monthText: '月', yearText: '年', //面板中年月日文字
+                endYear:2020, //结束年份
+                display: 'bottom'
+            };
+          /* opt.date = {preset: 'date'};
+            opt.datetime = {
+                preset: 'datetime',
+                minDate: new Date(1970, 3, 10, 9, 22),
+                maxDate: new Date(2014, 7, 30, 15, 44),
+                stepMinute: 5
+            };
+            opt.time = {preset: 'time'};
+            opt.tree_list = {preset: 'list', labels: ['Region', 'Country', 'City']};
+            opt.image_text = {preset: 'list', labels: ['Cars']};
+            opt.select = {preset: 'select'};
+            opt.lang={preset:'hu'};*/
+            <!--Script-->
+
+            var demo = "my-date";
+            $("#demo_" + demo).show();
+            $("#test_" + demo).mobiscroll(opt).date(opt);
+           /* $('#test_' + demo).val('').scroller('destroy').scroller($.extend(opt['date'], {
+                theme: 'android-ics light',
+                mode: 'scroller',
+                display: 'bottom'
+            }));*/
+        });
+
+    </script>
+</head>
+<body>
+<div id="demo_my-date" class="demos" style="display: block;">
+    <label for="test_my-date">C</label>
+    <input type="text" name="test_my-date" id="test_my-date" class="" readonly="">
+</div>
+
+</body>
+</html>	
+	

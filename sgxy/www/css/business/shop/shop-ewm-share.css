@@ -1,0 +1,27 @@
+html{
+    width: 100%;
+    height: 100%;
+}
+body {
+    background-color: #f5f5f5!important;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    font-style: normal;
+}
+.shop-ewm-share_main {
+    padding: 0;
+}
+
+.my-header-ddd-btn {
+    height: 2rem;
+    width: 1.5rem;
+    background: url("../../../imgs/an/hdpi/yxtg_fx.png") no-repeat;
+}
+
+.shop-ewm-share_main>img {
+    width: 100%;
+    height: 100%;
+}
+

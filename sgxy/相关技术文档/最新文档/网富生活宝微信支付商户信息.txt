@@ -1,0 +1,17 @@
+登录地址：https://pay.weixin.qq.com
+
+商户平台登录帐号：1340223201@1340223201
+
+商户平台登录密码：776655
+
+微信支付商户号：1340223201
+
+32安全秘钥：06v61gf8BeRumV0uKFd6REhXNLGHVBra
+
+微信公众平台：https://mp.weixin.qq.com/
+
+申请对应的公众号：网富生活宝
+
+AppID(应用ID)wx13ea47ddb8c2bb7e
+
+AppSecret(应用密钥)a8cb69741bde10326edfbf192d95c8e0

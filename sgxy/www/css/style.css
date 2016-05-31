@@ -1,0 +1,414 @@
+﻿.ui-input-has-clear {
+     padding-right: 0em; 
+}
+
+ body, input, select, textarea, button, .ui-btn {
+    font-size: 1.5rem;
+    line-height: 100%;
+    font-family: sans-serif;
+    word-wrap: normal;
+    font-style:normal;
+     font-weight: normal;
+}
+
+ul,li,a {
+    text-decoration: none;
+    list-style: none;
+    color: #000;
+    font-weight: normal!important;
+    font-size: 1.5rem;
+}
+a:link,a:visited,a:hover {
+    color: #000;
+    font-weight: normal;
+    font-size: 1.5rem;
+}
+
+span,em{
+    font-weight: normal!important;
+    font-style: normal!important;
+    font-size: 1.3rem;
+}
+.font2rem {
+    font-size: 2rem!important;
+}
+.font1_5rem {
+    font-size: 1.5rem!important;
+}
+.font1_2rem {
+    font-size: 1.2rem!important;
+}
+
+    /**
+    *按钮同意背景红色
+    */
+.red{
+ color:#ff6e82!important;
+}
+/**
+*999灰色
+*/
+.c999{
+    color: #999999 !important;;
+}
+/**
+*bbb灰色
+*/
+.cbbb{
+    color: #bbbbbb !important;;
+}
+/**
+*fff白色
+*/
+.cfff{
+    color: #ffffff !important;;
+}
+/**
+*辅助色-红
+*/
+.cFF5555 {
+    color: #ff5555;
+}
+/**
+*辅助色黑
+*/
+.c2e2e2e {
+    color: #2e2e2e;
+}
+.cffbc3d {
+    color: #ffbc3d;
+}
+.c5395d1 {
+    color: #5395d1;
+}
+.text-left{
+    text-align: left;
+}
+.text-right{
+    text-align: right;
+}
+.text-center{
+    text-align: center;
+}
+/**
+*头部样式开始
+**/
+.my-header>h2 {
+     font-size: 2.2rem!important;
+     line-height: 100%;
+ }
+.my-header .my-header-back-btn{
+    padding: 18px 8px;
+    text-decoration: none;
+    line-height: 100%;
+    color: #fff!important;
+    font-size: 2.2rem!important;
+}
+.my-header .my-header-back-btn>span {
+    padding: 14px 4px;
+    font-size: 2.2rem;
+}
+/**
+*头部又按钮样式
+*/
+.my-header .my-header-ddd-btn>a,.my-header-ddd-btn>p {
+    padding: 0;
+    margin: 0;
+    max-height: 50px;
+    font-size: 2.2rem;
+    height: 15px;
+    color: #fff!important;
+}
+.my-header .my-header-ddd-btn  {
+    padding: 0 12px;
+    margin: 0;
+    right: 9px;
+    top: 7px;
+}
+/*
+*头部样式结束
+**/	
+/***
+ *搜索框样式
+ **/
+.my-ui-search .ui-btn-icon-right:after {
+    background-color: #1d1d1d;
+    background-color: rgba(0,0,0,0.3);
+    background-position: center center;
+    background-repeat: no-repeat;
+     -webkit-border-radius: 2rem;
+     border-radius: 2rem;
+}
+.my-ui-search .ui-input-search.ui-input-has-clear .ui-btn.ui-input-clear, .ui-input-text.ui-input-has-clear .ui-btn.ui-input-clear {
+    position: absolute;
+    right: 20px;
+    top: 30%;
+    border: 0;
+    background-color: transparent;
+}
+
+.ui-input-search:after {
+    background:url("../images/hdpi/sy_ss.png")no-repeat;
+    position: absolute;
+    left: 93%;
+    top: 35%;
+    margin-top: -7px;
+    content: "";
+    background-position: center center;
+    width: 37px;
+    height: 30px;
+    filter: Alpha(Opacity=50);
+    opacity: .5;
+}
+
+/**
+ * 自定义单复选按钮-勾选样式
+ */
+.ext-box-select,.ext-box-btn{
+    display: none;
+}
+.ext-box-select+label::before {
+    content: "";
+    width: 3.6rem;
+    height: 3.6rem;
+    margin-right: -0.5rem;
+    display: inline-block;
+    vertical-align: middle;
+    background: url(../images/hdpi/gwc_xzk.png) no-repeat;
+    background-size: cover;
+}
+.ext-box-select:checked+label::before{
+    background: url(../images/hdpi/gwc_xzg.png) no-repeat;
+    background-size: cover;
+}
+/**
+ * 自定义单复选按钮,按钮样式
+ */
+.ext-box-btn+label{
+    width: 90%;
+    height: 2.0rem;
+    line-height: 2.0rem;
+    display: inline-block;
+    text-align: center;
+    background-color: #e5e5e5;
+    border-radius: 8px;
+}
+.ext-box-btn:checked+label{
+    color: #fff;
+    background-color: #ff6e82;
+    border-radius: 8px;
+}
+/**
+ * 自定义按钮默认灰色，点击变红色
+ */
+.ext-change-btn{
+    width: 5rem;
+    height: 2.0rem;
+    font-size: 1.2rem;
+    outline:none;
+    background-color: #e5e5e5;
+    border-radius: 8px;
+    border-width: 1px;
+}
+.ext-change-btn:active{
+    outline:none;
+    border-width:0px;
+    border-radius: 8px;
+    color: #fff;
+    background-color: #ff6e82;
+}
+/**
+ * 自定义按钮灰色
+ */
+.ext-grid-btn{
+    width: 4.2rem;
+    height: 2.0rem;
+    font-size: 1.2rem;
+    outline:none;
+    background-color: #e5e5e5;
+    border-radius: 8px;
+    border-width: 1px;
+}
+/**
+ * 自定义按钮红色
+ */
+.ext-red-btn{
+    width: 4.2rem;
+    height: 2.0rem;
+    font-size: 1.2rem;
+    outline:none;
+    color: #fff;
+    background-color: #ff6e82;
+    border-radius: 8px;
+    border-width: 1px;
+}
+/**
+ * 自定义文件输入框
+ */
+.ext-text{
+    width: 6rem;
+    height: 1.6rem;
+    padding-left: 10px;
+    border-radius:7px;
+    background-color: #E8E4E4;
+    border: 0;
+    outline:none;
+    -webkit-appearance: none;
+}
+
+/**
+ * 自定义白色输入框
+ */
+.ext-text-w{
+    width: 80%;
+    height: 2.6rem;
+    padding-left: 10px;
+    border-radius:7px;
+    background-color: #FFF;
+    border: 0;
+    outline:none;
+    -webkit-appearance: none;
+}
+
+/**
+ * 自定义灰色输入框
+ */
+.ext-text-eee{
+    width: 80%;
+    height: 2.6rem;
+    padding-left: 10px;
+    border-radius:7px;
+    background-color: #eee;
+    border: 0;
+    outline:none;
+    -webkit-appearance: none;
+}
+
+/**
+*删除按钮样式
+*/
+.del-order-btn {
+    background:#fff;
+    color: #000!important;
+    border: 1px solid;
+    border-radius: 10px;
+    padding: 11px;
+    font-weight: normal!important;
+    text-decoration: none;
+}
+/**
+*红色按钮样式
+*/
+.ok-order-btn{
+    background:#ff6e82;
+    color: #fff!important;
+    border: 0;
+    border-radius: 10px;
+    text-decoration: none;
+    padding: 11px;
+    font-weight: normal!important;
+}
+
+/**
+*红色按钮样圆角式
+*/
+.ok-order-btn-radius{
+    background:#ff6e82;
+    color: #fff!important;
+    border: 0;
+    border-radius: 31px;
+    text-decoration: none;
+    padding: 11px;
+    font-weight: normal!important;
+}
+
+/**
+*红色按钮样式 右浮出
+*/
+.ok-order-btn-r{
+    background:#ff6e82;
+    color: #fff!important;
+    border: 0;
+    border-radius: 10px;
+    text-decoration: none;
+    padding: 1.5rem;
+    float: right;
+    margin-right: 3rem;
+    font-weight: normal!important;
+}
+/**
+*a标签右侧按钮 >
+*/
+.btn-right-a {
+    width: 85%;
+    display: -webkit-inline-box;
+    color: #000!important;
+    font-weight:normal!important;
+    line-height: 100%;
+    text-decoration: none;
+    background: url("../images/hdpi/grzx_xy.png") no-repeat right;
+}
+
+.my-bm-ok-popup p,h4 {
+ padding: 10px!important;
+}
+.my-bm-ok-popup .ok-btn-container {
+    margin-top: 3rem;
+    line-height: 100%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/**清除按钮样式灰淡色按钮**/
+.ext-ui-btn{
+    background-color: #F9F9F9 !important;
+    border: none !important;
+    width: 6rem;
+}
+.ext-ui-btn:active,.ext-ui-btn:focus,.ext-ui-btn:visited{
+    -webkit-box-shadow: none!important;
+    box-shadow:none!important;
+}
+
+
+/**
+*分享底部框开始
+*/
+.my-ui-share-bottom {
+    width: 100%;
+    margin: 0;
+    left: 0!important;
+    position: absolute;
+    border: 1px solid #f2f2f2;
+    z-index: 9999;
+    background-color: rgba(0, 0, 0, 0.43);
+    top:0;
+    height: 100%;
+}
+.my-ui-share-bottom>.share-content {
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+    background-color: #fff;
+    text-align: center;
+}
+.my-ui-share-bottom>.share-content ul {
+    width: 100%;
+    padding: 0;
+}
+.my-ui-share-bottom>.share-content li {
+    width: 33%;
+    float: left;
+    padding:40px 0;
+}
+.my-ui-share-bottom>.share-content p {
+    margin: 24px 0;
+}
+.my-ui-share-bottom>.share-content li>a:hover {
+    color: #000;
+}
+.my-ui-share-bottom>.share-content li>a>span {
+    display: list-item;
+    margin-top: 20px;
+}

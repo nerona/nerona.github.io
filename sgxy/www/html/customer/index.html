@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5,maximum-scale=1.0 , user-scalable=0">
+<base href="../../"/>
+<link rel="stylesheet" href="css/common/jquery.mobile-1.4.5.min.css">
+<link rel="stylesheet" href="css/style-final.css" />
+<link rel="stylesheet" href="css/index.css" />
+<link rel="stylesheet" type="text/css" href="css/common/flexslider.css" />
+</head>
+<body>
+
+<div data-role="page" id="pageone" >
+	<!--标题-->
+    <section data-role="header" data-theme="b" class="my-header" id="my-header">
+        <h2>茶商通</h2>
+    </section>
+	<!--中间内容-->
+  <div data-role="main" class="ui-content my-ui-content">
+  	<!--搜索栏 开始-->
+  	<div class="my-ui-search" >
+        <table width="100%">
+        <tr>
+         <td>
+             <div class="my-ui-input my-ui-search-input">
+                 <span class="img-user-name">1</span>
+                 <input type="text"  data-role="none" placeholder="请输入商品名称" value="" onfocus="customer.index.searchEven()"/>
+                 <a href="#" data-role="none" class="clear-a-text"></a>
+             </div>
+         </td>
+          <td>
+              <a href="html/customer/user/user-info.html" target="_top" class="my-info-search-a"></a>
+          </td>
+          <td>
+              <a href="html/customer/goods/shopping-cart.html" target="_top" class="my-goods-cart-search-a"></a>
+          </td>
+          <tr>
+        </table>
+     </div>
+    <!--搜索栏 结束-->
+    
+    <!-- 幻灯片 开始 -->
+     <div id="slider-content" class="flexslider">
+        <!--<ul class="slides">
+           <li><a href="html/customer/details/details.html" target="_top"><img src="images/test-img/index/index_slider_01.png" /></a></li>
+           <li><a href="html/customer/details/details.html" target="_top"><img src="images/test-img/index/index_slider_02.png" /></a></li>
+           <li><a href="html/customer/details/details.html" target="_top"><img src="images/test-img/index/index_slider_03.png" /></a></li>
+           <li><a href="html/customer/details/details.html" target="_top"><img src="images/test-img/index/index_slider_04.png" /></a></li>
+        </ul>-->
+    </div>
+	<!-- 幻灯片 结束 -->
+
+    <!--分类类型导航 开始-->
+  	<div id="index_classify_id" >
+      <ul class="sort_type">
+
+      </ul>
+    </div>
+    <!--分类类型导航 结束-->
+   <div style="clear: both"></div>
+    <div id="index_column_id">
+    <!--推荐、新品、精品-->
+        <!--<table>
+            <tr>
+                <td colspan="2">
+                    <div class="intro-img" style="background-image: url('images/test-img/index/index_today_intro.png');">
+                        <span style="position: absolute;border-style:solid;border-width: 2px;border-color:#000;width: 200px;margin-top: 220px;marginft: 280px;text-align: center;line-height: 50px;">
+                        <a href="html/customer/search/search-result.html?title=今日推荐" target="_top">查看详情</a>
+                        </span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="html/customer/search/search-result.html?title=精品商品" target="_top" ><img src="images/test-img/index/index_today_good.png"></a>
+                </td>
+                <td>
+                    <a href="html/customer/search/search-result.html?title=新品上线" target="_top" ><img src="images/test-img/index/index_today_new.png"></a>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <a  href="#" target="_top" ><img src="images/test-img/index/index_today_labor.png"></a>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <a href="html/customer/search/search-result.html?title=特价专区" target="_top" ><img src="images/test-img/index/index_area_01.png"></a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="html/customer/search/search-result.html?title=团购专区" target="_top" ><img src="./images/test-img/index/index_area_02.png"></a>
+                </td>
+                <td>
+                    <a href="html/customer/search/search-result.html?title=众筹专区" target="_top" ><img src="./images/test-img/index/index_area_03.png"></a>
+                </td>
+            </tr>
+        </table>-->
+    <!--专区-->
+    </div>
+      <div style="clear:both"></div>
+    
+    <!--茶叶用途 开始-->
+    <div>
+    	<div style="vertical-align: middle;">
+    		<a href="#"><img src="images/hdpi/sy_spyt.png" style="vertical-align: middle;margin-bottom:7px;"><span>商品用途|Application</span></a>
+        </div>
+        <div id="slider-application" class="flexslider">
+            <!--<ul class="slides">
+               <li><img src="images/test-img/index/index_appli_01.png"></li>
+               <li><img src="images/test-img/index/index_appli_02.png"></li>
+               <li><img src="images/test-img/index/index_appli_03.png"></li>
+               <li><img src="images/test-img/index/index_appli_04.png"></li>
+               <li><img src="images/test-img/index/index_appli_05.png"></li>
+               <li><img src="images/test-img/index/index_appli_06.png"></li>
+               <li><img src="images/test-img/index/index_appli_07.png"></li>
+               <li><img src="images/test-img/index/index_appli_08.png"></li>
+            </ul>-->
+        </div>
+    </div>
+    <!--茶叶用途 结束-->
+    
+    <!--品牌推荐 开始-->
+    <div>
+    	<div style="vertical-align: middle;">
+    		<a href="#"><img src="images/hdpi/sy_hot.png" style="vertical-align: middle;margin-bottom:7px;"><span>热门品牌|Top brand</span></a>
+        </div>
+        <div id="slider-brand" class="flexslider">
+            <!--<ul class="slides">
+               <li><img src="images/test-img/index/brand1.png"></li>
+               <li><img src="images/test-img/index/brand2.png"></li>
+               <li><img src="images/test-img/index/brand3.png"></li>
+               <li><img src="images/test-img/index/brand4.png"></li>
+               <li><img src="images/test-img/index/brand5.png"></li>
+               <li><img src="images/test-img/index/brand6.png"></li>
+               <li><img src="images/test-img/index/brand7.png"></li>
+            </ul>-->
+        </div>
+    </div>
+    <!--品牌推荐 结束-->
+ </div>
+
+</div>
+</body>
+</html>
+<script src="js/common/jquery.min.js"></script>
+<script type="text/javascript">
+ $(document).bind('mobileinit',function(){
+        $.mobile.changePage.defaults.changeHash = false;
+        $.mobile.hashListeningEnabled = false;
+        $.mobile.pushStateEnabled = false;
+    });
+</script>	
+<script src="js/common/jquery.mobile-1.4.5.min.js"></script>
+<script src="js/common/jquery.tmpl.min.js"></script>
+<script src="js/slider/jquery.flexslider-min.js"></script>
+<script src="js/customer/index.js"></script>
+<script src="js/common/common.js"></script>
+<!--以下是模板文件,模板文件命名以加T结尾,如xxxx_t.xxxx最好以绑定元素ID相同-->
+<!--初始化加载广告幻灯片-->
+<script type="text/x-jquery-tmpl" id="index_advertise_t">
+    <ul class="slides">
+      {{each(i,advertise) datas}}
+        <li style="width: 100%; float: left; margin-right: -100%; position: relative; opacity: {{if i==0}}1{{/if}}{{if i!=0}}0{{/if}}; display: block; transition: opacity 0.8s ease; z-index: {{if i==0}}2{{/if}}{{if i!=0}}1{{/if}};" class="{{if i==0}}flex-active-slide{{/if}}">
+                <a href="{{if advertise.lineStatus==1}}html/customer/details/details.html?goodId=${advertise.lineUrl}{{/if}}" target="_top" class="ui-link"><img src="${advertise.picUrl}" draggable="false"></a>
+        </li>
+      {{/each}}
+    </ul>
+</script>
+<!--商品分类-->
+<script type="text/x-jquery-tmpl" id="index_classify_t">
+    <li><a href="html/customer/search/search-result.html?title=${name}&classify=${id}&type=classify" class="ui-link" target="_top"><img src="${imgUrl}"></a><span>${name}</span></li>
+</script>
+<!--栏目：推荐、新品、精品.专区-->
+<script type="text/x-jquery-tmpl" id="index_column_t">
+    <table>
+            <tr>
+                <td colspan="2">
+                    <a href="html/customer/search/search-noresult.html?&columnId=${$data.norule[0].id}&type=column" target="_top">
+                        <div class="intro-img" style="background-image: url('${$data.norule[0].showpicture}');">
+
+                        </div>
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="html/customer/search/search-noresult.html?columnId=${$data.norule[1].id}&type=column" target="_top" ><img src="${$data.norule[1].showpicture}"></a>
+                </td>
+                <td>
+                    <a href="html/customer/search/search-noresult.html?columnId=${$data.norule[2].id}&type=column" target="_top" ><img src="${$data.norule[2].showpicture}"></a>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <a  href="html/customer/search/search-noresult.html?columnId=${$data.norule[3].id}&type=column" target="_top" ><img src="${$data.norule[3].showpicture}"></a>
+                </td>
+            </tr>
+            <tr style="height: 0.5rem;">
+                <td colspan="2">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <a href="html/customer/search/search-noresult.html?columnId=${$data.rule[0].id}&type=column" target="_top" ><img src="${$data.rule[0].showpicture}"></a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="html/customer/search/search-noresult.html?&columnId=${$data.rule[1].id}&type=column" target="_top" ><img src="${$data.rule[1].showpicture}"></a>
+                </td>
+                <td>
+                    <a href="html/customer/search/search-noresult.html?&columnId=${$data.rule[2].id}&type=column" target="_top" ><img src="${$data.rule[2].showpicture}"></a>
+                </td>
+            </tr>
+        </table>
+</script>
+<!--商品用途-->
+<script type="text/x-jquery-tmpl" id="index_application_t">
+    <ul class="slides" style="width: 1600%; transition-duration: 0.6s; transform: translate3d(-971px, 0px, 0px);">
+      {{each(i,application) datas}}
+       <li style="width: 210px; float: left; display: block;"><a href="html/customer/search/search-noresult.html?title=${application.labelName}&id=${application.id}&type=application"  target="_top"><img src="images/hdpi/tp_jtyc.png" draggable="false"></a><span>${application.labelName}</span></li>
+      {{/each}}
+    </ul>
+</script>
+<!--品牌推荐-->
+<script type="text/x-jquery-tmpl" id="index_brand_t">
+<ul class="slides" style="width: 1400%; transition-duration: 0s; transform: translate3d(0px, 0px, 0px);">
+    {{each(i,brand) datas}}
+       <li style="width: 210px; float: left; display: block;">
+       <a href="html/customer/search/search-noresult.html?title=${brand.name}&id=${brand.id}&id=${brand.id}&brandRecommendation=${brand.brandRecommendation}&type=brand"  target="_top">
+        <img src="${brand.logo}" draggable="false" style="border-radius:250px;">
+        <h3 style="text-align: center;font-size: 1.6rem;">${brand.name}</h3>
+        </a>
+       </li>
+     {{/each}}
+</ul>
+</script>
