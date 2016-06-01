@@ -3,6 +3,7 @@
     padding: 0;
     margin: 0;
 }
+::-webkit-scrollbar {width: 0}
 .order-detail-main dt,dd{
     background-color:#fff ;
     padding: 0;
@@ -40,7 +41,7 @@
     max-width: 83%;
 }
 .pay-type-text{
-	margin-left: .5rem;
+	/*margin-left: .5rem;*/
 }
 .order-detail-main  .pay-type-dd{
     width: auto;
@@ -133,8 +134,8 @@
 }
 .order-cast-info {
     position: relative;
-    font-size: 1rem;
-
+    font-size: 1.4rem;
+    top: 3px;
 }
 .wait-pay-btn {
     background: #999;

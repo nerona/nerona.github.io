@@ -156,6 +156,8 @@ input[type=checkbox] {
     position: relative;
     top: 4px;
 }
+
+#cart-money-all{top: 0;}
 .del_ico {
     background: url(../../../images/hdpi/wdsc_sc.png)no-repeat center;
     width: inherit;

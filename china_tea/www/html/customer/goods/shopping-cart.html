@@ -18,7 +18,7 @@
 
 <div  class="my-goods" data-role="content">
 
-<ul id="shopping-cart-list" data-role="listview" data-icon="false" class="my-list-view">
+<ul id="shopping-cart-list" data-role="listview" data-icon="false" class="my-list-view"  onclick="customer.cart.doTotalMoney();">
      
     
 				<!--<li>
@@ -127,8 +127,8 @@
 </div>
 <section  data-role="footer" data-position="fixed"  id="my-footer-cart" data-tap-toggle="true"  style="background-color: #ffffff;">
 <div class="my-ui-checkbox-all">
-    <input type="checkbox" data-role="none" id="cart-radio-all" class="ext-box-select"/><label for="cart-radio-all">全选</label>
-<span >总计：<em class="red">￥188</em> 运费：￥188</span>
+    <input type="checkbox" data-role="none" id="cart-radio-all" class="ext-box-select"/><label for="cart-radio-all" onclick="customer.cart.doTotalMoneyOne();">全选</label>
+<span >总计：<em class="red">￥<span id="cart-money-all">0</span></em> 运费：￥18</span>
 <a href="#" target="_top" data-role="none"  class="ok-order-btn-r" onclick="customer.cart.submit()">去结算</a>
 </div>
 </section>
@@ -159,6 +159,7 @@
     <input type="hidden" name="goodImgUrl" value="${list.goodImgUrl}">
     <input type="hidden" name="goodTitle" value="${list.goodTitle}">
     <input type="hidden" name="salePrice" value="${list.salePrice}">
+    <input type="hidden" name="goodCount" value="${list.goodCount}">
     <input type="hidden" name="skuItem" value="${list.skuItem}">
         <div class="my-ui-checkbox">
          <input name="shopCart" type="checkbox" data-role="none" id="cart-radio-${list.id}"" class="ext-box-select" value="${i}"/><label for="cart-radio-${list.id}"></label>

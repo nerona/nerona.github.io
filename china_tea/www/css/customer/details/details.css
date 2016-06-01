@@ -272,6 +272,8 @@ a:link,a:visited,a:hover{
     background: url("../../../images/hdpi/spxq_sc.png") no-repeat top;
     background-size: cover;
     background-position-y: -10px;
+    margin-left: 4px;
+    margin-right: 4px;
 }
 .sc-share-div a:first-child {
     background: url("../../../images/hdpi/spxq_fx.png") no-repeat top;

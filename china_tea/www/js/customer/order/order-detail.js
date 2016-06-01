@@ -11,10 +11,17 @@ customer.order={
     loadPage:function(){
         var shopCartInfo = Util.common.getParameter("shopCartInfo");
         var shopCartInfoJson = JSON.parse(shopCartInfo);
-        $("#goodDetails").html($("#goodDetails_t").tmpl(shopCartInfoJson));
-        $("#goodDetail_total").html($("#goodDetail_total_t").tmpl(shopCartInfoJson));
-        $("#order-cast-info-id").html($("#order-cast-info-t").tmpl(shopCartInfoJson));
+        console.log(shopCartInfo);
+        $("#goodDetails").html($("#goodDetails_t").tmpl(shopCartInfo));
+        $("#goodDetail_total").html($("#goodDetail_total_t").tmpl(shopCartInfo));
+        $("#order-cast-info-id").html($("#order-cast-info_t").tmpl(shopCartInfo));
 
+    },
+    loadTemplate: function (render, templateId, data) {
+        $(render).html($(templateId).tmpl(data));
+    },
+    goPay: function() {
+        document.location.href = "html/customer/order/order-pay.html";
     },
     submit:function(){
         var modelJson = {};

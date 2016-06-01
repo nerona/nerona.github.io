@@ -29,7 +29,7 @@ customer.index={
         //页面加载完成后再播放幻灯片
         this.initSlide();
     },
-    //初始化加载广告幻灯片
+    //初始化加载广告幻灯片//初始化加载广告幻灯片
     loadAdvertise:function(){
         var url = Util.common.baseUrl+"/weixin/common/getImg.do";
         var param = {"category":"0"};
@@ -40,13 +40,15 @@ customer.index={
         });
     },
     initAdvertiseSlide:function(){
-        $("#slider-content").flexslider({
-            slideshowSpeed: 4000, //展示时间间隔ms
-            animationSpeed: 800, //滚动时间ms
-            height:100,
-            touch: true, //是否支持触屏滑动
-            slideshow: true,
-            start: function() {           }
+        $("#slider-content").swiper({
+            slidesPerView: 1,
+            //autoplay: 2500,
+            loop: true,
+            effect: 'fade',
+            speed: 2000,
+            //centeredSlides: true,
+            pagination: '.swiper-pagination',
+            spaceBetween: 0
         });
     },
     //初始化加载商品分类
@@ -73,14 +75,14 @@ customer.index={
             var datas ={"datas":data};
             customer.index.loadTemplate("#slider-application", "#index_application_t", datas);
             //商品用途播放
-            $("#slider-application").flexslider({
-                animation: "slide",
-                animationLoop: true,
-                itemWidth: 210,
-                itemMargin: 5,
-                controlNav: false,
-                slideshow: true,
-                move: 1
+            $("#slider-application").swiper({
+                slidesPerView: 2,
+                autoplay: 2000,
+                slidesOffsetBefore : 10,
+                slidesOffsetAfter : 50,
+                loop: true,
+                //centeredSlides: true,
+                spaceBetween: 30
             });
         });
     },
@@ -92,15 +94,15 @@ customer.index={
             var datas ={"datas":data};
             customer.index.loadTemplate("#slider-brand", "#index_brand_t", datas);
             //品牌播放
-            $("#slider-brand").flexslider({
-                animation: "slide",
-                animationLoop: true,
-                itemWidth: 180,
-                itemMargin: 5,
-                controlNav: false,
-                slideshow: true,
-                move: 1,
-                end: function(){/*滑动到最后一张执行的动作*/}
+            //品牌播放
+            $('#slider-brand').swiper({
+                slidesPerView: 4,
+                autoplay: 3000,
+                loop: true,
+                slidesOffsetBefore : 15,
+                //centeredSlides: true,
+                slidesOffsetAfter : 50,
+                spaceBetween: 20
             });
         });
         /*if(isdebug){
@@ -120,38 +122,7 @@ customer.index={
     //初始化幻灯片
     initSlide:function(){
         //广告轮播
-        /*$("#slider-content").flexslider({
-            slideshowSpeed: 4000, //展示时间间隔ms
-            animationSpeed: 800, //滚动时间ms
-            height:100,
-            touch: true, //是否支持触屏滑动
-            slideshow: true,
-            start: function() {
-               // $("#slider-content #richTextId").css({'position':'absolute','left':$("#slider-content .flex-direction-nav").position().left+20,'top':$("#slider-content .flex-direction-nav").position().top-70});
-            }
-        });*/
-        //商品用途播放
-        /*$("#slider-application").flexslider({
-         animation: "slide",
-         animationLoop: true,
-         itemWidth: 210,
-         itemMargin: 5,
-         controlNav: false,
-         slideshow: true,
-         move: 1,
-         end: function(){/!*滑动到最后一张执行的动作*!/}
-         });*/
-        //品牌播放
-        $("#slider-brand").flexslider({
-            animation: "slide",
-            animationLoop: true,
-            itemWidth: 180,
-            itemMargin: 5,
-            controlNav: false,
-            slideshow: true,
-            move: 1,
-            end: function(){/*滑动到最后一张执行的动作*/}
-        });
+      
     },
     executeAjax:function(url ,param ,render ,templateId){
         Util.common.executeAjaxCallback(url ,param,function(data){

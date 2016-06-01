@@ -79,6 +79,7 @@ customer.search = {
         var title = Util.common.getParameter("title");
         if(title!=null&&title!=''){
             $("#pageTitle").html(title);
+            $("#classifyId").html(title);
         }
         var classify = Util.common.getParameter("classify");
         if(classify!=null&&classify!=''){

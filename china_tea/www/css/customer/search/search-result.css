@@ -2,6 +2,7 @@
     text-decoration:none;
     color:black;
 }
+::-webkit-scrollbar {width: 0}
 .search-result-main {
     background: #ffffff;
 }

@@ -45,7 +45,7 @@ customer.search = {
     },
     //商品分类跳转过来参数初始化 参数title=茶叶&classify=238986851953229824&type=classify
     initParameter: function () {
-        //$("#pageTitle").html(Util.common.getParameter("title"));
+        $("#pageTitle").html(Util.common.getParameter("title"));
         //保存选择的分类id,默认为链接过来的父分类ID
         //$("#columnId").val(Util.common.getParameter("id"));
     },
