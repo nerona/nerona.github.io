@@ -30,16 +30,6 @@ $(function() {
     //});
     //var user = {"from":"/weixin/index.html?param=xxxx","storeId":"1111111","type":"weixinIndex","userInfo":{"id":"11111111"}:"openid":"dqewqdads21312"};
     //以下测试使用，实际需微信客户端上获取，待开发
-    setTimeout(function(){
-                var out_wid = $('#slider-application .swiper-slide a > img').width();
-                var in_wid = $('#slider-application .swiper-slide a > span').width();
-                var out_hei = $('#slider-application .swiper-slide a > img').height();
-                var in_hei = $('#slider-application .swiper-slide a > span').height();
-                $('#slider-application .swiper-slide a > span').css({
-                    'left': (out_wid-in_wid) / 2,
-                    'top': ((out_wid-in_wid) / 2
-                });
-            }, 100);
 });
 var customer = customer || {};
 customer.index={
@@ -134,6 +124,14 @@ customer.index={
                 //loop: true,
                 //centeredSlides: true,
                 spaceBetween: 16
+            });
+            var out_wid = $('#slider-application .swiper-slide a > img').width();
+            var in_wid = $('#slider-application .swiper-slide a > span').width();
+            var out_hei = $('#slider-application .swiper-slide a > img').height();
+            var in_hei = $('#slider-application .swiper-slide a > span').height();
+            $('#slider-application .swiper-slide a > span').css({
+                'left': (out_wid-in_wid) / 2,
+                'top': (out_wid-in_wid) / 2
             });
         });
     },
