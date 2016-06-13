@@ -125,14 +125,17 @@ customer.index={
                 //centeredSlides: true,
                 spaceBetween: 16
             });
-            var out_wid = $('#slider-application .swiper-slide a > img').width();
-            var in_wid = $('#slider-application .swiper-slide a > span').width();
-            var out_hei = $('#slider-application .swiper-slide').height();
-            var in_hei = $('#slider-application .swiper-slide a > span').height();
-            $('#slider-application .swiper-slide a > span').css({
-                'left': (out_wid-in_wid) / 2,
-                'top': (out_hei-in_hei) / 2
-            });
+            setTimeout(function(){
+                var out_wid = $('#slider-application .swiper-slide a > img').width();
+                var in_wid = $('#slider-application .swiper-slide a > span').width();
+                var out_hei = $('#slider-application .swiper-slide a > img').height();
+                var in_hei = $('#slider-application .swiper-slide a > span').height();
+                $('#slider-application .swiper-slide a > span').css({
+                    'left': (out_wid-in_wid) / 2,
+                    'top': (out_hei-in_hei) / 2
+                });
+            }, 100);
+            
         });
     },
     //初始化品牌推荐
