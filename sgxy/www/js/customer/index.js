@@ -37,7 +37,7 @@ $(function() {
                 var in_hei = $('#slider-application .swiper-slide a > span').height();
                 $('#slider-application .swiper-slide a > span').css({
                     'left': (out_wid-in_wid) / 2,
-                    'top': (out_hei-in_hei) / 2
+                    'top': ((out_wid-in_wid) / 2
                 });
             }, 100);
 });
