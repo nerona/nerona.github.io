@@ -1,0 +1,109 @@
+@import "./../base.css";
+@import "./../common.css";
+
+.swiper-pagination-bullet {
+    background-color: #8e8a85;
+}
+.swiper-pagination-bullet-active {
+    background-color: #a7d264;
+}
+.zhinan {
+    padding: .2rem .2rem;
+    background-color: #f0f0f0;
+}
+.zn-list {}
+.zn-item {
+    overflow: hidden;
+    margin-top: 3%;
+    display: -webkit-box;
+    color: #333;
+    font-size: .26rem;
+    background-color: #fff;
+    height: .65rem;
+    line-height: .65rem;
+    border-top: 1px solid #dbdbdb;
+    border-bottom: 1px solid #dbdbdb;
+    border-right: 1px solid #dbdbdb;
+}
+.zn-list .zn-item:first-child {
+    margin-top: 4%;
+}
+.zn-list .zn-item .zn-item-color {
+    width: 4px;
+    margin-right: 3%;
+}
+.zn-list li:nth-child(5n+1) .zn-item-color {
+    background-color: #ed5e5e;
+}
+.zn-list li:nth-child(5n+2) .zn-item-color {
+    background-color: #f4a824;
+}
+.zn-list li:nth-child(5n+3) .zn-item-color {
+    background-color: #659be7;
+}
+.zn-list li:nth-child(5n+4) .zn-item-color {
+    background-color: #a7d264;
+}
+.zn-list li:nth-child(5n+5) .zn-item-color {
+    background-color: #05b1cc;
+}
+.zn-item .zn-item-title {
+    -webkit-box-flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.zn-item .zn-item-next {
+    width: 8%;
+    background: url(./../../images/zhinan/down.png) no-repeat center center;
+    background-size: .14rem .26rem;
+}
+
+
+/**/
+.card-list {}
+.card-item {
+    display: -webkit-box;
+    background-color: #fff;
+    margin-top: 8%;
+}
+.card-list .card-item:nth-child(2n) {
+    -webkit-box-direction: reverse;
+}
+.card-item .card-pic {
+    width: 36%;
+    text-align: center;
+}
+.card-item .card-pic > img {
+    width: 1.8rem;
+    position: relative;
+    top: -.3rem;
+}
+.card-item .card-text {
+    -webkit-box-flex: 1;
+    color: #333;
+}
+.card-item .card-text > h5 {
+    font-size: .28rem;
+    padding: .12rem 0;
+}
+.card-item .card-text > p {
+    padding-right: .2rem;
+    text-align: justify;
+    font-size: .22rem;
+    line-height: .34rem;
+}
+.card-list .card-item:nth-child(2n) .card-text > h5 ,
+.card-list .card-item:nth-child(2n) .card-text > p {
+    padding-right: 0;
+    padding-left: .2rem;
+}
+
+.zhinan .copyright {
+    position: relative;
+    margin-top: 6%;
+}
+.cards .copyright {
+    position: relative;
+    padding: 6% 0;
+}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>课程详情</title>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="email=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <script src="./../../js/lib/reset.js"></script>
+
+    <link rel="stylesheet" href="./../../css/shuyuan/index.css">
+</head>
+<body>
+<div class="rc-detail" id="rc-detail">
+<!--    <h5 class="detail-title">清洁无人管，居民叫苦清洁员喊难</h5>
+    <div class="detail-time">
+        <span>2014-12-12</span>
+        <span class="text-right"><span class="sy-thumb-m"></span>25</span>
+    </div>
+    <img src="./../../images/shuyuan/sy-rc-bigpic.png" alt="" class="detail-icon">
+    <div class="detail-line detail-endtime">
+        <span class="sy-thumb-m"></span> 截止报名时间 : <span>2015-12-12</span>
+    </div>
+    <div class="detail-line detail-location">
+        <span class="sy-thumb-m"></span> 报名地点 : <span>鼓浪屿中华城</span>
+    </div>
+    <div class="detail-line detail-type">
+        <span class="sy-thumb-m"></span> 养老活动
+    </div>
+    <div class="detail-line detail-number">
+        <span class="sy-thumb-m"></span> 当前报名人数 : <span>133</span>
+    </div>
+    <div class="detail-line detail-host">
+        主办方 <span class="text-right"><a href="tel:10010" class="sy-thumb-m"></a>莲前社区居委会</span>
+    </div>
+
+    <div class="detail-desc">
+        <div class="detail-desc-title"><span>课程内容</span></div>
+        <div class="detail-desc-text">装修合同就是为了房屋装修而签订的合同。这个合同是依照《中华人民共和国合同法》及有关法律、法规的规定，结合家庭居室装饰装修工程施工的实际情况</div>
+    </div>
+    <div class="detail-btns">
+        <a href="#" class="detail-want">我要报名</a>
+    </div>-->
+</div>
+
+<script src="./../../js/lib/jquery.min.js"></script>
+<script src="./../../js/lib/jquery.tmpl.min.js"></script>
+<script src="./../../js/lib/common.js"></script>
+<script src="./../../js/shuyuan/index.js"></script>
+<script>
+    $(function(){
+        customer.book.initDetailNormal();
+    })
+</script>
+
+<!--以下是模板文件-->
+<script type="text/x-jquery-tmpl" id="rc-detail-t">
+ <h5 class="detail-title">${name}</h5>
+    <div class="detail-time">
+        <span>${beginDate}</span>
+        <span class="text-right"><span class="sy-thumb-m" onclick="customer.book.support();"></span>${supportNum}</span>
+    </div>
+    <!--<img src="${img}" alt="" class="detail-icon">-->
+    <img src="./../../images/shuyuan/sy-rc-bigpic.png" alt="" class="detail-icon">
+    <div class="detail-line detail-endtime">
+        <span class="sy-thumb-m"></span> 截止报名时间 : <span>${endDate}</span>
+    </div>
+    <div class="detail-line detail-location">
+        <span class="sy-thumb-m"></span> 报名地点 : <span>${location}</span>
+    </div>
+    <div class="detail-line detail-type">
+        <span class="sy-thumb-m"></span> ${type}
+    </div>
+    <div class="detail-line detail-number">
+        <span class="sy-thumb-m"></span> 当前报名人数 : <span>${signUp-surplusSign}</span>
+    </div>
+    <div class="detail-line detail-host">
+        主办方 <span class="text-right"><a href="tel:${sponsorTel}" class="sy-thumb-m"></a>${sponsor}</span>
+    </div>
+
+    <div class="detail-desc">
+        <div class="detail-desc-title"><span>课程内容</span></div>
+        <div class="detail-desc-text">${content}</div>
+    </div>
+    <div class="detail-btns">
+        <a href="javascript:void(0);" class="detail-want" onclick="customer.book.wantJoin();">我要报名</a>
+    </div>
+    <div class="copyright">@ 禾盛社区微官网</div>
+</script>
+</body>
+</html>

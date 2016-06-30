@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>议事平台</title>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="email=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <script src="./../../js/lib/reset.js"></script>
+
+    <link rel="stylesheet" href="./../../css/shuyuan/index.css">
+</head>
+<body>
+<div class="rc-detail pl-detail">
+    <div id="platform-detail"></div>
+    <!--<h5 class="detail-title platform-title">
+        <span class="platform-title-p1">议事主题 : </span>
+        <span class="platform-title-p2"> 清洁无人管，居民叫苦清洁员喊难</span>
+    </h5>
+    <img src="./../../images/shuyuan/sy-rc-bigpic.png" alt="" class="detail-icon">
+
+    <div class="detail-desc">
+        <div class="detail-desc-title">
+            <span>议事内容</span>
+            <em class="time">2016-02-02</em>
+        </div>
+        <div class="detail-desc-text">
+            装修合同就是为了房屋装修而签订的合同。装修合同就是为了房屋装修而签订的合同。装修合同就是为了房屋装修而签订的合同。装修合同就是为了房屋装修而签订的合同这个合同是依照《中华人民共和国合同法》及有关法律、法规的规定，结合家庭居室装饰装修工程施工的实际情况
+        </div>
+    </div>-->
+
+    <!--评论列表-->
+    <ul class="judge-list">
+        <li class="judge-item">
+            <div class="judge-info">
+                <img src="./../../images/shuyuan/header1.png" alt="" class="judge-icon judge-header">
+                <div class="judge-name">
+                    <p>王先生</p>
+                    <p>2016-02-21  &nbsp; 12:22:22</p>
+                </div>
+            </div>
+            <div class="judge-content">
+                XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+            </div>
+            <div class="judge-status">
+                <span>0 回复</span> |
+                <span>赞 1</span><span class="judge-good"></span>
+            </div>
+        </li>
+        <li class="judge-item">
+            <div class="judge-info">
+                <img src="./../../images/shuyuan/header2.png" alt="" class="judge-icon judge-header">
+                <div class="judge-name">
+                    <p>王先生</p>
+                    <p>2016-02-21  &nbsp; 12:22:22</p>
+                </div>
+            </div>
+            <div class="judge-content">
+                XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+            </div>
+            <div class="judge-status">
+                <span><em>0</em> 回复</span> |
+                <span>赞 <em>1</em></span><span class="judge-good"></span>
+            </div>
+        </li>
+    </ul>
+
+    <!--往期热点新闻-->
+    <div class="old-news">
+        <div class="old-news-title">往期热点新闻</div>
+        <ul>
+            <li class="news-item">
+                <div class="new-title">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</div>
+                <div class="new-time">2016-02-02</div>
+            </li>
+            <li class="news-item">
+                <div class="new-title">XXXXXXXXXXXX</div>
+                <div class="new-time">2016-02-02</div>
+            </li>
+            <li class="news-item">
+                <div class="new-title">XXXXXXXXXXXX</div>
+                <div class="new-time">2016-02-02</div>
+            </li>
+            <li class="news-item">
+                <div class="new-title">XXXXXXXXXZZZZZZZZZZZZZZZZZZZZZZZZXXX</div>
+                <div class="new-time">2016-02-02</div>
+            </li>
+        </ul>
+
+    </div>
+
+    <div class="copyright">@ 禾盛社区微官网</div>
+</div>
+
+<script src="./../../js/lib/jquery.min.js"></script>
+<script src="./../../js/lib/jquery.tmpl.min.js"></script>
+<script src="./../../js/lib/common.js"></script>
+<script src="./../../js/shuyuan/index.js"></script>
+<script>
+    $(function () {
+        customer.book.initPlatformDetail();
+        $('.judge-good').on('click', function(){
+            $(this).toggleClass('judge-yes');
+        });
+    })
+</script>
+
+<!--以下是模板文件-->
+<script type="text/x-jquery-tmpl" id="platform-detail-t">
+ <h5 class="detail-title platform-title">
+        <span class="platform-title-p1">议事主题 : </span>
+        <span class="platform-title-p2"> ${theme}</span>
+    </h5>
+    <!--<img src="${img}" alt="" class="detail-icon">-->
+    <img src="./../../images/shuyuan/sy-rc-bigpic.png" alt="" class="detail-icon">
+
+    <div class="detail-desc">
+        <div class="detail-desc-title">
+            <span>议事内容</span>
+            <em class="time">2016-06-29</em>
+        </div>
+        <div class="detail-desc-text">
+           ${content}
+        </div>
+    </div>
+</script>
+</body>
+</html>

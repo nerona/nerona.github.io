@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>加减乘除</title>
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="email=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <script src="./../../js/lib/reset.js"></script>
+    <link href="//cdn.bootcss.com/Swiper/3.3.1/css/swiper.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="./../../css/hudong/index.css">
+</head>
+<body>
+<div class="plus">
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="./../../images/hudong/pcs2.png" alt="">
+                <div class="swiper-desc">
+                    <h5>运用“加减乘除”法  建设服务型党组织 </h5>
+                    <p>禾盛社区党支部以深化服务型党组织建设，以党的群众路线教育实践活动为重要抓手，积极探索出具有禾盛特色的党建为民服务“加减乘除”工作法，切实加强党的基层组织建设，有效破解民生问题，着力构建创新湖里朝阳禾山“五乐禾盛”便民服务系统工程，兜底民生底线，补齐民生短板，为居民群众造福兴利。</p>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <img src="./../../images/hudong/pcs1.png" alt="">
+            </div>
+        </div>
+        <!-- 如果需要分页器 -->
+        <div class="swiper-pagination"></div>
+    </div>
+    <!---->
+    <div class="deal-item">
+        <div class="deal-icon">
+            <span class="icon-plus"></span>
+        </div>
+        <div class="deal-text">
+            <p class="deal-text-title">常用 "加法"</p>
+            <p>叠加民意，创新社情民意收集平台。</p>
+        </div>
+        <div class="deal-icon">
+            <span class="icon-next"></span>
+        </div>
+    </div>
+    <div class="deal-open deal-plus">
+        一是建立社区“民情联络站”；二是增加各类“民情信箱”；三是组建“民情信息员”队伍；四是设立“民情通”热线；五是设立民情服务窗口。
+    </div>
+    <div class="deal-item">
+        <div class="deal-icon">
+            <span class="icon-minus"></span>
+        </div>
+        <div class="deal-text">
+            <p class="deal-text-title">善用 "减法"</p>
+            <p>筛选民意，推进社情民意有效办理。</p>
+        </div>
+        <div class="deal-icon">
+            <span class="icon-next"></span>
+        </div>
+    </div>
+    <div class="deal-open deal-minus">
+        一是梳理汇总，筛选民意。按轻重缓急分为五类：“即办件”、“承诺件”、“补办件”、“上报件”、“建议件”；二是拉近距离，减少障碍；三是排忧解难，减少矛盾；四是党群融合，减少民怨。
+    </div>
+    <div class="deal-item">
+        <div class="deal-icon">
+            <span class="icon-cheng"></span>
+        </div>
+        <div class="deal-text">
+            <p class="deal-text-title">妙用 "乘法"</p>
+            <p>倍增服务，打造多元多方服务平台。</p>
+        </div>
+        <div class="deal-icon">
+            <span class="icon-next"></span>
+        </div>
+    </div>
+    <div class="deal-open deal-cheng">
+        一是党建统领全局，凝聚服务合力；二是培育社会组织，助力社区发展；三是优化多元服务，提升服务品质；四是培育社会组织，助力社区发展。
+    </div>
+    <div class="deal-item">
+        <div class="deal-icon">
+            <span class="icon-chu"></span>
+        </div>
+        <div class="deal-text">
+            <p class="deal-text-title">巧用 "除法"</p>
+            <p>排忧解难，创新服务民生有效载体。</p>
+        </div>
+        <div class="deal-icon">
+            <span class="icon-next"></span>
+        </div>
+    </div>
+    <div class="deal-open deal-chu">
+        一是组建“小区调解工作室”，“除”去矛盾隐患，促进社区和谐稳定；二是成立“小区居民议事厅”，“除”去不同意见，形成最优解决方案；三是落实“五项措施重反馈”，“除”去形式主义，给予群众满意答复。
+    </div>
+
+    <div class="copyright">@ 禾盛社区微官网</div>
+</div>
+
+<script src="./../../js/lib/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
+
+<script>
+    $(function(){
+        var mySwiper = new Swiper ('.swiper-container', {
+            loop: true,
+            pagination: '.swiper-pagination',
+            autoplay: 3500,
+            speed: 2000,
+            spaceBetween: 1,
+            autoplayDisableOnInteraction: false
+        });
+        $('.deal-item').on('click', function(){
+            $(this).find('.icon-next').toggleClass('icon-down');
+            $(this).next().closest('.deal-open').slideToggle();
+            $('.copyright').css('position', 'relative');
+        })
+    });
+</script>
+</body>
+</html>

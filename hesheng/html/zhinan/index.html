@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>办事指南</title>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="email=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <script src="./../../js/lib/reset.js"></script>
+    <link href="//cdn.bootcss.com/Swiper/3.3.1/css/swiper.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="./../../css/zhinan/index.css">
+</head>
+<body>
+<div class="zhinan">
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="./../../images/hudong/pcs2.png" alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="./../../images/hudong/pcs1.png" alt="">
+            </div>
+        </div>
+        <!-- 如果需要分页器 -->
+        <div class="swiper-pagination"></div>
+    </div>
+    <!---->
+    <ul class="zn-list" id="zn-list">
+
+    </ul>
+
+
+    <div class="copyright">@ 禾盛社区微官网</div>
+</div>
+
+<script src="./../../js/lib/jquery.min.js"></script>
+<script src="./../../js/lib/jquery.tmpl.min.js"></script>
+<script src="//cdn.bootcss.com/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
+<script src="./../../js/lib/common.js"></script>
+<script src="./../../js/zhinan/index.js"></script>
+
+
+<script>
+    $(function () {
+        customer.guide.initGuide();
+        var mySwiper = new Swiper('.swiper-container', {
+            loop: true,
+            pagination: '.swiper-pagination',
+            autoplay: 3500,
+            speed: 2000,
+            spaceBetween: 1,
+            autoplayDisableOnInteraction: false
+        });
+    });
+</script>
+
+<script type="text/x-jquery-tmpl" id="zn-list-t">
+     <li id=${id}>
+            <a href="#" class="zn-item">
+                <div class="zn-item-color"></div>
+                <div class="zn-item-title">
+                    ${title}
+                </div>
+                <div class="zn-item-next"></div>
+            </a>
+        </li>
+</script>
+</body>
+</html>
