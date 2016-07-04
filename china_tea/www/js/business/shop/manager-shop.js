@@ -1,20 +1,20 @@
-$(function(){
+$(function () {
     //初始化加载元素
     business.MangerShop.loadList(1);
-    $(".manager-shop-top-bar").on("click","a",function () {
+    $(".manager-shop-top-bar").on("click", "a", function () {
         $(".manager-shop-top-bar").find("a").removeClass("manager-shop-bar-a-active");
         $(this).addClass("manager-shop-bar-a-active");
     });
     /*$(".goods-search-cancel-a").on("click",function () {
-        $(".my-header-search").hide();
-        $("#my-header").show();
-    });*/
-    $(".my-header-ddd-btn").on("click",function () {
+     $(".my-header-search").hide();
+     $("#my-header").show();
+     });*/
+    $(".my-header-ddd-btn").on("click", function () {
         $('#goodSearchId').val('');
         $(".my-header-search").show();
         $("#my-header").hide();
     });
-    $(".clear-a-text").on("click",function () {
+    $(".clear-a-text").on("click", function () {
         $('#goodSearchId').val('');
         business.MangerShop.exchangeBtn();
     });
@@ -25,7 +25,7 @@ $(function(){
     });
 });
 var business = business || {};
-business.MangerShop= {
+business.MangerShop = {
     pageSize: 6, //默认一次加载6条
     pageNum: 1,//默认为1
     type: 1,//1 出售中，2 已下架商品
@@ -43,7 +43,7 @@ business.MangerShop= {
         Util.common.executeAjaxCallback(url, param, function (data) {
             if (data.length > 0) {
                 $("#thelist").html($("#list_t").tmpl(data));
-            }else{
+            } else {
                 $("#thelist").html('<li><div style="text-align: center;">  <img src="imgs/test-img/no-search-result.png"/></div></li>');
             }
 
@@ -55,6 +55,13 @@ business.MangerShop= {
         this.loadList(type);
         myScroll.refresh();
     },
+    toEWM: function () {
+        location.href = 'html/business/shop/shop-ewm-share.html?shopId=' + Util.common.getParameter("shopId");
+    },
+    //回到顶部
+    toTop: function () {
+        myScroll.scrollTo(0, 0);
+    },
     //跳转到商品详情页面
     toDetails: function (id) {
         document.location.href = "html/business/shop/goods-detail.html?id=" + id + "&shopId=" + Util.common.getParameter("shopId");
@@ -64,43 +71,51 @@ business.MangerShop= {
     toBatchManager: function () {
         document.location.href = "html/business/shop/batch-manager.html?type=" + business.MangerShop.type + "&shopId=" + Util.common.getParameter("shopId");
     },
-    searchBtn:function(obj) {
+    searchBtn: function (obj) {
         document.location.href = "html/business/shop/search-goods.html?goodsName=" + $('#goodSearchId').val() + "&shopId=" + Util.common.getParameter("shopId");
     },
-    cancelBtn:function(){
+    cancelBtn: function () {
         $(".my-header-search").hide();
         $("#my-header").show();
     },
-    exchangeBtn:function(){
+    exchangeBtn: function () {
         var searchVal = $('#goodSearchId').val();
-        if(Util.string.isEmpty(searchVal)){
+        if (Util.string.isEmpty(searchVal)) {
             $("#submitBtn").html('<a  class="goods-search-cancel-a" data-role="none" href="#" onclick="business.MangerShop.cancelBtn(this)">取消</a>');
-        }else{
-            $("#submitBtn").html('<a  class="goods-search-cancel-a" data-role="none" href="#"  onclick="business.MangerShop.searchBtn(this)">搜索</a>');
+        } else {
+            $("#submitBtn").html('<a  class="goods-search-cancel-a" type="button" data-role="none" href="#"  onclick="business.MangerShop.searchBtn(this)">搜索</a>');
         }
     }
 }
 //初始化绑定iScroll控件
-document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
-document.addEventListener('DOMContentLoaded', function(){loaded("scroll-list")}, false);
+document.addEventListener('touchmove', function (e) {
+    e.preventDefault();
+}, false);
+document.addEventListener('DOMContentLoaded', function () {
+    loaded("scroll-list")
+}, false);
 var myScroll;
 //下拉刷新
-function pullDownAction () {
+function pullDownAction() {
     myScroll.refresh();
 }
 //滚动翻页 （自定义实现此方法）
-function pullUpAction () {
-    var url = Util.common.baseUrl ;
+function pullUpAction() {
+    var url = Util.common.baseUrl;
     if (this.type == 1) {
-        url +=  "/mobile/good/getSaleGoodList.do";
-    }else{
-        url +=  "/mobile/good/getUnshelveGoodList.do";
+        url += "/mobile/good/getSaleGoodList.do";
+    } else {
+        url += "/mobile/good/getUnshelveGoodList.do";
     }
-    var param = {"shopId":Util.common.getParameter("shopId"),"pageSize":business.MangerShop.pageSize ,"pageNum":business.MangerShop.pageNum + business.MangerShop.pageSize};
-    Util.common.executeAjaxCallback(url, param, function(data){
-        if( data.length>0 ) {
+    var param = {
+        "shopId": Util.common.getParameter("shopId"),
+        "pageSize": business.MangerShop.pageSize,
+        "pageNum": business.MangerShop.pageNum + 1
+    };
+    Util.common.executeAjaxCallback(url, param, function (data) {
+        if (data.length > 0) {
             $("#thelist").append($("#list_t").tmpl(data));
-            business.MangerShop.pageNum +=  business.MangerShop.pageSize;
+            business.MangerShop.pageNum += 1;
         }
         myScroll.refresh();
     });

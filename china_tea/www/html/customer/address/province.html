@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<head>
 <meta charset="utf-8"/>
 <meta charset="utf-8"/>
 <meta name="viewport"
@@ -37,33 +38,10 @@
 </style>
 </head>
 <body>
-<div data-role="page"  data-quicklinks="true">
-    <section data-role="header" data-theme="b" class="my-header" id="my-header">
-        <a href="javascript:history.back();"  data-role="none" class="my-header-back-btn"></a>
-        <h2>省份</h2>
-        <a href="#" class="my-header-right-btn-ad" data-role="none"><span>.</span><span>.</span><span>.</span></a>
-    </section>
-    <section data-role="content" class="province-main" id="province-main">
+<div data-role="page"  data-quicklinks="false">
+    <section data-role="content" class="province-main">
 
-        <ul>
-            <li>
-               <a href="city.html">广东省</a>
-            </li>
-            <li>
-                <a href="#">广东省</a>
-            </li>
-            <li>
-                <a href="#">湖南省</a>
-            </li>
-            <li>
-                <a href="#">广西省</a>
-            </li>
-            <li>
-                <a href="#">山东省</a>
-            </li>
-            <li>
-                <a href="#">福建省</a>
-            </li>
+        <ul id="thelist">
 
         </ul>
         </section>
@@ -72,14 +50,33 @@
 </body>
 
 <script src="js/common/jquery.min.js"></script>
+<script src="js/common/common.js"></script>
+<script src="js/common/jquery.tmpl.min.js"></script>
 <script>
     $(document).bind('mobileinit', function () {
         $.mobile.changePage.defaults.changeHash = false;
         $.mobile.hashListeningEnabled = false;
         $.mobile.pushStateEnabled = false;
     });
-</script>
-<script src="js/common/jquery.mobile-1.4.5.min.js"></script>
-<script src="js/common/common.js"></script>
+    function loadTemplate(render ,templateId ,data ){
+        $(render).html($(templateId).tmpl(data));
+    }
+    $(function(){
+        $.getJSON('html/customer/address/cityData.json', function(data){
+            console.log(data);
+            for(var i=0;i<data.length;i++) {
+                data[i].id_1 = Util.common.getParameter('id');
+                data[i].id_2 = Util.common.getParameter('use');
+            }
 
+            loadTemplate('#thelist', '#thelist_t', data);
+        });
+    });
+</script>
+<!--<script src="js/common/jquery.mobile-1.4.5.min.js"></script>-->
+<script type="text/x-jquery-tmpl" id="thelist_t">
+        <li>
+            <a href="html/customer/address/city.html?id=${id}&&fName=${name}&&uid=${id_1}&&use=${id_2}">${name}</a>
+        </li>
+</script>
 </html>

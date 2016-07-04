@@ -34,7 +34,8 @@
 .user-info-main .header-img > span {
     max-width: 120px;
     max-height: 120px;
-    width:30%;
+    width: 10rem;
+    height: 10rem;
     display: inline-block;
     margin-left: auto;
     margin-right: auto;
@@ -58,9 +59,12 @@
     }
 }
 .user-info-main .header-img img {
-    width: 100%;
+    max-width: 120px;
+    max-height: 120px;
+    width: 10rem;
+    height: 10rem;
     border-radius: 100%;
-    border: 8px solid #fff;
+    border: 0.3rem solid #fff;
 }
 .user-info-main .info-content>ul>li>a {
     /*line-height: 50px;

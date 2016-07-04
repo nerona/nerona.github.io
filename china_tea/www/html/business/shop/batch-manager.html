@@ -35,7 +35,7 @@
 </section>
 <section  data-role="footer"  data-disable-page-zoom="false" data-position="fixed" class="my-ui-footer-bar" style="background-color: #ffffff;padding: 10px">
     <ul>
-        <li><input type="checkbox" class="ext-box-select manager-box-btn-all" id="manager-box-btn-all" data-role="none" /><label for="manager-box-btn-all"><b>全选</b> <span>已经选择<em>2</em>件商品</span></label></li>
+        <li><input type="checkbox" class="ext-box-select manager-box-btn-all" id="manager-box-btn-all" data-role="none" /><label for="manager-box-btn-all"><b>全选</b> <span>已经选择<em>0</em>件商品</span></label></li>
         <li id="managerSubmit"><!--<a href="#" class="manager-put-a-ico"><b>上架</b></a>--></li>
     </ul>
 </section>
@@ -85,7 +85,7 @@
             <tbody>
             <tr>
                 <td><input name="goodId" type="checkbox" class="ext-box-select" id="manager-box-btn${id}" data-role="none" value="${id}"><label for="manager-box-btn${id}"></label></td>
-                <td class="goods-img-td" onclick="business.batchManger.toDetails(${id})">
+                <td class="goods-img-td" onclick="business.batchManger.toDetails('${id})'">
                     <a href="#" target="_top" >
                     <img src="${showPicture}"></a>
                  </td>

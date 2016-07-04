@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html>
-<meta charset="utf-8"/>
-<meta charset="utf-8"/>
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.5,maximum-scale=0.65 , user-scalable=0">
-<base href="../../../"/>
-<link rel="stylesheet" href="css/common/jquery.mobile-1.4.5.min.css"/>
-<link rel="stylesheet" href="css/common/scrollbar.css"/>
-<link rel="stylesheet" href="css/style2.css"/>
-<link rel="stylesheet" type="text/css" href="css/common/common.css"/>
-<link rel="stylesheet" href="css/business/share/share-list.css"/>
+<head>
+    <meta charset="utf-8"/>
+    <meta charset="utf-8"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.5,maximum-scale=0.65 , user-scalable=0">
+    <base href="../../../"/>
+    <link rel="stylesheet" href="css/common/jquery.mobile-1.4.5.min.css"/>
+    <link rel="stylesheet" href="css/common/scrollbar.css"/>
+    <link rel="stylesheet" href="css/style2.css"/>
+    <link rel="stylesheet" type="text/css" href="css/common/common.css"/>
+    <link rel="stylesheet" href="css/business/share/share-list.css"/>
 
 </head>
 <body>
@@ -37,23 +38,25 @@
                 </ul>
             </div>
         </div>
-        <div class="article-list-view" id="share_list">
-            <div id="pullDown">
-                <span id="pullDownIcon"></span><span class="pullDownLabel">下拉刷新...</span>
-            </div>
-            <ul id="thelist">
-                <!--<li>
-                    <dt>
-                        <a href="html/business/share/index.html" target="_top">移动支付改变生活移动支付改变生活移动支付改变生活移动支付改变生活移动支付改变生活移动支付改变生活移动支付改变生活移动支付改变生活移动支付改变生活移动支付改变生活移动支付改变生活移动支付改变生活</a>
-                    <p class="c999"><span>2016-03-08</span><span>2423423</span></p>
-                    </dt>
-                    <dd>
-                        <img src="imgs/test-img/goods.png">
-                    </dd>
-                </li>-->
-            </ul>
-            <div id="pullUp">
-                <span class="pullUpIcon"></span><span class="pullUpLabel">上拉加载更多...</span>
+        <div id="share_list">
+            <div class="article-list-view" id="scroller">
+                <div id="pullDown">
+                    <span id="pullDownIcon"></span><span class="pullDownLabel">下拉刷新...</span>
+                </div>
+                <ul id="thelist">
+                    <!--<li>
+                        <dt>
+                            <a href="html/business/share/index.html" target="_top">移动支付改变生活移动支付改变生活移动支付改变生活移动支付改变生活移动支付改变生活移动支付改变生活移动支付改变生活移动支付改变生活移动支付改变生活移动支付改变生活移动支付改变生活移动支付改变生活</a>
+                        <p class="c999"><span>2016-03-08</span><span>2423423</span></p>
+                        </dt>
+                        <dd>
+                            <img src="imgs/test-img/goods.png">
+                        </dd>
+                    </li>-->
+                </ul>
+                <div id="pullUp">
+                    <span class="pullUpIcon"></span><span class="pullUpLabel">上拉加载更多...</span>
+                </div>
             </div>
         </div>
     </section>
@@ -94,7 +97,9 @@
             {{/if}}
         </dd>
     </li>
+
 </script>
 <script type="text/x-jquery-tmpl" id="share_classify_t">
-    <li onclick="business.share.classifyClick(this,${id})"><a href="#">${name}</a></li>
+    <li onclick="business.share.classifyClick(this,'${id}')"><a href="#">${name}</a></li>
+
 </script>

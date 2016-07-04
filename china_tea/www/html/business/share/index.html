@@ -19,29 +19,15 @@
         <a href="#" class="my-header-ddd-btn share-bottom-bar-a" id="share-bottom-bar-a" data-role="none"></a>
     </section>
     <section data-role="content" id="article_detail_xxs">
-        <h1>app支付改变人们的支付占据硝烟又起</h1>
-        <div class="article_time_row"><span></span><em>2016-04-12</em></div>
-        <div><span>2222222</span></div>
-        <div style="clear: both"></div>
-        <p class="article-content"><img src="imgs/test-img/article-img.png" width="100%"/>
-            双界面CPU卡是一种同时支持接触式与非接触式两种通讯方式的CPU卡，接触接口和非接触接口共用一个CPU进行控制，接触模式和非接触模式自动选择。
-            SIMPASS 天线
-            SIMPASS 天线
-            2)构成：
-            卡片包括一个微处理器芯片和一个与微处理器相连的天线线圈
-            3)优点：
-            具有信息量大、防伪安全性高、可脱机作业，可多功能开发，数据传输稳定，存储容量大，数据传输稳定等优点。
-            2、SIM Pass技术（基于13.56MHz）
-            SIM Pass是一种多功能的SIM卡，支持SIM卡功能和移动支付的功能。SIMPass运行于手机内，为解决非接触界面工作所需的天线布置问题给予了两种解决方案：定制手机方案和低成本天线组方案。
-        </p>
+
     </section>
 </div>
 <div class="my-ui-share-bottom hidden" id="share-bottom-bar-div">
     <div class="share-content">
         <p>分享到</p>
         <ul>
-            <li><a href="#"><img src="imgs/test-img/share-wx.png"/><span>微信</span></a></li>
-            <li><a href="#"><img src="imgs/test-img/share-fd.png"/><span>朋友圈</span></a></li>
+            <li onclick="window.shareArticleToWexin()"><a href="#"><img src="imgs/test-img/share-wx.png"/><span>微信</span></a></li>
+            <li onclick="window.shareArticleToWexinCircle()"><a href="#"><img src="imgs/test-img/share-fd.png"/><span>朋友圈</span></a></li>
             <!--<li><a href="#"><img src="imgs/test-img/share-sina.png"/><span>微博</span></a></li>-->
         </ul>
     </div>
@@ -50,6 +36,14 @@
 </html>
 <script src="js/common/jquery.min.js"></script>
 <script>
+    window.shareArticleToWexin = function () {
+        var content = business.share.content;
+        window.app.wxShareJS(content.name, content.name, location.href, '');
+    };
+    window.shareArticleToWexinCircle = function () {
+        var content = business.share.content;
+        window.app.wxShareCircleJS(content.name, content.name, location.href, '');
+    };
     $(document).bind('mobileinit', function () {
         $.mobile.changePage.defaults.changeHash = false;
         $.mobile.hashListeningEnabled = false;

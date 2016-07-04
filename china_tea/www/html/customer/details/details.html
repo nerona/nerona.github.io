@@ -6,21 +6,48 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5,maximum-scale=1.0 , user-scalable=0">
 	<link rel="stylesheet" href="css/common/jquery.mobile-1.4.5.min.css"/>
 	<link rel="stylesheet" href="css/style-final.css" />
-	<link rel="stylesheet" type="text/css" href="css/common/flexslider.css" />
+	<link href="//cdn.bootcss.com/Swiper/3.3.1/css/swiper.min.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="css/common/common.css" />
 	<link rel="stylesheet" type="text/css" href="css/customer/details/details.css" />
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 </head>
 <body>
 <div data-role="page">
 	<section data-role="header" data-theme="b" class="my-header" id="my-header">
-		<a href="javascript:history.back();" data-rel="back" data-role="none" class="my-header-back-btn"></a>
+		<a href="javascript:history.back();" data-rel="back" target="_top" id="back" data-role="none" class="my-header-back-btn"></a>
 		<h2 id="pageTitle">商品详情</h2>
 		<a href="#" class="my-header-right-btn-ad" data-role="none"><span>.</span><span>.</span><span>.</span></a>
 	</section>
 
-	<div data-role="ui-content">
+	<div data-role="popup" id="join-cart-popup" style="visibility: hidden"  data-dismissible="false" class="my-order-popup" >
+		<a href="#" data-rel="back" class="ui-btn-right dialog_close"><img src="images/hdpi/ts_gb.png"/></a>
+		<p class="text-center img-p-notice">
+		</p>
+		<p class="text-center">已加入您的购物车！</p>
+		<p class="text-center">
+			<a data-role="none" data-rel="back" class="ok-order-btn">确定</a>
+		</p>
+	</div>
+
+	<div data-role="popup" id="no-goods-popup" style="display: none;"  data-dismissible="false" class="my-order-popup" >
+		<a href="#" data-rel="back" class="ui-btn-right dialog_close"><img src="images/hdpi/ts_gb.png"/></a>
+		<p class="text-center img-p-notice">
+		</p>
+		<p class="text-center" style="font-size: 1.8rem;line-height: 1.8rem;margin: 0;padding: 0;">提示</p>
+		<p class="text-center">十分抱歉,您心仪的这款产品已经抢光啦！您可至附近实体门店询问选购哦</p>
+		<p class="text-center" style="margin-top: 2rem;">
+			<a data-role="none" data-rel="back" class="ok-order-btn">确定</a>
+		</p>
+	</div>
+
+	<div data-role="ui-content" style="position: relative">
+		<div style="text-align: right;padding-right: 2%;position: absolute;top: 0;right: 0;z-index: 99;">
+			<a href="html/customer/goods/shopping-cart.html" target="_top" class="my-goods-cart-search-a ui-link">
+				<span id="cart_num" style="display: inline-block;width: 1.2rem;height: 1.2rem;line-height: 1rem;float: right;margin: .3rem .1rem 0 0;color: #fff;background: red;font-size: .12rem;border-radius: 50%;text-align: center;">6</span>
+			</a>
+		</div>
 		<!--图片滚动-->
-		<div id="slider-content" class="flexslider">
+		<div id="slider-content" class="swiper-container">
 			<!--<ul class="slides">
 				<li><a href="#"><img src="images/test-img/sp-xq.png" /></a></li>
 				<li><a href="#"><img src="images/test-img/sp-xq.png" /></a></li>
@@ -38,8 +65,8 @@
 				</div>-->
 			</div>
 			<div class="sc-share-div">
-				<a href="#" id="spxq_fx_dj_id" class="share-bottom-bar-a">分享</a>
-				<a href="#" id="spxq_sc_dj_id" class="">收藏</a>
+				<a href="#" id="spxq_fx_dj_id" class="spxq_sc_dj">首页</a>
+				<span id="spxq_sc_dj_id" class="spxq_sc_dj" onclick="customer.details.addFav();">收藏</span>
 
 			</div>
 			<div style="clear: both"></div>
@@ -53,117 +80,189 @@
 		</div>
 
 		<!--图片颜色尺寸数量-->
-		<a href="#" class="btn-right-a" onclick="showGoodSize()"><span>颜色/尺寸/数量</span></a>
+		<a href="#" class="btn-right-a" onclick="showGoodSize(3)"><span>颜色/尺寸/数量</span></a>
 
 		<!--商品详情，买家评论-->
-		<div data-role="tabs" id="detailCommentTabs">
-			<div data-role="navbar">
-				<ul>
-					<li><a href="html/customer/details/detailTab.html" data-ajax="false" class="ui-btn-active"><span>商品详情</span></a></li>
-					<li><a href="html/customer/details/commentTab.html"  data-ajax="false"><span>买家评论</span></a></li>
-				</ul>
+		<div id="detailCommentTabs">
+			<ul class="tabs">
+				<li><a href="#detailTab" class="ui-btn-active"><span>商品详情</span></a></li>
+				<li><a href="#commentTab"><span>买家评论</span></a></li>
+			</ul>
+			<div id="detailTab">
 			</div>
-			<div class="comment-style-clear2"></div>
+			<div id="commentTab">
+			</div>
 		</div>
 
 	</div>
 	<div data-role="footer" data-position="fixed" data-disable-page-zoom="false"  data-tap-toggle="false">
 		<div data-role="navbar" id="footer-navbar-id">
 			<ul>
-				<li><a href="#" data-icon="spxq_wysr" class="ui-btn-icon-left">我要送人</a></li>
-				<li><a href="#" data-icon="spxq_zjy" class="ui-btn-icon-left">自己要</a></li>
-				<li><a href="#" data-icon="spxq_jrgwc" class="ui-btn-icon-left" onclick="customer.details.addCart();">加入购物车</a></li>
+				<li><a href="#" data-icon="spxq_wysr" class="ui-btn-icon-left" onclick="showGoodSize(1);">我要送人</a></li>
+				<li><a href="#" data-icon="spxq_zjy" class="ui-btn-icon-left" onclick="showGoodSize(2);">自己要</a></li>
+				<li><a href="#" data-icon="spxq_jrgwc" class="ui-btn-icon-left" onclick="showGoodSize(3);">加入购物车</a></li>
 			</ul>
 		</div>
 	</div>
+	<div class="my-ui-goods-c-bottom hidden" id="goods-cass-div-box">
 
+		<div class="share-content">
+			<div class="goods-sl-ico">
+				<a href="#" class="dialog_close" onclick="closeGoodSize(this)"><img src="images/hdpi/ts_gb.png"/></a>
+				<table>
+					<tr>
+						<td rowspan="3"><img src="images/test-img/sp-xq.png"/></td>
+						<td class="goods-ac-text-content">
+							<h1 class="cff5555bx">云南七子饼普洱茶</h1>
+							<p>
+								<span class="cff5555">588</span>
+								<span><s>288</s></span>
+								<span >库存<em >445</em></span>
+							</p>
+						</td>
+						<td class="c50end"></td>
+					</tr>
+					<tr>
+						<td colspan="2">
+						</td>
+					</tr>
+					<tr>
+						<td></td><td></td>
+					</tr>
+				</table>
+			</div>
+			<div class="goods-gg-cs-text">
+				<h1>重量:</h1>
+				<p class="goods-gg-cs-p2">
+					<input name="weight" id="weight1" type="radio" class="ext-box-btn wg-ext-box-btn" data-role="none"/>
+					<label for="weight1">200g</label>
+					<input name="weight" id="weight2" type="radio" class="ext-box-btn wg-ext-box-btn" data-role="none"/>
+					<label for="weight2">500g</label>
+					<input name="weight" id="weight3" type="radio" class="ext-box-btn wg-ext-box-btn" data-role="none"/>
+					<label for="weight3">1000g</label>
+				</p>
+			</div>
+			<div class="goods-gg-cs-text2">
+				<h1 >包装:</h1>
+				<p class="goods-gg-cs-p2">
+					<input name="goods-wrap" id="goods-wrap1" type="radio" class="ext-box-btn wg-ext-box-btn" data-role="none"/>
+					<label for="goods-wrap1">散装</label>
+					<input name="goods-wrap" id="goods-wrap2" type="radio" class="ext-box-btn wg-ext-box-btn" data-role="none"/>
+					<label for="goods-wrap2">精品装</label>
+					<input name="goods-wrap" id="goods-wrap3" type="radio" class="ext-box-btn wg-ext-box-btn" data-role="none"/>
+					<label for="goods-wrap3">豪华装</label>
+				</p>
+			</div>
+			<div class="ggdialog-d">
+				<h1>数量</h1>
+				<span class="ggdialog-d-a" onclick="numDec()">－</span>
+				<input type="text" id="quantity" value="1" class="ext-text-eee" data-role="none" readonly />
+				<span class="ggdialog-d-a" onclick="numAdd()">＋</span>
+				<div style="clear: both"></div>
+			</div>
+
+			<div class="ggdialog-e">
+				<a href="#"><span>加入购物车 </span></a>
+				<a href="#" onclick="customer.details.goBuy();"><span class="ggdialog-e-a" style="">立即购买</span><em>|</em></a>
+			</div>
+		</div>
+	</div>
 </div>
 <!-- 分享弹窗-->
 <div class="my-ui-share-bottom hidden" id="share-bottom-bar-div">
 	<div class="share-content">
 		<p>分享到</p>
 		<ul>
-			<li><a href="#"><img src="imgs/test-img/share-wx.png"/><span>微信</span></a></li>
-			<li><a href="#"><img src="imgs/test-img/share-fd.png"/><span>朋友圈</span></a></li>
+			<li><a id="wxShareLink" href="#"><img src="imgs/test-img/share-wx.png"/><span>微信</span></a></li>
+			<li><a id="wxCircleShareLink" href="#"><img src="imgs/test-img/share-fd.png"/><span>朋友圈</span></a></li>
 <!--			<li><a href="#"><img src="imgs/test-img/share-sina.png"/><span>微博</span></a></li>-->
 		</ul>
 	</div>
 </div>
 <!--查价格窗口-->
-<div class="my-ui-goods-c-bottom hidden" id="goods-cass-div-box">
 
-	<div class="share-content">
-		<div class="goods-sl-ico">
-			<a href="#" class="dialog_close" onclick="closeGoodSize(this)"><img src="images/hdpi/ts_gb.png"/></a>
-			<table>
-				<tr>
-					<td rowspan="3"><img src="images/test-img/sp-xq.png"/></td>
-					<td class="goods-ac-text-content">
-						<h1 class="cff5555bx">云南七子饼普洱茶</h1>
-						<p>
-							<span class="cff5555">588</span>
-							<span><s>288</s></span>
-							<span >库存<em >445</em></span>
-						</p>
-					</td>
-					<td class="c50end"></td>
-				</tr>
-				<tr>
-					<td colspan="2">
-					</td>
-				</tr>
-				<tr>
-					<td></td><td></td>
-				</tr>
-			</table>
-		</div>
-		<div class="goods-gg-cs-text">
-			<h1>重量:</h1>
-			<p class="goods-gg-cs-p2">
-				<input name="weight" id="weight1" type="radio" class="ext-box-btn wg-ext-box-btn" data-role="none"/>
-				<label for="weight1">200g</label>
-				<input name="weight" id="weight2" type="radio" class="ext-box-btn wg-ext-box-btn" data-role="none"/>
-				<label for="weight2">500g</label>
-				<input name="weight" id="weight3" type="radio" class="ext-box-btn wg-ext-box-btn" data-role="none"/>
-				<label for="weight3">1000g</label>
-			</p>
-		</div>
-		<div class="goods-gg-cs-text2">
-			<h1 >包装:</h1>
-			<p class="goods-gg-cs-p2">
-				<input name="goods-wrap" id="goods-wrap1" type="radio" class="ext-box-btn wg-ext-box-btn" data-role="none"/>
-				<label for="goods-wrap1">散装</label>
-				<input name="goods-wrap" id="goods-wrap2" type="radio" class="ext-box-btn wg-ext-box-btn" data-role="none"/>
-				<label for="goods-wrap2">精品装</label>
-				<input name="goods-wrap" id="goods-wrap3" type="radio" class="ext-box-btn wg-ext-box-btn" data-role="none"/>
-				<label for="goods-wrap3">豪华装</label>
-			</p>
-		</div>
-		<div class="ggdialog-d">
-			<h1>数量</h1>
-			<span class="ggdialog-d-a" onclick="numDec()">－</span>
-			<input type="text" id="quantity" value="1" class="ext-text-eee" data-role="none"/>
-			<span class="ggdialog-d-a" onclick="numAdd()">＋</span>
-			<div style="clear: both"></div>
-		</div>
-
-		<div class="ggdialog-e">
-			<a href="#"><span>加入购物车 </span></a>
-			<a href="#"><span class="ggdialog-e-a" style="">立即购买</span><em>|</em></a>
-		</div>
-	</div>
-</div>
 </body>
 </html>
 <script src="js/common/jquery.min.js"></script>
 <script src="js/common/common.js"></script>
-<script src="js/slider/jquery.flexslider-min.js"></script>
+<script src="//cdn.bootcss.com/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
 <script type="text/javascript">
 	$(document).bind('mobileinit',function(){
 		$.mobile.changePage.defaults.changeHash = false;
 		$.mobile.hashListeningEnabled = false;
 		$.mobile.pushStateEnabled = false;
 	});
+
+	$('#spxq_fx_dj_id').on('click', function(){
+		document.location.href = 'html/customer/index.html?storeId=' + localStorage.getItem('shopId') + '&type=weixinIndex&userId=' + localStorage.getItem('userid');
+	});
+	Util.common.setWxTitle('商品详情');
+	var url = Util.common.baseUrl + "/weixin/weixinConfig/verification.do";
+	var currentUrl = "weixinfront/html/customer/details/details.html?id="+Util.common.getParameter("id");
+	var param = {"url":currentUrl};
+	Util.common.executeAjaxCallback(url ,param,function(data){
+		if(data.success){
+			wx.config({
+				debug:false,
+				appId:data.msg.appId,
+				timestamp:data.msg.timestamp,
+				nonceStr:data.msg.nonceStr,
+				signature:data.msg.signature,
+				jsApiList: [
+					// 所有要调用的 API 都要加到这个列表中
+					'checkJsApi',
+					'onMenuShareTimeline',
+					'onMenuShareAppMessage'
+				]
+			});
+			wx.ready(function () {
+				var imageSrc = $(".slides").find('li').eq(0).find('img').attr('src');
+				var shareUrl = Util.common.baseUrl + '/weixin/weixinClient/index.do?fromshanguo=weixinfront/html/customer/details/details.html?id='+Util.common.getParameter("id");
+				var title1 = $("#goodsName").text();
+				//$("#wxShareLink").on("click",function () {
+				//document.querySelector('#wxShareLink').onclick= function () {
+					wx.onMenuShareAppMessage({
+						title:title1, // 分享标题
+						desc: title1, // 分享描述
+						link: shareUrl, // 分享链接
+						imgUrl: imageSrc, // 分享图标
+						type: 'link', // 分享类型,music、video或link，不填默认为link
+						dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+						success: function () {
+							// 用户确认分享后执行的回调函数
+							Util.msg.show("msgId","分享成功");
+						},
+						cancel: function () {
+							// 用户取消分享后执行的回调函数
+							Util.msg.show("msgId","分享失败");
+						}
+					});
+				//};
+
+				//});
+				//$("#wxCircleShareLink").on("click",function () {
+				//document.querySelector('#wxCircleShareLink').onclick= function () {
+					wx.onMenuShareTimeline({
+						title: title1, // 分享标题
+						link:  shareUrl, // 分享链接
+						imgUrl: imageSrc, // 分享图标
+						success: function () {
+							// 用户确认分享后执行的回调函数
+							Util.msg.show("msgId","分享成功");
+						},
+						cancel: function () {
+							// 用户取消分享后执行的回调函数
+							Util.msg.show("msgId","分享失败");
+						}
+					});
+				//}
+
+				//})
+
+
+			});
+		}
+	})
 </script>
 <script src="js/common/jquery.mobile-1.4.5.min.js" ></script>
 <script src="js/common/common.js"></script>
@@ -172,27 +271,34 @@
 
 <!--图片滚动-->
 <script type="text/x-jquery-tmpl" id="goodsDetail_showImage_t">
-    <ul class="slides">
+    <ul class="swiper-wrapper">
       {{each(i,data) images}}
-        <li style="width: 100%; float: left; margin-right: -100%; position: relative; opacity: {{if i==0}}1{{/if}}{{if i!=0}}0{{/if}}; display: block; transition: opacity 0.8s ease; z-index: {{if i==0}}2{{/if}}{{if i!=0}}1{{/if}};" class="{{if i==0}}flex-active-slide{{/if}}">
-             <img src="${data.url}" draggable="false">
+        <li class="swiper-slide">
+             <img src="${data.url}?imageView2/1/w/375/h/375" style="width: 100%;">
         </li>
       {{/each}}
     </ul>
+    <div class="swiper-pagination"></div>
  </script>
 <!--商品描述-->
 <script type="text/x-jquery-tmpl" id="sp-desc-t">
-		<div><span >${name}</span></div>
-		<div class="sp-desc-font-a">
+    	<input type="hidden" name="goodImgUrl" value="">
+   	 	<input type="hidden" name="goodName" value="${name}">
+   	 	<input type="hidden" name="salePrice" value="${salePrice}">
+    	<input type="hidden" name="goodCount" value="1">
+    	<input type="hidden" name="skuItem" value="${goodSkuList[0].cargoSkuName}">
+    	<input type="hidden" name="skuId" value="${goodSkuList[0].id}">
+		<div><span style="font-size: 1.6rem;">${name}</span></div>
+		<div class="sp-desc-font-a" style="margin-top: 4px;">
 			<span style="color:#ff6e82;">￥${salePrice}</span>
 			<span><em><s>￥${marketPrice}</s></em></span>
-			<span class="sp-desc-font-e"><li>x山国饮艺茶轩</li></span>
+			<span class="sp-desc-font-e"><li style="font-size: 1.6rem !important;">${shopName}</li></span>
 		</div>
  </script>
 <!--商品描述(运费,收藏,月销量)-->
 <script type="text/x-jquery-tmpl" id="sp-desc-ysy-t">
 	<ul>
-	<li>￥${post}<span>运费</span></li>
+	<li value=${post}>￥0.00<span>运费</span></li>
 	<li>${storeNum}<span>收藏</span></li>
 	<li style="border-right:0">${saleNum}<span>月销量</span></li>
 	</ul>
@@ -206,11 +312,11 @@
 			<tbody><tr>
 				<td rowspan="3"><img src="${smallImage}"></td>
 				<td class="goods-ac-text-content">
-					<h1 class="cff5555bx">${name}</h1>
-					<p>
-						<span class="cff5555">${goodSkuList[0].salePrice}</span>
-						<span><s>${goodSkuList[0].marketPrice}</s></span>
-						<span>库存<em>${goodSkuList[0].leftNums}</em></span>
+					<h1 id="goodsName" class="cff5555bx">${name}</h1>
+					<p style="position:relative;top:.8rem;">
+						<span  class="cff5555">￥${goodSkuList[0].salePrice}</span>
+						<span style="padding-left:10px"><s>￥${goodSkuList[0].marketPrice}</s></span>
+						<span style="padding-left:3rem">库存<em>${goodSkuList[0].nums}件</em></span>
 					</p>
 				</td>
 				<td class="c50end"></td>
@@ -224,39 +330,28 @@
 			</tr>
 			</tbody></table>
 	</div>
+	{{each(i,skuItem) new_skuList}}
 	<div class="goods-gg-cs-text">
-		<h1>重量:</h1>
+		<h1 style="letter-spacing:2px;padding-left: 3px;">${skuItem.type}</h1>
 		<p class="goods-gg-cs-p2">
-			<input name="weight" id="weight1" type="radio" class="ext-box-btn wg-ext-box-btn" data-role="none">
-			<label for="weight1">200g</label>
-			<input name="weight" id="weight2" type="radio" class="ext-box-btn wg-ext-box-btn" data-role="none">
-			<label for="weight2">500g</label>
-			<input name="weight" id="weight3" type="radio" class="ext-box-btn wg-ext-box-btn" data-role="none">
-			<label for="weight3">1000g</label>
+			{{each(j,val) value}}
+			<input name="weight${i}" id="weight-${i}-${j}" type="radio" class="ext-box-btn wg-ext-box-btn" data-role="none">
+			<label for="weight-${i}-${j}">${val}</label>
+			{{/each}}
 		</p>
 	</div>
-	<div class="goods-gg-cs-text2">
-		<h1>包装:</h1>
-		<p class="goods-gg-cs-p2">
-			<input name="goods-wrap" id="goods-wrap1" type="radio" class="ext-box-btn wg-ext-box-btn" data-role="none">
-			<label for="goods-wrap1">散装</label>
-			<input name="goods-wrap" id="goods-wrap2" type="radio" class="ext-box-btn wg-ext-box-btn" data-role="none">
-			<label for="goods-wrap2">精品装</label>
-			<input name="goods-wrap" id="goods-wrap3" type="radio" class="ext-box-btn wg-ext-box-btn" data-role="none">
-			<label for="goods-wrap3">豪华装</label>
-		</p>
-	</div>
+    {{/each}}
 	<div class="ggdialog-d">
 		<h1>数量</h1>
 		<span class="ggdialog-d-a" onclick="numDec()">-</span>
-		<input type="text" id="quantity" value="1" class="ext-text-eee" data-role="none">
+		<input type="text" id="quantity" value="1" class="ext-text-eee" data-role="none" readonly>
 		<span class="ggdialog-d-a" onclick="numAdd()">+</span>
 		<div style="clear: both"></div>
 	</div>
 
 	<div class="ggdialog-e">
-		<a href="#" onclick="customer.details.addCart();"><span>加入购物车</span></a>
-		<a href="#"><span class="ggdialog-e-a" style="">立即购买</span></a>
+		<a href="#" id="addCart"><span>加入购物车</span></a>
+		<a href="#" id="buyNow"><span class="ggdialog-e-a" style="">立即购买</span></a>
 	</div>
 </div>
 </script>
@@ -268,12 +363,44 @@
 <script type="text/x-jquery-tmpl" id="commentTab_t">
 	<div class="comment-a">
         <span class="ext-font-size">${username}</span>
-					<span>
-						<img src="images/hdpi/wddd_pj.png" index="0">
-						<img src="images/hdpi/wddd_pj.png" index="1">
-						<img src="images/hdpi/wddd_pj.png" index="2">
-						<img src="images/hdpi/wddd_pj.png" index="3">
-						<img src="images/hdpi/wddd_pj.png" index="4">
+					<span value=${score}>
+						{{if score==0 }}
+							<img src="images/hdpi/wddd_pj.png" index="0">
+							<img src="images/hdpi/wddd_pj.png" index="1">
+							<img src="images/hdpi/wddd_pj.png" index="2">
+							<img src="images/hdpi/wddd_pj.png" index="3">
+							<img src="images/hdpi/wddd_pj.png" index="4">
+							{{else score==1 }}
+							<img src="images/hdpi/wddd_pj_xx.png" index="0">
+							<img src="images/hdpi/wddd_pj.png" index="1">
+							<img src="images/hdpi/wddd_pj.png" index="2">
+							<img src="images/hdpi/wddd_pj.png" index="3">
+							<img src="images/hdpi/wddd_pj.png" index="4">
+							{{else score==2 }}
+							<img src="images/hdpi/wddd_pj_xx.png" index="0">
+							<img src="images/hdpi/wddd_pj_xx.png" index="1">
+							<img src="images/hdpi/wddd_pj.png" index="2">
+							<img src="images/hdpi/wddd_pj.png" index="3">
+							<img src="images/hdpi/wddd_pj.png" index="4">
+							{{else score==3 }}
+							<img src="images/hdpi/wddd_pj_xx.png" index="0">
+							<img src="images/hdpi/wddd_pj_xx.png" index="1">
+							<img src="images/hdpi/wddd_pj_xx.png" index="2">
+							<img src="images/hdpi/wddd_pj.png" index="3">
+							<img src="images/hdpi/wddd_pj.png" index="4">
+							{{else score==4 }}
+							<img src="images/hdpi/wddd_pj_xx.png" index="0">
+							<img src="images/hdpi/wddd_pj_xx.png" index="1">
+							<img src="images/hdpi/wddd_pj_xx.png" index="2">
+							<img src="images/hdpi/wddd_pj_xx.png" index="3">
+							<img src="images/hdpi/wddd_pj.png" index="4">
+							{{else score==5 }}
+							<img src="images/hdpi/wddd_pj_xx.png" index="0">
+							<img src="images/hdpi/wddd_pj_xx.png" index="1">
+							<img src="images/hdpi/wddd_pj_xx.png" index="2">
+							<img src="images/hdpi/wddd_pj_xx.png" index="3">
+							<img src="images/hdpi/wddd_pj_xx.png" index="4">
+						{{/if}}
 					</span>
         <span class="font-right-hw" style="float: right;">${evaluateTime}</span>
     </div>
@@ -281,14 +408,14 @@
     <div class="comment-b">
         <p>${content}</p>
     </div>
-    <div class="comment-c">
-        <span class="font-right-hw">${skuName}</span>
-    </div>
-    <div>
+
+    <div class="comment-d">
     	{{each(i,image) imageVoList}}
-		   <img src="${image.url}">
+		   <img src="${image.url}?imageView2/1/w/100/h/100">
 		{{/each}}
     </div>
-
+	<div class="comment-c">
+        <span class="font-right-hw">规格: ${skuName}</span>
+    </div>
     <div class="comment-style-clear2"></div>
 </script>

@@ -114,7 +114,35 @@ input[type=checkbox] {
     padding: 0;
     margin: 0;
 }
-
+#shopping-cart-list li:last-child {
+    margin-bottom: 16%;
+}
+#my-footer-cart {
+    background-color: #ffffff;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 9;
+    width: 100%;
+}
+#my-footer-cart:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: auto;
+    right: auto;
+    top: 0;
+    height: 1px;
+    width: 100%;
+    background-color: #e7e7e7;
+    display: block;
+    z-index: 15;
+    -webkit-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+}
+.ui-fixed-hidden {
+     position: fixed;
+}
 #shopping-cart-list li a:focus{
     box-shadow: none;
 }
@@ -133,10 +161,10 @@ input[type=checkbox] {
 .ok-order-btn-r {
     font-size: 1.6rem!important;
     padding: 0.2rem 0.5rem;
-    margin-right: 1rem;
+    margin-right: .5rem;
     position: relative;
     border-radius: 5px;
-    top: 10px;
+    top: 14px;
 }
 .my-footer-cart .ext-box-select {
     display: none;

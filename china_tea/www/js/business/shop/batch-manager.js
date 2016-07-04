@@ -115,11 +115,11 @@ function pullUpAction () {
     }else{
         url +=  "/mobile/good/getUnshelveGoodList.do";
     }
-    var param = {"shopId":Util.common.getParameter("shopId"),"pageSize":business.batchManger.pageSize ,"pageNum":business.batchManger.pageNum + business.batchManger.pageSize};
+    var param = {"shopId":Util.common.getParameter("shopId"),"pageSize":business.batchManger.pageSize ,"pageNum":business.batchManger.pageNum + 1};
     Util.common.executeAjaxCallback(url, param, function(data){
         if( data.length>0 ) {
             $("#thelist").append($("#list_t").tmpl(data));
-            business.batchManger.pageNum +=  business.batchManger.pageSize;
+            business.batchManger.pageNum +=  1;
         }else{
             //Util.msg.show("msgId","没有更多了");
         }

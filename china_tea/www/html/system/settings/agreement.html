@@ -29,19 +29,8 @@
         <h2>协议</h2>
         <a href="#" class="my-header-right-btn-ad" data-role="none"><span>.</span><span>.</span><span>.</span></a>
     </section>
-<section data-role="content" class="agreement">
-<h1>网付宝用户协议</h1>
-<p>你们的 打分_______________</p>
-<p>你们的 打分_______________</p>
-<p>你们的 打分_______________</p>
-<p>
-啊你单的分访问访问访问访问访问啊你单的分访问访问访问访问访问啊你单的分访问访问访问访问访问
-啊你单的分访问访问访问访啊你单的分访问访问访问访问访问问访问
-啊你单的分访问访问访问访问访问啊你单的分访问访问访问访问访问
-啊你单的分访问访问访问访问访问啊你单的分访问访问访问访问访问
-啊你单的分访问访问访问访啊你单的分访问访问访问访问访问问访问
-啊你单的分访问访问访问访啊你单的分访问访问访问访问访问问访问
-</p>
+<section data-role="content" class="agreement" id="agreement">
+
 </section>
 
 
@@ -50,13 +39,25 @@
 </body>
     
 <script src="js/common/jquery.min.js"></script>
+<script src="js/common/common.js"></script>
  <script>
     $(document).bind('mobileinit',function(){
         $.mobile.changePage.defaults.changeHash = false;
         $.mobile.hashListeningEnabled = false;
         $.mobile.pushStateEnabled = false;
     });
-</script> 
+
+    $(function(){
+
+        Util.common.setWxTitle('服务协议');
+        var url = Util.common.baseUrl + "/module/text/mobile/my.do";
+        var param = {
+        };
+        Util.common.executeAjaxCallback(url, param, function (data) {
+            $('#agreement').html(data.content);
+        });
+    });
+</script>
 <script src="js/common/jquery.mobile-1.4.5.min.js" ></script>   
 
 

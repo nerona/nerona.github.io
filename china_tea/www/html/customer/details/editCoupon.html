@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5,maximum-scale=1.0 , user-scalable=0">
+<base href="../../../"/>
+<link rel="stylesheet" href="css/common/jquery.mobile-1.4.5.min.css"/>
+<link rel="stylesheet" href="css/style-final.css" />
+<link rel="stylesheet" href="css/customer/address/edit.css" />
+</head>
+<body>
+<div data-role="page" data-quicklinks="true">
+    <section data-role="header" data-theme="b" class="my-header" id="my-header">
+        <a href="html/customer/address/index.html" target="_top" data-role="none" class="my-header-back-btn"></a>
+        <h2>编辑收货地址</h2>
+        <a href="#" class="my-header-right-btn-ad" data-role="none"><span>.</span><span>.</span><span>.</span></a>
+    </section>
+    <section data-role="content" class="return-address">
+        <ul id="addressInfo">
+            <!-- <li><label>收货人：</label><span><input name="receiptName" value="" class="ext-text-w" data-role="none"></span></li>
+             <li><label>联系方式：</label><span><input name="mobile" value="" class="ext-text-w" data-role="none"></span></li>
+             <input type="hidden" name="provinceName">
+             <input type="hidden" name="cityName">
+             <input type="hidden" name="areaName">
+             <li><label>所在地址：</label><a href="html/customer/address/province.html" target="_top" data-role="none" class="btn-right-a"><span class="cbbb">请选择所在地区</span></a></li>
+             <li><label>详细地址：</label><span><input name="detailAddr" value="" class="ext-text-w" data-role="none"></span></li>
+             <li><label>邮政编码：</label><span><input name="mailbox" value="" class="ext-text-w" data-role="none"></span></li>
+         -->
+        </ul>
+    </section>
+
+    <section  data-role="footer"  data-disable-page-zoom="false" data-position="fixed" style="background-color: #ffffff;padding: 10px">
+        <button data-role="none"  class="ok-order-btn-r" onclick="validateCoupon();">确认兑换</button>
+    </section>
+
+    <div data-role="popup" id="my-dialog-popup" class="ui-content" data-dismissible="false" style="display: none;">
+        <p class="text-center img-p-notice">
+        </p>
+        <p class="text-center" style="top: -12px;font-size: 1em;font-weight: bold;letter-spacing: 1px;">兑换成功</p>
+        <p class="text-center c999" id="goodName" style="margin-bottom: 0;">商品名称：葱葱葱</p>
+        <p class="text-center c999" id="goodId" style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap">订单号：12345666666644</p>
+        <p class="text-center c999" >￥<span id="all">588</span> | <span id="goodCount">2</span>件</p>
+        <br/>
+        <br/>
+        <p class="text-center" style="margin-top: 0;">
+            <a href="#" target="_top" style="text-decoration: none;color: #000;font-size: 1em;margin-right: 3px;" onclick="goHome();">返回首页</a> |
+            <a  href="#" target="_top" style="text-decoration: none;color: #ff6e82;font-size: 1em;margin-left: 3px"  onclick="goDetail();">查看商品</a>
+        </p>
+    </div>
+</div>
+
+</body>
+
+<script src="js/common/jquery.min.js"></script>
+<script src="js/common/jquery.tmpl.min.js"></script>
+<script src="js/common/common.js"></script>
+<script src="js/customer/address/address.js"></script>
+<script>
+    Util.common.setWxTitle('编辑收货地址');
+    $(document).bind('mobileinit',function(){
+        $.mobile.changePage.defaults.changeHash = false;
+        $.mobile.hashListeningEnabled = false;
+        $.mobile.pushStateEnabled = false;
+    });
+    $(function() {
+        if('add'==Util.common.getParameter("type")){
+            customer.address.getAddInfo();
+        }
+        localStorage.setItem('userId', Util.common.getParameter('userId'));
+    });
+    function goHome() {
+        document.location.href = 'html/customer/index.html?storeId=' + localStorage.getItem('shopId_c');
+    }
+    function goDetail() {
+        document.location.href = 'html/customer/details/details.html?id=' + localStorage.getItem('goodId');
+    }
+    function getOrderCode(id){
+        var url = Util.common.baseUrl+ "/weixin/indent/getOrderDetail.do";
+        var param = {"id": id};
+        Util.common.executeAjaxCallback(url, param, function (data) {
+            $('#goodId').html('订单号:' + data.name);
+        });
+    }
+    function validateCoupon(){
+        var url = Util.common.baseUrl +"/weixin/good/validateCoupon.do";
+        var couponCode = $("input[name=couponCode]").val();
+        var couponPsd = $("input[name=couponPsd]").val();
+        var v_param ={
+            "goodId": localStorage.getItem('goodId'),
+            "code":couponCode,
+            "password":couponPsd
+        };
+        var receiptName = $("input[name=receiptName]").val();
+        var mobile = $("input[name=mobile]").val();
+        var provinceName = $("input[name=provinceName]").val();
+        var cityName = $("input[name=cityName]").val();
+        var areaName = $("input[name=areaName]").val();
+        var detailAddr = $("input[name=detailAddr]").val();
+        if(receiptName == '' || mobile == '' || detailAddr == '') {
+            Util.msg.show('msgId', "请填写完整");
+        } else if(couponCode == ''){
+            Util.msg.show('msgId', "请填入兑换券编码");
+        } else if(couponPsd == ''){
+            Util.msg.show('msgId', "请填入兑换券密码");
+        }else {
+            var order_url = Util.common.baseUrl + "/weixin/indent/add.do";
+            var modelJson = {};
+            modelJson.buyType = 'z';
+            modelJson.subbranchId = localStorage.getItem("shopId");
+            modelJson.buyerId = localStorage.getItem("userid") || 1;
+            modelJson.province = provinceName;
+            modelJson.city = cityName;
+            modelJson.town = areaName;
+            modelJson.address = detailAddr;
+            modelJson.receiver = receiptName;
+            modelJson.receiverPhone = mobile;
+            //
+            modelJson.type = "2";
+            modelJson.ticketNum = couponCode;
+            modelJson.buyerCarriage = "";
+            modelJson.needInvoice = false;
+            modelJson.invoiceName = "";
+            modelJson.invoiceContent = "";
+
+            var indentList =[];
+            var shopCartInfo = localStorage.getItem("shopCartInfo");
+            var shopCartInfoJson = JSON.parse(shopCartInfo);
+            for(var i = 0; i < shopCartInfoJson.shopCarts.length; i++){
+                var shopCart = shopCartInfoJson.shopCarts[i];
+                var indent = {};
+                indent.number  = shopCart.goodCount;
+                indent.finalAmount  = shopCart.salePrice;
+                indent.tradeGoodSkuId  = shopCart.skuId;
+                indentList.push(indent);
+            }
+            modelJson.indentList = indentList;
+
+            var param = {"modelJson":JSON.stringify(modelJson)};
+
+            Util.common.executeAjaxCallback(url, v_param, function (data) {
+                if(data.success == true) {
+                    localStorage.setItem("shopId_c", data.shopId);
+                    Util.common.executeAjaxCallback(order_url, param, function (result) {
+                        if(result.code == 1) {
+                            var shopCartInfo = localStorage.getItem("shopCartInfo");
+                            var shopCartInfoJson = JSON.parse(shopCartInfo);
+
+                            $('#goodName').html('商品名称:' + shopCartInfoJson.goodTitle);
+                            getOrderCode(result.msg);
+                            $('#goodCount').html(shopCartInfoJson.count);
+                            $('#all').html(shopCartInfoJson.amount);
+                            $('#my-dialog-popup').popup('open').show();
+                            $('#my-dialog-popup-popup').css({
+                                "display": "block",
+                                "top": "30%",
+                                "left": "23%"
+                            });
+                        }
+                    });
+                } else {
+                    Util.msg.show('msgId', data.msg);
+                }
+            });
+        }
+    }
+</script>
+<script src="js/common/jquery.mobile-1.4.5.min.js" ></script>
+<!-- Mobiscroll JS and CSS Includes -->
+
+<script src="lib/js/mobiscroll.core.js"></script>
+<script src="lib/js/mobiscroll.frame.js"></script>
+<script src="lib/js/mobiscroll.scroller.js"></script>
+
+<script src="lib/js/mobiscroll.listbase.js"></script>
+<script src="lib/js/mobiscroll.treelist.js"></script>
+
+<script src="lib/js/mobiscroll.android-holo-light.js"></script>
+
+<script src="lib/js/i18n/mobiscroll.i18n.zh.js"></script>
+
+<script src="lib/js/city-picker.data.js"></script>
+<script src="lib/js/mobile-cityPicker.js"></script>
+
+<link href="lib/css/mobiscroll.animation.css" rel="stylesheet" type="text/css" />
+<link href="lib/css/mobiscroll.icons.css" rel="stylesheet" type="text/css" />
+<link href="lib/css/mobiscroll.frame.css" rel="stylesheet" type="text/css" />
+<link href="lib/css/mobiscroll.frame.android.css" rel="stylesheet" type="text/css" />
+<link href="lib/css/mobiscroll.frame.android-holo.css" rel="stylesheet" type="text/css" />
+<link href="lib/css/mobiscroll.frame.ios-classic.css" rel="stylesheet" type="text/css" />
+<link href="lib/css/mobiscroll.frame.ios.css" rel="stylesheet" type="text/css" />
+<link href="lib/css/mobiscroll.frame.jqm.css" rel="stylesheet" type="text/css" />
+<link href="lib/css/mobiscroll.frame.sense-ui.css" rel="stylesheet" type="text/css" />
+<link href="lib/css/mobiscroll.frame.wp.css" rel="stylesheet" type="text/css" />
+<link href="lib/css/mobiscroll.scroller.css" rel="stylesheet" type="text/css" />
+<link href="lib/css/mobiscroll.scroller.android.css" rel="stylesheet" type="text/css" />
+<link href="lib/css/mobiscroll.scroller.android-holo.css" rel="stylesheet" type="text/css" />
+<link href="lib/css/mobiscroll.scroller.ios-classic.css" rel="stylesheet" type="text/css" />
+<link href="lib/css/mobiscroll.scroller.ios.css" rel="stylesheet" type="text/css" />
+<link href="lib/css/mobiscroll.scroller.jqm.css" rel="stylesheet" type="text/css" />
+<link href="lib/css/mobiscroll.scroller.sense-ui.css" rel="stylesheet" type="text/css" />
+<link href="lib/css/mobiscroll.scroller.wp.css" rel="stylesheet" type="text/css" />
+<link href="lib/css/mobiscroll.image.css" rel="stylesheet" type="text/css" />
+
+<link href="lib/css/mobiscroll.android-holo-light.css" rel="stylesheet" type="text/css" />
+<link href="lib/css/mobiscroll.wp-light.css" rel="stylesheet" type="text/css" />
+<link href="lib/css/mobiscroll.mobiscroll-dark.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+    .dwfl{flex:1;}
+</style>
+</html>
+<!--以下是模板文件-->
+<script type="text/x-jquery-tmpl" id="addressInfo_t">
+
+    <ul id="demo_treelist"></ul>
+    </div>
+    <li><label>收货人：</label><span><input name="receiptName" value="${receiptName}" class="ext-text-w" data-role="none"></span></li>
+    <li><label>联系方式：</label><span><input name="mobile" value="${mobile}" class="ext-text-w" data-role="none" type="tel"></span></li>
+    <input type="hidden" name="provinceName" value="${provinceName}" data-label="province" data-id="" class="cityPickerInput" value="请选择省"/>
+    <input type="hidden" name="cityName" value="${cityName}" data-label="city" data-id="" class="cityPickerInput" value="请选择市"/>
+    <input type="hidden" name="areaName" value="${areaName}" data-label="district" data-id="" class="cityPickerInput" value="请选择区"/>
+    <input type="hidden" name="provinceCode" value="${provinceCode}">
+    <input type="hidden" name="cityCode" value="${cityCode}">
+    <input type="hidden" name="areaCode" value="${areaCode}">
+    <li style="height:2.6rem;line-height:2.6rem;" class="cityPickerInput" id="cityPick"><label>所在地址：</label><a href="javascript:void(0)" target="_top" data-role="none" class="btn-right-a" id="pca_value">${provinceName}-${cityName}-${areaName}</a></li>
+    <li><label>详细地址：</label><span><input name="detailAddr" value="${detailAddr}" class="ext-text-w" data-role="none"></span></li>
+   <li><label>兑换券编码：</label><span><input name="couponCode" value="" class="ext-text-w" data-role="none" type="tel"></span></li>
+   <li><label>兑换券密码：</label><span><input type="password" name="couponPsd" value="" class="ext-text-w" data-role="none" type="tel"></span></li>
+</script>

@@ -16,8 +16,8 @@
         <a href="#" class="my-header-right-btn-ad" data-role="none"><span>.</span><span>.</span><span>.</span></a>
     </section>
 <section data-role="content" role="main" class="order-detail-main">
-    <ul class="order-info-s">
-        <li>
+    <ul class="order-info-s" id="OrderDetail_showInfo">
+       <!-- <li>
             <dd style="width:50%"><h1>订单信息</h1></dd>
             <dd class="text-right" style="width:50%">
             </dd>
@@ -52,15 +52,15 @@
                 <p> 买家留言<span></span>:</p>
                 <p><span>推荐已安装支付宝客户端使用</span></p>
             </dd>
-        </li>
+        </li>-->
     </ul>
 
 </section>
 <section data-role="content" class="order-detail-main my-list-view">
 <h1>商品详情</h1>
     <div style="clear: both"></div>
-    <table >
-        <tr >
+    <table id="OrderDetail_showImage">
+       <!-- <tr >
             <td class="td-left"> <img  src="images/test-img/goods.png"></td>
             <td class="td-middle"><p>云南七子饼普洱茶云南七子饼普洱茶云南七子饼普洱茶</p>
                 <p><em class="text-color">￥588</em> </p>
@@ -75,32 +75,32 @@
                 <p><span>500g</span><span>精包装</span></p>
             </td>
             <td class="td-right"><p>x1</p></td>
-        </tr>
+        </tr>-->
     </table>
-    <div class="bar-b-tj">
-       <dl>
+    <div class="bar-b-tj" id="bar-b-tj">
+      <!-- <dl>
            <dd><em>商品总额</em> <em class="text-right"> ￥588</em></dd>
            <dd ><em>运费</em><em class="text-right">￥18</em></dd>
        </dl>
-
         <dl>
             <dd class="text-right" style="width: 93%"><em>共</em><em>2</em><em>件商品 合计:</em><em class="red">￥588</em>&nbsp;&nbsp;</dd>
-        </dl>
-
+        </dl>-->
     </div>
 </section>
-    <section  data-role="footer"  data-disable-page-zoom="false" data-position="fixed" style="background-color: #ffffff;padding: 10px">
+    <section  data-role="footer"  data-disable-page-zoom="false" data-position="fixed" style="background-color: #ffffff;padding: 10px" id="order-cast-info">
 
-        <span class="order-cast-info">实际收款：<em class="red">￥588</em> (含运费：<em>￥23.00</em>)</span>
-        <a  href="#myPopup" data-rel="popup" data-position-to="window" data-role="none" class="ok-order-btn-r wait-pay-btn">等待卖家确认</a>
+<!--        <span class="order-cast-info">实际收款：<em class="red">￥588</em> (含运费：<em>包邮</em>)</span>
+        <a  href="#myPopup" data-rel="popup" data-position-to="window" data-role="none" class="ok-order-btn-r wait-pay-btn">等待卖家确认</a>-->
     </section>
 
 </div>
 
 </body>
     
-     <script src="js/common/jquery.min.js"></script>
+<script src="js/common/jquery.min.js"></script>
+<script src="js/common/common.js"></script>
  <script>
+     Util.common.setWxTitle('订单详情');
     $(document).bind('mobileinit',function(){
         $.mobile.changePage.defaults.changeHash = false;
         $.mobile.hashListeningEnabled = false;
@@ -108,7 +108,71 @@
     });
 </script> 
 <script src="js/common/jquery.mobile-1.4.5.min.js" ></script>
-<script src="js/customer/order/order-detail.js" ></script>
-<script src="js/common/common.js"></script>
+<script src="js/customer/order/order-detail-submit.js" ></script>
 
+<script src="js/common/jquery.tmpl.min.js" ></script>
+
+<script type="text/x-jquery-tmpl" id="OrderDetail_showInfo_t">
+    <li>
+    <dd style="width:50%"><h1>订单信息</h1></dd>
+     <dd class="text-right" style="width:50%">
+     </dd>
+    </li>
+
+     <li>
+      <dt class="time-status-ico">
+      <img src="images/hdpi/ddxq_ddxx.png"/></dt>
+      <dd class="pay-type-text">
+      <p> 订单编号：<span>${name}</span></p>
+    <p>下单时间：<span>${createTime}</span></p>
+    <p>订单状态：<span id="statusName">${statusName}</span></p>
+    </dd>
+    </li>
+ <!--   <li>
+    <dt class="reason-ico"><img src="images/hdpi/wddd_thyy.png"/></dt>
+            <dd class="pay-type-text">
+            <p> 退货原因：<span>与预期不符</span></p>
+    <p>退货说明：<span>颜色不符合</span></p>
+    </dd>
+    </li>-->
+    <li>
+    <dt class="address-ico"><img src="images/hdpi/ddxq_shxx.png"/></dt>
+            <dd class="pay-type-text">
+            <p> 收货人：<span >${receiver}</span> <span>${receiverPhone}</span></p>
+            <p>收货地址：<span >${fullAddress}</span></p>
+    </dd>
+    </li>
+   <!-- <li>
+    <dt class="message-ico"><img src="images/hdpi/ddxq_mjly.png"/></dt>
+            <dd class="pay-type-text">
+            <p> 买家留言<span></span>:</p>
+    <p><span>平时不在家，周末送货</span></p>
+    </dd>
+    </li>-->
+</script>
+<script type="text/x-jquery-tmpl" id="OrderDetail_showImage_t">
+{{each(i,good) datas}}
+     <tr id=${good.tradeGoodSku.goodId} onclick="customer.order.goDetailPro(this);">
+            <td class="td-left"> <img  src="${good.tradeGoodImgUrl}"></td>
+            <td class="td-middle"><p>${good.tradeGoodName}</p>
+                <p><em class="text-color">￥${good.tradeGoodAmount}</em> </p>
+                <p><span>${good.tradeGoodType}</span></p>
+            </td>
+            <td class="td-right"><p>x${good.number}</p></td>
+        </tr>
+{{/each}}
+</script>
+<script type="text/x-jquery-tmpl" id="bar-b-tj_t">
+     <dl>
+           <dd><em>商品总额</em> <em class="text-right"> ￥${totalAmount}</em></dd>
+           <dd ><em>运费</em><em class="text-right">￥0.00</em></dd>
+       </dl>
+        <dl>
+            <dd class="text-right" style="width: 93%"><em>共</em><em>${number}</em><em>件商品 合计:</em><em class="red">￥${paymentAmount}</em>&nbsp;&nbsp;</dd>
+        </dl>
+</script>
+<script type="text/x-jquery-tmpl" id="order-cast-info_t">
+            <span class="order-cast-info"><span>实际收款：</span><em class="red">￥<span id="all">${totalAmount}</span></em> (含运费：<em>￥0</em>)</span>
+        <a  href="#" data-rel="popup" data-position-to="window" data-role="none" class="ok-order-btn-r wait-pay-btn" onclick="customer.order.goPay(this);">${statusName}</a>
+</script>
 </html>

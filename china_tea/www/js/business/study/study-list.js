@@ -29,7 +29,7 @@ $(function () {
 var business = business || {};
 business.study = {
     pageSize: 6, //默认一次加载6条
-    pageNum: 1,//默认为1
+    pageNum: 0,//默认为1
     conditions:"%%",
     studyType:'0', // 一级分类 ，默认全部为0
     studyChildType:'0', // 二级分类 ，默认全部为0

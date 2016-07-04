@@ -23,7 +23,7 @@
 </div>
 
 </body>
-    
+
 <script src="js/common/jquery.min.js"></script>
 <script src="js/common/common.js"></script>
  <script>
@@ -33,13 +33,14 @@
         $.mobile.pushStateEnabled = false;
     });
     $(function(){
-        var url = Util.common.baseUrl +"/mobile/user/getUserMsg.do";
+        var url = Util.common.baseUrl +"/mobile/shop/getShopProtocol.do";
         var param = {"shopId":Util.common.getParameter("shopId")};
         Util.common.executeAjaxCallback(url ,param,function(data){
-            data = {"text":"<p>12312312</p>"};
-            $(".content-main").html(data.text);
+            if(data){
+                $(".content-main").html(data);
+            }
         });
     });
-</script> 
+</script>
 <script src="js/common/jquery.mobile-1.4.5.min.js" ></script>
 </html>

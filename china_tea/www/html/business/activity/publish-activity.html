@@ -17,17 +17,16 @@
     <section data-role="header" data-theme="b" class="my-header" id="my-header">
         <a href="javascript:history.back();" data-rel="back" data-role="none" class="my-header-back-btn"></a>
         <h2>发布活动</h2>
-        <a href="#" class="my-header-right-btn my-header-right-font" data-role="none" onclick="business.activity.subimtBtn()"><b>发布</b></a>
+        <a href="#" class="my-header-right-btn my-header-right-font" data-role="none" onclick="business.activity.subimtBtn()"><b id="fabu">发布</b></a>
     </section>
     <div data-role="content" role="main" class="activity-main">
         <div style="background-color: #fff;margin-top: 10px;">
             <div style="margin-left: 15px;" data-role="none">
                 <textarea type="text" name="title" data-role="none" class="ext-text-txa" placeholder="请输入活动主题：(4-25字)"></textarea>
-                <span>
-                <img src="images/test-img/goods.png">
-                <img src="images/test-img/goods.png">
+                <span id="activityImgs">
+                <!--<img src="images/test-img/goods.png">-->
                 </span>
-                <a href="#" data-role="none" data-inline="true"><img src="images/test-img/activity/hdbl_tjzp.png"></a>
+                <a onclick="business.activity.chooseImage()" href="#" data-role="none" data-inline="true"><img src="images/test-img/activity/hdbl_tjzp.png"></a>
             </div>
         </div>
         <ul>
@@ -141,4 +140,7 @@
             <label for="activityType${data.id}">${data.name}</label>
         </div>
      {{/each}}
+</script>
+<script type="text/x-jquery-tmpl" id="activity_imgs">
+    <img src="${url}" onclick="">
 </script>

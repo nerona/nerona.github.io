@@ -36,7 +36,7 @@ business.bank = {
     },
     loadBank: function () {
         var url = Util.common.baseUrl + "/mobile/user/getBankCardList.do";
-        var param = {"shopId": Util.common.getParameter("shopId"), "pageSize": "6", "pageNum": 1};
+        var param = {"shopId": Util.common.getParameter("shopId"), "pageSize": "20", "pageNum": 1};
         Util.common.executeAjaxCallback(url, param, function (data) {
             if (data.length > 0) {
                 //id

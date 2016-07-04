@@ -23,7 +23,7 @@
 <body>
 <div data-role="page">
 	<section data-role="header" data-theme="b" class="my-header" id="my-header">
-		<a href="javascript:history.back();" data-rel="back" data-role="none" class="my-header-back-btn"></a>
+		<a href="html/customer/index.html" target="_top" id="back"  data-role="none" class="my-header-back-btn"></a>
 		<h2 id="pageTitle">商品列表</h2>
 		<a href="#" class="my-header-right-btn-ad" data-role="none"><span>.</span><span>.</span><span>.</span></a>
 	</section>
@@ -36,12 +36,14 @@
 						<div class="my-ui-input my-ui-search-input">
 							<span class="img-user-name">1</span>
 							<input name="userName" id="goodSearchId" type="text" data-role="none" placeholder="请输入商品名称"
-								   value="">
+								   value="" onfocus="customer.search.searchEven()">
 							<a href="#" data-role="none" class="clear-a-text"></a>
 						</div>
 					</td>
 					<td>
-						<a href="html/customer/goods/shopping-cart.html" target="_top" class="my-goods-cart-search-a"></a>
+						<a href="html/customer/goods/shopping-cart.html" target="_top" class="my-goods-cart-search-a">
+							<span id="cart_num" style="display: inline-block;width: 1.2rem;height: 1.2rem;line-height: 1rem;float: right;margin: .3rem .1rem 0 0;color: #fff;background: red;font-size: .12rem;border-radius: 50%;text-align: center;"></span>
+						</a>
 					</td>
 				<tr>
 			</table>
@@ -49,10 +51,10 @@
 		<div data-role="navbar" id="my-navbarId">
 			<ul>
 				<li>
-					<a href="#"  data-icon="splb-fl"  onclick="customer.search.showClassify(this)" id="classifyId" classify="" >茶叶</a>
+					<a href="#"  data-icon="splb-fl"  onclick="customer.search.showClassify(this)" id="classifyId" classify="" style="text-align: center">茶叶</a>
 				</li>
-				<li><a href="#" data-icon="splb-xx" onclick="customer.search.changeToAsc(this)" value="1">销量</a></li>
-				<li><a href="#" data-icon="splb-xs" onclick="customer.search.changeToAsc(this)" value="2">价格</a></li>
+				<li><a href="#" data-icon="splb-xx" data-sort-field="saleNumSort" onclick="customer.search.changeToAsc(this)" value="1" class="saleSort">销量</a></li>
+				<li><a href="#" data-icon="splb-xs" data-sort-field="priceSort" onclick="customer.search.changeToAsc(this)" value="2" class="priceSort">价格</a></li>
 				<li>
 					<a  href="#" data-icon="splb-sx" onclick="customer.search.showSearchFilter(this)" id="searchFilterId">筛选</a>
 				</li>
@@ -63,11 +65,23 @@
 	<input type="hidden" id="selectClassifyId" value="">
 	<div id="teaNavbarPopup" class="menu-div">
 		<!--分类菜单弹出框模板代码-->
+		<div class="ui-block-a ui-grid-a">
+			<ul data-role="listview" class="ui-listview"  id="menu-a">
+			</ul>
+		</div>
+		<div class="ui-block-b">
+			<ul data-role="listview" class="ui-listview"  id="menu-b">
+				</ul>
+		</div>
+		<div class="ui-block-c">
+			<ul data-role="listview" class="ui-listview"  id="menu-c">
+				</ul>
+		</div>
 	</div>
 	<!--筛选菜单弹出框-->
 	<div id="searchFilterPopup" class="menu-div">
 		<form>
-			<fieldset data-role="controlgroup" id="filter-group">
+			<!--<fieldset data-role="controlgroup" id="filter-group">
 				<div class="ui-grid-b">
 					<div class="ui-block-a">
 						<input type="checkbox" class="ext-box-select" id="filter-tgtz" data-role="none">
@@ -92,216 +106,62 @@
 					<div class="ui-block-c">
 					</div>
 				</div>
-			</fieldset>
+			</fieldset>-->
 			<fieldset data-role="controlgroup" id="priceGroupId">
 				<span>价格区间:</span>
-				<input type="text" name="minPrice" data-role="none">
+				<input type="text" name="minPrice" data-role="none" id="minPrice">
 				<span class="cbbb">—</span>
-				<input type="text" name="maxPrice" data-role="none">
+				<input type="text" name="maxPrice" data-role="none" id="maxPrice">
 			</fieldset>
 			<div class="filter-title-c">用途:</div>
 			<fieldset data-role="controlgroup">
-				<div class="ui-grid-c">
-					<div class="ui-block-a">
+				<div class="ui-grid-c" id="purpose-select">
+					<!--<div class="ui-block-a">
 						<input name="purpose" id="purpose1" type="radio" value="1" class="ext-box-btn" data-role="none"/>
 						<label for="purpose1">不限</label>
-					</div>
-					<div class="ui-block-b">
-						<input name="purpose" id="purpose2" type="radio" value="2" class="ext-box-btn" data-role="none"/>
-						<label for="purpose2">私房收藏</label>
-					</div>
-					<div class="ui-block-c">
-						<input name="purpose" id="purpose3" type="radio" value="3" class="ext-box-btn" data-role="none"/>
-						<label for="purpose3">专业茶客</label>
-					</div>
-					<div class="ui-block-d">
-						<input name="purpose" id="purpose4" type="radio" value="4" class="ext-box-btn" data-role="none"/>
-						<label for="purpose4">商务用户</label>
-					</div>
-					<div class="ui-block-a">
-						<input name="purpose" id="purpose5" type="radio" value="5" class="ext-box-btn" data-role="none"/>
-						<label for="purpose5">家庭用茶</label>
-					</div>
-					<div class="ui-block-b">
-						<input name="purpose" id="purpose6" type="radio" value="6" class="ext-box-btn" data-role="none"/>
-						<label for="purpose6">会议定制</label>
-					</div>
-					<div class="ui-block-c">
-						<input name="purpose" id="purpose7" type="radio" value="7" class="ext-box-btn" data-role="none"/>
-						<label for="purpose7">贵宾送礼</label>
-					</div>
-					<div class="ui-block-d">
-						<input name="purpose" id="purpose8" type="radio" value="8" class="ext-box-btn" data-role="none"/>
-						<label for="purpose8">客户送礼</label>
-					</div>
+					</div>-->
 				</div>
 			</fieldset>
 			<div class="filter-title-c">品牌:</div>
 			<fieldset data-role="controlgroup">
-				<div class="ui-grid-c">
-					<div class="ui-block-a">
+				<div class="ui-grid-c" id="brand-select">
+					<!--<div class="ui-block-a">
 						<input name="brand" id="brand1" type="radio" value="1" class="ext-box-btn" data-role="none"/>
 						<label for="brand1">全部品牌</label>
-					</div>
-					<div class="ui-block-b">
-						<input name="brand" id="brand2" type="radio" value="2" class="ext-box-btn" data-role="none"/>
-						<label for="brand2">三国饮艺</label>
-					</div>
-					<div class="ui-block-c">
-						<input name="brand" id="brand3" type="radio" value="3" class="ext-box-btn" data-role="none"/>
-						<label for="brand3">尚品茶客</label>
-					</div>
-					<div class="ui-block-d">
-						<input name="brand" id="brand4" type="radio" value="4" class="ext-box-btn" data-role="none"/>
-						<label for="brand4">福村梅记</label>
-					</div>
-					<div class="ui-block-a">
-						<input name="brand" id="brand5" type="radio" value="5" class="ext-box-btn" data-role="none"/>
-						<label for="brand5">壹日壹茶</label>
-					</div>
-					<div class="ui-block-b">
-						<input name="brand" id="brand6" type="radio" value="6" class="ext-box-btn" data-role="none"/>
-						<label for="brand6">越娘</label>
-					</div>
+					</div>-->
 				</div>
 			</fieldset>
 			<div id="bottom-btn">
-				<input type="reset" data-role="none" value="重置" class="del-order-btn">
-				<input type="button" data-role="none" value="确定"class="ok-order-btn" onclick="customer.search.sureBtnfileter()">
+				<input type="reset" data-role="none" value="重置" class="del-order-btn" onclick="customer.search.btnReset();">
+				<input type="button" data-role="none" value="确定"class="ok-order-btn" onclick="customer.search.sureBtnFilter();">
 			</div>
 
 		</form>
 	</div>
 	<!--列表部分-->
-	<div data-role="main" class="ui-content">
-		<div id="good-grid-id" style="top: 88px;">
-			<div id="scroller">
+	<div data-role="main" class="ui-content" style="overflow-x: visible;!important;">
+		<div id="good-grid-id" style="top: 114px;">
+			<div id="scroller" style="position: relative;top: -20px;">
 				<div id="pullDown">
 					<span class="pullDownIcon"></span><span class="pullDownLabel">下拉刷新...</span>
 				</div>
 
 				<ul id="thelist">
-					<!--<li>
-						<a href="html/customer/details/details.html" target="_top">
-							<div class="good-grid-info">
-								<div class="good-grid-a"><img src="images/test-img/goods.png"></div>
-								<div><span>云南七子饼普洱茶</span></div>
-								<div class="good-grid-b">
-									<span><em><s>￥1888</s></em></span>
-									<span><img src="images/hdpi/grzx_wddd.png"></span>
-								</div>
-								<div class="good-grid-c" style="font-size: 1.2rem;" >
-									<span><em style="color:#ff6e82;">￥889.00</em></span>
-									<span  class="good-grid-c-sell">月销2680</span>
-								</div>
-							</div>
-						</a>
-					</li>
-					<li></li>
-					<li>
-						<a href="html/customer/details/details.html" target="_top">
-							<div class="good-grid-info">
-								<div class="good-grid-a"><img src="images/test-img/goods.png"></div>
-								<div><span>云南七子饼普洱茶</span></div>
-								<div class="good-grid-b">
-									<span><em><s>￥1888</s></em></span>
-									<span><img src="images/hdpi/grzx_wddd.png"></span>
-								</div>
-								<div class="good-grid-c" style="font-size: 1.2rem;" >
-									<span><em style="color:#ff6e82;">￥889.00</em></span>
-									<span  class="good-grid-c-sell">月销2680</span>
-								</div>
-							</div>
-						</a>
-					</li>
-					<li></li>
-					<li>
-						<a href="html/customer/details/details.html" target="_top">
-							<div class="good-grid-info">
-								<div class="good-grid-a"><img src="images/test-img/goods.png"></div>
-								<div><span>云南七子饼普洱茶</span></div>
-								<div class="good-grid-b">
-									<span><em><s>￥1888</s></em></span>
-									<span><img src="images/hdpi/grzx_wddd.png"></span>
-								</div>
-								<div class="good-grid-c" style="font-size: 1.2rem;" >
-									<span><em style="color:#ff6e82;">￥889.00</em></span>
-									<span  class="good-grid-c-sell">月销2680</span>
-								</div>
-							</div>
-						</a>
-					</li>
-					<li></li>
-					<li>
-						<a href="html/customer/details/details.html" target="_top">
-							<div class="good-grid-info">
-								<div class="good-grid-a"><img src="images/test-img/goods.png"></div>
-								<div><span>云南七子饼普洱茶</span></div>
-								<div class="good-grid-b">
-									<span><em><s>￥1888</s></em></span>
-									<span><img src="images/hdpi/grzx_wddd.png"></span>
-								</div>
-								<div class="good-grid-c" style="font-size: 1.2rem;" >
-									<span><em style="color:#ff6e82;">￥889.00</em></span>
-									<span  class="good-grid-c-sell">月销2680</span>
-								</div>
-							</div>
-						</a>
-					</li>
-					<li></li>
-					<li>
-						<a href="html/customer/details/details.html" target="_top">
-							<div class="good-grid-info">
-								<div class="good-grid-a"><img src="images/test-img/goods.png"></div>
-								<div><span>云南七子饼普洱茶</span></div>
-								<div class="good-grid-b">
-									<span><em><s>￥1888</s></em></span>
-									<span><img src="images/hdpi/grzx_wddd.png"></span>
-								</div>
-								<div class="good-grid-c" style="font-size: 1.2rem;" >
-									<span><em style="color:#ff6e82;">￥889.00</em></span>
-									<span  class="good-grid-c-sell">月销2680</span>
-								</div>
-							</div>
-						</a>
-					</li>
-					<li></li>
-					<li>
-						<a href="html/customer/details/details.html" target="_top">
-							<div class="good-grid-info">
-								<div class="good-grid-a"><img src="images/test-img/goods.png"></div>
-								<div><span>云南七子饼普洱茶</span></div>
-								<div class="good-grid-b">
-									<span><em><s>￥1888</s></em></span>
-									<span><img src="images/hdpi/grzx_wddd.png"></span>
-								</div>
-								<div class="good-grid-c" style="font-size: 1.2rem;" >
-									<span><em style="color:#ff6e82;">￥889.00</em></span>
-									<span  class="good-grid-c-sell">月销2680</span>
-								</div>
-							</div>
-						</a>
-					</li>
-					<li></li>-->
 				</ul>
-				<div style="color: #ffffff">&nbsp;</div>
-				<div id="pullUp" style="float: left;clear:both;">
-					<span class="pullUpIcon"></span><span class="pullUpLabel">上拉加载更多...</span>
+				<div id="pullUp" style="clear:both;">
+					<span class="pullUpIcon"></span><span class="pullUpLabel"></span>
 				</div>
-
+				<div class="empty-list" style="display: none;margin:0 auto;text-align: center;clear:both;">
+					<span style="text-decoration:line-through;float: left;;color: #B1ACAC;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+					<span style="font-size: 1.2rem;color: #B1ACAC;">没有更多了</span>
+					<span style="text-decoration:line-through;float: right;;color: #B1ACAC;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				</div>
 			</div>
 		</div>
-		<!--
-		<div style="margin:0 auto;text-align: center;clear:both;">
-			<span style="text-decoration:line-through;float: left;;color: #B1ACAC;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-			<span style="font-size: 1.2rem;color: #B1ACAC;">没有更多了</span>
-			<span style="text-decoration:line-through;float: right;;color: #B1ACAC;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-		</div>
-		-->
+
 	</div>
 </div>
 
-</div>
 
 </body>
 </html>
@@ -314,35 +174,15 @@
 <!--以下是模板文件,模板文件命名以加T结尾,如xxxx_t.xxxx最好以绑定元素ID相同-->
 <!--第一级商品分类-->
 <script type="text/x-jquery-tmpl" id="search_classify_a_t">
-	<div class="ui-grid-a">
-		<div class="ui-block-a ui-grid-a" id="menu-a">
-			<ul data-role="listview" class="ui-listview">
-				{{each(i,classify) datas}}
-					<li class="ui-li-static ui-body-inherit" onclick="customer.search.nextClassify(this,'${classify.id}','${classify.name}')">${classify.name}</li>
-				{{/each}}
-			</ul>
-		</div>
-		<div class="ui-block-b" id="menu-b">
-		</div>
-		<div class="ui-block-c" id="menu-c">
-		</div>
-	</div>
+<li class="ui-li-static ui-body-inherit" title=${name} classify=${id} onclick="customer.search.nextClassify(this);">${name}</li>
 </script>
 <!--第二级商品分类-->
 <script type="text/x-jquery-tmpl" id="search_classify_b_t">
-			<ul data-role="listview" class="ui-listview">
-				{{each(i,classify) datas}}
-					<li class="ui-li-static ui-body-inherit" onclick="customer.search.lastClassify(this,'${classify.id}','${classify.name}')">${classify.name}</li>
-				{{/each}}
-			</ul>
+<li class="ui-li-static ui-body-inherit" title=${name} classify=${id} onclick="customer.search.lastClassify(this)">${name}</li>
 </script>
 <!--第三级商品分类-->
 <script type="text/x-jquery-tmpl" id="search_classify_c_t">
-			<ul data-role="listview" class="ui-listview">
-				{{each(i,classify) datas}}
-					<li class="ui-li-static ui-body-inherit" onclick="customer.search.getClassify(this,'${classify.id}','${classify.name}')">${classify.name}</li>
-				{{/each}}
-			</ul>
+<li class="ui-li-static ui-body-inherit" title=${name} classify=${id} onclick="customer.search.getClassify(this)">${name}</li>
 </script>
 <!--商品列表-->
 <script type="text/x-jquery-tmpl" id="search_goodlist_t">
@@ -362,4 +202,30 @@
 			</div>
 		</a>
 	</li>
+</script>
+
+<script type="text/x-jquery-tmpl" id="purpose-select_t">
+<div class="ui-block-d">
+						<input name="purpose" id="purpose8" type="radio" value="" class="ext-box-btn" data-role="none"/>
+						<label for="purpose8">不限</label>
+		</div>
+{{each(i,purpose) datas}}
+		<div class="ui-block-d">
+						<input name="purpose" id="purpose${i}" type="radio" value="${purpose.id}" class="ext-box-btn" data-role="none"/>
+						<label for="purpose${i}">${purpose.labelName}</label>
+		</div>
+{{/each}}
+</script>
+
+<script type="text/x-jquery-tmpl" id="brand-select_t">
+<div class="ui-block-d">
+						<input name="brand" id="brand8" type="radio" value="" class="ext-box-btn" data-role="none"/>
+						<label for="brand8">全部品牌</label>
+					</div>
+{{each(i,brand) datas}}
+<div class="ui-block-d">
+						<input name="brand" id="brand${i}" type="radio" value="${brand.id}" class="ext-box-btn" data-role="none"/>
+						<label for="brand${i}">${brand.name}</label>
+					</div>
+{{/each}}
 </script>

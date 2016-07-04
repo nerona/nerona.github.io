@@ -15,7 +15,7 @@
 <div data-role="page" id="pageone">
     <!--标题-->
     <section data-role="header" data-theme="b" class="my-header" id="my-header">
-        <h2>茶商通</h2>
+        <h2></h2>
     </section>
     <!--中间内容-->
     <div data-role="main" class="ui-content my-ui-content">
@@ -36,7 +36,9 @@
                     </td>
                     <td>
                         <a href="html/customer/goods/shopping-cart.html" target="_top"
-                           class="my-goods-cart-search-a"></a>
+                           class="my-goods-cart-search-a">
+                            <span id="cart_num" style="display: inline-block;width: 1.2rem;height: 1.2rem;line-height: 1rem;float: right;margin: .3rem .1rem 0 0;color: #fff;background: red;font-size: 0.12rem;border-radius: 50%;text-align: center;"></span>
+                        </a>
                     </td>
                 <tr>
             </table>
@@ -66,45 +68,18 @@
             <!--推荐、新品、精品-->
             <table>
                 <tr>
-                    <td colspan="2">
-                        <div class="intro-img"
-                             style="background-image: url('images/test-img/index/index_today_intro.png');">
-                        <span style="position: absolute;border-style:solid;border-width: 2px;border-color:#000;width: 200px;margin-top: 220px;marginft: 280px;text-align: center;line-height: 50px;">
-                        <a href="html/customer/search/search-result.html?title=今日推荐" target="_top">查看详情</a>
-                        </span>
-                        </div>
-                    </td>
                 </tr>
                 <tr>
-                    <td>
-                        <a href="html/customer/search/search-result.html?title=精品商品" target="_top"><img
-                                src="images/test-img/index/index_today_good.png"></a>
-                    </td>
-                    <td>
-                        <a href="html/customer/search/search-result.html?title=新品上线" target="_top"><img
-                                src="images/test-img/index/index_today_new.png"></a>
-                    </td>
+
                 </tr>
                 <tr>
-                    <td colspan="2">
-                        <a href="#" target="_top"><img src="images/test-img/index/index_today_labor.png"></a>
-                    </td>
+
                 </tr>
                 <tr>
-                    <td colspan="2">
-                        <a href="html/customer/search/search-result.html?title=特价专区" target="_top"><img
-                                src="images/test-img/index/index_area_01.png"></a>
-                    </td>
+
                 </tr>
                 <tr>
-                    <td>
-                        <a href="html/customer/search/search-result.html?title=团购专区" target="_top"><img
-                                src="./images/test-img/index/index_area_02.png"></a>
-                    </td>
-                    <td>
-                        <a href="html/customer/search/search-result.html?title=众筹专区" target="_top"><img
-                                src="./images/test-img/index/index_area_03.png"></a>
-                    </td>
+
                 </tr>
             </table>
             <!--专区-->
@@ -114,19 +89,9 @@
         <!--茶叶用途 开始-->
         <div>
             <div class="yt" style="vertical-align: middle;">
-                <a href="#"><img src="images/hdpi/sy_spyt.png"><span>商品用途|Application</span></a>
+                <a href="#"><img src="images/hdpi/sy_spyt.png"><span>商品用途 | Application</span></a>
             </div>
             <div id="slider-application" class="swiper-container">
-                <!--<ul class="slides">
-                   <li><img src="images/test-img/index/index_appli_01.png"></li>
-                   <li><img src="images/test-img/index/index_appli_02.png"></li>
-                   <li><img src="images/test-img/index/index_appli_03.png"></li>
-                   <li><img src="images/test-img/index/index_appli_04.png"></li>
-                   <li><img src="images/test-img/index/index_appli_05.png"></li>
-                   <li><img src="images/test-img/index/index_appli_06.png"></li>
-                   <li><img src="images/test-img/index/index_appli_07.png"></li>
-                   <li><img src="images/test-img/index/index_appli_08.png"></li>
-                </ul>-->
             </div>
         </div>
         <!--茶叶用途 结束-->
@@ -134,7 +99,7 @@
         <!--品牌推荐 开始-->
         <div>
             <div class="yt" style="vertical-align: middle;">
-                <a href="#"><img src="images/hdpi/sy_hot.png"><span>热门品牌|Top brand</span></a>
+                <a href="#"><img src="images/hdpi/sy_hot.png"><span>热门品牌 | Top brand</span></a>
             </div>
             <div id="slider-brand" class="swiper-container">
                <!-- <ul class="swiper-wrapper">
@@ -150,7 +115,17 @@
         </div>
         <!--品牌推荐 结束-->
     </div>
-
+    <div class="copyright">@2016 山国饮艺版权所有 仿冒必究</div>
+    <div data-role="popup" id="adDetailText" style="display: none;min-width:20rem;min-height:10rem"  data-dismissible="false" class="my-order-popup" >
+        <a href="#" data-rel="back" class="ui-btn-right dialog_close"><img src="images/hdpi/ts_gb.png"/></a>
+        <p class="text-center img-p-notice">
+        </p>
+        <p class="text-center" style="font-size: 1.8rem;line-height: 1.8rem;margin: 0;padding: 0;" id="adtitle">提示</p>
+        <p class="text-center" id="adcontents">十分抱歉,您心仪的这款产品已经抢光啦！您可至附近实体门店询问选购哦</p>
+        <p class="text-center" style="margin-top: 2rem;">
+            <a data-role="none" data-rel="back" class="ok-order-btn">确定</a>
+        </p>
+    </div>
 </div>
 </body>
 </html>
@@ -165,15 +140,15 @@
 <script src="js/common/jquery.mobile-1.4.5.min.js"></script>
 <script src="js/common/jquery.tmpl.min.js"></script>
 <script src="//cdn.bootcss.com/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
-<script src="js/customer/index.js"></script>
 <script src="js/common/common.js"></script>
+<script src="js/customer/index.js"></script>
 <!--以下是模板文件,模板文件命名以加T结尾,如xxxx_t.xxxx最好以绑定元素ID相同-->
 <!--初始化加载广告幻灯片-->
 <script type="text/x-jquery-tmpl" id="index_advertise_t">
     <ul class="swiper-wrapper">
     {{each(i,advertise) datas}}
        <li class="swiper-slide">
-        <a href="{{if advertise.lineStatus==1}}html/customer/details/details.html?goodId=${advertise.lineUrl}{{/if}}" target="_top" class="ui-link"><img src="${advertise.picUrl}"></a>
+        <a href="{{if advertise.lineStatus==1}}html/customer/details/details.html?id=${advertise.lineUrl}{{/if}}" target="_top" class="ui-link advertise" type="${advertise.lineStatus}" typeId="${advertise.id}"><img src="${advertise.picUrl}"></a>
        </li>
      {{/each}}
     </ul>
@@ -181,8 +156,7 @@
 </script>
 <!--商品分类-->
 <script type="text/x-jquery-tmpl" id="index_classify_t">
-    <li><a href="html/customer/search/search-result.html?title=${name}&classify=${id}&type=classify" class="ui-link" target="_top"><img src="${imgUrl}"></a><span>${name}</span></li>
-
+    <li class="swiper-slide"><a href="html/customer/search/search-result.html?title=${name}&classify=${id}&type=classify" class="ui-link" target="_top"><img src="${imgUrl}"></a><span>${name}</span></li>
 </script>
 <!--栏目：推荐、新品、精品.专区-->
 <script type="text/x-jquery-tmpl" id="index_column_t">
@@ -215,15 +189,15 @@
             </tr>
             <tr>
                 <td colspan="2">
-                    <a href="html/customer/search/search-noresult.html?columnId=${$data.rule[0].id}&type=column&title=特价专区" target="_top" ><img src="${$data.rule[0].showpicture}"></a>
+                    <a href="html/customer/search/search-special.html?columnId=${$data.rule[0].id}&type=column&title=特价专区" target="_top" ><img src="${$data.rule[0].showpicture}"></a>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <a href="html/customer/search/search-noresult.html?&columnId=${$data.rule[1].id}&type=column&title=众筹专区" target="_top" ><img src="${$data.rule[1].showpicture}"></a>
+                    <a href="html/customer/search/search-special.html?columnId=${$data.rule[1].id}&type=column&title=众筹专区" target="_top" ><img src="${$data.rule[1].showpicture}"></a>
                 </td>
                 <td>
-                    <a href="html/customer/search/search-noresult.html?&columnId=${$data.rule[2].id}&type=column&title=团购专区" target="_top" ><img src="${$data.rule[2].showpicture}"></a>
+                    <a href="html/customer/search/search-special.html?columnId=${$data.rule[2].id}&type=column&title=团购专区" target="_top" ><img src="${$data.rule[2].showpicture}"></a>
                 </td>
             </tr>
         </table>
@@ -234,8 +208,7 @@
    <ul class="swiper-wrapper">
       {{each(i,application) datas}}
       <li class="swiper-slide">
-      <a href="html/customer/search/search-noresult.html?title=${application.labelName}&id=${application.id}&type=application"  target="_top"><img src="images/hdpi/tp_jtyc.png"></a>
-      <span>${application.labelName}</span>
+      <a href="html/customer/search/search-noresult.html?title=${application.labelName}&labelId=${application.id}&type=application"  target="_top"><img alt="" src="{{if i==0}}images/hdpi/tp_jtyc.png{{/if}}{{if i==1}}images/hdpi/tp_zyyc.png{{/if}}{{if i==2}}images/hdpi/tu_sfsc.png{{/if}}{{if i==3}}images/hdpi/tp_jtyc.png{{/if}}{{if i==4}}images/hdpi/tp_zyyc.png{{/if}}{{if i==5}}images/hdpi/tu_sfsc.png{{/if}}{{if i==6}}images/hdpi/tp_jtyc.png{{/if}}{{if i==7}}images/hdpi/tp_zyyc.png{{/if}}{{if i==8}}images/hdpi/tu_sfsc.png{{/if}}{{if i==9}}images/hdpi/tp_jtyc.png{{/if}}{{if i==10}}images/hdpi/tp_zyyc.png{{/if}}"><span>${application.labelName}</span></a>
       </li>
       {{/each}}
     </ul>
@@ -246,9 +219,9 @@
 <ul class="swiper-wrapper">
     {{each(i,brand) datas}}
        <li class="swiper-slide">
-        <a href="html/customer/search/search-noresult.html?title=${brand.name}&id=${brand.id}&id=${brand.id}&brandRecommendation=${brand.brandRecommendation}&type=brand"  target="_top">
+        <a href="html/customer/search/search-noresult.html?title=${brand.name}&brandId=${brand.id}&brandRecommendation=${brand.brandRecommendation}&type=brand"  target="_top">
         <img src="${brand.logo}">
-        <h3 style="text-align: center;font-size: 1.6rem;">${brand.name}</h3>
+        <!-- <h3 style="text-align: center;font-size: 1.6rem;">${brand.name}</h3>-->
         </a>
        </li>
      {{/each}}

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <meta charset="utf-8" />
- <meta charset="utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5,maximum-scale=1.0, user-scalable=0">
 <base href="../../../"/>
-  <link rel="stylesheet" href="css/common/jquery.mobile-1.4.5.min.css"/>
-  <link rel="stylesheet" href="css/style-final.css" />
-  <link rel="stylesheet" href="css/customer/order/order-pay.css" />
+<link rel="stylesheet" href="css/common/jquery.mobile-1.4.5.min.css"/>
+<link rel="stylesheet" href="css/style-final.css" />
+<link rel="stylesheet" href="css/customer/order/order-pay.css" />
 </head>
 <body>
 <div data-role="page" class="jqm-main" data-quicklinks="true">
@@ -15,54 +15,55 @@
         <h2>订单支付</h2>
         <a href="#" class="my-header-right-btn-ad" data-role="none"><span>.</span><span>.</span><span>.</span></a>
     </section>
-<section data-role="content" class="order-pay-main" id="order-pay-main">
+    <section data-role="content" class="order-pay-main" id="order-pay-main" style="overflow-x: visible;">
 
-    <ul>
-        <li>
+        <ul>
+            <li>
                 <dd style="width:50%">总支付额度</dd>
                 <dd class="text-right" style="width:50%">
-                     ￥588
+                    ￥<span id="pay-all"></span>
                 </dd>
-        </li>
+            </li>
 
-        <li>
-           <dt> <img src="images/hdpi/pay_weixin.png"/></dt>
-            <dd class="pay-type-dd">
-                <input type="checkbox" data-role="none" id="my-weixin-radio" class="ext-box-select"/><label for="my-weixin-radio"></label>
-            </dd>
-            <dd class="pay-type-text">
-        <p>微信支付</p>
-            <p><span class="cbbb">推荐已安装微信客户端使用</span></p>
-            </dd>
-        </li>
-        <li>
-            <dt><img src="images/hdpi/pay_zhifubao.png"/></dt>
-            <dd class="pay-type-dd">
-                <input type="checkbox" data-role="none" id="my-alipay-radio" class="ext-box-select"/><label for="my-alipay-radio"></label>
-            </dd>
-            <dd class="pay-type-text">
-           <p> 支付宝</p>
-            <p><span class="cbbb">推荐已安装支付宝客户端使用</span></p>
-            </dd>
-        </li>
-    </ul>
-    <section  data-role="footer" data-tap-toggle="false"  data-disable-page-zoom="false" data-position="fixed" style="background-color: #ffffff;padding: 10px">
+            <li>
+                <dt> <img src="images/hdpi/pay_weixin.png"/></dt>
+                <dd class="pay-type-dd">
+                    <input type="checkbox" data-role="none" id="my-weixin-radio" class="ext-box-select" checked/><label for="my-weixin-radio"></label>
+                </dd>
+                <dd class="pay-type-text">
+                    <p>微信支付</p>
+                    <p><span class="cbbb">推荐已安装微信客户端使用</span></p>
+                </dd>
+            </li>
+            <!-- <li>
+                 <dt><img src="images/hdpi/pay_zhifubao.png"/></dt>
+                 <dd class="pay-type-dd">
+                     <input type="checkbox" data-role="none" id="my-alipay-radio" class="ext-box-select"/><label for="my-alipay-radio"></label>
+                 </dd>
+                 <dd class="pay-type-text">
+                <p> 支付宝</p>
+                 <p><span class="cbbb">推荐已安装支付宝客户端使用</span></p>
+                 </dd>
+             </li>-->
+        </ul>
+        <section  data-role="footer" data-tap-toggle="false"  data-disable-page-zoom="false" data-position="fixed" style="background-color: #ffffff;padding: 10px;position: absolute;">
 
-        <a  href="#my-dialog-popup" data-rel="popup" data-position-to="window" data-role="none" class="ok-order-btn-r">确认支付</a>
+            <!--<a  href="#my-dialog-popup" data-rel="popup" data-position-to="window" data-role="none" class="ok-order-btn-r">确认支付</a>-->
+            <a  href="javascript:verificationUrl()" data-rel="popup" data-position-to="window" data-role="none" class="ok-order-btn-r">确认支付</a>
 
+        </section>
     </section>
-</section>
     <div data-role="popup" id="my-dialog-popup" class="ui-content" data-dismissible="false">
         <p class="text-center img-p-notice">
         </p>
         <p class="text-center">支付成功</p>
-        <p class="text-center c999">商品名称：葱葱葱</p>
-        <p class="text-center c999">订单号：1234566666666666644</p>
-        <p class="text-center c999">￥<span>588</span> | <span>2</span>件</p>
+        <p class="text-center c999" id="goodName">商品名称：葱葱葱</p>
+        <p class="text-center c999" id="goodId">订单号：1234566666666666644</p>
+        <p class="text-center c999" >￥<span id="all">588</span> | <span id="goodCount">2</span>件</p>
         <br/>
         <br/>
         <p class="text-center">
-            <a href="#" target="_top" style="text-decoration: none;color: #000" onclick="customer.order.goHome()">返回首页</a> |  <a  href="#" target="_top" style="text-decoration: none;color: #ff6e82" onclick="customer.order.goDetail()">查看商品</a>
+            <a href="#" target="_top" style="text-decoration: none;color: #000" onclick="customer.order.goHome()">返回首页</a> |  <a  href="#" target="_top" style="text-decoration: none;color: #ff6e82" onclick="customer.order.goOrder()">查看订单</a>
         </p>
     </div>
 
@@ -70,15 +71,98 @@
 </div>
 
 </body>
-    
-     <script src="js/common/jquery.min.js"></script>
- <script>
+
+<script src="js/common/jquery.min.js"></script>
+<script src="js/common/common.js"></script>
+<script>
+    Util.common.setWxTitle('订单支付');
     $(document).bind('mobileinit',function(){
         $.mobile.changePage.defaults.changeHash = false;
         $.mobile.hashListeningEnabled = false;
         $.mobile.pushStateEnabled = false;
     });
-</script> 
+    function verificationUrl(){
+//        var url = Util.common.baseUrl + "/weixin/weixinPay/wxPay.do";
+        var url = Util.common.baseUrl + "/weixin/weixinConfig/verification.do";
+        var currentUrl = "www/html/customer/order/order-pay.html?"+Util.common.getParameter("orderId");
+        var param = {"url":currentUrl};
+        Util.common.executeAjaxCallback(url ,param,function(data){
+//            console.info(data);
+//            console.info(data.msg.appId);
+            if(data.success){
+                wxPrePay();
+            }
+        })
+    }
+    function wxPrePay(){
+        var url = Util.common.baseUrl + "/weixin/weixinPay/wxPay.do";
+        var param = {"orderId":Util.common.getParameter("orderId")};
+        Util.common.executeAjaxCallback(url ,param,function(data){
+            onBridgeReady(data);
+        })
+    }
+
+    function getOrderCode(){
+        var url = Util.common.baseUrl+ "/weixin/indent/getOrderDetail.do";
+        var param = {"id": Util.common.getParameter('orderId')};
+        Util.common.executeAjaxCallback(url, param, function (data) {
+            $('#goodId').html(data.name);
+            $('#goodName').html(data.indentList[0].tradeGoodName);
+            $('#all').html(data.paymentAmount);
+            $('#goodCount').html(data.number);
+            console.log(data);
+        });
+    }
+
+    function onBridgeReady(data){
+        WeixinJSBridge.invoke(
+                'getBrandWCPayRequest', {
+                    "appId" :data.msg.appId,     //公众号名称，由商户传入
+                    "timeStamp":data.msg.timeStamp,         //时间戳，自1970年以来的秒数
+                    "nonceStr" :data.msg.nonceStr, //随机串
+                    "package" :data.msg.package,
+                    "signType" :data.msg.signType,         //微信签名方式：
+                    "paySign" :data.msg.sign //微信签名
+                },
+                function(res){
+                    // 使用以上方式判断前端返回,微信团队郑重提示：res.err_msg将在用户支付成功后返回    ok，但并不保证它绝对可靠。
+                    if(res.err_msg == "get_brand_wcpay_request:ok" ) {
+                        $('#my-dialog-popup').popup( "open" );
+
+                        var orderId = Util.common.getParameter('orderId');
+                        var shopCartInfo = Util.common.getParameter("shopCartInfo");
+                        var shopCartInfoJson = JSON.parse(shopCartInfo);
+
+                        var goodTitles = shopCartInfoJson.shopCarts.map(function(sc){
+                            return sc.goodTitle;
+                        }).join("|");
+
+
+                        getOrderCode();
+
+                    }
+                    else if(res.err_msg =="get_brand_wcpay_request:cancel"){
+                        Util.msg.show("msgId","取消支付");
+                    }
+                    else if(res.err_msg =="get_brand_wcpay_request:fail"){
+                        Util.msg.show("msgId","支付失败");
+                    }
+                }
+        );
+    }
+    if (typeof WeixinJSBridge == "undefined"){
+        if( document.addEventListener ){
+            document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+        }else if (document.attachEvent){
+            document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+            document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+        }
+    }else{
+        onBridgeReady();
+    }
+
+
+</script>
 <script src="js/common/jquery.mobile-1.4.5.min.js" ></script>
 <script src="js/customer/order/order-pay.js" ></script>
 <script src="js/common/common.js"></script>

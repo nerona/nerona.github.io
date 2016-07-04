@@ -81,11 +81,11 @@ function pullDownAction () {
 function pullUpAction () {
     var url = Util.common.baseUrl ;
     var url = Util.common.baseUrl + "/mobile/good/getSearchGoodList.do";
-    var param = {"shopId":Util.common.getParameter("shopId"),"pageSize":business.MangerShop.pageSize ,"pageNum":business.MangerShop.pageNum + business.MangerShop.pageSize};
+    var param = {"shopId":Util.common.getParameter("shopId"),"pageSize":business.MangerShop.pageSize ,"pageNum":business.MangerShop.pageNum + 1};
     Util.common.executeAjaxCallback(url, param, function(data){
         if( data.length>0 ) {
             $("#thelist").append($("#list_t").tmpl(data));
-            business.MangerShop.pageNum +=  business.MangerShop.pageSize;
+            business.MangerShop.pageNum +=  1;
         }else{
 
         }

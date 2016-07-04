@@ -55,21 +55,31 @@
     text-shadow: none!important;
 }
 
+#my-dialog-popup .img-p-notice+p+p+p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin: .8em 0;
+}
 #my-dialog-popup .img-p-notice+p+p {
     margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-top: 6%;
 }
 #my-dialog-popup .img-p-notice+p{
     /*font-size: 2.0rem;*/
    font-size: 1.8rem;
-    top:-10px;
+    top:0px;
 }
 .text-center a{
 	font-size: 1.6rem;
 	text-shadow:none!important;
 }
 .text-center a:nth-child(1){
-	margin-right: 2rem;
+	margin-right: 1rem;
 }
 .text-center a:nth-child(2){
-	margin-left: 2rem;
+	margin-left: 1rem;
 }

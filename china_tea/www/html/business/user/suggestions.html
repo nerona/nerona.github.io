@@ -70,12 +70,22 @@
     //提交
     function submitBtn(){
         var url = Util.common.baseUrl +"/module/opinion/mobile/add.do";
+        var user = JSON.parse(localStorage.getItem('userInfo')).msg;
         var desc = $("textarea[name=addinfo]").val();
-        var param = {"modelJson":JSON.stringify({"clientId":"1","versionCode":Util.common.versionCode,"type":"2","description":desc})};
+        var clientPhone = $("#mobile").val();
+        var platform = 2;
+        if(Util.validate.isAndroid()){
+            platform = 0;
+        }
+        if(Util.validate.isIos()){
+            platform = 1;
+        }
+        var param = {"modelJson":JSON.stringify({"clientName":user.name,"versionCode":Util.common.versionCode,
+            "type":"2","description":desc,"clientPhone":clientPhone,"platform":platform})};
         Util.common.executeAjaxCallback(url ,param,function(data){
             //执行提交后台后代码
             //1-成功，0-失败
-            Util.msg.show("msgId", data.msg);
+            //Util.msg.show("msgId", data.msg);
             if(data.code==1){
                 history.back();
             }

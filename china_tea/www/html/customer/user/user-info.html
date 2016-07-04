@@ -6,24 +6,23 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0,maximum-scale=1.0 , user-scalable=0">
     <link rel="stylesheet" href="css/common/jquery.mobile-1.4.5.min.css"/>
-    <link rel="stylesheet" href="css/common/jquery.mobile.theme-1.4.5.min.css"/>
     <link rel="stylesheet" href="css/style-final.css"/>
     <link rel="stylesheet" href="css/customer/user/userinfo.css"/>
 </head>
 <body class="user-info-main">
-<div data-role="page" data-quicklinks="true">
+<div data-role="page" data-quicklinks="true" style="background: #fff;">
   <section data-role="header" data-theme="b" class="my-header" id="my-header">
-        <a href="javascript:history.back();"  data-role="none" class="my-header-back-btn"></a>
+        <a href="html/customer/index.html" target="_top" id="back"  data-role="none" class="my-header-back-btn"></a>
         <h2>个人中心</h2>
         <a href="#" class="my-header-right-btn-ad" data-role="none"><span>.</span><span>.</span><span>.</span></a>
     </section>
-    <div class="my-ui-search" >
+   <!-- <div class="my-ui-search" >
         <table width="100%">
             <tr>
                 <td>
                     <div class="my-ui-input my-ui-search-input">
                         <span class="img-user-name">1</span>
-                        <input name="userName" id="userName" type="text"  data-role="none" placeholder="请输入商品名称" value="">
+                        <input name="userName" id="userName" type="text"  data-role="none" placeholder="请输入商品名称" value="" onfocus="customer.user.searchEven()">
                         <a href="#" data-role="none" class="clear-a-text"></a>
                     </div>
                 </td>
@@ -35,20 +34,20 @@
                 </td>
             <tr>
         </table>
-    </div>
+    </div>-->
     <div class="user-info-main">
         <div class="header-img">
-            <span><img src="images/test-img/rearch-sp.png"/></span><a href="html/customer/user/my-info.html" class="my-header-info-a-click" target="_top"></a>
+            <span><img id="head-image" src=""/></span><a href="html/customer/user/my-info.html" class="my-header-info-a-click" target="_top"></a>
         </div>
         <p>
-        <h1>茶扉花开</h1></p>
+        <h1 id="type_0"></h1></p>
         <div class="info-content">
             <ul>
                 <li class="my-order"><a href="html/customer/order/index.html"  class="btn-right-a" target="_top" data-dismissible="false"
                        ><span></span>我的订单</a></li>
                 <li class="my-collection"><a href="html/customer/collection/index.html" class="btn-right-a" target="_top"
                        data-dismissible="false" ><span></span>我的收藏</a></li>
-                <li class="my-address"><a href="html/customer/address/index.html" class="btn-right-a" target="_top"
+                <li class="my-address"><a href="html/customer/address/index.html?type=html/customer/user/user-info.html" class="btn-right-a" target="_top"
                        data-dismissible="false"><span></span>收件地址</a></li>
                 <li class="my-settings"><a href="html/system/settings/index.html" class="btn-right-a" target="_top" data-dismissible="false"
                        ><span></span>系统设置</a></li>
@@ -64,8 +63,9 @@
 </body>
 
 <script src="js/common/jquery.min.js"></script>
-
+<script src="js/common/common.js"></script>
 <script>
+    Util.common.setWxTitle('个人中心');
     $(document).bind('mobileinit', function () {
         $.mobile.changePage.defaults.changeHash = false;
         $.mobile.hashListeningEnabled = false;
@@ -75,6 +75,22 @@
 <script src="js/common/jquery.mobile-1.4.5.min.js"></script>
 
 <script src="js/customer/user/user-info.js"></script>
-<script src="js/common/common.js"></script>
 
+
+<script>
+    //存储微信用户基本信息
+    $(function(){
+        var userInfo = {};
+        //测试数据
+        userInfo.name = '店铺名称';
+        userInfo.sex = '女';
+        userInfo.location = '厦门';
+        userInfo.phone = '18659264562';
+        userInfo.weixin = '大都督';
+        userInfo.birthday = '1998-12-1';
+        userInfo.sign = '大都督';
+        localStorage.setItem('userInfo', JSON.stringify(userInfo));
+        console.log(JSON.stringify(userInfo));
+    })
+</script>
 </html>

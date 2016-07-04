@@ -1,37 +1,38 @@
 <!DOCTYPE html>
 <html>
-<meta charset="utf-8"/>
-<meta charset="utf-8"/>
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.5,maximum-scale=0.65 , user-scalable=0">
-<base href="../../../"/>
-<link rel="stylesheet" href="css/common/jquery.mobile-1.4.5.min.css"/>
-<link rel="stylesheet" href="css/common/scrollbar.css"/>
-<link rel="stylesheet" href="css/style2.css"/>
-<link rel="stylesheet" type="text/css" href="css/common/common.css"/>
-<link rel="stylesheet" href="css/business/study/study-list.css"/>
+<head>
+    <meta charset="utf-8"/>
+    <meta charset="utf-8"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.5,maximum-scale=0.65 , user-scalable=0">
+    <base href="../../../"/>
+    <link rel="stylesheet" href="css/common/jquery.mobile-1.4.5.min.css"/>
+    <link rel="stylesheet" href="css/common/scrollbar.css"/>
+    <link rel="stylesheet" href="css/style2.css"/>
+    <link rel="stylesheet" type="text/css" href="css/common/common.css"/>
+    <link rel="stylesheet" href="css/business/study/study-list.css"/>
 
 </head>
 <body>
 <div data-role="page" class="jqm-main" data-quicklinks="true">
-    <section data-role="header" data-theme="b" class="my-header" id="my-header" >
+    <section data-role="header" data-theme="b" class="my-header" id="my-header">
         <a href="javascript:history.back();" data-rel="back" data-role="none" class="my-header-back-btn"></a>
         <h2>学习乐园</h2>
         <a href="#" class="my-header-ddd-btn share-bottom-bar-a" id="share-bottom-bar-a" data-role="none"></a>
     </section>
-    <section data-role="header" data-theme="b" class="my-header my-header-search" style="display: none" >
+    <section data-role="header" data-theme="b" class="my-header my-header-search" style="display: none">
         <table width="100%">
             <tr>
                 <td>
                     <form class="ui-filterable">
                         <div class="my-ui-input my-ui-search-input">
-                            <input id="goodSearchId" type="text"  data-role="none" placeholder="请输入商品名称" value="">
+                            <input id="goodSearchId" type="text" data-role="none" placeholder="请输入商品名称" value="">
                             <a href="#" data-role="none" class="clear-a-text"></a>
                         </div>
                     </form>
                 </td>
                 <td id="submitBtn" style="text-align: center">
-                    <a  class="goods-search-cancel-a" data-role="none" href="#" onclick="business.study.cancelBtn(this)">取消</a>
+                    <a class="goods-search-cancel-a" data-role="none" href="#" onclick="business.study.cancelBtn(this)">取消</a>
                 </td>
             <tr>
         </table>
@@ -40,7 +41,7 @@
         <div class="article-list-show-bar">
             <ul>
                 <li><a href="#" class="all-type-p">全部分类</a></li>
-                <li><a href="#" onclick="business.study.setCreateTimeOrder(this)" >时间</a><span></span></li>
+                <li><a href="#" onclick="business.study.setCreateTimeOrder(this)">时间</a><span></span></li>
                 <li><a href="#" onclick="business.study.setReadNumOrder(this)">阅读量</a><span></span></li>
             </ul>
         </div>
@@ -102,7 +103,7 @@
 		<div class="ui-block-a ui-grid-a" id="menu-a">
 			<ul data-role="listview" class="ui-listview">
 				{{each(i,classify) datas}}
-					<li class="ui-li-static ui-body-inherit" onclick="business.study.loadSecondClassify(this, ${classify.id})">${classify.name}</li>
+					<li class="ui-li-static ui-body-inherit" onclick="business.study.loadSecondClassify(this, '${classify.id}')">${classify.name}</li>
 				{{/each}}
 			</ul>
 		</div>
@@ -112,10 +113,12 @@
 		    </ul>
 		</div>
 	</div>
+
 </script>
 <!--第二级商品分类-->
 <script type="text/x-jquery-tmpl" id="classify_b_t">
-	<li class="ui-li-static ui-body-inherit" onclick="business.study.classifyClick(${id},'${name}')">${name}</li>
+	<li class="ui-li-static ui-body-inherit" onclick="business.study.classifyClick('${id}','${name}')">${name}</li>
+
 </script>
 <!--<li>
     <dt>
@@ -154,4 +157,5 @@
             {{/if}}
         </dd>
     </li>
+
 </script>

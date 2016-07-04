@@ -28,7 +28,7 @@
 <section data-role="content" class="settings">
 <ul data-role="listview" data-inset="true" >
 <li><a href="html/system/settings/suggestions.html" target="_top"><img src="images/hdpi/xtsz_yjfk.png" alt="France" class="ui-li-icon ui-corner-none">意见反馈</a></li>
-<li><a href="#myPopup" data-rel="popup" ><img src="images/hdpi/xtsz_qchc.png" alt="Germany" class="ui-li-icon">清除缓存 <span style="float:right; margin-right:10px; color:#999">1.5M</span></a>
+<li><a href="#" data-rel="popup" ><img src="images/hdpi/xtsz_qchc.png" alt="Germany" class="ui-li-icon">清除缓存 <span style="float:right; margin-right:10px; color:#999" class="s-huancun"></span></a>
 <div data-role="popup" id="myPopup" class="ui-content" data-dismissible="false" style="max-width:500px; width:300px;">
       <a href="#" data-rel="back" class="ui-btn-right dialog_clear"><img src="images/hdpi/ts_gb.png"/></a>
       <p>
@@ -41,12 +41,12 @@
     </div>
 
 </li>
+    <li><a href="html/system/settings/agreement.html" target="_top"><img src="images/hdpi/xtsz_fwxy.png" alt="Germany" class="ui-li-icon">服务协议</a></li>
 </ul>
 </section>
 <section data-role="content">
 <ul data-role="listview" data-inset="true">
-<li><a href="html/system/settings/about.html" target="_top"><img  src="images/hdpi/xtsz_gywm.png" alt="France" class="ui-li-icon ui-corner-none">关于我们</a></li>
-<li><a href="html/system/settings/agreement.html" target="_top"><img src="images/hdpi/xtsz_fwxy.png" alt="Germany" class="ui-li-icon">服务协议</a></li>
+<!--<li><a href="html/system/settings/about.html" target="_top"><img  src="images/hdpi/xtsz_gywm.png" alt="France" class="ui-li-icon ui-corner-none">关于我们</a></li>-->
 </ul>
 </section>
 
@@ -56,14 +56,22 @@
 </body>
     
   <script src="js/common/jquery.min.js"></script>
+<script src="js/common/common.js"></script>
  <script>
     $(document).bind('mobileinit',function(){
         $.mobile.changePage.defaults.changeHash = false;
         $.mobile.hashListeningEnabled = false;
         $.mobile.pushStateEnabled = false;
     });
+
+    Util.common.setWxTitle('设置');
 </script> 
 <script src="js/common/jquery.mobile-1.4.5.min.js" ></script>   
 
-
+<script>
+    $('#myPopup').find('button').click(function(){
+        $('.s-huancun').html(' ');
+        $('#myPopup').popup( "close" );
+    });
+</script>
 </html>

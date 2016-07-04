@@ -18,6 +18,7 @@
 .address-main dd{
     float: left;
     margin-right: 10px;
+    margin-left: 10px;
 }
 .address-main ul{
     margin: 0;
@@ -50,7 +51,7 @@
 }
 .address-main .right-dd-a {
     float: right;
-    width: 43%;
+/*    width: 43%;*/
 }
 .right-dd-a a{
 	height: 1.5rem;
@@ -71,7 +72,6 @@
 	float: left;
 	margin: .8rem 0 0 .5rem;
 	text-align: center;
-	line-height: ;
 	font-size: 1.5rem!important;
 	text-shadow: none!important;
 }

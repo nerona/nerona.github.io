@@ -91,6 +91,7 @@
 <script src="js/customer/collection/collection.js"></script>
 <script src="js/common/common.js"></script>
 <script>
+    Util.common.setWxTitle("我的收藏");
     $(document).bind('mobileinit',function(){
         $.mobile.changePage.defaults.changeHash = false;
         $.mobile.hashListeningEnabled = false;
@@ -104,12 +105,12 @@
 <script type="text/x-jquery-tmpl" id="collection_list_t">
 {{each(i,data) datas}}
     <li class="ui-li-has-thumb">
-        <a href="#" class="goods-a ui-btn">
-             <img src="${data.goodImgUrl}">
+        <a href="#" class="goods-a ui-btn" value=${data.goodId}>
+             <img src="${data.goodImgUrl}" onclick="customer.collection.goDetail(this);">
 
             <div class="edit-btn"><dt><em class="c999">|</em><em class="text-color-red">￥{{if data.retailPrice!=''||data.retailPrice!=0.0}}${data.retailPrice}{{else}}${data.salePrice}{{/if}}</em></dt>
-                <dt><em></em><span class="" id="collection_del" onclick="customer.collection.delStore(${data.goodId})"></span> </dt></div>
-                  <dl>
+                <dt><em></em><span class="" id="collection_del" onclick="customer.collection.delStore('${data.goodId}')"></span> </dt></div>
+                  <dl onclick="customer.collection.goDetail(this);">
                 <dd>
                     <p>${data.goodTitle}</p>
                 </dd>

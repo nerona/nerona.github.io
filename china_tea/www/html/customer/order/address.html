@@ -17,32 +17,55 @@
     </section>
 <section data-role="content" class="return-address">
 <ul>
-    <li><label>收货人：</label>月大大</li>
-    <li><label>联系方式：</label>16798878665</li>
-    <li><label>退货地址：</label>广东省深圳市南山区科技园</li>
-    <li><label>邮政编码：</label>52000</li>
-    <li><label>备注：</label></li>
+    <li><label>收货人：</label><span class="receiptName"></span></li>
+    <li><label>联系方式：</label><span class="mobile"></span></li>
+    <li><label>退货地址：</label><span class="address"></span></li>
+    <li><label>备注：</label><span class="note" style="padding-right: 1.5rem;overflow: hidden;display: block;text-align: justify;"></span></li>
 </ul>
 
 
 
 </section>
 
+    <section  data-role="footer"  data-tap-toggle="false" data-disable-page-zoom="false" data-position="fixed" style="background-color: #ffffff;padding: 10px">
 
+        <a  href="#myPopup" data-rel="popup" data-position-to="window" data-role="none" class="ok-order-btn-r">确定</a>
+    </section>
 
 </div>
 
 </body>
     
-     <script src="js/common/jquery.min.js"></script>
+<script src="js/common/jquery.min.js"></script>
+<script src="js/common/common.js"></script>
  <script>
-    $(document).bind('mobileinit',function(){
+     Util.common.setWxTitle('退货地址');
+     $(function(){
+         //
+         var url_addr = Util.common.baseUrl + "/weixin/common/deliveryAddress/loadInfo.do";
+         var param_addr = {};
+         Util.common.executeAjaxCallback(url_addr, param_addr, function (data) {
+             $(".address").html(data.provinceName + data.cityName + data.countyName + data.address);
+             $(".receiptName").html(data.name);
+             $(".mobile").html(data.mobile);
+             $(".note").html(data.note);
+         });
+
+         //
+         console.log(Util.common.getParameter('contentId'));
+         console.log(Util.common.getParameter('content'));
+         $('.ok-order-btn-r').on('click', function(){
+            document.location.href = "html/customer/order/index.html";
+         });
+     });
+
+     $(document).bind('mobileinit',function(){
         $.mobile.changePage.defaults.changeHash = false;
         $.mobile.hashListeningEnabled = false;
         $.mobile.pushStateEnabled = false;
-    });
+     });
 </script> 
 <script src="js/common/jquery.mobile-1.4.5.min.js" ></script>
-<script src="js/common/common.js"></script>
+
 
 </html>

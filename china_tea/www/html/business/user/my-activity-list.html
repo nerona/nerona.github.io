@@ -6,7 +6,9 @@
           content="width=device-width, initial-scale=1.0, maximum-scale=1.5,maximum-scale=0.65 , user-scalable=no">
     <base href="../../../"/>
     <link rel="stylesheet" href="css/common/jquery.mobile-1.4.5.min.css"/>
+    <link rel="stylesheet" href="css/common/scrollbar.css"/>
     <link rel="stylesheet" href="css/style2.css"/>
+    <link rel="stylesheet" href="css/business/activity/activity-bl-list.css"/>
     <link rel="stylesheet" href="css/business/user/my-activity-list.css"/>
 </head>
 <body>
@@ -16,78 +18,23 @@
 </section>
 <section data-role="content" role="main" class="activity_bl_main">
     <ul class="my-activity-top-bar">
-        <li><a href="#" class="my-activity-bar-active" data-role="none"><b>进行中</b></a></li>
-        <li><a href="#" class=""><b>已结束</b></a></li>
+        <li><a href="#" class="my-activity-bar-active" data-role="none" onclick="business.activityList.queryByActivityStatus('1')"><b>进行中</b></a></li>
+        <li><a href="#" class="" onclick="business.activityList.queryByActivityStatus('2')"><b>已结束</b></a></li>
     </ul>
-    <div class="my-list-view-t">
-       <!-- <table>
-            <tbody>
-            <tr>
-                <td class="goods-img-td"><img src="imgs/test-img/goods.png"></td>
-                <td>
-                    <a data-role="none" href="html/business/activity/details.html" target="_top">
-                    <p class="my-activity-title">你是对方是的覅哦史蒂夫合适的覅哦史蒂的覅哦史蒂的覅哦史蒂的覅哦史蒂的力量大煞风景圣诞节佛</p>
-                    <p class="address-img-p"> 深圳南山区深圳湾体育馆</p>
-                    <p> 2016-09-08 10:09</p>
-                    </a>
-                </td>
-                <td>
-                 <p ><a href="#" class="my-activity-del-a"></a></p>
-                    <br/>
-                    <br/>
-                <p class="my-activity-cy-num"><span>12</span></p>
-                </td>
-            </tr>
+    <div id="activityList" class="my-list-view-t">
+        <div id="scroller">
+            <div id="pullDown">
+                <span id="pullDownIcon"></span><span class="pullDownLabel">下拉刷新...</span>
+            </div>
+            <ul id="thelist">
+                <!--列表内容部分-->
 
-            <tr>
-                <td class="goods-img-td"><img src="imgs/test-img/goods.png"></td>
-                <td>
-                    <a data-role="none" href="html/business/activity/details.html" target="_top">
-                        <p class="my-activity-title">你是对方是的覅哦史蒂夫合适的覅哦史蒂的覅哦史蒂的覅哦史蒂的覅哦史蒂的力量大煞风景圣诞节佛</p>
-                        <p class="address-img-p"> 深圳南山区深圳湾体育馆</p>
-                        <p> 2016-09-08 10:09</p>
-                    </a>
-                </td>
-                <td>
-                    <p ><a href="#" class="my-activity-del-a"></a></p>
-                    <br/>
-                    <br/>
-                    <p class="my-activity-cy-num"><span>12</span></p>
-                </td>
-            </tr>
-            <tr>
-                <td class="goods-img-td"><img src="imgs/test-img/goods.png"></td>
-                <td>
-                    <a data-role="none" href="html/business/activity/details.html" target="_top">
-                        <p class="my-activity-title">你是对方是的覅哦史蒂夫合适的覅哦史蒂的覅哦史蒂的覅哦史蒂的覅哦史蒂的力量大煞风景圣诞节佛</p>
-                        <p class="address-img-p"> 深圳南山区深圳湾体育馆</p>
-                        <p> 2016-09-08 10:09</p>
-                    </a>
-                </td>
-                <td>
-                    <p ><a href="#" class="my-activity-del-a"></a></p>
-                    <br/>
-                    <br/>
-                    <p class="my-activity-cy-num"><span>12</span></p>
-                </td>
-            </tr>
-            </tbody>
-        </table>-->
+            </ul>
+            <div id="pullUp">
+                <span class="pullUpIcon"></span><span class="pullUpLabel">上拉加载更多...</span>
+            </div>
+        </div>
 
-        <ul id="thelist">
-            <li class="ui-grid-b">
-                    <div class="ui-block-a"><a href="#"><img src="imgs/test-img/goods.png"></a></div>
-                    <div class="ui-block-b line_c">
-                        <p class="my-activity-title">你是对方是的覅哦史蒂夫合适的覅哦史蒂的覅哦史蒂的覅哦史蒂的覅哦史蒂的力量大煞风景圣诞节佛</p>
-                        <p class="address-img-p"> 深圳南山区深圳湾体育馆</p>
-                        <p> 2016-09-08 10:09</p>
-                    </div>
-                    <div class="ui-block-c line_r">
-                        <p><a href="#" class="my-activity-del-a"></a></p>
-                        <p class="my-activity-cy-num">12</p>
-                    </div>
-            </li>
-        </ul>
     </div>
 </section>
 <div class="ui-content" id="my-activity-del-show" data-position-to="window" data-role="popup" data-theme="b">
@@ -98,7 +45,7 @@
     </div>
     <div class="btn-a">
         <a href="#" class="cancel-order-btn" data-role="none">取消</a>
-        <a href="#" class="ok-order-btn" data-role="none">确定</a>
+        <a href="#" class="ok-order-btn" data-role="none" onclick="business.activityList.del()">确定</a>
     </div>
 </div>
 </body>
@@ -111,14 +58,14 @@
     });
 
     $(function () {
-        $(".my-activity-del-a").on("click", function(){
+        $(".my-activity-del-a").on("click", function () {
             $("#my-activity-del-show").popup("open");
         });
-        
+
         $(".cancel-order-btn").on("click", function () {
             $("#my-activity-del-show").popup("close");
         })
-        $(".my-activity-top-bar").on("click","a",function () {
+        $(".my-activity-top-bar").on("click", "a", function () {
             $(".my-activity-top-bar").find('a').removeClass("my-activity-bar-active");
             $(this).addClass("my-activity-bar-active");
         });
@@ -127,4 +74,33 @@
 </script>
 <script src="js/common/jquery.mobile-1.4.5.min.js"></script>
 <script src="js/business/common/common.js"></script>
+<script src="js/common/jquery.tmpl.min.js"></script>
+<script src="js/slider/iscroll.js"></script>
+<script src="js/common/common.js"></script>
+<script src="js/business/activity/activity-bl-list.js"></script>
 </html>
+<script type="text/x-jquery-tmpl" id="activity_list_t">
+ {{each(i,data) resultList}}
+
+    <li class="ui-grid-b">
+                <div class="ui-block-a"><a href="#"  target="_top" onclick="business.activityList.toDetails('${data.id}',true)">
+                {{if data.image[0]}}
+                <img src="${data.image[0].picUrl}">
+                {{else}}
+                <img style="height:5rem;width:100%;" />
+                {{/if}}
+                </a></div>
+                <div class="ui-block-b line_c">
+                    <p class="my-activity-title">${data.title}</p>
+                    <p class="address-img-p">${data.activityAddress}</p>
+                    <p>${data.beginTime}</p>
+                </div>
+                <div class="ui-block-c line_r">
+                        <p><a href="#" class="my-activity-del-a" onclick="business.activityList.showDelDialog('${data.id}')"></a></p>
+                        <p class="my-activity-cy-num">${data.participation}</p>
+                    </div>
+    </li>
+   {{/each}}
+
+
+</script>

@@ -94,11 +94,10 @@
              <div class="judge-first-div">
             <b>商品满意度:</b><b>${score}</b>
              <span class="judge-img-span-box">
+                 {{each(i,data) scores}}
                  <img src="imgs/an/hdpi/dpgl_mjpj_xx.png">
-                 <img src="imgs/an/hdpi/dpgl_mjpj_xx.png">
-                 <img src="imgs/an/hdpi/dpgl_mjpj_xx.png">
-                 <img src="imgs/an/hdpi/dpgl_mjpj_xx.png">
-                 <img src="imgs/an/hdpi/dpgl_mjpj_xx.png">
+                 {{/each}}
+               </span>
              </span>
              </div>
          <div class="my-list-judge-box">
@@ -107,11 +106,9 @@
            <dd>
                <span>${data.username}</span>
                <span>
+               {{each(i,data) scores}}
                  <img src="imgs/an/hdpi/dpgl_mjpj_xx.png">
-                 <img src="imgs/an/hdpi/dpgl_mjpj_xx.png">
-                 <img src="imgs/an/hdpi/dpgl_mjpj_xx.png">
-                 <img src="imgs/an/hdpi/dpgl_mjpj_xx.png">
-                 <img src="imgs/an/hdpi/dpgl_mjpj_xx.png">
+                 {{/each}}
                </span>
                <em>${data.evaluateTime}</em>
            </dd>

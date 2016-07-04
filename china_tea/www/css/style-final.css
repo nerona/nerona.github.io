@@ -31,6 +31,7 @@
 /*
 *rem标准参考值
 */
+html, body {-webkit-overflow-scrolling: touch;}
 html {font-size: 62.5%;/*10 ÷ 16 × 100% = 62.5%*/}
 body {font-size: 62.5%;/*1.4 × 10px = 14px */}
 h1 { font-size: 2.4rem;/*2.4 × 10px = 24px*/}
@@ -51,7 +52,7 @@ h1 { font-size: 2.4rem;/*2.4 × 10px = 24px*/}
     overflow-x: hidden;
 }
  body, input, select, textarea, button, h1 {
-     font-size:2.0rem ;
+     font-size:1.5rem ;
     line-height: 100%;
    /* font-family: sans-serif;*/
   font-family: "微软雅黑";
@@ -295,7 +296,9 @@ span,em,p{
 .ext-box-btn:checked+label{
     color:rgba(255,255,255,0.70);
     background-color: rgba(255,85,85,0.80);
+    border-color: rgba(255,85,85,0.80);
     border-radius: 8px;
+    text-shadow: none;
 }
 /**
  * 自定义按钮默认灰色，点击变红色
@@ -368,7 +371,7 @@ span,em,p{
     outline:none;
     -webkit-appearance: none;
 }
-
+#addressInfo .btn-right-a {padding-left: 10px}
 /**
  * 自定义灰色输入框
  */
@@ -634,7 +637,7 @@ fieldset {
     margin: 0;
 }
 #slider-content .slides img {
-    max-height:15rem;
+    /*max-height:15rem;*/
 }
 #slider-content .flex-control-nav {
     bottom: -2.7rem;

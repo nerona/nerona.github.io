@@ -11,8 +11,8 @@
 <body>
 <div data-role="page" class="jqm-main" data-quicklinks="true">
 	<section data-role="header" data-theme="b" class="my-header" id="my-header">
-		<a href="javascript:history.back();" data-rel="back" data-role="none" class="my-header-back-btn"></a>
-		<h2>首页</h2>
+		<a href="html/customer/index.html" target="_top" id="back" data-role="none" class="my-header-back-btn"></a>
+		<h2>搜索</h2>
 		<a href="#" class="my-header-right-btn-ad" data-role="none"><span>.</span><span>.</span><span>.</span></a>
 	</section>
 
@@ -30,7 +30,7 @@
 					</form>
 				</td>
 				<td>
-						<a id="cancelAId" data-role="none" href="javascript:searchCancelClickEvents(1)" >取消</a>
+						<a id="cancelAId" data-role="none" href="javascript:searchCancelClickEvents(1)" >返回</a>
 						<a id="searchAId" style="display: none;" data-role="none" href="javascript:searchCancelClickEvents(2)" >搜索</a>
 				</td>
 			 <tr>
@@ -47,6 +47,7 @@
 </html>
 <script src="js/common/jquery.min.js"></script>
 <script type="text/javascript">
+	Util.common.setWxTitle('搜索');
 	 $(document).bind('mobileinit',function(){
 			$.mobile.changePage.defaults.changeHash = false;
 			$.mobile.hashListeningEnabled = false;

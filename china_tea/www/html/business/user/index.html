@@ -65,7 +65,7 @@
 	<div class="my-info-header-img">
      <div class="my-background">
          <div>
-       <span class="my-header-img-span"><img src="imgs/an/hdpi/mrtx_80.png"><a href="html/business/user/my-info.html?user=${userName}"  target="_top" class="ui-link"></a></span>
+       <span class="my-header-img-span"><img src="${msg.headImgUrl}"><a href="html/business/user/my-info.html?user=${userName}"  target="_top" class="ui-link"></a></span>
          <p>${msg.userName}</p>
          </div>
      </div>
@@ -77,7 +77,7 @@
             </li>
             <li class="my-account"><a href="html/business/user/my-amount-info.html?shopId=${msg.id}" class="btn-right-a ui-link" target="_top"><span>我的账户</span></a></li>
             <li class="my-exchange-card"><a href="html/business/user/exchange-card-list.html?shopId=${msg.id}" class="btn-right-a ui-link" target="_top" data-dismissible="false"><span>卡券兑换</span></a></li>
-            <li class="my-activity-bl-list"><a href="html/business/user/my-activity-list.html?shopId=${msg.id}" class="btn-right-a ui-link" target="_top" data-dismissible="false"><span>创建的活动</span></a>
+            <li class="my-activity-bl-list"><a href="html/business/user/my-activity-list.html?id=${msg.id}" class="btn-right-a ui-link" target="_top" data-dismissible="false"><span>创建的活动</span></a>
             </li><li class="my-fans">
             <a href="html/business/user/fans.html?shopId=${msg.id}" class="btn-right-a ui-link" target="_top" data-dismissible="false"><span>我的粉丝</span></a>
           </li>

@@ -20,7 +20,7 @@
 #pullDown .pullDownIcon, #pullUp .pullUpIcon  {
 	display:inline-block;border:0;padding: 0;
 	width:50px; height:50px;
-	/*background:url(../../images/extends/refresh.png) 0 0 no-repeat;*/
+	background:url(../../images/extends/refresh.png) 0 0 no-repeat;
 	-webkit-background-size:50px 50px;
 	-webkit-transition-property:-webkit-transform;
 	-webkit-transition-duration:250ms;

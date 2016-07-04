@@ -59,7 +59,7 @@
 <!--初始化页面-->
 <script type="text/x-jquery-tmpl" id="myinfo_t">
 <ul>
-    <li>头像 <a href="#" class="btn-right-a my-header-edit ui-link" onlick="business.myinfo.headerClick()"><img src="${msg.headImgUrl}"></a></li>
+    <li>头像 <a href="#" class="btn-right-a my-header-edit ui-link" onlick="business.myinfo.headerClick()"><img id="headImg" src="${msg.headImgUrl}"></a></li>
     <li>店铺名称 <a href="html/business/user/edit-info.html?user=${userName}&name=name&text=${msg.name}" target="_top" class="btn-right-a ui-link">${msg.name} </a></li>
     <li>手机号码 <a href="html/business/user/edit-info.html?user=${userName}&name=mobile&text=${msg.mobile}" target="_top" class="btn-right-a ui-link">${msg.mobile} </a></li>
     <li>微信号 <a href="html/business/user/edit-info.html?user=${userName}&name=weixin&text=${msg.weixin}" target="_top" class="btn-right-a ui-link">${msg.weixin} </a></li>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta charset="utf-8"/>
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.5,maximum-scale=1.0 , user-scalable=0">
+<base href="../../../"/>
+<link rel="stylesheet" href="css/common/jquery.mobile-1.4.5.min.css"/>
+<link rel="stylesheet" href="css/style-final.css"/>
+<link rel="stylesheet" href="css/customer/order/judge.css"/>
+</head>
+<body>
+<div data-role="page" class="jqm-main" data-quicklinks="true">
+    <section data-role="header" data-theme="b" class="my-header" id="my-header">
+        <a href="javascript:history.back();"  data-role="none" class="my-header-back-btn"></a>
+        <h2>评价</h2>
+        <a href="#" class="my-header-right-btn-ad" data-role="none"><span>.</span><span>.</span><span>.</span></a>
+    </section>
+    <input type="hidden" id="domain" value="http://o7o0uv2j1.bkt.clouddn.com/">
+    <input type="hidden" id="uptoken_url" value="uptoken">
+    <button  id="pickfiles"> Test  </button>
+    <section data-role="content" role="main" data-theme="a" class="judge-main" id="judge-info">
+        <!--<dl class="judge-img-star" id="good-info" style="left: 8px">
+            <dt><img  src=""></dt>
+            <dd>
+                <p style="margin-left: 4%;"></p>
+                <p class="pingfen">
+                    <span class="score-text">评分:</span>
+                    <span class="judge-main-score"><img src="images/hdpi/wddd_pj.png" index="0"><img src="images/hdpi/wddd_pj.png" index="1"><img src="images/hdpi/wddd_pj.png" index="2"><img src="images/hdpi/wddd_pj.png" index="3"><img src="images/hdpi/wddd_pj.png" index="4"></span>
+                </p>
+            </dd>
+        </dl>-->
+    </section>
+   <!-- <section data-role="content" role="main" data-theme="a" class="judge-main">
+        <dl class="judge-content-dl">
+            <input type="hidden" name="judge-content">
+            <input type="hidden" name="judge-score">
+
+            <dd>
+                <p style="padding-left: 8px;">评价内容</p>
+                <p><textarea cols="65" rows="3" data-role="none" placeholder="请输写下你对宝贝的评价吧~长度在1-500字" ></textarea></p>
+                <p style="margin-left: 8px" class="images-list"> <img id="add_img" src="images/hdpi/wddd_pj_xj.png"></p>
+            </dd>
+        </dl>
+    </section>-->
+    <div class="nm-judge-checkbox-div">
+        <input type="checkbox" data-role="none" id="nm-judge-radio" class="ext-box-select"/><label for="nm-judge-radio">匿名评价</label>
+    </div>
+    <section  data-role="footer"  data-disable-page-zoom="false" data-tap-toggle="false" data-position="fixed" style="background-color: #ffffff;padding: 10px">
+
+        <a  href="#" data-rel="popup" data-position-to="window" data-role="none" class="ok-order-btn-r" onclick="customer.judge.submit();">提交</a>
+
+    </section>
+</div>
+
+</body>
+
+<script src="js/common/jquery.min.js"></script>
+<script src="js/common/common.js"></script>
+<!--<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>-->
+<script src="js/common/jquery.mobile-1.4.5.min.js"></script>
+<script src="js/common/jquery.tmpl.min.js"></script>
+<script src="js/customer/order/judge.js"></script>
+<!---->
+<script>
+    $(function(){
+        customer.judge.getToken();
+    });
+</script>
+<!---->
+
+<script type="text/javascript" src="js/customer/order/qiniu/moxie.js"></script>
+<!--<script type="text/javascript" src="js/customer/order/qiniu/plupload.dev.js"></script>-->
+ <script type="text/javascript" src="js/customer/order/qiniu/plupload.full.min.js"></script>
+<script type="text/javascript" src="js/customer/order/qiniu/zh_CN.js"></script>
+<script type="text/javascript" src="js/customer/order/qiniu/ui.js"></script>
+<script type="text/javascript" src="js/customer/order/qiniu/qiniu.min.js"></script>
+
+<script type="text/javascript" src="js/customer/order/qiniu/main.js"></script>
+<script>
+    $(document).bind('mobileinit', function () {
+        $.mobile.changePage.defaults.changeHash = false;
+        $.mobile.hashListeningEnabled = false;
+        $.mobile.pushStateEnabled = false;
+    });
+</script>
+
+
+
+<script type="text/x-jquery-tmpl" id="good-info-t">
+<dl class="judge-img-star" style="left: 8px">
+            <dt><img  src="${goodImg}"></dt>
+            <dd>
+                <p style="margin-left: 4%;">${goodName}</p>
+                <p class="pingfen">
+                    <span class="score-text">评分:</span>
+                    <span class="judge-main-score"><img src="images/hdpi/wddd_pj.png" index="0"><img src="images/hdpi/wddd_pj.png" index="1"><img src="images/hdpi/wddd_pj.png" index="2"><img src="images/hdpi/wddd_pj.png" index="3"><img src="images/hdpi/wddd_pj.png" index="4"></span>
+                </p>
+            </dd>
+        </dl>
+         <dl class="judge-content-dl">
+            <input type="hidden" name="judge-content">
+            <input type="hidden" name="judge-score">
+
+            <dd>
+                <p style="padding-left: 8px;">评价内容</p>
+                <p><textarea cols="65" rows="3" data-role="none" placeholder="请输写下你对宝贝的评价吧~长度在1-500字" ></textarea></p>
+                <p style="margin-left: 8px" class="images-list"> <a href="#"><img src="images/hdpi/wddd_pj_xj.png"></a>
+            </dd>
+        </dl>
+</script>
+</html>

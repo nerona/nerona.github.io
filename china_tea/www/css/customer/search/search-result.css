@@ -66,6 +66,9 @@
     -moz-box-shadow: 0 0 12px #38c;
     /* box-shadow: 0 0 12px #38c; */
 }
+#classifyId:after {
+    margin-left: 0;
+}
 #good-grid-id .good-grid-a img{
     width:100%;
 }
@@ -73,7 +76,14 @@
     height: 3rem;
     line-height: 3rem;
 }
-
+#good-grid-id .empty-list,
+#good-grid-id-special .empty-list{
+    text-align: center;
+}
+#good-grid-id .empty-list img,
+#good-grid-id-special .empty-list img {
+    width: 12rem;
+}
 .ui-popup-container .ui-popup-active{
     left: 0px;
 }
@@ -161,8 +171,69 @@ form {
     height: 0;
     clear: both;
 }
-#good-grid-id li:nth-child(2n){
+#good-grid-id-special li{
     float: left;
+    width: 100%;
+    list-style-type:none;
+    background: #ffffff!important;
+    margin-bottom: 10px;
+    border-radius:2px ;
+}
+
+#good-grid-id-special ul>div {
+    padding: 5px;
+}
+#good-grid-id-special .good-grid-info div:not(:first-child) {
+    padding: 5px;
+    float: left;
+    width:50%;
+    overflow : hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin: 0.5rem
+}
+#good-grid-id-special .good-grid-a+div span {
+    font-size: 1.5rem;
+    display: inline-block;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    width:15rem;
+    overflow: hidden;
+}
+#good-grid-id-special .good-grid-a img {
+    width: 40%;
+    float: left;
+    max-height: 12rem;
+}
+#good-grid-id-special .good-grid-info {
+    color: #000!important;
+}
+#good-grid-id-special .good-grid-b span:last-child,.good-grid-c span:last-child {
+    display: inline-block;
+    float: right;
+
+}
+#good-grid-id-special .good-grid-c>span,#good-grid-id .good-grid-b>span,#good-grid-id .good-grid-c>span>em,#good-grid-id .good-grid-b>span>em {
+    color: #999;
+    font-size: 1.4rem;
+}
+#good-grid-id-special .good-grid-c>span>em {
+    font-size: 20px;
+    color: #FF5555;
+}
+#good-grid-id-special .good-grid-b span:last-child img {
+    width: 100%;
+}
+#good-grid-id-special .good-grid-c>span {
+    width: auto;
+}
+
+#good-grid-id-special ul{
+    padding:0;
+}
+#good-grid-id li:nth-child(2n){
+    float: right;
     width: 49%;
     list-style-type:none;
     background: #ffffff!important;
@@ -170,7 +241,7 @@ form {
     border-radius:2px ;
 }
 #good-grid-id li:nth-child(2n+1){
-    float: right;
+    float: left;
     width: 49%;
     list-style-type:none;
     background: #ffffff!important;
@@ -221,10 +292,10 @@ form {
 }
 
 .ui-content{
-    padding-top:0px;
+    padding:0px;
 }
 .ui-content-1{
-	height: 2.8rem;
+	/*height: 2.8rem;*/
     border-bottom: 1px solid #ccc;
 }
 .my-ui-search{
@@ -234,7 +305,7 @@ form {
     margin:0 1rem 1rem 0;
 }
 #priceGroupId{
-    margin-top: 0px;
+    margin-top: 16px;
 }
 #priceGroupId span,#priceGroupId input{
     float:left;

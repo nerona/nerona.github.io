@@ -125,10 +125,10 @@
 
 
 </div>
-<section  data-role="footer" data-position="fixed"  id="my-footer-cart" data-tap-toggle="true"  style="background-color: #ffffff;">
+<section id="my-footer-cart">
 <div class="my-ui-checkbox-all">
     <input type="checkbox" data-role="none" id="cart-radio-all" class="ext-box-select"/><label for="cart-radio-all" onclick="customer.cart.doTotalMoneyOne();">全选</label>
-<span >总计：<em class="red">￥<span id="cart-money-all">0</span></em> 运费：￥18</span>
+<span >总计<em class="red">￥<span id="cart-money-all">0</span></em> 运费￥0.00</span>
 <a href="#" target="_top" data-role="none"  class="ok-order-btn-r" onclick="customer.cart.submit()">去结算</a>
 </div>
 </section>
@@ -143,7 +143,10 @@
 <script src="js/common/common.js"></script>
 <script src="js/customer/goods/shopping-cart.js"></script>
  <script>
-    $(document).bind('mobileinit',function(){
+     $(function () {
+         Util.common.setWxTitle('购物车');
+     });
+     $(document).bind('mobileinit',function(){
         $.mobile.changePage.defaults.changeHash = false;
         $.mobile.hashListeningEnabled = false;
         $.mobile.pushStateEnabled = false;
@@ -159,13 +162,14 @@
     <input type="hidden" name="goodImgUrl" value="${list.goodImgUrl}">
     <input type="hidden" name="goodTitle" value="${list.goodTitle}">
     <input type="hidden" name="salePrice" value="${list.salePrice}">
-    <input type="hidden" name="goodCount" value="${list.goodCount}">
+    <input type="hidden" name="goodCounter" value="${list.goodCount}">
     <input type="hidden" name="skuItem" value="${list.skuItem}">
+    <input type="hidden" name="skuId" value="${list.goodId}">
         <div class="my-ui-checkbox">
          <input name="shopCart" type="checkbox" data-role="none" id="cart-radio-${list.id}"" class="ext-box-select" value="${i}"/><label for="cart-radio-${list.id}"></label>
        </div>
-        <a href="#" class="goods-a ui-btn" data-role="none">
-            <img src="${list.goodImgUrl}">
+        <a href="#" class="goods-a ui-btn" value="${list.goodsId}">
+            <img src="${list.goodImgUrl}" onclick="customer.cart.goDetail(this);">
             <dl>
                 <dd>
                     <h1>${list.goodTitle}</h1>
@@ -175,9 +179,9 @@
                 <em class="text-color-red">￥${list.salePrice}</em>
                 <em class="text-color"><s>${list.marketPrice}</s></em>
                 </dd>
-                <dd class='hidden edit-num-dd-cc'><span class="ggdialog-d-a" onclick="customer.numDec()">-</span>
-			<input name="goodCount" type="text" id="quantity" class="ext-text-eee" data-role="none" value="${list.goodCount}"/>
-			<span class="ggdialog-d-a" onclick="customer.numAdd()">+</span><dd>
+                <dd class='hidden edit-num-dd-cc'><span class="ggdialog-d-a" onclick="customer.numDec(this)">-</span>
+			<input name="goodCount" type="text" id="quantity" class="ext-text-eee quantity" data-role="none" value="${list.goodCount}" readonly/>
+			<span class="ggdialog-d-a" onclick="customer.numAdd(this)">+</span><dd>
                 <dd>
                     <span>${list.skuItem}</span></dd>
             </dl>

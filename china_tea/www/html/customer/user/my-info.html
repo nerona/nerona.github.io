@@ -16,30 +16,28 @@
     <h2>个人信息</h2>
 </section>
 <section data-role="content" role="main" class ="my-info-main">
-<ul>
-    <li>头像 <a href="#" class=" my-header-edit"><img src="imgs/test-img/header.png"></a></li>
-    <li>昵称 <a href="html/customer/user/edit-info.html?type=2&text=店铺名称" target="_top" class="">店铺名称 </a></li>
-    <li>性别 <a href="html/customer/user/edit-info.html?type=3&text=女" target="_top" class="">女 </a></li>
-    <li>所在地 <a href="html/customer/user/edit-info.html?type=2&text=厦门"  target="_top" class="">厦门 </a></li>
-
-</ul>
+    <ul>
+        <li>头像 <a href="#" class="my-header-edit"><img id="head-image" src=""></a></li>
+        <li>昵称 <a href="#" target="_top" class="" id="type_0"></a></li>
+        <li>性别 <a href="#" target="_top" class="" id="type_1"> </a></li>
+        <li>所在地 <a href="#"  target="_top" class="" id="type_2"></a></li>
+    </ul>
 </section>
 <section class="my-info-main-2">
     <ul>
-        <li>手机号码 <a href="html/customer/user/edit-info.html?type=2&text=145353334535" target="_top" class="btn-right-a">145353334535</a></li>
-        <li>微信 <a href="html/customer/user/edit-info.html?type=2&text=大都督"  target="_top" class="btn-right-a"> 大都督</a></li>
+        <li>手机号码 <a href="html/customer/user/edit-info.html?type=3" target="_top" class="btn-right-a" id="type_3"></a></li>
+        <li>微信 <a href="html/customer/user/edit-info.html?type=4"  target="_top" class="btn-right-a" id="type_4"></a></li>
     </ul>
     <ul>
-        <li>出生日期 <a href="html/customer/user/edit-info.html?type=2&text=145353334535" target="_top" class="btn-right-a">1988-09-09</a></li>
-        <li>个性签名 <a href="html/customer/user/edit-info.html?type=2&text=大都督"  target="_top" class="btn-right-a"> 大都督</a></li>
+        <li>出生日期 <a href="html/customer/user/edit-info.html?type=5" target="_top" class="btn-right-a" id="type_5"></a></li>
+        <li>个性签名 <a href="html/customer/user/edit-info.html?type=6"  target="_top" class="btn-right-a" id="type_6"></a></li>
     </ul>
 </section>
 <div class="my-ui-share-bottom hidden" id="share-bottom-bar-div">
-
     <div class="share-content">
         <ul>
             <li><a href="#"><img src="imgs/an/hdpi/hdbl_pz.png"/></a>
-            <p>拍照</p>
+                <p>拍照</p>
             </li>
             <li><a href="#"><img src="imgs/an/hdpi/hdbl_xc.png"/></a>
                 <p>相册</p>
@@ -50,15 +48,21 @@
 </body>
 <script src="js/common/jquery.min.js"></script>
 <script>
+    Util.common.setWxTitle('个人信息');
     $(document).bind('mobileinit', function () {
         $.mobile.changePage.defaults.changeHash = false;
         $.mobile.hashListeningEnabled = false;
         $.mobile.pushStateEnabled = false;
     });
-
 </script>
 <script src="js/common/jquery.mobile-1.4.5.min.js"></script>
 <script src="js/business/common/common.js"></script>
 <script src="js/common/common.js"></script>
+<script src="js/customer/user/user-info.js"></script>
+<script>
+    $(function(){
+
+    });
+</script>
 </html>
 <!--初始化页面-->

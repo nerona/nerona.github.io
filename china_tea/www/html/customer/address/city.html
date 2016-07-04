@@ -9,13 +9,14 @@
 <link rel="stylesheet" href="css/style-final.css"/>
 <style>
     .province-main {
-      padding: 0;
-        background-color: #fff!important;
+        padding: 0;
+        background-color: #fff !important;
         margin: 0;
     }
-    .province-main>ul {
+
+    .province-main > ul {
         padding: 0;
-        margin:0;
+        margin: 0;
         clear: both;
     }
 
@@ -27,7 +28,8 @@
         list-style: none;
         background-color: #fff;
     }
-    .province-main li>a {
+
+    .province-main li > a {
         text-decoration: none;
         color: #000;
         padding: 0 2rem;
@@ -37,49 +39,71 @@
 </style>
 </head>
 <body>
-<div data-role="page"  data-quicklinks="true">
-    <section data-role="header" data-theme="b" class="my-header" id="my-header">
-        <a href="javascript:history.back();"  data-role="none" class="my-header-back-btn"></a>
-        <h2>城市</h2>
-        <a href="#" class="my-header-right-btn-ad" data-role="none"><span>.</span><span>.</span><span>.</span></a>
-    </section>
+<div data-role="page" data-quicklinks="false">
     <section data-role="content" class="province-main" id="province-main">
 
-        <ul>
-            <li>
-               <a href="county.html">深圳市</a>
-            </li>
-            <li>
-                <a href="#">广州市</a>
-            </li>
-            <li>
-                <a href="#">潮州市</a>
-            </li>
-            <li>
-                <a href="#">韶关市</a>
-            </li>
-            <li>
-                <a href="#">潮州市</a>
-            </li>
-            <li>
-                <a href="#">你妹市</a>
-            </li>
-
+        <ul id="theSecondList">
+            <!--            <li>
+                           <a href="county.html">深圳市</a>
+                        </li>-->
         </ul>
-        </section>
+    </section>
 </div>
 
 </body>
 
 <script src="js/common/jquery.min.js"></script>
+<script src="js/common/common.js"></script>
+<script src="js/common/jquery.tmpl.min.js"></script>
 <script>
+
     $(document).bind('mobileinit', function () {
         $.mobile.changePage.defaults.changeHash = false;
         $.mobile.hashListeningEnabled = false;
         $.mobile.pushStateEnabled = false;
     });
+    function loadTemplate(render, templateId, data) {
+        $(render).html($(templateId).tmpl(data));
+    }
+    $(function () {
+        var cityData = null;
+        window.toCounty = function (id, name, id_1, id_2) {
+            var data = cityData;
+            for (var i = 0; i < data.length; i++) {
+                for (var j = 0; j < data[i].children.length; j++) {
+                    if (id == data[i].children[j].id) {
+                        if (!data[i].children[j].children) {
+                            document.location.href = 'html/customer/address/edit.html?type=add';
+                        } else {
+                            location.href = 'html/customer/address/county.html?id=' + id + '&&sName=' + name + '&&uid=' + id_1 + '&&use=' + id_2;
+                        }
+                    }
+                }
+            }
+            //document.location.href = 'html/customer/address/edit.html?type=add';
+        };
+        $.getJSON('html/customer/address/cityData.json', function (data) {
+            localStorage.setItem('fName', Util.common.getParameter('fName'));
+            cityData = data;
+            for (var i = 0; i < data.length; i++) {
+                if (Util.common.getParameter('id') == data[i].id) {
+                    console.log(data[i].children);
+                    for (var j = 0; j < data[i].children.length; j++) {
+                        data[i].children[j].id_1 = Util.common.getParameter('uid');
+                        data[i].children[j].id_2 = Util.common.getParameter('use');
+                    }
+                    loadTemplate('#theSecondList', '#theSecondList_t', data[i].children);
+                }
+            }
+        });
+    });
 </script>
-<script src="js/common/jquery.mobile-1.4.5.min.js"></script>
-<script src="js/common/common.js"></script>
+<!--<script src="js/common/jquery.mobile-1.4.5.min.js"></script>-->
 
+<script type="text/x-jquery-tmpl" id="theSecondList_t">
+        <li>
+            <a onclick="toCounty('${id}','${name}','${id_1}','${id_2}')" >${name}</a>
+        </li>
+
+</script>
 </html>

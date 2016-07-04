@@ -22,15 +22,19 @@
     padding: 0px 10px;
     font-size: 1.6rem;
 }
-.manager-shop-top-bar a:visited,.manager-shop-top-bar  a:active,.manager-shop-top-bar a:focus,.manager-shop-top-bar a:hover {
+/*.manager-shop-top-bar a:visited,.manager-shop-top-bar  a:active,.manager-shop-top-bar a:focus,.manager-shop-top-bar a:hover {
     color: #FF5555!important;
     border-bottom: 2px solid #ff5555;
-}
+}*/
 
 .manager-shop-top-bar a:link{
     color: #000;
+    padding-bottom: 1rem;
 }
-
+.manager-shop-top-bar a.ui-active {
+    color: #FF5555!important;
+    border-bottom: 2px solid #ff5555;
+}
 
 
 .my-list-view {
@@ -102,6 +106,17 @@
     margin: 0;
     font-size: 1.4rem;
 }
+.my-list-view .bar-b-tj .ok-order-btn {
+    position: relative;
+    top: -8px;
+}
+.my-list-view .bar-b-tj .cancel-order-btn {
+    position: relative;
+    top: -8px;
+    background-color: #fff;
+    color: #313131 !important;
+    border: 1px solid;
+}
 .my-list-view .bar-b-tj em{
     padding: 0!important;
 }
@@ -124,33 +139,46 @@
 .my-list-view .bar-b-tj button:focus{
 
 }
-#my-order-ok-popup .img-p-notice{
+
+.ui-popup-container{
+    width: 56%;
 }
-#my-order-ok-popup-popup {
-    width: 80%;
-}
-#my-order-ok-popup .img-p-notice {
+.my-order-popup .img-p-notice{
     display: inline-block;
     height: 100px;
     width: 100%;
     background: url("../../../images/hdpi/zfcg.png") no-repeat center;
     background-size: contain;
     margin: 0;
+    margin-top: 10%;
 }
-#my-order-ok-popup .img-p-notice+p{
+.my-order-popup .img-p-notice+p{
     margin:0 ;
     position: relative;
-    top:-19px;
+    top: 0;
+    font-size: 1.8rem;
+    letter-spacing: 4px;
+    font-weight: bold !important;
 }
-#my-order-ok-popup .img-p-notice+p+p {
-    margin-top:0 ;
-    margin-bottom: 40px;
+.my-order-popup .img-p-notice+p+p{
+    margin-top: 10%;
+    margin-bottom: 16%;
+    text-align: center;
+    padding: 0 12%;
+    letter-spacing: 1px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
-
-#my-order-ok-popup .dialog_close{
+.my-order-popup .img-p-notice+p+p+p{margin-bottom: 14%;}
+.my-order-popup .dialog_close{
     background-color:rgba(255,255,255,0) ;
     border: 0;
 }
-#my-order-ok-popup  .ok-order-btn {
-    padding: 6px 10px;
+.my-order-popup  .ok-order-btn{
+    padding: 4px 34px;
+    font-size: 1.6rem;
+    letter-spacing: 4px;
+    border-radius: 20px;
 }

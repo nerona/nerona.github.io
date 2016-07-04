@@ -8,6 +8,12 @@
   <link rel="stylesheet" href="css/common/jquery.mobile-1.4.5.min.css"/>
   <link rel="stylesheet" href="css/style-final.css" />
 <style>
+    html,body{
+        width:100%;
+        margin:0;
+        padding: 0;
+        height:100%;
+    }
 </style>
 </head>
 <body>
@@ -17,8 +23,8 @@
         <h2>关于我们</h2>
         <a href="#" class="my-header-right-btn-ad" data-role="none"><span>.</span><span>.</span><span>.</span></a>
     </section>
-<section data-role="content">
-<img src="images/test-img/about.png" style="width:100%"/>
+<section data-role="content" style="margin:0;padding:0;">
+<img src="images/test-img/about.png" id="aboutImg" style="width:100%;margin:0;padding: 0;"/>
 </section>
 
 
@@ -27,14 +33,25 @@
 
 </body>
     
-  <script src="js/common/jquery.min.js"></script>
- <script>
-    $(document).bind('mobileinit',function(){
-        $.mobile.changePage.defaults.changeHash = false;
-        $.mobile.hashListeningEnabled = false;
-        $.mobile.pushStateEnabled = false;
-    });
-</script> 
+    <script src="js/common/jquery.min.js"></script>
+    <script src="js/common/common.js"></script>
+    <script>
+        $(document).bind('mobileinit',function(){
+            $.mobile.changePage.defaults.changeHash = false;
+            $.mobile.hashListeningEnabled = false;
+            $.mobile.pushStateEnabled = false;
+        });
+
+        $(function(){
+            Util.common.setWxTitle('关于我们');
+            var url = Util.common.baseUrl + "/module/text/mobile/our.do";
+            var param = {
+            };
+            Util.common.executeAjaxCallback(url, param, function (data) {
+                $('#aboutImg').attr('src',data.fileUrl);
+            });
+        });
+    </script>
 <script src="js/common/jquery.mobile-1.4.5.min.js" ></script>   
 
 

@@ -41,24 +41,26 @@
     <div class="share-content">
         <p>分享到</p>
         <ul>
-            <li><a href="#"><img src="imgs/test-img/share-wx.png"/><span>微信</span></a></li>
-            <li><a href="#"><img src="imgs/test-img/share-fd.png"/><span>朋友圈</span></a></li>
+            <li onclick="window.shareStudyToWexin()"><a href="#"><img src="imgs/test-img/share-wx.png"/><span>微信</span></a>
+            </li>
+            <li onclick="window.shareStudyToWexinCircle()"><a href="#"><img
+                    src="imgs/test-img/share-fd.png"/><span>朋友圈</span></a></li>
             <!--<li><a href="#"><img src="imgs/test-img/share-sina.png"/><span>微博</span></a></li>-->
         </ul>
     </div>
 </div>
 </body>
-<script src="js/common/jquery.min.js"></script>
-<script>
-    $(document).bind('mobileinit', function () {
-        $.mobile.changePage.defaults.changeHash = false;
-        $.mobile.hashListeningEnabled = false;
-        $.mobile.pushStateEnabled = false;
-    });
-</script>
 </html>
 <script src="js/common/jquery.min.js"></script>
 <script>
+    window.shareStudyToWexin = function () {
+        var content = business.study.content;
+        window.app.wxShareJS(content.title, content.title, location.href, content.covePicUrl);
+    };
+    window.shareStudyToWexinCircle = function () {
+        var content = business.study.content;
+        window.app.wxShareCircleJS(content.title, content.title, location.href, content.covePicUrl);
+    };
     $(document).bind('mobileinit', function () {
         $.mobile.changePage.defaults.changeHash = false;
         $.mobile.hashListeningEnabled = false;
@@ -86,4 +88,6 @@
     <div><span>${readNum}</span></div>
     <div style="clear: both"></div>
     {{html content}}
+
+
 </script>

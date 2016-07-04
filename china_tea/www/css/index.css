@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0
 }
+html, body {-webkit-overflow-scrolling: touch;}
 ::-webkit-scrollbar {width: 0}
 a:link, a:visited {
     text-decoration: none;
@@ -15,7 +16,18 @@ a:link, a:visited {
 #index_classify_id {
     margin-top: 2.2rem;
 }
-
+#index_classify_id:after, #index_classify_id ul:after {
+    content: '';
+    display: block;
+    visibility: hidden;
+    height: 0;
+    clear: both;
+}
+#index_classify_id ul {
+    display: -webkit-box;
+    overflow-x: auto;
+    padding-top: .4rem;
+}
 #index_classify_id img {
     margin-bottom: 1.25rem;
 }
@@ -26,7 +38,7 @@ a:link, a:visited {
 }
 
 .sort_type li {
-    float: left;
+/*    float: left;*/
     list-style-type: none;
     vertical-align: middle;
     text-align: center;
@@ -52,18 +64,24 @@ a:link, a:visited {
 }
 
 #slider-content {
-    margin-bottom: 0
+    margin-bottom: 40px;
+    overflow: visible;
 }
 #slider-content .swiper-slide a {
     display: block;
-    height: 14rem;
+    /*height: 14rem;*/
 }
 #slider-content .swiper-slide a img {
     width: 100%;
     height: 100%;
 }
 .swiper-container-horizontal>.swiper-pagination-bullets {
-    /*bottom: -20px;*/
+    bottom: -20px;
+    z-index: 99;
+}
+.swiper-pagination-bullet-active {
+    opacity: 1;
+    background: #ff4acd;
 }
 #slider-application {
     margin-bottom: 0
@@ -73,23 +91,22 @@ a:link, a:visited {
     position: relative;
 }
 #slider-application .swiper-slide a img {
-    width: 14rem;
+    width: 100%;
 }
-#slider-application .swiper-slide > span {
+#slider-application .swiper-slide a > span {
     position: absolute;
-    top: 34%;
-    left: 5.2rem;
-    width: 32%;
-    font-size: 1.8rem;
-    letter-spacing: 5px;
+    width: 36%;
+    font-size: 2rem;
+    letter-spacing: .1rem;
     color: #fff;
     line-height: 24px;
+    text-align: center;
 }
 
 #slider-application, #slider-brand {
     border: 0;
 }
-
+#slider-brand {margin-bottom: 4%;}
 #slider-brand li img {
     width: 100%;
 }
@@ -179,7 +196,8 @@ a:link, a:visited {
 .yt {
     background: #fff;
     height: 3rem;
-    margin-top: 3rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
 .yt a {
@@ -195,4 +213,11 @@ a:link, a:visited {
     width: 13%;
     vertical-align: middle;
     margin: 0 3% 1% 2%;
+}
+
+.copyright {
+    text-align: center;
+    padding: 1rem 0;
+    color: rgba(0,0,0,.5);
+    font-size: .8rem;
 }

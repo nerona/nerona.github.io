@@ -62,6 +62,7 @@
 <script src="js/common/jquery.min.js"></script>
 <script src="js/common/common.js"></script>
 <script>
+    Util.common.setWxTitle('意见反馈');
     $(document).bind('mobileinit',function(){
         $.mobile.changePage.defaults.changeHash = false;
         $.mobile.hashListeningEnabled = false;
@@ -70,10 +71,17 @@
     //提交
     function submitBtn(){
         var url = Util.common.baseUrl +"/module/opinion/mobile/add.do";
-        var desc = $("input[name=addinfo]").val();
-        var param = {"opinion":{"clientId":"1","versionCode":Util.common.versionCode,"type":"2","description":desc}};
+        var mobile = $("input[name=mobile]").val();
+        var desc = $("textarea[name=sg]").val();
+
+        var param = {"modelJson":JSON.stringify({
+            clientName:'游客',
+            clientPhone:mobile,
+            "clientId":localStorage.getItem("userid"),
+            platform:'1',"versionCode":Util.common.versionCode,
+            "type":"2","description":desc})};
         Util.common.executeAjaxCallback(url ,param,function(data){
-            //执行提交后台后代码
+            Util.msg.show("msgId",data.msg);
         })
     }
 </script>

@@ -12,7 +12,7 @@
 <body>
 <div data-role="page"  data-quicklinks="true">
     <section data-role="header" data-theme="b" class="my-header" id="my-header">
-        <a href="javascript:history.back();"  data-role="none" class="my-header-back-btn"></a>
+        <a href="javascript:history.back();" data-role="none" class="my-header-back-btn"></a>
         <h2>收货地址</h2>
         <a href="#" class="my-header-right-btn-ad" data-role="none"><span>.</span><span>.</span><span>.</span></a>
     </section>
@@ -74,6 +74,7 @@
 <script src="js/common/common.js"></script>
 <script src="js/customer/address/address.js"></script>
 <script>
+    Util.common.setWxTitle('收货地址');
     $(document).bind('mobileinit', function () {
         $.mobile.changePage.defaults.changeHash = false;
         $.mobile.hashListeningEnabled = false;
@@ -85,31 +86,28 @@
     });
 </script>
 <script src="js/common/jquery.mobile-1.4.5.min.js"></script>
-<script src="js/common/common.js"></script>
 </html>
 <!--以下是模板文件-->
 <script type="text/x-jquery-tmpl" id="address_list_t">
-{{each(i,data) datas}}
-    <li>
-        <dt ><span>收货人：${data.receiptName}</span></dt>
+    <li  onclick="customer.address.setDefaultAddressBack(this,'${id}')">
+        <dt ><span>收货人：${receiptName}</span></dt>
         <dd class="text-right right-dd-a">
-            <span> ${data.mobile}</span>
+            <span> ${mobile}</span>
         </dd>
         <dt><p> 收货地址：</p></dt>
         <dd class="pay-type-text">
-            <p> ${data.provinceName}${data.cityName}${data.areaName}${data.detailAddr}</p>
+            <p> ${provinceName}${cityName}${areaName}${detailAddr}</p>
         </dd>
         <dl>
             <dd >
-                <input type="radio" {{if data.status==1}}checked="true"{{/if}} class="ext-box-select" id="filter-jrtj${i}"
-                    name="addressRadio" data-role="none" onclick="customer.address.setDefaultAddress(this,${data.id})">
-                <label for="filter-jrtj${i}">设置为默认地址</label>
+                <input type="radio" {{if status==1}}checked="true"{{/if}} class="ext-box-select" id="filter-jrtj${id}"
+                    name="addressRadio" data-role="none" onclick="customer.address.setDefaultAddress(this,'${id}')">
+                <label for="filter-jrtj${id}">设置为默认地址</label>
             </dd>
             <dd class="text-right right-dd-a">
-                <a href="#" class="del-order-btn edit-btn" data-role="none" onclick="customer.address.delAddress(${data.id})">删除</a>
-               <a href="html/customer/address/edit.html?type=edit&id=${data.id}" target="_top" class="ok-order-btn edit-btn" data-role="none">编辑</a>
+                <a href="#" class="del-order-btn edit-btn" data-role="none" onclick="customer.address.delAddress('${id}')">删除</a>
+               <a onclick="javascript:location.replace('html/customer/address/edit.html?type=edit&id=${id}');event.returnValue=false;" target="_top" class="ok-order-btn edit-btn" data-role="none">编辑</a>
             </dd>
         </dl>
     </li>
-{{/each}}
 </script>

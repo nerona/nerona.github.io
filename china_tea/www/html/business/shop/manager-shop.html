@@ -29,12 +29,12 @@
          <table width="100%">
              <tr>
                  <td>
-                     <form class="ui-filterable">
+                     <div class="ui-filterable">
                          <div class="my-ui-input my-ui-search-input">
                              <input name="userName" id="goodSearchId" type="text"  data-role="none" placeholder="请输入商品名称" value="">
                              <a href="#" data-role="none" class="clear-a-text"></a>
                          </div>
-                     </form>
+                     </div>
                  </td>
                  <td id="submitBtn" style="text-align: center">
                      <a  class="goods-search-cancel-a" data-role="none" href="#" onclick="business.MangerShop.cancelBtn(this)">取消</a>
@@ -84,12 +84,12 @@
      <section  data-role="footer"  data-disable-page-zoom="false" data-position="fixed" class="my-ui-footer-bar" style="background-color: #ffffff;">
          <ul>
              <li><a href="#" class="manager-shop-a-ico"><span>预览店铺</span></a></li>
-             <li><a href="html/business/shop/shop-ewm-share.html" target="_top" class="shop-ewm-a-ico"><span>店铺二维码</span></a></li>
+             <li><a onclick="business.MangerShop.toEWM()" target="_top" class="shop-ewm-a-ico"><span>店铺二维码</span></a></li>
              <li><a href="#" target="_top" class="manager-batch-a-ico" onclick="business.MangerShop.toBatchManager()"><span>批量管理</span></a></li>
          </ul>
      </section>
   <div class="my-ui-up-btn">
-      <a href="#" ></a>
+      <a href="#" onclick="business.MangerShop.toTop()"></a>
   </div>
 </body>
 </html>
@@ -118,7 +118,7 @@
              </colgroup>
              <tbody>
              <tr>
-                 <td class="goods-img-td"><a href="#" target="_top" onclick="business.MangerShop.toDetails(${id})"><img src="${showPicture}"></a></td>
+                 <td class="goods-img-td"><a href="#" target="_top" onclick="business.MangerShop.toDetails('${id}')"><img src="${showPicture}"></a></td>
                  <td>
                  <div><p><span class="tj-goods-ico-ing">${columnName}</span><b>${goodName}</b></p></div>
                  <div><p class="goods-count-p">销量 <em>${saleNum}</em> 库存 <em>${stock}</em> 收藏 <em>${storeNum}</em></p></div>

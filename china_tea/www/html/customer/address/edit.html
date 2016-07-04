@@ -11,13 +11,13 @@
 <body>
 <div data-role="page" data-quicklinks="true">
     <section data-role="header" data-theme="b" class="my-header" id="my-header">
-        <a href="javascript:history.back();"  data-role="none" class="my-header-back-btn"></a>
+        <a href="javascript:history.back();" data-role="none" class="my-header-back-btn"></a>
         <h2>编辑收货地址</h2>
         <a href="#" class="my-header-right-btn-ad" data-role="none"><span>.</span><span>.</span><span>.</span></a>
     </section>
 <section data-role="content" class="return-address">
 <ul id="addressInfo">
-    <li><label>收货人：</label><span><input name="receiptName" value="" class="ext-text-w" data-role="none"></span></li>
+   <!-- <li><label>收货人：</label><span><input name="receiptName" value="" class="ext-text-w" data-role="none"></span></li>
     <li><label>联系方式：</label><span><input name="mobile" value="" class="ext-text-w" data-role="none"></span></li>
     <input type="hidden" name="provinceName">
     <input type="hidden" name="cityName">
@@ -28,7 +28,7 @@
     <li><label>所在地址：</label><a href="html/customer/address/province.html" target="_top" data-role="none" class="btn-right-a"><span class="cbbb">请选择所在地区</span></a></li>
     <li><label>详细地址：</label><span><input name="detailAddr" value="" class="ext-text-w" data-role="none"></span></li>
     <li><label>邮政编码：</label><span><input name="mailbox" value="" class="ext-text-w" data-role="none"></span></li>
-
+-->
 </ul>
 </section>
 
@@ -45,6 +45,7 @@
 <script src="js/common/common.js"></script>
 <script src="js/customer/address/address.js"></script>
  <script>
+     Util.common.setWxTitle('编辑收货地址');
     $(document).bind('mobileinit',function(){
         $.mobile.changePage.defaults.changeHash = false;
         $.mobile.hashListeningEnabled = false;
@@ -55,22 +56,55 @@
         if('edit'==Util.common.getParameter("type")){
             customer.address.getAddressInfo();
         }
+        if('add'==Util.common.getParameter("type")){
+            customer.address.getAddInfo();
+        }
     });
 </script> 
 <script src="js/common/jquery.mobile-1.4.5.min.js" ></script>
-<script src="js/common/common.js"></script>
+<!-- Mobiscroll JS and CSS Includes -->
+
+<script src="lib/js/mobiscroll.core.js"></script>
+<script src="lib/js/mobiscroll.frame.js"></script>
+<script src="lib/js/mobiscroll.scroller.js"></script>
+
+<script src="lib/js/mobiscroll.listbase.js"></script>
+<script src="lib/js/mobiscroll.treelist.js"></script>
+
+<script src="lib/js/mobiscroll.android-holo-light.js"></script>
+
+<script src="lib/js/i18n/mobiscroll.i18n.zh.js"></script>
+
+<script src="lib/js/city-picker.data.js"></script>
+<script src="lib/js/mobile-cityPicker.js"></script>
+
+<link href="lib/css/mobiscroll.animation.css" rel="stylesheet" type="text/css" />
+<link href="lib/css/mobiscroll.frame.css" rel="stylesheet" type="text/css" />
+<link href="lib/css/mobiscroll.frame.android-holo.css" rel="stylesheet" type="text/css" />
+<link href="lib/css/mobiscroll.frame.wp.css" rel="stylesheet" type="text/css" />
+<link href="lib/css/mobiscroll.scroller.css" rel="stylesheet" type="text/css" />
+<link href="lib/css/mobiscroll.scroller.android-holo.css" rel="stylesheet" type="text/css" />
+
+<link href="lib/css/mobiscroll.android-holo-light.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+    .dwfl{flex:1;}
+</style>
 </html>
 <!--以下是模板文件-->
 <script type="text/x-jquery-tmpl" id="addressInfo_t">
-    <li><label>收货人：</label><span><input name="receiptName" value="${receiptName}" class="ext-text-w" data-role="none"></span></li>
-    <li><label>联系方式：</label><span><input name="mobile" value="${mobile}" class="ext-text-w" data-role="none"></span></li>
-    <input type="hidden" name="provinceName" value="${provinceName}">
-    <input type="hidden" name="cityName" value="${cityName}">
-    <input type="hidden" name="areaName" value="${areaName}">
+
+    <ul id="demo_treelist"></ul>
+    </div>
+    <li><label style="letter-spacing:4px;">收货人：</label><span><input name="receiptName" value="${receiptName}" class="ext-text-w" data-role="none"></span></li>
+    <li><label>联系方式：</label><span><input name="mobile" value="${mobile}" class="ext-text-w" data-role="none" type="tel"></span></li>
+    <input type="hidden" name="provinceName" value="${provinceName}" data-label="province" data-id="" class="cityPickerInput" value="请选择省"/>
+    <input type="hidden" name="cityName" value="${cityName}" data-label="city" data-id="" class="cityPickerInput" value="请选择市"/>
+    <input type="hidden" name="areaName" value="${areaName}" data-label="district" data-id="" class="cityPickerInput" value="请选择区"/>
     <input type="hidden" name="provinceCode" value="${provinceCode}">
     <input type="hidden" name="cityCode" value="${cityCode}">
     <input type="hidden" name="areaCode" value="${areaCode}">
-    <li><label>所在地址：</label><a href="html/customer/address/province.html" target="_top" data-role="none" class="btn-right-a">${provinceName}${cityName}${areaName}</a></li>
+    <li style="height:2.6rem;line-height:2.6rem;" class="cityPickerInput" id="cityPick"><label>所在地址：</label><a href="javascript:void(0)" target="_top" data-role="none" class="btn-right-a" id="pca_value">${provinceName}-${cityName}-${areaName}</a></li>
     <li><label>详细地址：</label><span><input name="detailAddr" value="${detailAddr}" class="ext-text-w" data-role="none"></span></li>
-    <li><label>邮政编码：</label><span><input name="mailbox" value="${mailbox}" class="ext-text-w" data-role="none"></span></li>
+<!--    <li><label>邮政编码：</label><span><input name="mailbox" value="${mailbox}" class="ext-text-w" data-role="none" type="tel"></span></li>-->
 </script>
