@@ -87,14 +87,14 @@ input {
 }
 .input-field input[type=text]:focus + label,
 .input-field input[type=password]:focus + label {
-    left: 4.4rem;
+    left: 4.6rem;
     font-size: .6rem;
     top: 0;
     color: #26a69a;
 }
 .input-field label {
     position: absolute;
-    left: 4.4rem;
+    left: 4.6rem;
     font-size: .7rem;
     top: 1rem;
     color: #999;
