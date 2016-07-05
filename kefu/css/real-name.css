@@ -14,6 +14,9 @@ img {
 .bar .icon {
     color: #fff;
 }
+.content-block {
+    margin: .75rem 0;
+}
 .list-block {
     margin: 0;
 }
