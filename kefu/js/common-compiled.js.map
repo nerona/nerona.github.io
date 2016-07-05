@@ -1,0 +1,1 @@
+{"version":3,"sources":["common.js"],"names":[],"mappings":";;;;;AAGA,IAAI,SAAS,UAAU,EAAV;;AAEb,OAAO,IAAP,GAAc,EAAd","file":"common-compiled.js","sourcesContent":["/**\r\n * Created by dell on 2016/7/5.\r\n */\r\nvar common = common || {};\r\n\r\ncommon.Util = {\r\n    \r\n};"]}
