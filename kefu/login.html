@@ -57,12 +57,13 @@
             var username = $('#username').val();
             var psd = $('#password').val();
 
-            if(username != '' && psd != '') {
-                document.location.href = 'index.html';
-            } else if(username == '') {
+            if(username == '') {
                 $.toast('用户名不能为空');
             } else if(psd == '') {
                 $.toast('密码不能为空');
+            } else {
+                //ajax
+                document.location.href = 'index.html';
             }
         });
         //交互效果

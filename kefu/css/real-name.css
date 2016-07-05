@@ -67,6 +67,9 @@ input {
 .row {
     margin-left: 0;
 }
+.icon {
+    margin-right: .2rem;
+}
 .input-field {
     background-color: #fff;
     padding: .6rem 1.4rem;
@@ -115,4 +118,35 @@ input {
 }
 .bg-white .mr-top {
     margin-top: 3rem;
+}
+
+/**/
+.pagination {
+    width: 100%;
+    display: -webkit-box;
+    height: 1.6rem;
+    line-height: 1.6rem;
+    text-align: center;
+    margin: 1rem 0;
+}
+.pag-container {
+    -webkit-box-flex: 1;
+    display: -webkit-box;
+    -webkit-box-pack: center;
+}
+.pag-paper {
+    background-color: #fff;
+    color: #333;
+    font-size: .6rem;
+    padding: 0 .6rem;
+}
+.pag-item {
+    background-color: #fff;
+    color: #333;
+    margin-right: .3rem;
+    width: 1.6rem;
+}
+.pag-active {
+    background-color: #c9c9c9;
+    color: #333;
 }
