@@ -110,6 +110,8 @@ input {
     background-color: #3d6b32;
     color: #fff;
     border-radius: 5px;
+    font-size: 1.2rem;
+    line-height: 2.2rem;
 }
 .bg-white .mr-top {
     margin-top: 3rem;
