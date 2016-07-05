@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>登录</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+
+    <link rel="stylesheet" href="./css/real-name.css">
+</head>
+<body>
+<div class="page-group">
+    <div class="page page-current">
+        <header class="bar bar-nav">
+            <h1 class="title">登录</h1>
+        </header>
+        <div class="content bg-white">
+            <img src="./images/logo.png" alt="">
+            <form class="login-form">
+                <div class="row">
+                    <div class="input-field">
+                        <i class="icon icon-friends"></i>
+                        <input class="validate" id="username" type="text">
+                        <label for="username" class="center-align">用户名</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field">
+                        <i class="icon icon-code"></i>
+                        <input id="password" type="password">
+                        <label for="password">密码</label>
+                    </div>
+                </div>
+
+                <div class="row mr-top">
+                    <div class="input-field">
+                        <a href="javascript:void(0);" class="btn" id="login">登　录</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+
+<script>
+    $(function(){
+        //登录验证
+        $('#login').on('click', function(){
+            var username = $('#username').val();
+            var psd = $('#password').val();
+
+            if(username != '' && psd != '') {
+                document.location.href = 'index.html';
+            } else if(username == '') {
+                $.toast('用户名不能为空');
+            } else if(psd == '') {
+                $.toast('密码不能为空');
+            }
+        });
+        //交互效果
+        $('input[type=text], input[type=password]').on('focus', function(){
+            $(this).prev().css({
+                "color": "#26a69a"
+            });
+        }).on('blur', function(){
+            $(this).prev().css({
+                "color": "rgb(61,61,61)"
+            });
+            judgeInput();
+        });
+
+        function judgeInput() {
+            if($('input[type=text]').val() != "") {
+                $('input[type=text] + label').hide();
+            } else {
+                $('input[type=text] + label').show();
+            }
+            if($('input[type=password]').val() != "") {
+                $('input[type=password] + label').hide();
+            } else {
+                $('input[type=password] + label').show();
+            }
+        }
+    });
+</script>
+</body>
+</html>
