@@ -17,6 +17,9 @@ img {
 .content-block {
     margin: .75rem 0;
 }
+.content-block .row {
+    margin-left: -4%;
+}
 .list-block {
     margin: 0;
 }
