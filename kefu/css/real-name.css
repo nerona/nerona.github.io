@@ -4,6 +4,13 @@
 ::-webkit-scrollbar {
     width: 0;
 }
+.title {
+    background-color: #3d6b32;
+    color: #fff;
+}
+.bar .icon {
+    color: #fff;
+}
 .list-block {
     margin: 0;
 }
