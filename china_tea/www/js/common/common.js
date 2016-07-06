@@ -8,7 +8,8 @@ var Util = Util || {};
 /*定义常用方法工具对象*/
 Util.common = {
     //配置全局根路径http://115.159.25.170/shanguoyinyi
-    baseUrl: 'http://sp.xiangshanzx.com/shanguoyinyi',
+    //baseUrl: 'http://sp.xiangshanzx.com/shanguoyinyi',
+    baseUrl: 'http://www.cha2u.com/shanguoyinyi',
     //配置全局版本号
     versionCode: 'v1.0',
     //获取html页面直接跳转参数值

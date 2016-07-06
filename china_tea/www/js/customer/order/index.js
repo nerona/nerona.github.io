@@ -25,7 +25,7 @@ $(function(){
                 }, 100);
             });
         } else if(type == 4) {
-            //
+
             var that = $(this).parent().parent().parent().parent();
             var goodModel = [];
             that.find('tbody tr').each(function(index){
@@ -83,6 +83,8 @@ var customer = customer || {};
 customer.order = {
     init:function(){
         this.initGoodList();
+        //save token
+        customer.order.getToken();
     },
     initGoodList:function(){
         var url = Util.common.baseUrl+ "/weixin/indent/listByBuyerIdAndStoreId.do";
@@ -206,5 +208,12 @@ customer.order = {
                 this.initGoodList();
             }
         }.bind(this));
+    },
+    getToken: function(){
+        var url = Util.common.baseUrl + "/weixin/qiniu/getToken.do";
+        var param = {};
+        Util.common.executeAjaxCallback(url, param, function(result){
+            localStorage.setItem('qiniu_token', result.uptoken);
+        });
     }
 };

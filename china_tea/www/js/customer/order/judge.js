@@ -41,13 +41,6 @@ customer.judge = {
         console.log(result);
         customer.judge.loadTemplate('#judge-info', '#good-info-t', result);
     },
-    getToken: function(){
-        var url = Util.common.baseUrl + "/weixin/qiniu/getToken.do";
-        var param = {};
-        Util.common.executeAjaxCallback(url, param, function(result){
-            localStorage.setItem('qiniu_token', result.uptoken);
-        });
-    },
     loadTemplate: function (render, templateId, data) {
         $(render).html($(templateId).tmpl(data));
     },
@@ -61,6 +54,8 @@ customer.judge = {
             var goodSkuId = model[i].goodSkuId;
             var score = localStorage.getItem('score') || 5;
             var content = $('.judge-content-dl textarea')[i].value;
+            var logos = localStorage.getItem('img_list_'+[i+1]).split(',');
+            console.log(logos);
             var logo1 = localStorage.getItem('img_list_'+[i+1]);
             modelJson.goodSkuid = goodSkuId;
             modelJson.user = userid;

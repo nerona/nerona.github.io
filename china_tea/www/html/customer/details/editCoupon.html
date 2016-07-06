@@ -69,7 +69,7 @@
         localStorage.setItem('userId', Util.common.getParameter('userId'));
     });
     function goHome() {
-        document.location.href = 'html/customer/index.html?storeId=' + localStorage.getItem('shopId_c');
+        document.location.href = 'html/customer/index.html?storeId=' + localStorage.getItem('shopId') + '&type=weixinIndex&userId=' + localStorage.getItem('userid');
     }
     function goDetail() {
         document.location.href = 'html/customer/details/details.html?id=' + localStorage.getItem('goodId');
@@ -137,7 +137,8 @@
 
             var param = {"modelJson":JSON.stringify(modelJson)};
 
-            Util.common.executeAjaxCallback(url, v_param, function (data) {
+            alert('1234');
+            /*Util.common.executeAjaxCallback(url, v_param, function (data) {
                 if(data.success == true) {
                     localStorage.setItem("shopId_c", data.shopId);
                     Util.common.executeAjaxCallback(order_url, param, function (result) {
@@ -160,7 +161,7 @@
                 } else {
                     Util.msg.show('msgId', data.msg);
                 }
-            });
+            });*/
         }
     }
 </script>

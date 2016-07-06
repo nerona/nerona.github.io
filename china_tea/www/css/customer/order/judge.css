@@ -52,8 +52,14 @@
     margin: 3px 0;
     padding: 10px 10px;
     background: #ffffff;
-    display: inline-block;
     position: relative;
+}
+.judge-main dl:after {
+    content: '';
+    display: block;
+    height: 0;
+    visibility: hidden;
+    clear: both;
 }
 .pingfen{
 	position: absolute;

@@ -126,7 +126,7 @@
                 <td class="td-left"> <img  src="${indent.tradeGoodImgUrl}"></td>
                 <td class="td-middle"><h1>${indent.tradeGoodName}</h1>
                     <p style="padding: 6px 0;"><em class="text-color">￥<em id="payment">${indent.finalAmount}</em></em> </p>
-                    <p><span>${indent.tradeGoodType}</span></p>
+                    <p><span>${indent.tradeGoodSku.cargoSkuName}</span></p>
                 </td>
                 <td class="td-right"><p>x${indent.number}</p></td>
             </tr>
@@ -138,12 +138,14 @@
             {{if good.statusText.indexOf('待付款') != -1 || good.statusText.indexOf('待收货') != -1 || good.statusText.indexOf('待评价') != -1}}
                 <em class="red">${statusText}</em>
                 <a href="#" target="_top" data-role="none" class="ok-order-btn" value=${good.newType}>${good.newStatus}</a>
+                {{if good.type != 2}}
                 <a href="#" target="_top" data-role="none" class="cancel-order-btn" value=${good.newType}>${good.addStatus}</a>
-
+                {{/if}}
              {{else good.statusText.indexOf('待发货') != -1}}
                 <em class="red">${statusText}</em>
+                {{if good.type != 2}}
                 <a href="#" target="_top" data-role="none" class="ok-order-btn" value=${good.newType}>${good.addStatus}</a>
-
+                {{/if}}
              {{else good.statusText.indexOf('退货申请') != -1 || good.statusText.indexOf('退款申请') != -1 || good.statusText.indexOf('退货中') != -1}}
                 <em class="red">${statusText}</em>
                 <a href="#" target="_top" data-role="none" class="ok-order-btn" value=${good.newType}>${good.newStatus}</a>

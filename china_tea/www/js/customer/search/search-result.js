@@ -54,6 +54,13 @@ var conditionStr={
     "columnId":Util.common.getParameter('columnId'),
     "labelId": Util.common.getParameter('labelId')
 };
+var all = {
+    "id": "0",
+    "name": "全部",
+    "orderIndex": 0,
+    "statusText": "启用",
+    "fullName": "全部"
+};
 
 var Loader = {
     isLoading:false,
@@ -135,7 +142,10 @@ customer.search = {
         var url = Util.common.baseUrl + "/weixin/cargo/classify/queryByParentId.do";
         var param = {"category": "0"};
         Util.common.executeAjaxCallback(url, param, function (data) {
-            customer.search.loadTemplate("#menu-a", "#search_classify_a_t", data);
+            var datas = data;
+            all.id = "0";
+            datas.unshift(all);
+            customer.search.loadTemplate("#menu-a", "#search_classify_a_t", datas);
         });
         $("#teaNavbarPopup").show();
     },
@@ -143,11 +153,11 @@ customer.search = {
     nextClassify: function (obj) {
         var url = Util.common.baseUrl + "/weixin/cargo/classify/queryByParentId.do";
         var param = {parentId: $(obj).attr('classify')};
-        localStorage.setItem('classifyId', $(obj).attr('classify'));
+        //localStorage.setItem('classifyId', $(obj).attr('classify'));
         $('#classifyId').html($(obj).html());
 
         Util.common.executeAjaxCallback(url, param, function (data) {
-            if (data == '' || data == null) {
+            if (data == '' || data == null || $(obj).html() == "全部") {
                 var conditionStr = {
                     "shopId": localStorage.getItem('shopId'),
                     "goodName": '',
@@ -155,7 +165,6 @@ customer.search = {
                     "pageNum": 1,
                     "classifyId": $(obj).attr('classify'),
                     "saleNumSort": "0",
-                    "priceSort": "1",
                     "startPrice": "",
                     "endPrice": "",
                     "brandId": Util.common.getParameter('brandId'),
@@ -166,7 +175,10 @@ customer.search = {
                 $("#teaNavbarPopup").hide();
                 customer.search.initGoodList(conditionStr);
             } else {
-                customer.search.loadTemplate("#menu-b", "#search_classify_b_t", data)
+                var datas = data;
+                all.id = $(obj).attr('classify');
+                datas.unshift(all);
+                customer.search.loadTemplate("#menu-b", "#search_classify_b_t", datas)
             }
         });
         //this.executeAjax(url, param, "#menu-b", "#search_classify_b_t");
@@ -185,7 +197,6 @@ customer.search = {
             "pageNum":1,
             "classifyId":$(obj).attr('classify'),
             "saleNumSort":"0",
-            "priceSort":"1",
             "startPrice":"",
             "endPrice":"",
             "brandId":'',
@@ -200,9 +211,9 @@ customer.search = {
     lastClassify: function (obj) {
          var url = Util.common.baseUrl + "/weixin/cargo/classify/queryByParentId.do";
          var param = {parentId: $(obj).attr('classify')};
-        localStorage.setItem('classifyId', $(obj).attr('classify'));
+         //localStorage.setItem('classifyId', $(obj).attr('classify'));
          Util.common.executeAjaxCallback(url, param, function(data){
-             if (data == '' || data == null) {
+             if (data == '' || data == null || $(obj).html() == "全部") {
                  var conditionStr = {
                      "shopId": localStorage.getItem('shopId'),
                      "goodName": '',
@@ -210,7 +221,6 @@ customer.search = {
                      "pageNum": 1,
                      "classifyId": $(obj).attr('classify'),
                      "saleNumSort": "0",
-                     "priceSort": "1",
                      "startPrice": "",
                      "endPrice": "",
                      "brandId": Util.common.getParameter('brandId'),
@@ -221,7 +231,10 @@ customer.search = {
                  $("#teaNavbarPopup").hide();
                  customer.search.initGoodList(conditionStr);
              } else {
-                 customer.search.loadTemplate("#menu-c", "#search_classify_c_t", data)
+                 var datas = data;
+                 all.id = $(obj).attr('classify');
+                 datas.unshift(all);
+                 customer.search.loadTemplate("#menu-c", "#search_classify_c_t", datas)
              }
          });
     },
@@ -334,7 +347,6 @@ customer.search = {
             "pageNum":1,
             "classifyId": localStorage.getItem('classifyId'),
             "saleNumSort":"0",
-            "priceSort":"1",
             "startPrice":"",
             "endPrice":"",
             "brandId":Util.common.getParameter('brandId'),
