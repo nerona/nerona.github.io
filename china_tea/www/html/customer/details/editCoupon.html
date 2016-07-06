@@ -137,8 +137,7 @@
 
             var param = {"modelJson":JSON.stringify(modelJson)};
 
-            alert('1234');
-            /*Util.common.executeAjaxCallback(url, v_param, function (data) {
+            Util.common.executeAjaxCallback(url, v_param, function (data) {
                 if(data.success == true) {
                     localStorage.setItem("shopId_c", data.shopId);
                     Util.common.executeAjaxCallback(order_url, param, function (result) {
@@ -161,7 +160,7 @@
                 } else {
                     Util.msg.show('msgId', data.msg);
                 }
-            });*/
+            });
         }
     }
 </script>
