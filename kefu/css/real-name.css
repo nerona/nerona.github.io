@@ -158,3 +158,24 @@ input {
     background-color: #c9c9c9;
     color: #333;
 }
+/**/
+.list-block .item-over-text {
+    word-break: break-all;
+    white-space: normal;
+    width: 65%;
+    max-height: 4rem;
+    text-align: justify;
+}
+.box-mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.5);
+    z-index: 9999;
+    display: none;
+}
+.submit-box {
+    margin-top: 40%;
+}

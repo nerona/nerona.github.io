@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>留言板</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+    <!--<link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">-->
+
+    <link rel="stylesheet" href="./../css/real-name.css">
+</head>
+<body>
+<div class="page-group">
+    <div class="page page-current">
+        <header class="bar bar-nav">
+            <a class="icon back icon-left pull-left"></a>
+            <h1 class="title">留言板</h1>
+        </header>
+        <div class="content">
+            <div class="content-block">
+                <div class="button button-big button-fill button-success" id="add">新增</div>
+            </div>
+
+            <!--1-->
+
+            <!--2-->
+            <div class="list-block mr-bottom">
+                <ul>
+                    <li class="item-content">
+                        <div class="item-media"><i class="icon icon-f7"></i></div>
+                        <div class="item-inner">
+                            <div class="item-title">留言人</div>
+                            <div class="item-after">kefu</div>
+                        </div>
+                    </li>
+                    <li class="item-content">
+                        <div class="item-media"><i class="icon icon-f7"></i></div>
+                        <div class="item-inner">
+                            <div class="item-title">主题</div>
+                            <div class="item-after">功能开放</div>
+                        </div>
+                    </li>
+                    <li class="item-content">
+                        <div class="item-media"><i class="icon icon-f7"></i></div>
+                        <div class="item-inner">
+                            <div class="item-title">留言内容</div>
+                            <div class="item-after item-over-text">
+                                本功能用于客服交接班，或者备忘事件记录，权限全员开放；
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item-content">
+                        <div class="item-media"><i class="icon icon-f7"></i></div>
+                        <div class="item-inner">
+                            <div class="item-title">创建时间</div>
+                            <div class="item-after">2016-02-23 12:00:00</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="box-mask">
+            <div class="submit-box">
+                <div class="list-block">
+                    <ul>
+                        <!-- Text inputs -->
+                        <li>
+                            <div class="item-content">
+                                <div class="item-media"><i class="icon icon-form-name"></i></div>
+                                <div class="item-inner">
+                                    <div class="item-title label">主题</div>
+                                    <div class="item-input">
+                                        <input type="text" placeholder="主题">
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content">
+                                <div class="item-media"><i class="icon icon-form-email"></i></div>
+                                <div class="item-inner">
+                                    <div class="item-title label">留言内容</div>
+                                    <div class="item-input">
+                                        <textarea placeholder="留言内容"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="content-block">
+                    <div class="button button-big button-fill button-success" id="submit">保存</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+<!--<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>-->
+
+
+<script>
+    $(function () {
+        $('#add').on('click', function(){
+            $('.box-mask').show();
+            $('#submit').on('click', function(){
+                $('.box-mask').hide();
+            });
+        });
+    });
+</script>
+</body>
+</html>
