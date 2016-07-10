@@ -30,11 +30,12 @@
 <body>
 <div data-role="page">
 	<section data-role="header" data-theme="b" class="my-header" id="my-header">
-		<a href="html/customer/index.html" target="_top" id="back" data-role="none" class="my-header-back-btn"></a>
-		<h2 id="pageTitle">特价专区</h2>
+		<a href="html/customer/index.html" target="_top" id="back"  data-role="none" class="my-header-back-btn"></a>
+		<h2 id="pageTitle">商品列表</h2>
 		<a href="#" class="my-header-right-btn-ad" data-role="none"><span>.</span><span>.</span><span>.</span></a>
 	</section>
-	<section data-role="content" class="article-list-show">	<div data-role="main" class="search-result-main">
+
+	<div data-role="main" class="search-result-main">
 		<div class="my-ui-search">
 			<table width="100%">
 				<tr>
@@ -57,7 +58,7 @@
 		<div data-role="navbar" id="my-navbarId">
 			<ul>
 				<li>
-					<a href="#"  data-icon="splb-fl"  onclick="customer.search.showClassify(this)" id="classifyId" classify="" style="width: 84px;">茶叶</a>
+					<a href="#"  data-icon="splb-fl"  onclick="customer.search.showClassify(this)" id="classifyId" classify="" style="text-align: center">茶叶</a>
 				</li>
 				<li><a href="#" data-icon="splb-xx" data-sort-field="saleNumSort" onclick="customer.search.changeToAsc(this)" value="1" class="saleSort">销量</a></li>
 				<li><a href="#" data-icon="splb-xs" data-sort-field="priceSort" onclick="customer.search.changeToAsc(this)" value="2" class="priceSort">价格</a></li>
@@ -67,102 +68,108 @@
 			</ul>
 		</div>
 	</div>
-		<!--分类菜单弹出框-->
-		<input type="hidden" id="selectClassifyId" value="">
-		<div id="teaNavbarPopup" class="menu-div">
-			<!--分类菜单弹出框模板代码-->
-			<div class="ui-block-a ui-grid-a">
-				<ul data-role="listview" class="ui-listview"  id="menu-a" style="margin: 0;">
+	<!--分类菜单弹出框-->
+	<input type="hidden" id="selectClassifyId" value="">
+	<div id="teaNavbarPopup" class="menu-div">
+		<!--分类菜单弹出框模板代码-->
+		<div class="ui-block-a ui-grid-a">
+			<ul data-role="listview" class="ui-listview"  id="menu-a">
+			</ul>
+		</div>
+		<div class="ui-block-b">
+			<ul data-role="listview" class="ui-listview"  id="menu-b">
+			</ul>
+		</div>
+		<div class="ui-block-c">
+			<ul data-role="listview" class="ui-listview"  id="menu-c">
+			</ul>
+		</div>
+	</div>
+	<!--筛选菜单弹出框-->
+	<div id="searchFilterPopup" class="menu-div">
+		<form>
+			<!--<fieldset data-role="controlgroup" id="filter-group">
+				<div class="ui-grid-b">
+					<div class="ui-block-a">
+						<input type="checkbox" class="ext-box-select" id="filter-tgtz" data-role="none">
+						<label for="filter-tgtz" style="margin-left: -18px;">团购特质</label>
+					</div>
+					<div class="ui-block-b">
+						<input type="checkbox" class="ext-box-select" id="filter-jrtj" data-role="none">
+						<label for="filter-jrtj">今日推荐</label>
+					</div>
+					<div class="ui-block-c">
+						<input type="checkbox" class="ext-box-select" id="filter-jssp" data-role="none">
+						<label for="filter-jssp" >精选商品</label>
+					</div>
+					<div class="ui-block-a">
+						<input type="checkbox" class="ext-box-select" id="filter-pptj" data-role="none">
+						<label for="filter-pptj" style="margin-left: -18px;">品牌推荐</label>
+					</div>
+					<div class="ui-block-b">
+						<input type="checkbox" class="ext-box-select" id="filter-xpsx" data-role="none">
+						<label for="filter-xpsx">新品上线</label>
+					</div>
+					<div class="ui-block-c">
+					</div>
+				</div>
+			</fieldset>-->
+			<fieldset data-role="controlgroup" id="priceGroupId">
+				<span>价格区间:</span>
+				<input type="text" name="minPrice" data-role="none" id="minPrice">
+				<span class="cbbb">—</span>
+				<input type="text" name="maxPrice" data-role="none" id="maxPrice">
+			</fieldset>
+			<div class="filter-title-c">用途:</div>
+			<fieldset data-role="controlgroup">
+				<div class="ui-grid-c" id="purpose-select">
+					<!--<div class="ui-block-a">
+						<input name="purpose" id="purpose1" type="radio" value="1" class="ext-box-btn" data-role="none"/>
+						<label for="purpose1">不限</label>
+					</div>-->
+				</div>
+			</fieldset>
+			<div class="filter-title-c">品牌:</div>
+			<fieldset data-role="controlgroup">
+				<div class="ui-grid-c" id="brand-select">
+					<!--<div class="ui-block-a">
+						<input name="brand" id="brand1" type="radio" value="1" class="ext-box-btn" data-role="none"/>
+						<label for="brand1">全部品牌</label>
+					</div>-->
+				</div>
+			</fieldset>
+			<div id="bottom-btn">
+				<input type="reset" data-role="none" value="重置" class="del-order-btn" onclick="customer.search.btnReset();">
+				<input type="button" data-role="none" value="确定"class="ok-order-btn" onclick="customer.search.sureBtnFilter();">
+			</div>
+
+		</form>
+	</div>
+	<!--列表部分-->
+	<div data-role="main" class="ui-content" style="overflow-x: visible;!important;">
+		<div id="good-grid-id-special" style="top: 114px;">
+			<div id="scroller" style="position: relative;top: -20px;">
+				<div id="pullDown">
+					<span class="pullDownIcon"></span><span class="pullDownLabel">下拉刷新...</span>
+				</div>
+
+				<ul id="thelist">
 				</ul>
-			</div>
-			<div class="ui-block-b" id="menu-b">
-			</div>
-			<div class="ui-block-c" id="menu-c">
-			</div>
-		</div>
-		<!--筛选菜单弹出框-->
-		<div id="searchFilterPopup" class="menu-div">
-			<form>
-				<!--<fieldset data-role="controlgroup" id="filter-group">
-                    <div class="ui-grid-b">
-                        <div class="ui-block-a">
-                            <input type="checkbox" class="ext-box-select" id="filter-tgtz" data-role="none">
-                            <label for="filter-tgtz" style="margin-left: -18px;">团购特质</label>
-                        </div>
-                        <div class="ui-block-b">
-                            <input type="checkbox" class="ext-box-select" id="filter-jrtj" data-role="none">
-                            <label for="filter-jrtj">今日推荐</label>
-                        </div>
-                        <div class="ui-block-c">
-                            <input type="checkbox" class="ext-box-select" id="filter-jssp" data-role="none">
-                            <label for="filter-jssp" >精选商品</label>
-                        </div>
-                        <div class="ui-block-a">
-                            <input type="checkbox" class="ext-box-select" id="filter-pptj" data-role="none">
-                            <label for="filter-pptj" style="margin-left: -18px;">品牌推荐</label>
-                        </div>
-                        <div class="ui-block-b">
-                            <input type="checkbox" class="ext-box-select" id="filter-xpsx" data-role="none">
-                            <label for="filter-xpsx">新品上线</label>
-                        </div>
-                        <div class="ui-block-c">
-                        </div>
-                    </div>
-                </fieldset>-->
-				<fieldset data-role="controlgroup" id="priceGroupId">
-					<span>价格区间:</span>
-					<input type="text" name="minPrice" data-role="none" id="minPrice">
-					<span class="cbbb">—</span>
-					<input type="text" name="maxPrice" data-role="none" id="maxPrice">
-				</fieldset>
-				<div class="filter-title-c">用途:</div>
-				<fieldset data-role="controlgroup">
-					<div class="ui-grid-c" id="purpose-select">
-						<!--<div class="ui-block-a">
-                            <input name="purpose" id="purpose1" type="radio" value="1" class="ext-box-btn" data-role="none"/>
-                            <label for="purpose1">不限</label>
-                        </div>-->
-					</div>
-				</fieldset>
-				<div class="filter-title-c">品牌:</div>
-				<fieldset data-role="controlgroup">
-					<div class="ui-grid-c" id="brand-select">
-						<!--<div class="ui-block-a">
-                            <input name="brand" id="brand1" type="radio" value="1" class="ext-box-btn" data-role="none"/>
-                            <label for="brand1">全部品牌</label>
-                        </div>-->
-					</div>
-				</fieldset>
-				<div id="bottom-btn">
-					<input type="reset" data-role="none" value="重置" class="del-order-btn" onclick="customer.search.btnReset();">
-					<input type="button" data-role="none" value="确定"class="ok-order-btn" onclick="customer.search.sureBtnFilter();">
+				<div id="pullUp" style="clear:both;">
+					<span class="pullUpIcon"></span><span class="pullUpLabel"></span>
 				</div>
-
-			</form>
-		</div>
-		<!--列表部分-->
-		<div data-role="main" class="ui-content" style="overflow-x: visible;!important;">
-			<div id="good-grid-id-special">
-				<div id="scroller" style="position: relative;top: -16px;">
-					<div id="pullDown">
-						<span class="pullDownIcon"></span><span class="pullDownLabel">下拉刷新...</span>
-					</div>
-
-					<ul id="thelist">
-					</ul>
-					<div id="pullUp" style="clear:both;">
-						<span class="pullUpIcon"></span><span class="pullUpLabel"></span>
-					</div>
-					<div class="empty-list" style="display: none;margin:0 auto;text-align: center;clear:both;">
-						<span style="text-decoration:line-through;float: left;;color: #B1ACAC;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-						<span style="font-size: 1.2rem;color: #B1ACAC;">没有更多了</span>
-						<span style="text-decoration:line-through;float: right;;color: #B1ACAC;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-					</div>
+				<div class="empty-list" style="display: none;margin:0 auto;text-align: center;clear:both;">
+					<span style="text-decoration:line-through;float: left;;color: #B1ACAC;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+					<span style="font-size: 1.2rem;color: #B1ACAC;">没有更多了</span>
+					<span style="text-decoration:line-through;float: right;;color: #B1ACAC;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 				</div>
 			</div>
 		</div>
-	</section>
+
+	</div>
 </div>
+
+
 </body>
 </html>
 <script src="js/common/jquery.min.js"></script>
