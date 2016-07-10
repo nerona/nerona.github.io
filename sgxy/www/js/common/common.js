@@ -3,6 +3,7 @@ window.isdebug = true;
 if(!isdebug){//加入微信验证
     document.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx13ea47ddb8c2bb7e&redirect_uri=http%3a%2f%2f9eagles.ngrok.cc%2fhtml%2fcustomer%2findex.html&response_type=code&scope=snsapi_userinfo&state=123#wechat_redirect";
 }
+
 var Util = Util || {};
 
 /*定义常用方法工具对象*/
