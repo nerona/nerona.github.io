@@ -22,10 +22,6 @@
     <section data-role="content" role="main" data-theme="a" class="judge-main" id="judge-info">
 
     </section>
-
-    <div class="nm-judge-checkbox-div">
-        <input type="checkbox" data-role="none" id="nm-judge-radio" class="ext-box-select"/><label for="nm-judge-radio">匿名评价</label>
-    </div>
     <section data-role="footer" data-disable-page-zoom="false" data-tap-toggle="false" data-position="fixed"
              style="background-color: #ffffff;padding: 10px;position: fixed;">
 
@@ -34,30 +30,31 @@
 
     </section>
 </div>
-<div id="container" style="position: absolute;top: 21.5rem;left: 2rem;display: inline-block;width: 5rem;height: 5rem;z-index: 9999;">
-    <a id="pickfiles" href="#" style="display: inline-block;width: 100%;height: 100%;">
+
+<!--<div id="container1" style="position: absolute;top: 49.8%;left: 1.6rem;display: inline-block;width: 6rem;height: 6rem;z-index: 9999;">
+    <a id="pickfiles1" href="#" style="display: inline-block;width: 100%;height: 100%;">
 
     </a>
 </div>
-<div id="container2" style="position: absolute;top: 48.5rem;left: 2rem;display: inline-block;width: 5rem;height: 5rem;z-index: 9999;">
+<div id="container2" style="position: absolute;top: 107.8%;left: 1.6rem;display: inline-block;width: 6rem;height: 6rem;z-index: 9999;">
     <a id="pickfiles2" href="#" style="display: inline-block;width: 100%;height: 100%;">
 
     </a>
 </div>
-<div id="container3" style="position: absolute;top: 75.5rem;left: 2rem;display: inline-block;width: 5rem;height: 5rem;z-index: 9999;">
+<div id="container3" style="position: absolute;/*top: 165.8%;*/left: 1.6rem;display: inline-block;width: 6rem;height: 6rem;z-index: 9999;">
     <a id="pickfiles3" href="#" style="display: inline-block;width: 100%;height: 100%;">
 
     </a>
-</div>
+</div>-->
 
 <script type="text/javascript" src="js/common/jquery.min.js"></script>
 <script type="text/javascript" src="js/customer/order/qiniu/moxie.js"></script>
 <script type="text/javascript" src="js/customer/order/qiniu/plupload.full.min.js"></script>
 
-<script type="text/javascript" src="js/customer/order/qiniu/ui.js"></script>
-<script type="text/javascript" src="js/customer/order/qiniu/qiniu.min.js"></script>
+<!--<script type="text/javascript" src="js/customer/order/qiniu/ui.js" async></script>
+<script type="text/javascript" src="js/customer/order/qiniu/qiniu.min.js" async></script>
 
-<script type="text/javascript" src="js/customer/order/qiniu/main.js"></script>
+<script type="text/javascript" src="js/customer/order/qiniu/main.js" async></script>-->
 
 <script src="js/common/common.js"></script>
 <!--<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>-->
@@ -72,6 +69,21 @@
         $.mobile.changePage.defaults.changeHash = false;
         $.mobile.hashListeningEnabled = false;
         $.mobile.pushStateEnabled = false;
+    });
+    //add qiniu js
+    $(function(){
+        setTimeout(function(){
+            var qiniu_js = document.createElement('script');
+            qiniu_js.src = 'js/customer/order/qiniu/qiniu.min.js';
+            var ui_js = document.createElement('script');
+            ui_js.src = 'js/customer/order/qiniu/ui.js';
+            var main_js = document.createElement('script');
+            main_js.src = 'js/customer/order/qiniu/main.js';
+            var head = document.getElementsByTagName('head')[0];
+            head.appendChild(ui_js);
+            head.appendChild(qiniu_js);
+            head.appendChild(main_js);
+        }, 1000);
     });
 </script>
 
@@ -94,10 +106,18 @@
             <dd>
                 <p style="padding-left: 8px;">评价内容</p>
                 <p><textarea cols="65" rows="3" data-role="none" placeholder="请输写下你对宝贝的评价吧~长度在1-500字" ></textarea></p>
-                <div style="margin-left: 8px;" class="images-list-${num}"> <img src="images/hdpi/wddd_pj_xj.png" class="add_img"></div>
+                <div style="margin-left: 8px;position:relative" class="images-list-${num}">
+                <img src="images/hdpi/wddd_pj_xj.png" class="add_img">
+                <div id="container${num}" style="position: absolute;left: 0;display: inline-block;width: 20%;height: 100%;z-index: 9999;">
+                <a id="pickfiles${num}" href="#" style="display: inline-block;width: 100%;height: 100%;">
+                </a>
+                </div>
+                </div>
             </dd>
         </dl>
-
+    <div class="nm-judge-checkbox-div">
+        <input type="checkbox" data-role="none" id="nm-judge-radio-${num}" class="ext-box-select"/><label for="nm-judge-radio-${num}">匿名评价</label>
+    </div>
 </script>
 </body>
 </html>

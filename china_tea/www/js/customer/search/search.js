@@ -68,12 +68,12 @@ function searchCancelClickEvents(type){
         document.location.href="html/customer/index.html";
     }else{
         goodSearchSaveStroage();
-        document.location.href="html/customer/search/search-noresult.html?searchTitle=搜索&&searchText="+$('#goodSearchId').val();
+        document.location.href="html/customer/search/search-noresult.html?title=搜索&searchTitle=搜索&&searchText="+$('#goodSearchId').val();
     }
 }
 function searchHositoryClick(obj){
     $('#goodSearchId').val($(obj).text());
-    document.location.href="html/customer/search/search-noresult.html?searchTitle=搜索&&searchText="+$('#goodSearchId').val();
+    document.location.href="html/customer/search/search-noresult.html?title=搜索&searchTitle=搜索&&searchText="+$('#goodSearchId').val();
 }
 $('#clearHository').bind('click', function (event) {
     window.localStorage.clear();

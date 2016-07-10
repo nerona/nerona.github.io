@@ -87,6 +87,19 @@
         </dl>-->
     </div>
 </section>
+
+    <section id="ps-info">
+       <!-- <div class="bar-b-tj">
+            <dl>
+                <dd><em>配送信息</em> <em class="text-right"> 商家配送</em></dd>
+            </dl>
+             <dl>
+                 <dd><em>发票信息</em> <em class="text-right"> 单位发票</em></dd>
+                 <dd ><em>发票抬头</em><em class="text-right">厦门茶商</em></dd>
+             </dl>
+        </div>-->
+    </section>
+
     <section  data-role="footer"  data-disable-page-zoom="false" data-position="fixed" style="background-color: #ffffff;padding: 10px" id="order-cast-info">
 
 <!--        <span class="order-cast-info">实际收款：<em class="red">￥588</em> (含运费：<em>包邮</em>)</span>
@@ -172,7 +185,28 @@
         </dl>
 </script>
 <script type="text/x-jquery-tmpl" id="order-cast-info_t">
-            <span class="order-cast-info"><span>实际收款：</span><em class="red">￥<span id="all">${totalAmount}</span></em> (含运费：<em>￥0</em>)</span>
-        <a  href="#" data-rel="popup" data-position-to="window" data-role="none" class="ok-order-btn-r wait-pay-btn" onclick="customer.order.goPay(this);">${statusName}</a>
+            <span class="order-cast-info"><span>实际收款：</span><em class="red">￥<span id="all">${totalAmount}</span></em></span>
+        <a  href="#" class="ok-order-btn-r wait-pay-btn" onclick="customer.order.goPay(this);">${statusName}</a>
+        {{if statusName == "待付款"}}
+        <a  href="#" class="cancel-order-btn-r cancel-pay-btn" onclick="customer.order.cancelOrder(${id});">取消订单</a>
+        {{/if}}
+</script>
+<script type="text/x-jquery-tmpl" id="ps-info-t">
+ <div class="bar-b-tj">
+            <dl>
+                <dd><em>配送信息</em> <em class="text-right"> 商家配送</em></dd>
+            </dl>
+             <dl>
+             {{if invoiceName.indexOf("公司") != -1}}
+                 <dd><em>发票信息</em> <em class="text-right"> 单位发票</em></dd>
+                 <dd ><em>发票抬头</em><em class="text-right">${invoiceContent}</em></dd>
+                 {{else invoiceName.indexOf("个人") != -1}}
+                 <dd><em>发票信息</em> <em class="text-right"> 个人发票</em></dd>
+                 {{else}}
+                 <dd><em>发票信息</em> <em class="text-right"> 不开发票</em></dd>
+             {{/if}}
+
+             </dl>
+        </div>
 </script>
 </html>

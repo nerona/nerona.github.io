@@ -105,6 +105,12 @@ customer.search = {
             $("#classifyId").html(title);
             Util.common.setWxTitle(title);
         }
+        if(title.indexOf('搜索') != -1) {
+            $("#classifyId").css({
+                'width': '60px',
+                'text-align': 'center'
+            });
+        }
         var classify = Util.common.getParameter("classify");
         if (classify != null && classify != '') {
             $("#classifyId").attr('classify', classify);

@@ -55,7 +55,7 @@ var conditionStr={
     "labelId": Util.common.getParameter('labelId')
 };
 var all = {
-    "id": "0",
+    "id": "1",
     "name": "全部",
     "orderIndex": 0,
     "statusText": "启用",
@@ -143,7 +143,7 @@ customer.search = {
         var param = {"category": "0"};
         Util.common.executeAjaxCallback(url, param, function (data) {
             var datas = data;
-            all.id = "0";
+            all.id = "1";
             datas.unshift(all);
             customer.search.loadTemplate("#menu-a", "#search_classify_a_t", datas);
         });
@@ -153,7 +153,7 @@ customer.search = {
     nextClassify: function (obj) {
         var url = Util.common.baseUrl + "/weixin/cargo/classify/queryByParentId.do";
         var param = {parentId: $(obj).attr('classify')};
-        //localStorage.setItem('classifyId', $(obj).attr('classify'));
+        localStorage.setItem('classifyId', $(obj).attr('classify'));
         $('#classifyId').html($(obj).html());
 
         Util.common.executeAjaxCallback(url, param, function (data) {
@@ -211,7 +211,7 @@ customer.search = {
     lastClassify: function (obj) {
          var url = Util.common.baseUrl + "/weixin/cargo/classify/queryByParentId.do";
          var param = {parentId: $(obj).attr('classify')};
-         //localStorage.setItem('classifyId', $(obj).attr('classify'));
+         localStorage.setItem('classifyId', $(obj).attr('classify'));
          Util.common.executeAjaxCallback(url, param, function(data){
              if (data == '' || data == null || $(obj).html() == "全部") {
                  var conditionStr = {
@@ -256,6 +256,7 @@ customer.search = {
     //切换排序
     changeToAsc: function (obj) {
         conditionStr.pageNum = 1;
+        conditionStr.classifyId = localStorage.getItem('classifyId');
         $('.empty-list').remove();
         var sortField = obj.dataset.sortField;
         var sale, price;
@@ -359,6 +360,7 @@ customer.search = {
     },
     loadMore:function(){
         conditionStr.pageNum++;
+        conditionStr.classifyId = localStorage.getItem('classifyId');
         $('.empty-list').hide();
         var url = Util.common.baseUrl+ "/weixin/good/getGoodList.do";
         var param = {"conditionStr":JSON.stringify(conditionStr)};

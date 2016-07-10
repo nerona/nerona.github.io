@@ -54,12 +54,12 @@ customer.judge = {
             var goodSkuId = model[i].goodSkuId;
             var score = localStorage.getItem('score') || 5;
             var content = $('.judge-content-dl textarea')[i].value;
-            var logos = localStorage.getItem('img_list_'+[i+1]).split(',');
-            console.log(logos);
-            var logo1 = localStorage.getItem('img_list_'+[i+1]);
+            
+            var logo1 = localStorage.getItem('img_list_'+[i+1]).split(',');
+
             modelJson.goodSkuid = goodSkuId;
             modelJson.user = userid;
-            if($('#nm-judge-radio').is(':checked')){
+            if($('#nm-judge-radio-' + i).is(':checked')){
                 modelJson.username = "匿名";
             } else {
                 modelJson.username = username;
@@ -67,8 +67,8 @@ customer.judge = {
             modelJson.content = content;
             modelJson.score = score;
             modelJson.indentId = model[i].indentId;
-            var param = {"modelJson": JSON.stringify(modelJson), "logo1": logo1};
-            console.log(modelJson);
+            var param = {"modelJson": JSON.stringify(modelJson), "logo1": JSON.stringify(logo1)};
+            console.log(JSON.stringify(param));
             Util.common.executeAjaxCallback(url, param, function (data) {
                 console.log(data);
                 if (data.success == true) {
