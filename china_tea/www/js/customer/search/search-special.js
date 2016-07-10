@@ -230,7 +230,7 @@ customer.search = {
             if (data == '') {
                 var $empty = $('<div class="empty-list"><img src="images/xxdpi/kzt_sp.png" alt=""><p>暂无此类商品</p><p>客官逛逛其他商品吧~</p></div>');
                 $('#thelist').empty();
-                $('#good-grid-id-special').append($empty);
+                $('#good-grid-id').append($empty);
             } else {
                 $('.empty-list').remove();
                 customer.search.loadTemplate("#thelist", "#search_goodlist_t", data);
