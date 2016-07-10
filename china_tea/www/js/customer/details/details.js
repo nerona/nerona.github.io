@@ -322,9 +322,12 @@ customer.details = {
     getCartCount: function () {
         var url = Util.common.baseUrl + "/weixin/cart/getCartCount.do";
         var param = {"userId": localStorage.getItem("userid"), "shopId": localStorage.getItem("shopId")};
+        var $cart_num = $('<span id="cart_num"></span>');
+
         Util.common.executeAjaxCallback(url, param, function (data) {
             console.log(data);
-            if (data != null && data != 0) {
+            if(data != '' && data != null) {
+                $('.my-goods-cart-search-a').append($cart_num);
                 $('#cart_num').html(data);
             } else {
                 $('#cart_num').hide();

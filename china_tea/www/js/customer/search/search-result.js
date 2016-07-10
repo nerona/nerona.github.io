@@ -93,16 +93,18 @@ customer.search = {
     },
     //初始化加载购物车数目
     loadCartNumber: function () {
-        var url = Util.common.baseUrl + "/weixin/cart/queryCart.do";
+        var url = Util.common.baseUrl + "/weixin/cart/getCartCount.do";
         var param = {"userId": localStorage.getItem("userid"), "shopId": localStorage.getItem("shopId")};
+        var $cart_num = $('<span id="cart_num"></span>');
+
         Util.common.executeAjaxCallback(url, param, function (data) {
-            console.log(data.length);
-            if (data.length != '') {
-                $('#cart_num').html(data.length);
+            console.log(data);
+            if(data != '' && data != null) {
+                $('.my-goods-cart-search-a').append($cart_num);
+                $('#cart_num').html(data);
             } else {
                 $('#cart_num').hide();
             }
-
         });
     },
     //商品分类跳转过来参数初始化 参数title=茶叶&classify=238986851953229824&type=classify
