@@ -384,8 +384,13 @@ customer.search = {
     },
     loadTemplate:function(render ,templateId ,data ){
         $.extend(data,{
+            "starttimer": 1,
+            "endtimer": 1,
+            "cTimer": 1,
+            "timeTitle": 1,
             "hour": 1,
-            "min": 1
+            "min": 1,
+            "sec": 1
         });
         for (var i = 0; i < data.length; i++) {
             data[i].starttimer = new Date(data[i].startDate).getTime();
