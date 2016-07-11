@@ -295,13 +295,50 @@ customer.search = {
                 $('.empty-list').show();
             } else {
                 console.info(data );
+                for (var i = 0; i < data.length; i++) {
+                    console.info(data[i].startDate);
+                    console.info(data[i].endDate);
+                    data[i].starttimer = new Date(data[i].startDate).getTime();
+                    data[i].endtimer = new Date(data[i].endDate).getTime();
+                    var start = parseInt(new Date(data[i].startDate).getTime() - new Date().getTime());
+                    var end = parseInt(new Date(data[i].endDate).getTime() - new Date().getTime());
+                    console.info(start);
+                    console.info(end);
+                    var d, h, m, s;
+                    if (start > 0 && end > 0) {
+                        data[i].cTimer = data[i].starttimer;
+                        d = Math.floor(start / 1000 / 60 / 60 / 24);
+                        h = Math.floor(start / 1000 / 60 / 60 % 24);
+                        m = Math.floor(start / 1000 / 60 % 60);
+                        s = Math.floor(start / 1000 % 60);
+                        data[i].timeTitle = '距开始:';
+                        data[i].hour = ( h + d * 24);
+                        data[i].min = m;
+                        data[i].sec = s;
+                    } else if (start < 0 && end > 0) {
+                        data[i].cTimer = data[i].endtimer;
+                        d = Math.floor(end / 1000 / 60 / 60 / 24);
+                        h = Math.floor(end / 1000 / 60 / 60 % 24);
+                        m = Math.floor(end / 1000 / 60 % 60);
+                        s = Math.floor(end / 1000 % 60);
+                        data[i].timeTitle = '距结束:';
+                        data[i].hour = ( h + d * 24);
+                        data[i].min = m;
+                        data[i].sec = s;
+                    } else if (start < 0 && end < 0) {
+                        data[i].timeTitle = '已结束!';
+                        data[i].hour = 0;
+                        data[i].min = 0;
+                        data[i].sec = 0;
+                        clearInterval(timeCounter);
+                    }
+                }
                 var tpl = $("#search_goodlist_t").tmpl(data);
+                console.info(tpl);
                 $("#thelist").append(tpl);
                 //customer.search.loadTemplate("#thelist", "#search_goodlist_t", data);
-                //console.log(data);
             }
             myScroll.refresh();		//调用刷新页面myScroll.refresh();
-            conditionStr.pageNum++;
         });
     },
     //筛选框确定事件
