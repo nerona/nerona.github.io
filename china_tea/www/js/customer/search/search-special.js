@@ -393,8 +393,10 @@ customer.search = {
             "sec": 1
         });
         for (var i = 0; i < data.length; i++) {
-            data[i].starttimer = new Date(data[i].startDate).getTime();
-            data[i].endtimer = new Date(data[i].endDate).getTime();
+            data[i].starttimer = new Date(data[i].startDate).getTime().toString();
+            data[i].endtimer = new Date(data[i].endDate).getTime().toString();
+            console.log(data[i].starttimer);
+            console.log(data[i].endtimer);
             var start = parseInt(new Date(data[i].startDate).getTime()-new Date().getTime());
             var end = parseInt(new Date(data[i].endDate).getTime()-new Date().getTime());
             var d, h, m,s;
@@ -426,7 +428,6 @@ customer.search = {
                 clearInterval(timeCounter);
             }
             console.log(data[i].hour + ':' + data[i].min + ':' + data[i].sec);
-            console.log(data[i]);
         }
         $(render).html($(templateId).tmpl(data));
     },
