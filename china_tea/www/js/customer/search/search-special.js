@@ -384,14 +384,10 @@ customer.search = {
     },
     loadTemplate:function(render ,templateId ,data ){
         for (var i = 0; i < data.length; i++) {
-            console.info(data[i].startDate);
-            console.info(data[i].endDate);
             data[i].starttimer = new Date(data[i].startDate).getTime();
             data[i].endtimer = new Date(data[i].endDate).getTime();
             var start = parseInt(new Date(data[i].startDate).getTime()-new Date().getTime());
             var end = parseInt(new Date(data[i].endDate).getTime()-new Date().getTime());
-            console.info(start);
-            console.info(end);
             var d, h, m,s;
             if(start > 0 && end > 0) {
                 data[i].cTimer = data[i].starttimer;
@@ -421,6 +417,7 @@ customer.search = {
                 clearInterval(timeCounter);
             }
             console.log(data[i].hour + ':' + data[i].min + ':' + data[i].sec);
+            console.log(data[i]);
         }
         $(render).html($(templateId).tmpl(data));
     },
