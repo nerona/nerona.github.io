@@ -406,8 +406,10 @@ customer.search = {
             var now_sec = new Date().getSeconds();
 
             //已结束
-            if(now_year >= end_year){
-                
+            if(now_year > end_year){
+
+            } else if(now_year = end_year && now_month > end_month) {
+
             }
 
 
