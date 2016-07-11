@@ -384,27 +384,35 @@ customer.search = {
     },
     loadTemplate:function(render ,templateId ,data ){
         for (var i = 0; i < data.length; i++) {
-            console.log(new Date(data[i].startDate).getFullYear());
-            console.log(new Date(data[i].startDate).getMonth());
-            console.log(new Date(data[i].startDate).getDate());
-            console.log(new Date(data[i].startDate).getHours());
-            console.log(new Date(data[i].startDate).getMinutes());
-            console.log(new Date(data[i].startDate).getSeconds());
-            console.log("------------------------------------------");
-            console.log(new Date(data[i].endDate).getFullYear());
-            console.log(new Date(data[i].endDate).getMonth());
-            console.log(new Date(data[i].endDate).getDate());
-            console.log(new Date(data[i].endDate).getHours());
-            console.log(new Date(data[i].endDate).getMinutes());
-            console.log(new Date(data[i].endDate).getSeconds());
-            console.log("------------------------------------------");
-            console.log(new Date().getFullYear());
-            console.log(new Date().getMonth());
-            console.log(new Date().getDate());
-            console.log(new Date().getHours());
-            console.log(new Date().getMinutes());
-            console.log(new Date().getSeconds());
-            console.log("------------------------------------------");
+            var start_year = new Date(data[i].startDate).getFullYear();
+            var start_month = new Date(data[i].startDate).getMonth();
+            var start_date = new Date(data[i].startDate).getDate();
+            var start_hour = new Date(data[i].startDate).getHours();
+            var start_min = new Date(data[i].startDate).getMinutes();
+            var start_src = new Date(data[i].startDate).getSeconds();
+
+            var end_year = new Date(data[i].endDate).getFullYear();
+            var end_month = new Date(data[i].endDate).getMonth();
+            var end_date = new Date(data[i].endDate).getDate();
+            var end_hour = new Date(data[i].endDate).getHours();
+            var end_min = new Date(data[i].endDate).getMinutes();
+            var end_sec = new Date(data[i].endDate).getSeconds();
+
+            var now_year = new Date().getFullYear();
+            var now_month = new Date().getMonth();
+            var now_date = new Date().getDate();
+            var now_hour = new Date().getHours();
+            var now_min = new Date().getMinutes();
+            var now_sec = new Date().getSeconds();
+
+            //已结束
+            if(now_year >= end_year){
+                
+            }
+
+
+
+
             var start = parseInt(new Date(data[i].startDate).getTime()-new Date().getTime());
             var end = parseInt(new Date(data[i].endDate).getTime()-new Date().getTime());
             var d, h, m,s;
