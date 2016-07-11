@@ -141,13 +141,24 @@
     <p>订单状态：<span id="statusName">${statusName}</span></p>
     </dd>
     </li>
- <!--   <li>
+  {{if statusName == "退货中" || statusName == "已退货"}}
+    <li>
     <dt class="reason-ico"><img src="images/hdpi/wddd_thyy.png"/></dt>
             <dd class="pay-type-text">
-            <p> 退货原因：<span>与预期不符</span></p>
-    <p>退货说明：<span>颜色不符合</span></p>
+            <p> 退货原因：<span>${returnName}</span></p>
+    <p>退货说明：<span>${returnRemark}</span></p>
     </dd>
-    </li>-->
+    </li>
+    {{/if}}
+     {{if statusName == "退款中" || statusName == "已退款"}}
+    <li>
+    <dt class="reason-ico"><img src="images/hdpi/wddd_thyy.png"/></dt>
+            <dd class="pay-type-text">
+            <p> 退款原因：<span>${refundName}</span></p>
+    <p>退款说明：<span>${refundRemark}</span></p>
+    </dd>
+    </li>
+    {{/if}}
     <li>
     <dt class="address-ico"><img src="images/hdpi/ddxq_shxx.png"/></dt>
             <dd class="pay-type-text">
