@@ -20,6 +20,7 @@ customer.order = {
             customer.order.loadTemplate("#OrderDetail_showInfo", "#OrderDetail_showInfo_t", data);
             customer.order.loadTemplate("#OrderDetail_showImage", "#OrderDetail_showImage_t", {datas:data.indentList});
             customer.order.loadTemplate("#bar-b-tj", "#bar-b-tj_t", data);
+            customer.order.loadTemplate("#ps-info", "#ps-info-t", data);
 
             var statusValues = ["待付款","待发货","待收货","退货中","已退款","已退货","已收货","已取消","待评价"];
             for(var i=0; i <statusValues.length; i++) {
@@ -38,6 +39,18 @@ customer.order = {
     loadTemplate:function(render ,templateId ,data ){
         // $(render).loadTemplate(templateId, data);
         $(render).html($(templateId).tmpl(data));
+    },
+    cancelOrder:function(id) {
+        var url = Util.common.baseUrl + "/weixin/indent/update/cancel.do";
+        var param = {"ids": id};
+        Util.common.executeAjaxCallback(url, param, function (data) {
+            if(data.code === 1){
+                Util.msg.show('msgId', "取消订单成功");
+                setTimeout(function(){
+                    document.location.href = 'html/customer/order/index.html';
+                }, 2000);
+            }
+        }.bind(this));
     },
     goDetailPro: function(obj){
         document.location.href = 'html/customer/details/details.html?id=' + $(obj).attr('id');

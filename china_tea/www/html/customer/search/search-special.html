@@ -18,13 +18,6 @@
 			overflow:auto;
 			bottom: 0;
 		}
-		#thelist:after {
-			content: '';
-			display: block;
-			visibility: hidden;
-			height: 0;
-			clear: both;
-		}
 	</style>
 </head>
 <body>
@@ -48,7 +41,7 @@
 					</td>
 					<td>
 						<a href="html/customer/goods/shopping-cart.html" target="_top" class="my-goods-cart-search-a">
-							<span id="cart_num" style="display: inline-block;width: 1.2rem;height: 1.2rem;line-height: 1rem;float: right;margin: .3rem .1rem 0 0;color: #fff;background: red;font-size: .12rem;border-radius: 50%;text-align: center;"></span>
+
 						</a>
 					</td>
 				<tr>
@@ -83,32 +76,6 @@
 		<!--筛选菜单弹出框-->
 		<div id="searchFilterPopup" class="menu-div">
 			<form>
-				<!--<fieldset data-role="controlgroup" id="filter-group">
-                    <div class="ui-grid-b">
-                        <div class="ui-block-a">
-                            <input type="checkbox" class="ext-box-select" id="filter-tgtz" data-role="none">
-                            <label for="filter-tgtz" style="margin-left: -18px;">团购特质</label>
-                        </div>
-                        <div class="ui-block-b">
-                            <input type="checkbox" class="ext-box-select" id="filter-jrtj" data-role="none">
-                            <label for="filter-jrtj">今日推荐</label>
-                        </div>
-                        <div class="ui-block-c">
-                            <input type="checkbox" class="ext-box-select" id="filter-jssp" data-role="none">
-                            <label for="filter-jssp" >精选商品</label>
-                        </div>
-                        <div class="ui-block-a">
-                            <input type="checkbox" class="ext-box-select" id="filter-pptj" data-role="none">
-                            <label for="filter-pptj" style="margin-left: -18px;">品牌推荐</label>
-                        </div>
-                        <div class="ui-block-b">
-                            <input type="checkbox" class="ext-box-select" id="filter-xpsx" data-role="none">
-                            <label for="filter-xpsx">新品上线</label>
-                        </div>
-                        <div class="ui-block-c">
-                        </div>
-                    </div>
-                </fieldset>-->
 				<fieldset data-role="controlgroup" id="priceGroupId">
 					<span>价格区间:</span>
 					<input type="text" name="minPrice" data-role="none" id="minPrice">
@@ -118,19 +85,11 @@
 				<div class="filter-title-c">用途:</div>
 				<fieldset data-role="controlgroup">
 					<div class="ui-grid-c" id="purpose-select">
-						<!--<div class="ui-block-a">
-                            <input name="purpose" id="purpose1" type="radio" value="1" class="ext-box-btn" data-role="none"/>
-                            <label for="purpose1">不限</label>
-                        </div>-->
 					</div>
 				</fieldset>
 				<div class="filter-title-c">品牌:</div>
 				<fieldset data-role="controlgroup">
 					<div class="ui-grid-c" id="brand-select">
-						<!--<div class="ui-block-a">
-                            <input name="brand" id="brand1" type="radio" value="1" class="ext-box-btn" data-role="none"/>
-                            <label for="brand1">全部品牌</label>
-                        </div>-->
 					</div>
 				</fieldset>
 				<div id="bottom-btn">

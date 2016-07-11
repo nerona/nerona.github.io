@@ -122,8 +122,11 @@
         $.mobile.pushStateEnabled = false;
     });
     //
+    localStorage.setItem('shopId', Util.common.getParameter('storeId'));
+    localStorage.setItem('userId', Util.common.getParameter('userId'));
+
     $('#spxq_fx_dj_id').on('click', function(){
-        document.location.href = 'html/customer/index.html?storeId=' + localStorage.getItem('shopId') + '&type=weixinIndex&userId=' + localStorage.getItem('userid');
+        document.location.href = 'html/customer/index.html?storeId=' + localStorage.getItem('shopId') + '&type=weixinIndex&userId=' + localStorage.getItem('userId');
     });
 
     Util.common.setWxTitle('商品详情');

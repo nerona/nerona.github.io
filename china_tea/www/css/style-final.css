@@ -655,3 +655,16 @@ fieldset {
 .ui-page ul li,.ui-page ul li a{
 	font-size: 1.6rem!important;
 }
+#cart_num {
+    display: inline-block;
+    width: 1.2rem;
+    height: 1.2rem;
+    line-height: 1rem;
+    float: right;
+    margin: .3rem .1rem 0 0;
+    color: #fff;
+    background: red;
+    font-size: 0.12rem;
+    border-radius: 50%;
+    text-align: center;
+}

@@ -55,7 +55,7 @@ var conditionStr={
     "labelId": Util.common.getParameter('labelId')
 };
 var all = {
-    "id": "0",
+    "id": "1",
     "name": "全部",
     "orderIndex": 0,
     "statusText": "启用",
@@ -93,16 +93,18 @@ customer.search = {
     },
     //初始化加载购物车数目
     loadCartNumber: function () {
-        var url = Util.common.baseUrl + "/weixin/cart/queryCart.do";
+        var url = Util.common.baseUrl + "/weixin/cart/getCartCount.do";
         var param = {"userId": localStorage.getItem("userid"), "shopId": localStorage.getItem("shopId")};
+        var $cart_num = $('<span id="cart_num"></span>');
+
         Util.common.executeAjaxCallback(url, param, function (data) {
-            console.log(data.length);
-            if (data.length != '') {
-                $('#cart_num').html(data.length);
+            console.log(data);
+            if(data != '' && data != null) {
+                $('.my-goods-cart-search-a').append($cart_num);
+                $('#cart_num').html(data);
             } else {
                 $('#cart_num').hide();
             }
-
         });
     },
     //商品分类跳转过来参数初始化 参数title=茶叶&classify=238986851953229824&type=classify
@@ -143,7 +145,7 @@ customer.search = {
         var param = {"category": "0"};
         Util.common.executeAjaxCallback(url, param, function (data) {
             var datas = data;
-            all.id = "0";
+            all.id = "1";
             datas.unshift(all);
             customer.search.loadTemplate("#menu-a", "#search_classify_a_t", datas);
         });
@@ -153,7 +155,7 @@ customer.search = {
     nextClassify: function (obj) {
         var url = Util.common.baseUrl + "/weixin/cargo/classify/queryByParentId.do";
         var param = {parentId: $(obj).attr('classify')};
-        //localStorage.setItem('classifyId', $(obj).attr('classify'));
+        localStorage.setItem('classifyId', $(obj).attr('classify'));
         $('#classifyId').html($(obj).html());
 
         Util.common.executeAjaxCallback(url, param, function (data) {
@@ -211,7 +213,7 @@ customer.search = {
     lastClassify: function (obj) {
          var url = Util.common.baseUrl + "/weixin/cargo/classify/queryByParentId.do";
          var param = {parentId: $(obj).attr('classify')};
-         //localStorage.setItem('classifyId', $(obj).attr('classify'));
+         localStorage.setItem('classifyId', $(obj).attr('classify'));
          Util.common.executeAjaxCallback(url, param, function(data){
              if (data == '' || data == null || $(obj).html() == "全部") {
                  var conditionStr = {
@@ -256,6 +258,7 @@ customer.search = {
     //切换排序
     changeToAsc: function (obj) {
         conditionStr.pageNum = 1;
+        conditionStr.classifyId = localStorage.getItem('classifyId');
         $('.empty-list').remove();
         var sortField = obj.dataset.sortField;
         var sale, price;
@@ -359,6 +362,7 @@ customer.search = {
     },
     loadMore:function(){
         conditionStr.pageNum++;
+        conditionStr.classifyId = localStorage.getItem('classifyId');
         $('.empty-list').hide();
         var url = Util.common.baseUrl+ "/weixin/good/getGoodList.do";
         var param = {"conditionStr":JSON.stringify(conditionStr)};

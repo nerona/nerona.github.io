@@ -1,31 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8"/>
-    <base href="../../../"/>
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=1.5,maximum-scale=1.0, user-scalable=0">
+    <meta charset="utf-8" />
+    <base href="../../../" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5,maximum-scale=1.0 , user-scalable=0">
     <link rel="stylesheet" href="css/common/jquery.mobile-1.4.5.min.css"/>
-    <link rel="stylesheet" href="css/style-final.css"/>
-    <link rel="stylesheet" href="css/common/scrollbar.css"/>
-    <link rel="stylesheet" href="css/customer/search/search-result.css"/>
+    <link rel="stylesheet" href="css/style-final.css" />
+    <link rel="stylesheet" href="css/common/scrollbar.css" />
+    <link rel="stylesheet" href="css/customer/search/search-result.css" />
     <style>
         #good-grid-id {
-            position: absolute;
-            z-index: 0;
-            top: 100px;
-            left: 1px;
-            width: 100%;
-            overflow: auto;
+            position:absolute;
+            z-index:99;
+            top:140px;
+            left:1px;
+            width:100%;
+            overflow:auto;
             bottom: 0;
+        }
+        #classifyId:after{
+            margin-left: 6px;
         }
     </style>
 </head>
 <body>
-<div data-role="page" class="search-no-result-main">
+<div data-role="page">
     <section data-role="header" data-theme="b" class="my-header" id="my-header">
-        <a href="html/customer/index.html" data-rel="back" target="_top" id="back" data-role="none" class="my-header-back-btn"></a>
-        <h2 id="pageTitle">茶叶</h2>
+        <a href="html/customer/index.html" target="_top" id="back"  data-role="none" class="my-header-back-btn"></a>
+        <h2 id="pageTitle">商品列表</h2>
         <a href="#" class="my-header-right-btn-ad" data-role="none"><span>.</span><span>.</span><span>.</span></a>
     </section>
 
@@ -43,7 +45,7 @@
                     </td>
                     <td>
                         <a href="html/customer/goods/shopping-cart.html" target="_top" class="my-goods-cart-search-a">
-                            <span id="cart_num" style="display: inline-block;width: 1.2rem;height: 1.2rem;line-height: 1rem;float: right;margin: .3rem .1rem 0 0;color: #fff;background: red;font-size: .12rem;border-radius: 50%;text-align: center;"></span>
+
                         </a>
                     </td>
                 <tr>
@@ -52,7 +54,7 @@
         <div data-role="navbar" id="my-navbarId">
             <ul>
                 <li>
-                    <a href="#"  data-icon="splb-fl"  onclick="customer.search.showClassify(this)" id="classifyId" classify="" style="width: 84px">茶叶</a>
+                    <a href="#"  data-icon="splb-fl"  onclick="customer.search.showClassify(this)" id="classifyId" classify="" style="width:82px;text-align: center">茶叶</a>
                 </li>
                 <li><a href="#" data-icon="splb-xx" data-sort-field="saleNumSort" onclick="customer.search.changeToAsc(this)" value="1" class="saleSort">销量</a></li>
                 <li><a href="#" data-icon="splb-xs" data-sort-field="priceSort" onclick="customer.search.changeToAsc(this)" value="2" class="priceSort">价格</a></li>
@@ -70,9 +72,13 @@
             <ul data-role="listview" class="ui-listview"  id="menu-a">
             </ul>
         </div>
-        <div class="ui-block-b" id="menu-b">
+        <div class="ui-block-b">
+            <ul data-role="listview" class="ui-listview"  id="menu-b">
+            </ul>
         </div>
-        <div class="ui-block-c" id="menu-c">
+        <div class="ui-block-c">
+            <ul data-role="listview" class="ui-listview"  id="menu-c">
+            </ul>
         </div>
     </div>
     <!--筛选菜单弹出框-->
@@ -135,32 +141,30 @@
 
         </form>
     </div>
-
     <!--列表部分-->
-    <div data-role="main" class="ui-content ui-content-1">
-        <div id="good-grid-id">
-            <div id="scroller" style="position: relative;top:-20px;">
+    <div data-role="main" class="ui-content" style="overflow-x: visible;!important;">
+        <div id="good-grid-id" style="top: 114px;">
+            <div id="scroller" style="position: relative;top: -20px;">
                 <div id="pullDown">
                     <span class="pullDownIcon"></span><span class="pullDownLabel">下拉刷新...</span>
                 </div>
 
                 <ul id="thelist">
-
                 </ul>
-             <div style="color: #ffffff">&nbsp;</div>
                 <div id="pullUp" style="clear:both;">
                     <span class="pullUpIcon"></span><span class="pullUpLabel"></span>
                 </div>
-
+                <div class="empty-list" style="display: none;margin:0 auto;text-align: center;clear:both;">
+                    <span style="text-decoration:line-through;float: left;;color: #B1ACAC;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    <span style="font-size: 1.2rem;color: #B1ACAC;">没有更多了</span>
+                    <span style="text-decoration:line-through;float: right;;color: #B1ACAC;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                </div>
             </div>
         </div>
-        <div id="emptyList" style="display: none">
-            <div style="text-align: center;"><img src="images/hdpi/ts_ygq.png"></div>
-            <h3 style="text-align: center;">暂无此类商品,</h3>
-            <h3 style="text-align: center;">客官，逛逛其他商品吧</h3>
-        </div>
-	</div>
+
+    </div>
 </div>
+
 </body>
 </html>
 <script src="js/common/jquery.min.js"></script>

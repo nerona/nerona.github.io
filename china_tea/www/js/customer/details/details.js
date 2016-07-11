@@ -94,6 +94,19 @@ customer.details = {
         })
     },
     init: function () {
+        //分享出来的详情页重新获取商铺名称
+        var shareStoreId = Util.common.getParameter("storeId");
+        if(shareStoreId!=null){
+            localStorage.setItem("shopId",shareStoreId);
+            var loadShopUrl = Util.common.baseUrl+"/weixin/store/subbranch/loadInfo.do";
+            var param = {"id": shareStoreId};
+            //var param = {"id": "248474721296064512"};
+            Util.common.executeAjaxCallback(loadShopUrl, param, function (store) {
+                localStorage.setItem('store',JSON.stringify(store));
+                localStorage.setItem('my_name',store.name);
+            });
+        }
+
         var url = Util.common.baseUrl + "/weixin/good/getGoodDetail.do";
         var param = {"goodId": Util.common.getParameter("id")};
 
@@ -309,9 +322,12 @@ customer.details = {
     getCartCount: function () {
         var url = Util.common.baseUrl + "/weixin/cart/getCartCount.do";
         var param = {"userId": localStorage.getItem("userid"), "shopId": localStorage.getItem("shopId")};
+        var $cart_num = $('<span id="cart_num"></span>');
+
         Util.common.executeAjaxCallback(url, param, function (data) {
             console.log(data);
-            if (data != null && data != 0) {
+            if(data != '' && data != null) {
+                $('.my-goods-cart-search-a').append($cart_num);
                 $('#cart_num').html(data);
             } else {
                 $('#cart_num').hide();
@@ -381,7 +397,9 @@ function showGoodSize(type) {
 
     if (type == 1) {
         if (nums == 0) {
-            $("#no-goods-popup").show().popup("open");
+            $("#no-goods-popup").show().on('click', '.ok-order-btn, .dialog_close' ,function(){
+                $("#no-goods-popup").hide();
+            });
             return;
         } else {
             $("#goods-cass-div-box").show();
@@ -391,7 +409,9 @@ function showGoodSize(type) {
         }
     } else if (type == 2) {
         if (nums == 0) {
-            $("#no-goods-popup").show().popup("open");
+            $("#no-goods-popup").show().on('click', '.ok-order-btn, .dialog_close' ,function(){
+                $("#no-goods-popup").hide();
+            });
             return;
         } else {
             $("#goods-cass-div-box").show();
@@ -401,7 +421,9 @@ function showGoodSize(type) {
         }
     } else if (type == 3) {
         if (nums == 0) {
-            $("#no-goods-popup").show().popup("open");
+            $("#no-goods-popup").show().on('click', '.ok-order-btn, .dialog_close' ,function(){
+                $("#no-goods-popup").hide();
+            });
             return;
         } else {
             $("#goods-cass-div-box").show();
@@ -410,6 +432,7 @@ function showGoodSize(type) {
             });
         }
     }
+    
     $('#addCart').on('click', function () {
         if (nums == 0) {
             $("#no-goods-popup").show().popup("open");
