@@ -31,7 +31,7 @@ function pullUpAction() {
 $(function () {
     customer.search.init();
 
-    var href = 'html/customer/search/search-noresult.html?'+document.location.href.split('?')[1];
+    var href = 'html/customer/search/search-result.html?'+document.location.href.split('?')[1];
     console.info(href);
     localStorage.setItem('searchPage', href);
     $('#back').attr('href','html/customer/index.html?storeId='+localStorage.getItem("shopId")+'&type=weixinIndex&userId='+localStorage.getItem("userid"));
@@ -52,21 +52,6 @@ var conditionStr={
     "brandId":Util.common.getParameter('brandId'),
     "columnId":Util.common.getParameter('columnId'),
     "labelId": Util.common.getParameter('labelId')
-};
-
-var Loader = {
-    isLoading:false,
-    request:function(url,data,cb){
-        var loader = this;
-        if(loader.isLoading){
-            return;
-        }
-        loader.isLoading = true;
-        Util.common.executeAjaxCallback(url,data,function(){
-            loader.isLoading = false;
-            cb.apply(null,arguments);
-        });
-    }
 };
 var timeCounter = function(){
     var timers = $('.timers');
@@ -89,19 +74,33 @@ var timeCounter = function(){
         $timer.find('.sec').html(s);
     }
 };
+var Loader = {
+    isLoading:false,
+    request:function(url,data,cb){
+        var loader = this;
+        if(loader.isLoading){
+            return;
+        }
+        loader.isLoading = true;
+        Util.common.executeAjaxCallback(url,data,function(){
+            loader.isLoading = false;
+            cb.apply(null,arguments);
+        });
+    }
+};
+
 customer.search = {
     init: function () {
         this.initParameter();
         this.initGoodList();
         this.loadCartNumber();
-        setInterval(timeCounter, 1000);
-        loaded('good-grid-id-special');
+        loaded('good-grid-id');
 
         setTimeout(function(){
             //hot fix. 2016-6-14
-            var PADDING_TOP = 114;
+            var PADDING_TOP = 10;
             var top = document.querySelector('.ui-content').getBoundingClientRect().top;
-            document.querySelector('#good-grid-id-special').style.top = top + PADDING_TOP + 'px';
+            document.querySelector('#good-grid-id').style.top = top + PADDING_TOP + 'px';
         },0);
     },
     //初始化加载购物车数目
@@ -159,20 +158,58 @@ customer.search = {
             $("#teaNavbarPopup").show();
         }
         //初始化加载商品分类
-        var data = [
-            {
-                "name": "特价专区",
-                "id": "248493338106195968"
-            },
-            {
-                "name": "众筹专区",
-                "id": "248493442048086016"
-            },
-            {
-                "name": "团购专区",
-                "id": "248493574755864576"
-            }
-        ];
+        var data;
+        if(Util.common.getParameter('type') == "column"){
+            data = [
+                {
+                    "name": "今日推荐",
+                    "id": "248492567013711872"
+                },
+                {
+                    "name": "精选商品",
+                    "id": "248492643227463680"
+                },
+                {
+                    "name": "新品上线",
+                    "id": "248492756212002816"
+                },
+                {
+                    "name": "节日专区",
+                    "id": "248526012364853248"
+                }
+            ];
+        } else {
+            data = [
+                {
+                    "name": "私房收藏",
+                    "id": "248493708518711296"
+                },
+                {
+                    "name": "专业茶客",
+                    "id": "24849374961003724"
+                },
+                {
+                    "name": "商务用户",
+                    "id": "248494260330545152"
+                },
+                {
+                    "name": "家庭用茶",
+                    "id": "248494356275519488"
+                },
+                {
+                    "name": "贵宾送礼",
+                    "id": "249238084118851584"
+                },
+                {
+                    "name": "客户送礼",
+                    "id": "249238118918856704"
+                },
+                {
+                    "name": "企业福利",
+                    "id": "249238167614320640"
+                }
+            ];
+        }
 
         customer.search.loadTemplate("#menu-a", "#search_classify_a_t", data);
         /* var url = Util.common.baseUrl + "/weixin/cargo/classify/queryByParentId.do";
@@ -198,7 +235,7 @@ customer.search = {
         Loader.request(url, param, function (data) {
             if (data == '') {
                 var $empty = $('<div class="empty-list"><img src="images/xxdpi/kzt_sp.png" alt=""><p>暂无此类商品</p><p>客官逛逛其他商品吧~</p></div>');
-                $('#good-grid-id-special').append($empty);
+                $('#good-grid-id').append($empty);
             } else {
                 $('.empty-list').hide();
                 customer.search.loadTemplate("#thelist", "#search_goodlist_t", data);
@@ -248,7 +285,7 @@ customer.search = {
             if (data == '') {
                 var $empty = $('<div class="empty-list"><img src="images/xxdpi/kzt_sp.png" alt=""><p>暂无此类商品</p><p>客官逛逛其他商品吧~</p></div>');
                 $('#thelist').empty();
-                $('#good-grid-id-special').append($empty);
+                $('#good-grid-id').append($empty);
             } else {
                 $('.empty-list').remove();
                 customer.search.loadTemplate("#thelist", "#search_goodlist_t", data);
@@ -306,50 +343,13 @@ customer.search = {
                 $('.empty-list').show();
             } else {
                 console.info(data );
-                for (var i = 0; i < data.length; i++) {
-                    console.info(data[i].startDate);
-                    console.info(data[i].endDate);
-                    data[i].starttimer = new Date(data[i].startDate).getTime();
-                    data[i].endtimer = new Date(data[i].endDate).getTime();
-                    var start = parseInt(new Date(data[i].startDate).getTime() - new Date().getTime());
-                    var end = parseInt(new Date(data[i].endDate).getTime() - new Date().getTime());
-                    console.info(start);
-                    console.info(end);
-                    var d, h, m, s;
-                    if (start > 0 && end > 0) {
-                        data[i].cTimer = data[i].starttimer;
-                        d = Math.floor(start / 1000 / 60 / 60 / 24);
-                        h = Math.floor(start / 1000 / 60 / 60 % 24);
-                        m = Math.floor(start / 1000 / 60 % 60);
-                        s = Math.floor(start / 1000 % 60);
-                        data[i].timeTitle = '距开始:';
-                        data[i].hour = ( h + d * 24);
-                        data[i].min = m;
-                        data[i].sec = s;
-                    } else if (start < 0 && end > 0) {
-                        data[i].cTimer = data[i].endtimer;
-                        d = Math.floor(end / 1000 / 60 / 60 / 24);
-                        h = Math.floor(end / 1000 / 60 / 60 % 24);
-                        m = Math.floor(end / 1000 / 60 % 60);
-                        s = Math.floor(end / 1000 % 60);
-                        data[i].timeTitle = '距结束:';
-                        data[i].hour = ( h + d * 24);
-                        data[i].min = m;
-                        data[i].sec = s;
-                    } else if (start < 0 && end < 0) {
-                        data[i].timeTitle = '已结束!';
-                        data[i].hour = 0;
-                        data[i].min = 0;
-                        data[i].sec = 0;
-                        clearInterval(timeCounter);
-                    }
-                }
                 var tpl = $("#search_goodlist_t").tmpl(data);
-                console.info(tpl);
                 $("#thelist").append(tpl);
                 //customer.search.loadTemplate("#thelist", "#search_goodlist_t", data);
+                //console.log(data);
             }
             myScroll.refresh();		//调用刷新页面myScroll.refresh();
+            conditionStr.pageNum++;
         });
     },
     //筛选框确定事件
