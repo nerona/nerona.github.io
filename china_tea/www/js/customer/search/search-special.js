@@ -31,7 +31,7 @@ function pullUpAction() {
 $(function () {
     customer.search.init();
 
-    var href = 'html/customer/search/search-result.html?'+document.location.href.split('?')[1];
+    var href = 'html/customer/search/search-special.html?'+document.location.href.split('?')[1];
     console.info(href);
     localStorage.setItem('searchPage', href);
     $('#back').attr('href','html/customer/index.html?storeId='+localStorage.getItem("shopId")+'&type=weixinIndex&userId='+localStorage.getItem("userid"));
@@ -68,19 +68,34 @@ var Loader = {
         });
     }
 };
+var timeCounter = function(){
+    var timers = $('.timers');
+    for(var i=0;i<timers.length;i++){
+        var $timer  = $(timers[i]);
+        var t = parseInt($timer.find('input').val())-new Date().getTime();
+        var d=Math.floor(t/1000/60/60/24);
+        var h=Math.floor(t/1000/60/60%24);
+        var m=Math.floor(t/1000/60%60);
+        var s=Math.floor(t/1000%60);
+        $timer.find('.hour').html(( h+d*24));
+        $timer.find('.min').html(m);
+        $timer.find('.sec').html(s);
+    }
+};
 
 customer.search = {
     init: function () {
         this.initParameter();
         this.initGoodList();
         this.loadCartNumber();
-        loaded('good-grid-id');
+        setInterval(timeCounter, 1000);
+        loaded('good-grid-id-special');
 
         setTimeout(function(){
             //hot fix. 2016-6-14
-            var PADDING_TOP = 10;
+            var PADDING_TOP = 114;
             var top = document.querySelector('.ui-content').getBoundingClientRect().top;
-            document.querySelector('#good-grid-id').style.top = top + PADDING_TOP + 'px';
+            document.querySelector('#good-grid-id-special').style.top = top + PADDING_TOP + 'px';
         },0);
     },
     //初始化加载购物车数目
@@ -158,37 +173,6 @@ customer.search = {
                     "id": "248526012364853248"
                 }
             ];
-        } else {
-            data = [
-                {
-                    "name": "私房收藏",
-                    "id": "248493708518711296"
-                },
-                {
-                    "name": "专业茶客",
-                    "id": "24849374961003724"
-                },
-                {
-                    "name": "商务用户",
-                    "id": "248494260330545152"
-                },
-                {
-                    "name": "家庭用茶",
-                    "id": "248494356275519488"
-                },
-                {
-                    "name": "贵宾送礼",
-                    "id": "249238084118851584"
-                },
-                {
-                    "name": "客户送礼",
-                    "id": "249238118918856704"
-                },
-                {
-                    "name": "企业福利",
-                    "id": "249238167614320640"
-                }
-            ];
         }
 
         customer.search.loadTemplate("#menu-a", "#search_classify_a_t", data);
@@ -215,7 +199,7 @@ customer.search = {
         Loader.request(url, param, function (data) {
             if (data == '') {
                 var $empty = $('<div class="empty-list"><img src="images/xxdpi/kzt_sp.png" alt=""><p>暂无此类商品</p><p>客官逛逛其他商品吧~</p></div>');
-                $('#good-grid-id').append($empty);
+                $('#good-grid-id-special').append($empty);
             } else {
                 $('.empty-list').hide();
                 customer.search.loadTemplate("#thelist", "#search_goodlist_t", data);
@@ -265,7 +249,7 @@ customer.search = {
             if (data == '') {
                 var $empty = $('<div class="empty-list"><img src="images/xxdpi/kzt_sp.png" alt=""><p>暂无此类商品</p><p>客官逛逛其他商品吧~</p></div>');
                 $('#thelist').empty();
-                $('#good-grid-id').append($empty);
+                $('#good-grid-id-special').append($empty);
             } else {
                 $('.empty-list').remove();
                 customer.search.loadTemplate("#thelist", "#search_goodlist_t", data);
