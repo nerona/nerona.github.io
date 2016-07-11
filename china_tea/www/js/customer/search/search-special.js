@@ -53,27 +53,7 @@ var conditionStr={
     "columnId":Util.common.getParameter('columnId'),
     "labelId": Util.common.getParameter('labelId')
 };
-var timeCounter = function(){
-    var timers = $('.timers');
-    for(var i=0;i<timers.length;i++){
-        var $timer  = $(timers[i]);
-        var t = parseInt($timer.find('input').val())-new Date().getTime();
-        /*var d=Math.floor(t/1000/60/60/24);
-         t-=d*(1000*60*60*24);
-         var h=Math.floor(t/1000/60/60);
-         t-=h*60*60*1000;
-         var m=Math.floor(t/1000/60);
-         t-=m*60*1000;
-         var s=Math.floor(t/1000);*/
-        var d=Math.floor(t/1000/60/60/24);
-        var h=Math.floor(t/1000/60/60%24);
-        var m=Math.floor(t/1000/60%60);
-        var s=Math.floor(t/1000%60);
-        $timer.find('.hour').html(( h+d*24));
-        $timer.find('.min').html(m);
-        $timer.find('.sec').html(s);
-    }
-};
+
 var Loader = {
     isLoading:false,
     request:function(url,data,cb){
@@ -393,46 +373,8 @@ customer.search = {
             }
         });
     },
-    loadTemplate:function(render ,templateId ,data ){
-        for (var i = 0; i < data.length; i++) {
-            console.info(data[i].startDate);
-            console.info(data[i].endDate);
-            data[i].starttimer = new Date(data[i].startDate).getTime();
-            data[i].endtimer = new Date(data[i].endDate).getTime();
-            var start = parseInt(new Date(data[i].startDate).getTime()-new Date().getTime());
-            var end = parseInt(new Date(data[i].endDate).getTime()-new Date().getTime());
-            console.info(start);
-            console.info(end);
-            var d, h, m,s;
-            if(start > 0 && end > 0) {
-                data[i].cTimer = data[i].starttimer;
-                d = Math.floor(start / 1000 / 60 / 60 / 24);
-                h = Math.floor(start / 1000 / 60 / 60 % 24);
-                m = Math.floor(start / 1000 / 60 % 60);
-                s = Math.floor(start / 1000 % 60);
-                data[i].timeTitle = '距开始:';
-                data[i].hour =( h+d*24);
-                data[i].min = m;
-                data[i].sec = s;
-            } else if(start < 0 && end > 0) {
-                data[i].cTimer = data[i].endtimer;
-                d = Math.floor(end / 1000 / 60 / 60 / 24);
-                h = Math.floor(end / 1000 / 60 / 60 % 24);
-                m = Math.floor(end / 1000 / 60 % 60);
-                s = Math.floor(end / 1000 % 60);
-                data[i].timeTitle = '距结束:';
-                data[i].hour =( h+d*24);
-                data[i].min = m;
-                data[i].sec = s;
-            } else if(start < 0 && end < 0) {
-                data[i].timeTitle = '已结束!';
-                data[i].hour = 0;
-                data[i].min = 0;
-                data[i].sec = 0;
-                clearInterval(timeCounter);
-            }
-            console.log(data[i].hour + ':' + data[i].min + ':' + data[i].sec);
-        }
+    loadTemplate: function (render, templateId, data) {
+        // $(render).loadTemplate(templateId, data);
         $(render).html($(templateId).tmpl(data));
     },
     //获取元素的纵坐标
