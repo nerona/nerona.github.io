@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <h1>Hello App!</h1>
+    <p>Path: {{$route.path}} - {{$route.query.user}} - {{$route.params | json}}</p>
+    <p>
+        <a v-link="{ path: '/foo' }">Go to /foo</a>
+        <a v-link="{ path: '/foo/bar' }">Go to /foo/bar</a>
+        <a v-link="{ path: '/foo/baz' }">Go to /foo/baz</a>
+    </p>
+    <router-view></router-view>
+</div>
+
+<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+
+<script src="vue.js"></script>
+<script src="https://cdn.jsdelivr.net/vue.resource/0.9.3/vue-resource.min.js"></script>
+<script src="vue-router.js"></script>
+<script>
+    // Define some components
+    var Foo = Vue.extend({
+        template:
+        '<div class="foo">' +
+        '<h2>This is Foo!</h2>' +
+        '<router-view></router-view>' + // <- 嵌套的外链
+        '</div>'
+    });
+
+    var Bar = Vue.extend({
+        template: '<p>This is bar!</p>'
+    });
+
+    var Baz = Vue.extend({
+        template: '<p>This is baz!</p>'
+    });
+
+    // The router needs a root component to render.
+    // For demo purposes, we will just use an empty one
+    // because we are using the HTML as the app template.
+    var App = Vue.extend({});
+
+    // Create a router instance.
+    // You can pass in additional options here, but let's
+    // keep it simple for now.
+    var router = new VueRouter();
+
+    // Define some routes.
+    // Each route should map to a component. The "component" can
+    // either be an actual component constructor created via
+    // Vue.extend(), or just a component options object.
+    // We'll talk about nested routes later.
+    router.map({
+        '/foo': {
+            component: Foo,
+            subRoutes: {
+                '/': {
+                    // 当匹配到 /foo 时，这个组件会被渲染到 Foo 组件的 <router-view> 中。
+                    // 为了简便，这里使用了一个组件的定义
+                    component: {
+                        template: '<p>Default sub view for Foo</p>'
+                    }
+                },
+                '/bar': {
+                    // 当匹配到/foo/bar时，会在Foo's <router-view>内渲染
+                    // 一个Bar组件
+                    component: Bar
+                },
+                '/baz': {
+                    // Baz也是一样，不同之处是匹配的路由会是/foo/baz
+                    component: Baz
+                }
+            }
+        },
+        '/bar': {
+            component: Bar
+        }
+    });
+
+    // Now we can start the app!
+    // The router will create an instance of App and mount to
+    // the element matching the selector #app.
+    router.start(App, '#app');
+
+
+
+
+    var baseUrl = "http://www.cha2u.com/shanguoyinyi/";
+    var url = baseUrl + "weixin/common/returnReason/findAll.do";
+
+    Vue.http.interceptors.push(function(request, next){
+        request.methods = "POST";
+
+        next();
+    });
+
+   /* var vm = new Vue({
+        el: '#app',
+        ready: function(){
+            this.$http.get(url, {
+                params: {},
+                headers: "",
+                emulateJSON: true
+            }).then(function(response){
+                var data = response.data;
+                this.$set('message',data[0].reason);
+            }, function(response){
+                console.warn("Warn!");
+            });
+        },
+        data: {
+            message: 'Hello Vue.js!'
+        }
+    });*/
+
+    /*
+     * get: {method: 'GET'},
+     * save: {method: 'POST'},
+     * query: {method: 'GET'},
+     * update: {method: 'PUT'},
+     * remove: {method: 'DELETE'},
+     * delete: {method: 'DELETE'}
+     * */
+    /* var vm = new Vue({
+     el: "#app",
+     ready: function(){
+     var resource = this.$resource('http://www.cha2u.com/shanguoyinyi/{id}');
+
+     resource.get({id: 'weixin/common/returnReason/findAll.do'}, {emulateJSON: true}).then(function(response){
+     console.log(response.status);
+     console.log(response.statusText);
+     console.log(response.headers['Expires']);
+     console.log(response.json());
+     console.log(response.text());
+
+     this.$set('message', response.text());
+     },function(response){
+     console.log("warn!");
+     });
+     },
+     data: {
+     message: "Hello Neron!"
+     }
+     });*/
+</script>
+</body>
+</html>

@@ -11,11 +11,12 @@ function pullDownAction() {
      **/
     myScroll.refresh();
 }
+
 /**
  * 滚动翻页 （自定义实现此方法）
  */
 function pullUpAction() {
-    $('.empty-list').remove();
+    $('.empty-list').hide();
     customer.search.loadMore();
 }
 //初始化绑定iScroll控件
@@ -26,13 +27,17 @@ function pullUpAction() {
 //    $.mobile.hashListeningEnabled = false;
 //    $.mobile.pushStateEnabled = false;
 //});
+
 $(function () {
     customer.search.init();
-    var href = 'html/customer/search/search-result.html?'+document.location.href.split('?')[1];
+
+    var href = 'html/customer/search/search-special.html?'+document.location.href.split('?')[1];
     console.info(href);
     localStorage.setItem('searchPage', href);
     $('#back').attr('href','html/customer/index.html?storeId='+localStorage.getItem("shopId")+'&type=weixinIndex&userId='+localStorage.getItem("userid"));
+
 });
+
 var customer = customer || {};
 //初始化搜索条件
 var conditionStr={
@@ -48,6 +53,7 @@ var conditionStr={
     "columnId":Util.common.getParameter('columnId'),
     "labelId": Util.common.getParameter('labelId')
 };
+
 var Loader = {
     isLoading:false,
     request:function(url,data,cb){
@@ -67,13 +73,6 @@ var timeCounter = function(){
     for(var i=0;i<timers.length;i++){
         var $timer  = $(timers[i]);
         var t = parseInt($timer.find('input').val())-new Date().getTime();
-        /*var d=Math.floor(t/1000/60/60/24);
-         t-=d*(1000*60*60*24);
-         var h=Math.floor(t/1000/60/60);
-         t-=h*60*60*1000;
-         var m=Math.floor(t/1000/60);
-         t-=m*60*1000;
-         var s=Math.floor(t/1000);*/
         var d=Math.floor(t/1000/60/60/24);
         var h=Math.floor(t/1000/60/60%24);
         var m=Math.floor(t/1000/60%60);
@@ -83,6 +82,7 @@ var timeCounter = function(){
         $timer.find('.sec').html(s);
     }
 };
+
 customer.search = {
     init: function () {
         this.initParameter();
@@ -90,6 +90,7 @@ customer.search = {
         this.loadCartNumber();
         setInterval(timeCounter, 1000);
         loaded('good-grid-id-special');
+
         setTimeout(function(){
             //hot fix. 2016-6-14
             var PADDING_TOP = 114;
@@ -120,6 +121,12 @@ customer.search = {
             $("#pageTitle").html(title);
             $("#classifyId").html(title);
             Util.common.setWxTitle(title);
+        }
+        if(title.indexOf('搜索') != -1) {
+            $("#classifyId").css({
+                'width': '60px',
+                'text-align': 'center'
+            });
         }
         var classify = Util.common.getParameter("classify");
         if (classify != null && classify != '') {
@@ -160,6 +167,7 @@ customer.search = {
                 "id": "248493574755864576"
             }
         ];
+
         customer.search.loadTemplate("#menu-a", "#search_classify_a_t", data);
         /* var url = Util.common.baseUrl + "/weixin/cargo/classify/queryByParentId.do";
          var param = {"category": "0"};
@@ -168,9 +176,11 @@ customer.search = {
          });*/
         $("#teaNavbarPopup").show();
     },
+
     changeClassify: function (obj) {
         document.location.href = 'html/customer/search/search-special.html?title=' + $(obj).attr('title') + '&columnId=' + $(obj).attr('classify') + '&type=column';
     },
+
     initGoodList:function(){
         var url = Util.common.baseUrl+ "/weixin/good/getGoodList.do";
         var param = {"conditionStr":JSON.stringify(conditionStr)};
@@ -179,7 +189,7 @@ customer.search = {
                 var $empty = $('<div class="empty-list"><img src="images/xxdpi/kzt_sp.png" alt=""><p>暂无此类商品</p><p>客官逛逛其他商品吧~</p></div>');
                 $('#good-grid-id-special').append($empty);
             } else {
-                $('.empty-list').remove();
+                $('.empty-list').hide();
                 customer.search.loadTemplate("#thelist", "#search_goodlist_t", data);
             }
             myScroll.refresh();		//调用刷新页面myScroll.refresh();
@@ -187,14 +197,14 @@ customer.search = {
     },
     //切换排序
     changeToAsc: function (obj) {
+        conditionStr.pageNum = 1;
+        $('.empty-list').remove();
         var sortField = obj.dataset.sortField;
-        var sale = 0, price = 1;
+        var sale, price;
         if ($(obj).hasClass("ui-icon-splb-xx")) { // 降序->升序
             $(obj).removeClass("ui-icon-splb-xx");
             $(obj).addClass("ui-icon-splb-xs");
             //$(obj).attr("value", DESC);
-            //conditionStr[sortField] = DESC;
-
             if($(obj).hasClass('saleSort')) {
                 conditionStr.saleNumSort = "1";
                 conditionStr.priceSort = null;
@@ -206,7 +216,6 @@ customer.search = {
             $(obj).removeClass("ui-icon-splb-xs");
             $(obj).addClass("ui-icon-splb-xx");
             //$(obj).attr("value", ASC);
-            //conditionStr[sortField] = ASC;
             if($(obj).hasClass('saleSort')) {
                 conditionStr.saleNumSort = "0";
                 conditionStr.priceSort = null;
@@ -215,12 +224,10 @@ customer.search = {
                 conditionStr.priceSort = "0";
             }
         }
-
         var url = Util.common.baseUrl+ "/weixin/good/getGoodList.do";
 
         //change search condition
         $.extend(conditionStr,{
-            "pageNum": 1,
             //"saleNumSort": sale,
             //"priceSort": price
         });
@@ -230,7 +237,7 @@ customer.search = {
             if (data == '') {
                 var $empty = $('<div class="empty-list"><img src="images/xxdpi/kzt_sp.png" alt=""><p>暂无此类商品</p><p>客官逛逛其他商品吧~</p></div>');
                 $('#thelist').empty();
-                $('#good-grid-id').append($empty);
+                $('#good-grid-id-special').append($empty);
             } else {
                 $('.empty-list').remove();
                 customer.search.loadTemplate("#thelist", "#search_goodlist_t", data);
@@ -242,6 +249,7 @@ customer.search = {
     showSearchFilter: function (obj) {
         $("#teaNavbarPopup").hide();
         $('#classifyId').css("color", "#000");
+
         if ($("#searchFilterPopup").css("display") == 'block') {
             $('#searchFilterId').css("color", "#000");
             $("#searchFilterPopup").hide();
@@ -267,10 +275,11 @@ customer.search = {
             });
         }
         //
+
     },
     btnReset: function () {
-        $('.empty-list').remove();
-        customer.search.initGoodList(conditionStr);
+        $('.empty-list').hide();
+        customer.search.initGoodList();
         $('#searchFilterId').css("color", "#000");
         $("#searchFilterPopup").hide();
     },
@@ -336,7 +345,9 @@ customer.search = {
     sureBtnFilter:function(){
         $('#searchFilterId').css("color","#000");
         $("#searchFilterPopup").hide();
+
         var url = Util.common.baseUrl+ "/weixin/good/getGoodList.do";
+
         //change search condition
         $.extend(conditionStr,{
             "goodName":Util.common.getParameter('searchText') || "",
@@ -346,6 +357,7 @@ customer.search = {
             "brandId":$('input[name=brand]:checked').val() || "",
             "labelId":$('input[name=purpose]:checked').val() || "",
         });
+
         var param = {"conditionStr":JSON.stringify(conditionStr)};
         Loader.request(url, param, function (data) {
             if (data == '') {
@@ -356,6 +368,7 @@ customer.search = {
                 myScroll.refresh();
                 console.log(data);
             }
+
         });
     },
     executeAjax: function (url, param, render, templateId) {
