@@ -93,7 +93,7 @@ customer.search = {
 
         setTimeout(function(){
             //hot fix. 2016-6-14
-            var PADDING_TOP = 114;
+            var PADDING_TOP = 8;
             var top = document.querySelector('.ui-content').getBoundingClientRect().top;
             document.querySelector('#good-grid-id-special').style.top = top + PADDING_TOP + 'px';
         },0);
