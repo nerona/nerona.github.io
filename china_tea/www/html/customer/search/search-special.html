@@ -17,6 +17,16 @@
 			width:100%;
 			overflow:auto;
 			bottom: 0;
+			opacity: 1 !important;
+			visibility: visible !important;
+		}
+		#scroller:after,
+		#thelist:after {
+			content: '';
+			display: block;
+			height: 0;
+			visibility: hidden;
+			clear: both;
 		}
 	</style>
 </head>
