@@ -153,27 +153,20 @@ customer.search = {
             $("#teaNavbarPopup").show();
         }
         //初始化加载商品分类
-        var data;
-        if(Util.common.getParameter('type') == "column"){
-            data = [
-                {
-                    "name": "今日推荐",
-                    "id": "248492567013711872"
-                },
-                {
-                    "name": "精选商品",
-                    "id": "248492643227463680"
-                },
-                {
-                    "name": "新品上线",
-                    "id": "248492756212002816"
-                },
-                {
-                    "name": "节日专区",
-                    "id": "248526012364853248"
-                }
-            ];
-        }
+        var data = [
+            {
+                "name": "特价专区",
+                "id": "248493338106195968"
+            },
+            {
+                "name": "众筹专区",
+                "id": "248493442048086016"
+            },
+            {
+                "name": "团购专区",
+                "id": "248493574755864576"
+            }
+        ];
 
         customer.search.loadTemplate("#menu-a", "#search_classify_a_t", data);
         /* var url = Util.common.baseUrl + "/weixin/cargo/classify/queryByParentId.do";
