@@ -383,20 +383,28 @@ customer.search = {
         });
     },
     loadTemplate:function(render ,templateId ,data ){
-        $.extend(data,{
-            "starttimer": 1,
-            "endtimer": 1,
-            "cTimer": 1,
-            "timeTitle": 1,
-            "hour": 1,
-            "min": 1,
-            "sec": 1
-        });
         for (var i = 0; i < data.length; i++) {
-            data[i].starttimer = new Date(data[i].startDate).getTime().toString();
-            data[i].endtimer = new Date(data[i].endDate).getTime().toString();
-            console.log(data[i].starttimer);
-            console.log(data[i].endtimer);
+            console.log(new Date(data[i].startDate).getFullYear());
+            console.log(new Date(data[i].startDate).getMonth());
+            console.log(new Date(data[i].startDate).getDate());
+            console.log(new Date(data[i].startDate).getHours());
+            console.log(new Date(data[i].startDate).getMinutes());
+            console.log(new Date(data[i].startDate).getSeconds());
+            console.log("------------------------------------------");
+            console.log(new Date(data[i].endDate).getFullYear());
+            console.log(new Date(data[i].endDate).getMonth());
+            console.log(new Date(data[i].endDate).getDate());
+            console.log(new Date(data[i].endDate).getHours());
+            console.log(new Date(data[i].endDate).getMinutes());
+            console.log(new Date(data[i].endDate).getSeconds());
+            console.log("------------------------------------------");
+            console.log(new Date().getFullYear());
+            console.log(new Date().getMonth());
+            console.log(new Date().getDate());
+            console.log(new Date().getHours());
+            console.log(new Date().getMinutes());
+            console.log(new Date().getSeconds());
+            console.log("------------------------------------------");
             var start = parseInt(new Date(data[i].startDate).getTime()-new Date().getTime());
             var end = parseInt(new Date(data[i].endDate).getTime()-new Date().getTime());
             var d, h, m,s;
