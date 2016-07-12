@@ -436,19 +436,8 @@ customer.search = {
                 data[i].timeTitle = '距结束:';
             } else if(end_year == now_year && end_month == now_month && end_date == now_date && end_hour == now_hour && end_min > now_min) {
                 data[i].timeTitle = '距结束:';
-                data[i].hour =0;
-                if(end_sec > now_sec) {
-                    data[i].min = end_min - now_min;
-                    data[i].sec = end_sec - now_sec;
-                } else {
-                    data[i].min = end_min - now_min - 1;
-                    data[i].sec = 60 + end_sec - now_sec;
-                }
             } else if(end_year == now_year && end_month == now_month && end_date == now_date && end_hour == now_hour && end_min == now_min && end_sec > now_sec) {
                 data[i].timeTitle = '距结束:';
-                data[i].hour =0;
-                data[i].min = 0;
-                data[i].sec = end_sec - now_sec;
             }
 
             //距离开始
