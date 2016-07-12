@@ -409,7 +409,6 @@ customer.search = {
             console.log(end_year + "-" + end_month + "-" + end_date + "-" +end_hour + "-" + end_min + "-"+end_sec);
             console.log(now_year + "-" + now_month + "-" + now_date + "-" +now_hour + "-" + now_min + "-"+now_sec);
             console.log("--------------------------------------------------------");
-            var d, h, m,s;
 
             //已结束
             if(end_year < now_year){
@@ -433,12 +432,8 @@ customer.search = {
                 data[i].timeTitle = '距结束:';
             } else if(end_year == now_year && end_month == now_month && end_date > now_date) {
                 data[i].timeTitle = '距结束:';
-                data[i].hour =0;
-                data[i].min = 0;
-                data[i].sec = end_sec - now_sec;
             } else if(end_year == now_year && end_month == now_month && end_date == now_date && end_hour > now_hour) {
                 data[i].timeTitle = '距结束:';
-
             } else if(end_year == now_year && end_month == now_month && end_date == now_date && end_hour == now_hour && end_min > now_min) {
                 data[i].timeTitle = '距结束:';
                 data[i].hour =0;
