@@ -405,6 +405,7 @@ customer.search = {
             var now_min = new Date().getMinutes();
             var now_sec = new Date().getSeconds();
 
+            data[i].timeTitle = '距开始:';
             //已结束
             if(now_year > end_year){
 
@@ -415,7 +416,7 @@ customer.search = {
 
 
 
-            var start = parseInt(new Date(data[i].startDate).getTime()-new Date().getTime());
+           /* var start = parseInt(new Date(data[i].startDate).getTime()-new Date().getTime());
             var end = parseInt(new Date(data[i].endDate).getTime()-new Date().getTime());
             var d, h, m,s;
             if(start > 0 && end > 0) {
@@ -444,7 +445,7 @@ customer.search = {
                 data[i].min = 0;
                 data[i].sec = 0;
                 clearInterval(timeCounter);
-            }
+            }*/
             console.log(data[i].hour + ':' + data[i].min + ':' + data[i].sec);
         }
         $(render).html($(templateId).tmpl(data));
