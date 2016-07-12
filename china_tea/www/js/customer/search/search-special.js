@@ -385,34 +385,48 @@ customer.search = {
     loadTemplate:function(render ,templateId ,data ){
         for (var i = 0; i < data.length; i++) {
             var start_year = new Date(data[i].startDate).getFullYear();
-            var start_month = new Date(data[i].startDate).getMonth();
+            var start_month = new Date(data[i].startDate).getMonth() + 1;
             var start_date = new Date(data[i].startDate).getDate();
             var start_hour = new Date(data[i].startDate).getHours();
             var start_min = new Date(data[i].startDate).getMinutes();
-            var start_src = new Date(data[i].startDate).getSeconds();
+            var start_sec = new Date(data[i].startDate).getSeconds();
 
             var end_year = new Date(data[i].endDate).getFullYear();
-            var end_month = new Date(data[i].endDate).getMonth();
+            var end_month = new Date(data[i].endDate).getMonth() + 1;
             var end_date = new Date(data[i].endDate).getDate();
             var end_hour = new Date(data[i].endDate).getHours();
             var end_min = new Date(data[i].endDate).getMinutes();
             var end_sec = new Date(data[i].endDate).getSeconds();
 
             var now_year = new Date().getFullYear();
-            var now_month = new Date().getMonth();
+            var now_month = new Date().getMonth() + 1;
             var now_date = new Date().getDate();
             var now_hour = new Date().getHours();
             var now_min = new Date().getMinutes();
             var now_sec = new Date().getSeconds();
 
-            data[i].timeTitle = '距开始:';
+            console.log(start_year + "-" + start_month + "-" + start_date + "-" +start_hour + "-" + start_min + "-"+start_sec);
+            console.log(end_year + "-" + end_month + "-" + end_date + "-" +end_hour + "-" + end_min + "-"+end_sec);
+            console.log(now_year + "-" + now_month + "-" + now_date + "-" +now_hour + "-" + now_min + "-"+now_sec);
+            console.log("--------------------------------------------------------");
+            var d, h, m,s;
+
             //已结束
-            if(now_year > end_year){
-
-            } else if(now_year = end_year && now_month > end_month) {
-
+            if(end_year < now_year){
+                data[i].timeTitle = '已结束!';
+            } else if(end_year == now_year && end_month < now_month) {
+                data[i].timeTitle = '已结束!';
+            } else if(end_year == now_year && end_month == now_month && end_date < now_date) {
+                data[i].timeTitle = '已结束!';
+            } else if(end_year == now_year && end_month == now_month && end_date == now_date && end_hour < now_hour) {
+                data[i].timeTitle = '已结束!';
+            } else if(end_year == now_year && end_month == now_month && end_date == now_date && end_hour == now_hour && end_min < now_min) {
+                data[i].timeTitle = '已结束!';
+            } else if(end_year == now_year && end_month == now_month && end_date == now_date && end_hour == now_hour && end_min == now_min && end_sec < now_sec) {
+                data[i].timeTitle = '已结束!';
+            } else {
+                data[i].timeTitle = '!!!';
             }
-
 
 
 
@@ -446,7 +460,6 @@ customer.search = {
                 data[i].sec = 0;
                 clearInterval(timeCounter);
             }*/
-            console.log(data[i].hour + ':' + data[i].min + ':' + data[i].sec);
         }
         $(render).html($(templateId).tmpl(data));
     },
