@@ -88,7 +88,7 @@ customer.search = {
         this.initParameter();
         this.initGoodList();
         this.loadCartNumber();
-        setInterval(timeCounter, 1000);
+        //setInterval(timeCounter, 1000);
         loaded('good-grid-id-special');
 
         setTimeout(function(){
@@ -424,11 +424,52 @@ customer.search = {
                 data[i].timeTitle = '已结束!';
             } else if(end_year == now_year && end_month == now_month && end_date == now_date && end_hour == now_hour && end_min == now_min && end_sec < now_sec) {
                 data[i].timeTitle = '已结束!';
-            } else {
-                data[i].timeTitle = '!!!';
             }
 
+            //进行中
+            if(end_year > now_year){
+                data[i].timeTitle = '距结束:';
+            } else if(end_year == now_year && end_month > now_month) {
+                data[i].timeTitle = '距结束:';
+            } else if(end_year == now_year && end_month == now_month && end_date > now_date) {
+                data[i].timeTitle = '距结束:';
+                data[i].hour =0;
+                data[i].min = 0;
+                data[i].sec = end_sec - now_sec;
+            } else if(end_year == now_year && end_month == now_month && end_date == now_date && end_hour > now_hour) {
+                data[i].timeTitle = '距结束:';
 
+            } else if(end_year == now_year && end_month == now_month && end_date == now_date && end_hour == now_hour && end_min > now_min) {
+                data[i].timeTitle = '距结束:';
+                data[i].hour =0;
+                if(end_sec > now_sec) {
+                    data[i].min = end_min - now_min;
+                    data[i].sec = end_sec - now_sec;
+                } else {
+                    data[i].min = end_min - now_min - 1;
+                    data[i].sec = 60 + end_sec - now_sec;
+                }
+            } else if(end_year == now_year && end_month == now_month && end_date == now_date && end_hour == now_hour && end_min == now_min && end_sec > now_sec) {
+                data[i].timeTitle = '距结束:';
+                data[i].hour =0;
+                data[i].min = 0;
+                data[i].sec = end_sec - now_sec;
+            }
+
+            //距离开始
+            if(start_year > now_year){
+                data[i].timeTitle = '距开始:';
+            } else if(start_year == now_year && start_month > now_month) {
+                data[i].timeTitle = '距开始:';
+            } else if(start_year == now_year && start_month == now_month && start_date > now_date) {
+                data[i].timeTitle = '距开始:';
+            } else if(start_year == now_year && start_month == now_month && start_date == now_date && start_hour > now_hour) {
+                data[i].timeTitle = '距开始:';
+            } else if(start_year == now_year && start_month == now_month && start_date == now_date && start_hour == now_hour && start_min > now_min) {
+                data[i].timeTitle = '距开始:';
+            } else if(start_year == now_year && start_month == now_month && start_date == now_date && start_hour == now_hour && start_min == now_min && start_sec > now_sec) {
+                data[i].timeTitle = '距开始:';
+            }
 
            /* var start = parseInt(new Date(data[i].startDate).getTime()-new Date().getTime());
             var end = parseInt(new Date(data[i].endDate).getTime()-new Date().getTime());
