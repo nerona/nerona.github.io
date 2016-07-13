@@ -18,6 +18,10 @@ $(function () {
             $('#detailTab').show();
         }
     });
+    if(Util.common.getParameter('type') != null) {
+        $('.column_tags').show();
+        $('.column_tags > span:last-child').html(Util.common.getParameter('type'));
+    }
 });
 
 var customer = customer || {};
