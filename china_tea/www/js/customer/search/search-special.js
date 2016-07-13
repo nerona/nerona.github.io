@@ -409,53 +409,53 @@ customer.search = {
             console.log(end_year + "-" + end_month + "-" + end_date + "-" +end_hour + "-" + end_min + "-"+end_sec);
             console.log(now_year + "-" + now_month + "-" + now_date + "-" +now_hour + "-" + now_min + "-"+now_sec);
             console.log("--------------------------------------------------------");
-            data[i].status = '已结束!';
+
             data[i].h = end_hour;
             data[i].m = end_min;
             data[i].s = end_sec;
             //已结束
             if(end_year < now_year){
-                data[i].timeTitle = '已结束!';
+                data[i].status = '已结束!';
             } else if(end_year == now_year && end_month < now_month) {
-                data[i].timeTitle = '已结束!';
+                data[i].status = '已结束!';
             } else if(end_year == now_year && end_month == now_month && end_date < now_date) {
-                data[i].timeTitle = '已结束!';
+                data[i].status = '已结束!';
             } else if(end_year == now_year && end_month == now_month && end_date == now_date && end_hour < now_hour) {
-                data[i].timeTitle = '已结束!';
+                data[i].status = '已结束!';
             } else if(end_year == now_year && end_month == now_month && end_date == now_date && end_hour == now_hour && end_min < now_min) {
-                data[i].timeTitle = '已结束!';
+                data[i].status = '已结束!';
             } else if(end_year == now_year && end_month == now_month && end_date == now_date && end_hour == now_hour && end_min == now_min && end_sec < now_sec) {
-                data[i].timeTitle = '已结束!';
+                data[i].status = '已结束!';
             }
 
             //进行中
             if(end_year > now_year){
-                data[i].timeTitle = '距结束:';
+                data[i].status = '距结束:';
             } else if(end_year == now_year && end_month > now_month) {
-                data[i].timeTitle = '距结束:';
+                data[i].status = '距结束:';
             } else if(end_year == now_year && end_month == now_month && end_date > now_date) {
-                data[i].timeTitle = '距结束:';
+                data[i].status = '距结束:';
             } else if(end_year == now_year && end_month == now_month && end_date == now_date && end_hour > now_hour) {
-                data[i].timeTitle = '距结束:';
+                data[i].status = '距结束:';
             } else if(end_year == now_year && end_month == now_month && end_date == now_date && end_hour == now_hour && end_min > now_min) {
-                data[i].timeTitle = '距结束:';
+                data[i].status = '距结束:';
             } else if(end_year == now_year && end_month == now_month && end_date == now_date && end_hour == now_hour && end_min == now_min && end_sec > now_sec) {
-                data[i].timeTitle = '距结束:';
+                data[i].status = '距结束:';
             }
 
             //距离开始
             if(start_year > now_year){
-                data[i].timeTitle = '距开始:';
+                data[i].status = '距开始:';
             } else if(start_year == now_year && start_month > now_month) {
-                data[i].timeTitle = '距开始:';
+                data[i].status = '距开始:';
             } else if(start_year == now_year && start_month == now_month && start_date > now_date) {
-                data[i].timeTitle = '距开始:';
+                data[i].status = '距开始:';
             } else if(start_year == now_year && start_month == now_month && start_date == now_date && start_hour > now_hour) {
-                data[i].timeTitle = '距开始:';
+                data[i].status = '距开始:';
             } else if(start_year == now_year && start_month == now_month && start_date == now_date && start_hour == now_hour && start_min > now_min) {
-                data[i].timeTitle = '距开始:';
+                data[i].status = '距开始:';
             } else if(start_year == now_year && start_month == now_month && start_date == now_date && start_hour == now_hour && start_min == now_min && start_sec > now_sec) {
-                data[i].timeTitle = '距开始:';
+                data[i].status = '距开始:';
             }
 
            /* var start = parseInt(new Date(data[i].startDate).getTime()-new Date().getTime());
