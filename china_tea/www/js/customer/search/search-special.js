@@ -409,6 +409,7 @@ customer.search = {
             console.log(end_year + "-" + end_month + "-" + end_date + "-" +end_hour + "-" + end_min + "-"+end_sec);
             console.log(now_year + "-" + now_month + "-" + now_date + "-" +now_hour + "-" + now_min + "-"+now_sec);
             console.log("--------------------------------------------------------");
+            data[i].status = '已结束!';
             data[i].h = end_hour;
             data[i].m = end_min;
             data[i].s = end_sec;
