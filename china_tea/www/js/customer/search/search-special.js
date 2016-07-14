@@ -410,9 +410,9 @@ customer.search = {
             console.log(now_year + "-" + now_month + "-" + now_date + "-" +now_hour + "-" + now_min + "-"+now_sec);
             console.log("--------------------------------------------------------");
 
-            data[i].h = parseInt(end_hour);
-            data[i].m = parseInt(end_min);
-            data[i].s = parseInt(end_sec);
+            data[i].h = 1;
+            data[i].m = 2;
+            data[i].s = 3;
             //已结束
             if(end_year < now_year){
                 data[i].status = '已结束!';
