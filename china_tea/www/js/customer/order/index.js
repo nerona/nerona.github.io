@@ -14,8 +14,8 @@ $(function(){
             //$("#my-order-return-popup .text-change").html('确定要退款,不再考虑下吗？亲。');
             //$("#my-order-return-popup").show().popup("open").on('tap', '.ok-order-btn', function(){
             //    setTimeout(function(){
-                    document.location.href = 'html/customer/order/return-reason.html??title=申请退款&id=' + ids;
-             //   }, 100);
+            document.location.href = 'html/customer/order/return-reason.html??title=申请退款&id=' + ids;
+            //   }, 100);
             //});
             //$("#my-order-tip-popup").show().popup("open");
         }  else if(type == 3) {
@@ -37,8 +37,7 @@ $(function(){
                 goodModel.push(good);
             });
             console.log(goodModel);
-
-            document.location.href = 'html/customer/order/judge.html?goodModel=' + JSON.stringify(goodModel);
+            document.location.href = 'html/customer/order/judge.html?goodModel=' + encodeURIComponent(JSON.stringify(goodModel));
         } else if(type == 6) {
             //
             document.location.href = "html/customer/order/address.html";
@@ -58,12 +57,12 @@ $(function(){
                 customer.order.cancelOrder(ids);
             });
         } else if(type == 2) {
-           //
+            //
         }  else if(type == 3) {
             //$("#my-order-return-popup").show().popup("open").on('tap', '.ok-order-btn', function(){
-                //setTimeout(function(){
-                    document.location.href = 'html/customer/order/return-reason.html?title=申请退货&id=' + ids;
-                //}, 100);
+            //setTimeout(function(){
+            document.location.href = 'html/customer/order/return-reason.html?title=申请退货&id=' + ids;
+            //}, 100);
             //});
         } else if(type == 4) {
             //
@@ -88,7 +87,7 @@ customer.order = {
     },
     initGoodList:function(){
         var url = Util.common.baseUrl+ "/weixin/indent/listByBuyerIdAndStoreId.do";
-        var param = {"status":"","storeId":localStorage.getItem("shopId"),buyerId:localStorage.getItem("userid"),"startIndex": 0, "pageSize": 500};
+        var param = {status:"","storeId":localStorage.getItem("shopId"),buyerId:localStorage.getItem("userid"),"startIndex": 0, "pageSize": 500};
         //console.log(localStorage.getItem("shopId") + ":" + localStorage.getItem("userid"));
         Util.common.executeAjaxCallback(url, param, function (data) {
             console.log(data.length);
