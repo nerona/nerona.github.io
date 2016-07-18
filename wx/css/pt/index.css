@@ -347,7 +347,7 @@
 
 /*添加银行卡*/
 .page-add-bc {
-
+    padding-bottom: 14%;
 }
 .page-add-bc .flex-line {
     height: .65rem;
@@ -382,4 +382,41 @@
 }
 .page-add-bc .ls9 {
     letter-spacing: 9px;
+}
+
+/*线下订单*/
+.page-offline {
+    padding-bottom: 14%;
+}
+.page-offline .off-item {
+    margin: 5% 4% 0 4%;
+    border: 1px solid rgb(160,160,160);
+    border-radius: 5px;
+    padding: 2% 0;
+    position: relative;
+}
+.page-offline .off-item .off-line {
+    line-height: .6rem;
+    padding-left: 4%;
+    font-size: .3rem;
+}
+.page-offline .off-line .off-line-name {
+    width: 28%;
+    text-align: left;
+    letter-spacing: 1px;
+}
+.page-offline .off-pay {
+    position: absolute;
+    right: 5%;
+    top: 20%;
+    background-color: rgb(79,153,39);
+    color: #fff;
+    font-size: .32rem;
+    letter-spacing: 2px;
+    display: inline-block;
+    width: 1.2rem;
+    height: 1.2rem;
+    line-height: 1.2rem;
+    border-radius: 6px;
+    text-align: center;
 }
