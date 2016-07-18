@@ -16,6 +16,7 @@
     color: #fff;
     position: relative;
     -webkit-box-align: center;
+    border-bottom: 1px solid #f0f0f0;
 }
 .return-amount img {
     width: 1rem;
@@ -26,7 +27,7 @@
     top: -9%;
     left: 2%;
 }
-.page-pt .card-left:before,
+/*.page-pt .card-left:before,*/
 .page-pt .menu-line:after,
 .page-pt .card-deal:before {
     content: "";
