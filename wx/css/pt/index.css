@@ -26,7 +26,7 @@
     top: -9%;
     left: 2%;
 }
-.page-pt .return-amount:after,
+.page-pt .card-left:before,
 .page-pt .menu-line:after,
 .page-pt .card-deal:before {
     content: "";
@@ -50,6 +50,10 @@
     background-color: #24936e;
     color: #fff;
     position: relative;
+}
+.page-pt .card-left:before {
+    top: 0;
+    bottom: auto;
 }
 .page-pt .fugui:after,
 .page-pt .menu-line .flex-item-three:after,
