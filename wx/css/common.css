@@ -28,6 +28,8 @@
 .flex-left {
     width: 34%;
     text-align: right;
+	display: block;
+	color: #fff;
 }
 .flex-right {
     -webkit-box-flex: 1;
@@ -343,4 +345,27 @@
 	font-size: .38rem;
 	letter-spacing: 1px;
 	border-radius: 8px;
+}
+
+/*tab*/
+.flex-tab {
+	display: -webkit-box;
+	width: 100%;
+	height: .7rem;
+	line-height: .7rem;
+	font-size: .32rem;
+	letter-spacing: 2px;
+	text-align: center;
+	background-color: #eee;
+	color: #999;
+}
+.flex-tab .flex-tab-item {
+	-webkit-box-flex: 1;
+}
+.flex-tab .flex-tab-item-three {
+	width: 33.33%;
+}
+.flex-tab .flex-tab-active {
+	background-color: #b5b5b6;
+	color: #fff;
 }

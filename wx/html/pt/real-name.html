@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>${title }</title>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="email=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" href="./../../css/sm.min.css">
+    <link rel="stylesheet" href="./../../css/pt/index.css">
+
+    <script type='text/javascript' src='./../../js/lib/zepto.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src="./../../js/lib/touch.min.js"></script>
+    <script type='text/javascript' src='./../../js/lib/common.js' charset='utf-8'></script>
+    <script type='text/javascript' src='./../../js/lib/sm.min.js' charset='utf-8'></script>
+
+    <script>
+        //tab link
+        $(function () {
+            $('.tab .flex-item-three:nth-child(1)').on('tap', function () {
+                document.location.href = './../shop/index.html';
+            });
+            $('.tab .flex-item-three:nth-child(2)').on('tap', function () {
+                document.location.href = './../pt/index.html';
+            });
+            $('.tab .flex-item-three:nth-child(3)').on('tap', function () {
+                document.location.href = './../my/index.html';
+            });
+        });
+    </script>
+</head>
+<body>
+
+<div class="page-group">
+    <div class="page page-current">
+        <header class="bar bar-nav">
+            <a class="icon icon-back pull-left back"></a>
+            <h1 class="title">实名认证</h1>
+        </header>
+        <div class="content page-real-name">
+            <div class="rn-input flex-line">
+                <div class="rn-input-name">真实姓名:</div>
+                <input type="text" placeholder="" name="realName" id="realName"
+                       value="" class="line-input"/>
+            </div>
+            <div class="rn-input flex-line">
+                <div class="rn-input-name">身份证号码:</div>
+                <input type="text" placeholder="" name="idCard" id="idCard"
+                       value="" class="line-input"/>
+            </div>
+            <div class="rn-pic">
+                <span class="rn-icon-camera"></span>
+                <p>上传身份证正面照</p>
+                <img id="img_show" src="" alt="">
+            </div>
+
+            <div style="display: none;">
+                <input type="file" name="file" id="id-left-input" style="display: none;" class="id-left-input">
+            </div>
+            <a href="javascript:void(0);" class="btn mc-sure">提&nbsp;&nbsp;&nbsp;交</a>
+
+        </div>
+
+        <!---->
+        <!---->
+        <nav class="tab flex-line">
+            <div class="flex-item-three">
+                <img src="./../../images/shouye_gray.png" alt="">
+                <p>首页</p>
+            </div>
+            <div class="flex-item-three active">
+                <img src="./../../images/gongxiangfugui.png" alt="">
+                <p>共享富贵</p>
+            </div>
+            <div class="flex-item-three">
+                <img src="./../../images/wo_gray.png" alt="">
+                <p>我的</p>
+            </div>
+        </nav>
+    </div>
+
+    <script>
+        $(function () {
+            common.Util.setWxTitle("实名认证");
+            $('.rn-pic').on('click', function () {
+                $('.id-left-input').click().change(function () {
+                    var fileName = $(this).val();
+                    var file_typename = fileName.substring(fileName.lastIndexOf('.'), fileName.length);
+                    if (file_typename == '.jpg' || file_typename == '.bmp' || file_typename == '.png') {
+                        //这里限定上传文件文件类型
+                        if (typeof FileReader == "undified") {
+                            return;
+                        }
+
+                        var resultFile = document.getElementById("id-left-input").files[0];
+                        if (resultFile) {
+                            var reader = new FileReader();
+                            reader.readAsDataURL(resultFile);
+                            reader.onload = function (e) {
+                                var urlData = this.result;
+                                document.getElementById("img_show").src = urlData;
+                            };
+                        }
+
+                    } else {
+                        $.toast("对不起，文件格式不符.,请重新选择要上传的文件(.jpg,.bmp,.png格式）)");
+                        return;
+                    }
+                });
+            });
+        });
+    </script>
+</div>
+</body>
+</html>

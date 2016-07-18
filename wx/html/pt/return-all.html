@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>${title }</title>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="email=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" href="./../../css/sm.min.css">
+    <link rel="stylesheet" href="./../../css/pt/index.css">
+
+    <script type='text/javascript' src='./../../js/lib/zepto.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src="./../../js/lib/touch.min.js"></script>
+    <script type='text/javascript' src='./../../js/lib/common.js' charset='utf-8'></script>
+    <script type='text/javascript' src='./../../js/lib/sm.min.js' charset='utf-8'></script>
+
+    <script>
+        //tab link
+        $(function () {
+            $('.tab .flex-item-three:nth-child(1)').on('tap', function () {
+                document.location.href = './../shop/index.html';
+            });
+            $('.tab .flex-item-three:nth-child(2)').on('tap', function () {
+                document.location.href = './../pt/index.html';
+            });
+            $('.tab .flex-item-three:nth-child(3)').on('tap', function () {
+                document.location.href = './../my/index.html';
+            });
+        });
+    </script>
+</head>
+<body>
+
+<div class="page-group">
+    <div class="page page-current">
+        <header class="bar bar-nav">
+            <a class="icon icon-back pull-left back"></a>
+            <h1 class="title">返利总额</h1>
+        </header>
+        <div class="content page-return-all">
+            <div class="return-tab flex-tab">
+                <div class="flex-tab-item-three flex-tab-active flex-week">一周</div>
+                <div class="flex-tab-item-three flex-month">一个月</div>
+                <div class="flex-tab-item-three flex-year">一年</div>
+            </div>
+            <!--周-->
+            <div id="week">
+                <div class="return-title flex-line">
+                    <div class="flex-item-three">类型</div>
+                    <div class="flex-item-three">时间</div>
+                    <div class="flex-item-three">金额</div>
+                </div>
+                <!--列表-->
+                <div class="return-list">
+                    <div class="flex-line return-item">
+                        <div class="flex-item">直接返利</div>
+                        <div class="flex-item">2016-12-12 12:00:00</div>
+                        <div class="flex-item">￥50000.00</div>
+                    </div>
+                    <div class="flex-line return-item">
+                        <div class="flex-item">间接返利</div>
+                        <div class="flex-item">2016-12-12 12:00:00</div>
+                        <div class="flex-item">￥500.00</div>
+                    </div>
+                </div>
+            </div>
+            <!--月-->
+            <div id="month">
+                <!--列表为空-->
+                <div class="return-empty">
+                    <img src="./../../images/kong.png" alt="">
+                    <p>暂无数据!</p>
+                </div>
+            </div>
+            <!--年-->
+            <div id="year">
+                <div class="return-title flex-line">
+                    <div class="flex-item-three">类型</div>
+                    <div class="flex-item-three">时间</div>
+                    <div class="flex-item-three">金额</div>
+                </div>
+                <!--列表-->
+                <div class="return-list">
+                    <div class="flex-line return-item">
+                        <div class="flex-item">直接返利</div>
+                        <div class="flex-item">2016-12-12 12:00:00</div>
+                        <div class="flex-item">￥50000.00</div>
+                    </div>
+                    <div class="flex-line return-item">
+                        <div class="flex-item">间接返利</div>
+                        <div class="flex-item">2016-12-12 12:00:00</div>
+                        <div class="flex-item">￥500.00</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!---->
+        <!---->
+        <nav class="tab flex-line">
+            <div class="flex-item-three">
+                <img src="./../../images/shouye_gray.png" alt="">
+                <p>首页</p>
+            </div>
+            <div class="flex-item-three active">
+                <img src="./../../images/gongxiangfugui.png" alt="">
+                <p>共享富贵</p>
+            </div>
+            <div class="flex-item-three">
+                <img src="./../../images/wo_gray.png" alt="">
+                <p>我的</p>
+            </div>
+        </nav>
+    </div>
+
+    <script>
+        $(function () {
+            common.Util.setWxTitle("返利总额");
+            $('.return-tab .flex-tab-item-three').on('tap', function(){
+                $(this).parent().find('.flex-tab-active').removeClass('flex-tab-active');
+                $(this).addClass('flex-tab-active');
+                if($(this).hasClass('flex-week')) {
+                    $('#week').show();
+                    $('#month').hide();
+                    $('#year').hide();
+                }
+                if($(this).hasClass('flex-month')) {
+                    $('#week').hide();
+                    $('#month').show();
+                    $('#year').hide();
+                }
+                if($(this).hasClass('flex-year')) {
+                    $('#week').hide();
+                    $('#month').hide();
+                    $('#year').show();
+                }
+            });
+        });
+    </script>
+</div>
+</body>
+</html>
