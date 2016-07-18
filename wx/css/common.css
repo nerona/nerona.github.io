@@ -231,6 +231,7 @@
     content: '>';
     position: absolute;
     right: 6%;
+	top: 0;
     color: #999;
     font-size: .4rem;
     font-family: serif;
