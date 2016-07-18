@@ -27,7 +27,7 @@
     left: 2%;
 }
 .page-pt .return-amount:after,
-.page-pt .menu-line .flex-item-three:before,
+.page-pt .menu-line:after,
 .page-pt .card-deal:before {
     content: "";
     display: block;
@@ -119,6 +119,10 @@
 }
 .menu .menu-line {
     height: 2.5rem;
+    position: relative;
+}
+.menu .menu-line:after {
+    background-color: #ccc;
 }
 .page-pt .menu-line .flex-item-three {
 	color: #24936e;
