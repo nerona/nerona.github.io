@@ -258,12 +258,13 @@
     -webkit-transform-origin: 100% 50%;
     transform-origin: 100% 50%;
 }
-.page-bank-card .add-card > span {
+.page-bank-card .add-card > a {
 	position: relative;
 	padding-left: 10%;
+    color: #999;
 }
-.page-bank-card .add-card > span:before,
-.page-bank-card .add-card > span:after {
+.page-bank-card .add-card > a:before,
+.page-bank-card .add-card > a:after {
     content: "";
     display: inline-block;
     width: .06rem;
@@ -274,7 +275,7 @@
     left: 16%;
     top: 12%;
 }
-.page-bank-card .add-card > span:after {
+.page-bank-card .add-card > a:after {
 	-webkit-transform: rotate(90deg);
 	transform: rotate(90deg);
 }
@@ -342,4 +343,43 @@
 }
 .confirm-box .confirm-btns .confirm-cancel {
 	right: 0;
+}
+
+/*添加银行卡*/
+.page-add-bc {
+
+}
+.page-add-bc .flex-line {
+    height: .65rem;
+    line-height: .65rem;
+    margin: 8% 8%;
+    font-size: .32rem;
+}
+.page-add-bc .bc-name {
+    width: 30%;
+    letter-spacing: 3px;
+    text-align: left;
+}
+.page-add-bc .bc-input {
+    -webkit-box-flex: 1;
+}
+.page-add-bc .bc-input > input,
+.page-add-bc .bc-input > select{
+    width: 100%;
+    text-align: center;
+    font-size: .32rem;
+    letter-spacing: 1px;
+    border: 1px solid #24936e;
+    color: #999;
+    border-radius: 5px;
+    padding: .1rem 0;
+}
+.page-add-bc .bc-input > select {
+    padding-left: 24%;
+}
+.page-add-bc .ls4 {
+    letter-spacing: 4px;
+}
+.page-add-bc .ls9 {
+    letter-spacing: 9px;
 }

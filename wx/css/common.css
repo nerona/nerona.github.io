@@ -330,3 +330,17 @@
 .bar-nav~.content {
     top: .88rem;
 }
+
+.btn {
+	display: block;
+	width: 80%;
+	margin: 6% auto;
+	height: .8rem;
+	line-height: .8rem;
+	text-align: center;
+	background-color: #24936e;
+	color: #fff;
+	font-size: .38rem;
+	letter-spacing: 1px;
+	border-radius: 8px;
+}
