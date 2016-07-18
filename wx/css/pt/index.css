@@ -52,11 +52,14 @@
     color: #fff;
     position: relative;
 }
+.page-pt .card-left .fugui {
+    border-right: 1px solid #f0f0f0;
+}
 .page-pt .card-left:before {
     top: 0;
     bottom: auto;
 }
-.page-pt .fugui:after,
+/*.page-pt .fugui:after,*/
 .page-pt .menu-line .flex-item-three:after,
 .page-pt .card-deal .flex-item-two:first-child:after {
     content: "";
