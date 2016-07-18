@@ -141,6 +141,7 @@
 }
 .my-order-list .flex-item-five {
 	position: relative;
+	height: 1.2rem;
 }
 .my-order-list .flex-item-five:active {
 	background-color: #eee;
