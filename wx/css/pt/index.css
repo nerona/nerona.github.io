@@ -126,6 +126,7 @@
 }
 .page-pt .menu-line .flex-item-three {
 	color: #24936e;
+    height: 2.5rem;
 }
 .page-pt .menu-line .flex-item-three:after,
 .page-pt .menu-line .flex-item-three:before {
