@@ -1,0 +1,75 @@
+@charset "utf-8";
+
+@import "./../base.css";
+@import "./../common.css";
+
+.page-voucher {
+	width: 100%;
+	min-height: 100%;
+	position: absolute;
+	background: url(./../../images/di@2x.png) no-repeat;
+	background-size: cover;
+}
+.v-switcher {
+	width: 88%;
+	margin: 0 auto;
+	margin-top: 8%;
+	position: relative;
+	height: .65rem;
+}
+.v-switcher > span {
+	display: inline-block;
+	width: 32%;
+	line-height: .65rem;
+	border-radius: 5px;
+	letter-spacing: 4px;
+	background-color: #b5b5b6;
+	color: #24936e;
+	font-size: .36rem;
+	text-align: center;
+	position: absolute;
+}
+.v-switcher > span:first-child {
+	left: 8%;
+}
+.v-switcher > span:last-child {
+	right: 8%;
+}
+.v-switcher .avail {
+	background-color: #24936e;
+	color: #fff;
+}
+.v-container {}
+.v-container .v-useing {}
+.v-container .v-used {}
+.v-container .v-item {
+	width: 5.2rem;
+	margin: 0 auto;
+	margin-top: 6%;
+	height: 3.3rem;
+	background: url(./../../images/my/daijinquan.png) no-repeat;
+	background-size: 100% 100%;
+	overflow: hidden;
+    position: relative;
+}
+.v-container .v-item > p:nth-child(1),
+.v-container .v-item > p:nth-child(2) {
+	padding-top: 6%;
+	padding-left: 10%;
+	font-size: .52rem;
+	letter-spacing: 1px;
+	font-weight: bold;
+	font-family: initial;
+	line-height: .6rem;
+}
+.v-container .v-item > p:nth-child(2) {
+	padding-top: 0;
+}
+
+.v-container .v-item > p:nth-child(3),
+.v-container .v-item > p:nth-child(4) {
+	
+}
+.v-container .v-item > p:nth-child(3) {
+	
+}

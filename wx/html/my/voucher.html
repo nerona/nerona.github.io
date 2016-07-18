@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>${title }</title>
+	<meta name="format-detection" content="telephone=no"/>
+	<meta name="format-detection" content="email=no"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+	<link rel="stylesheet" href="./../../css/sm.min.css">
+	<link rel="stylesheet" href="./../../css/my/voucher.css">
+
+	<script type='text/javascript' src='./../../js/lib/zepto.min.js' charset='utf-8'></script>
+	<script type='text/javascript' src="./../../js/lib/touch.min.js"></script>
+	<script type='text/javascript' src='./../../js/lib/common.js' charset='utf-8'></script>
+	<script type='text/javascript' src='./../../js/lib/sm.min.js' charset='utf-8'></script>
+
+	<script>
+		//tab link
+		$(function () {
+			$('.tab .flex-item-three:nth-child(1)').on('tap', function () {
+				document.location.href = './../shop/index.html';
+			});
+			$('.tab .flex-item-three:nth-child(2)').on('tap', function () {
+				document.location.href = './../pt/index.html';
+			});
+			$('.tab .flex-item-three:nth-child(3)').on('tap', function () {
+				document.location.href = './../my/index.html';
+			});
+		});
+	</script>
+</head>
+<body>
+
+<div class="page-group">
+    <div class="page page-current">
+    	<header class="bar bar-nav">
+  			<a class="icon icon-back pull-left back"></a>
+  			<a class="pull-right icon-cart"></a>
+  			<h1 class="title">我的代金券</h1>
+		</header>
+    	<div class="content page-voucher">
+			<div class="v-switcher">
+				<span class="avail">未使用</span>
+				<span>已使用</span>
+			</div>
+			<div class="v-container">
+				<!-- 未使用 -->
+				<div class="v-useing">
+					<ul>
+						<li class="v-item">
+							<p>代金券</p>
+							<p>1000元</p>
+							<p>活动时间:</p>
+							<p>2016年12月12日-2016年12月12日</p>
+						</li>
+					</ul>
+				</div>
+				<!-- 已使用 -->
+				<div class="v-used"></div>
+			</div>
+		</div>
+    <!---->
+    <%-- <div class="msg-ring">
+    	<img src="./../../images/xiaoxi.png">
+    	<span>1</span>
+    </div> --%>
+    <!---->
+    <nav class="tab flex-line">
+        <div class="flex-item-three">
+            <img src="./../../images/shouye_gray.png" alt="">
+            <p>首页</p>
+        </div>
+        <div class="flex-item-three">
+            <img src="./../../images/gongxiangfugui_gray.png" alt="">
+            <p>共享富贵</p>
+        </div>
+        <div class="flex-item-three active">
+            <img src="./../../images/wo-de.png" alt="">
+            <p>我的</p>
+        </div>
+    </nav>
+	</div>	
+</div>
+
+<script>
+	$(function() {
+		common.Util.setWxTitle("代金券");		
+	});
+</script>
+
+</body>
+</html>
