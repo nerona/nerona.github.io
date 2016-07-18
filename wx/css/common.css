@@ -127,6 +127,7 @@
 	-webkit-box-flex: 1;
 	padding-top: .32rem;
 	position: relative;
+	height: 2.8rem;
 }
 .goods-item .goods-text .goods-tag {
 	display: inline-block;

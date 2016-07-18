@@ -7,6 +7,7 @@
 .page-shop {
 	padding-bottom: 14%;
 	background-color: #fff;
+	overflow-x: hidden;
 }
 .page-shop .classify {
 	width: 100%;
