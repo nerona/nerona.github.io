@@ -557,3 +557,106 @@
 .page-card-left {
     padding-bottom: 14%;
 }
+
+/*充值*/
+.page-charge {
+    padding-bottom: 14%;
+}
+.page-charge .charge-number {
+    margin: 4% auto;
+    background-color: #fff;
+    width: 100%;
+    padding: .5rem;
+    font-size: .42rem;
+    position: relative;
+}
+.page-charge .charge-number > input {
+    width: 100%;
+    color: #666;
+    letter-spacing: 1px;
+}
+.page-charge .charge-number .del-number {
+    position: absolute;
+    top: .6rem;
+    right: .5rem;
+    font-family: cursive;
+    font-size: .32rem;
+    color: #24936e;
+    display: none;
+}
+.page-charge .charge-benefit {
+    text-align: center;
+    margin: 0 6%;
+}
+.charge-benefit .benefit-title {
+    color: #24936e;
+    font-size: .36rem;
+    letter-spacing: 2px;
+    padding: 2% 0 6% 0;
+}
+.charge-benefit .benefit-list {}
+.benefit-list .benefit-item {
+    display: inline-block;
+    width: 2.1rem;
+    height: 1.7rem;
+    float: left;
+    background-color: #fff;
+    border: 1px solid #24936e;
+    margin-right: .12rem;
+    margin-bottom: .3rem;
+    border-radius: 8px;
+}
+.benefit-list .benefit-item:nth-child(3n) {
+    margin-right: 0;
+}
+.benefit-list .benefit-item .benefit-type {
+    font-size: .4rem;
+    color: #24936e;
+    margin-top: .34rem;
+}
+.benefit-list .benefit-item .benefit-attach {
+    font-size: .24rem;
+    color: #f40;
+    margin-top: .1rem;
+}
+.benefit-list .benefit-other {
+    width: 4.2rem;
+}
+.benefit-list .benefit-other .benefit-type {
+    margin-top: .5rem;
+    letter-spacing: 2px;
+}
+/*tip-box*/
+.tip-box {
+    width: 82%;
+    margin: 0 auto;
+    margin-top: 40%;
+    background-color: #fff;
+    border-radius: 5px;
+}
+.tip-box .box-content {
+    display: -webkit-box;
+    padding: 6% 0;
+}
+.tip-box .box-content > div:first-child {
+    width: 32%;
+}
+.tip-box .box-content > div:last-child {
+    -webkit-box-flex: 1;
+    font-size: .32rem;
+    color: #24936e;
+    display: -webkit-box;
+    -webkit-box-align: center;
+}
+.tip-box .btns {
+    position: relative;
+    margin: 0 8%;
+    padding-bottom: 8%;
+}
+.tip-box .btns > img {
+    width: 40%;
+}
+.tip-box .btns > img:last-child {
+    position: absolute;
+    right: 0;
+}

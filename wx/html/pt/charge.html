@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>${title }</title>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="email=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" href="./../../css/sm.min.css">
+    <link rel="stylesheet" href="./../../css/pt/index.css">
+
+    <script type='text/javascript' src='./../../js/lib/zepto.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src="./../../js/lib/touch.min.js"></script>
+    <script type='text/javascript' src='./../../js/lib/common.js' charset='utf-8'></script>
+    <script type='text/javascript' src='./../../js/lib/sm.min.js' charset='utf-8'></script>
+
+    <script>
+        //tab link
+        $(function () {
+            $('.tab .flex-item-three:nth-child(1)').on('tap', function () {
+                document.location.href = './../shop/index.html';
+            });
+            $('.tab .flex-item-three:nth-child(2)').on('tap', function () {
+                document.location.href = './../pt/index.html';
+            });
+            $('.tab .flex-item-three:nth-child(3)').on('tap', function () {
+                document.location.href = './../my/index.html';
+            });
+        });
+    </script>
+</head>
+<body>
+
+<div class="page-group">
+    <div class="page page-current">
+        <header class="bar bar-nav">
+            <a class="icon icon-back pull-left back"></a>
+            <h1 class="title">充值</h1>
+        </header>
+        <div class="content page-charge">
+            <div class="charge-number">
+                <input type="tel" placeholder="请填写要充值的手机号码" maxlength="13" id="phone">
+                <span class="del-number">X</span>
+            </div>
+            <!--优惠套餐-->
+            <div class="charge-benefit">
+                <p class="benefit-title">充值优惠套餐</p>
+                <!---->
+                <ul class="benefit-list clearfix">
+                    <li class="benefit-item">
+                        <p class="benefit-type">3 千元</p>
+                        <p class="benefit-attach">1800元代金券</p>
+                    </li>
+                    <li class="benefit-item">
+                        <p class="benefit-type">1 万元</p>
+                        <p class="benefit-attach">6000元代金券</p>
+                    </li>
+                    <li class="benefit-item">
+                        <p class="benefit-type">2 万元</p>
+                        <p class="benefit-attach">12000元代金券</p>
+                    </li>
+                    <li class="benefit-item">
+                        <p class="benefit-type">5 万元</p>
+                        <p class="benefit-attach">2万元代金券</p>
+                    </li>
+                    <li class="benefit-item">
+                        <p class="benefit-type">20 万元</p>
+                        <p class="benefit-attach">2万元代金券</p>
+                    </li>
+                    <li class="benefit-item">
+                        <p class="benefit-type">50 万元</p>
+                        <p class="benefit-attach">2万元代金券</p>
+                    </li>
+                    <li class="benefit-item">
+                        <p class="benefit-type">100 万元</p>
+                        <p class="benefit-attach">2万元代金券</p>
+                    </li>
+                    <li class="benefit-item benefit-other">
+                        <p class="benefit-type">充值其他金额</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!---->
+    <div class="box-mask">
+        <div class="tip-box">
+            <div class="box-content">
+                <div>
+                    <img src="./../../images/my/touxiang.png" alt="">
+                </div>
+               <div>
+                   12341234123 不是您的账户，确定为该账户充值？
+               </div>
+            </div>
+            <div class="btns">
+                <img class="btn-sure" src="./../../images/queding.png" alt="">
+                <img class="btn-cancel" src="./../../images/quxiao.png" alt="">
+            </div>
+        </div>
+    </div>
+    <!---->
+    <nav class="tab flex-line">
+        <div class="flex-item-three">
+            <img src="./../../images/shouye_gray.png" alt="">
+            <p>首页</p>
+        </div>
+        <div class="flex-item-three active">
+            <img src="./../../images/gongxiangfugui.png" alt="">
+            <p>共享富贵</p>
+        </div>
+        <div class="flex-item-three">
+            <img src="./../../images/wo_gray.png" alt="">
+            <p>我的</p>
+        </div>
+    </nav>
+</div>
+
+<script>
+    $(function(){
+        common.Util.setWxTitle("充值");
+        document.getElementById("phone").onkeyup =function() {
+            if(this.value.length == 3 || this.value.length == 8 ){
+                this.value += ' ';
+            }
+        };
+        document.getElementById("phone").onfocus = function(){
+            $('.del-number').show();
+        };
+        document.getElementById("phone").onblur = function(){
+            $('.del-number').hide();
+        };
+        //del phone
+        $('.del-number').on('tap', function(){
+            $('#phone').val('');
+        });
+        //
+        $('.benefit-item').on('tap', function(){
+            //if 充值非本人账户
+            $('.box-mask').show();
+            $('.btn-cancel').on('tap', function(){
+                $('.box-mask').hide();
+            });
+            $('.btn-sure').on('tap', function(){
+                //document.location.href = '';
+            });
+            //else
+            //document.location.href = '';
+        });
+
+    });
+</script>
+</body>
+</html>
