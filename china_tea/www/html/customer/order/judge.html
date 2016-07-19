@@ -71,7 +71,8 @@
         //var currentUrl = "weixinfront/html/customer/order/judge.html?goodModel=" + Util.common.getParameter('goodModel');
         var allUrl= document.location.href;
         //var xxUrl= allUrl.substring(34,allUrl.length);
-        var xxUrl= allUrl.substring(Util.common.baseUrl.length+1,allUrl.length);
+        //var xxUrl= allUrl.substring(Util.common.baseUrl.length+1,allUrl.length);
+        var xxUrl= "weixinfront/html/customer/order/judge.html?goodModel=%5B%7B%22goodSkuId%22%3A%22249240305922048001%22%2C%22goodImg%22%3A%22http%3A%2F%2Fo7o0uv2j1.bkt.clouddn.com%2F1464157541602420f274.jpg%22%2C%22goodName%22%3A%2299%E5%95%86%E5%8A%A1%C2%B7%E5%A4%A7%E7%BA%A2%E8%A2%8D%22%2C%22indentId%22%3A%22266538588631228416%22%7D%5D";
         var param = {"url":xxUrl};
         Util.common.executeAjaxCallback(url ,param,function(data){
             if(data.success){
