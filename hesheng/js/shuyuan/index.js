@@ -15,9 +15,11 @@ $(function(){
 
 var param = {
     "page": 1,
-    "limit": 12,
+    "limit": 10,
     "start": 0
 };
+//
+var $empty = $('<li class="empty-list"><img src="./../../images/ts_ygq.png" alt=""><p>暂无相关课程</p><p>看看其他课程吧~</p></li>');
 
 var customer = customer || {};
 customer.book = {
@@ -41,32 +43,41 @@ customer.book = {
                 var temp = data.entities.curriculumInfos;
                 var ps = [], resultNormal = [], resultSpecial = [];
                 for(var i=0,len=temp.length;i<len;i++) {
-                    var t = temp[i].endDate.split(' ');
+                    var t = temp[i].beginDate.split(' ');
                     var p  = temp[i].photos.split(',');
                     temp[i].date = t[0];
                     ps.push(p[0]);
                     //
-                    var beginTime = parseInt(temp[i].beginDate);
                     var endTime = parseInt(temp[i].endDate);
                     var now = new Date().getTime();
                     var diff = endTime - now;
-                    var diff2 = beginTime - now;
-                    //未开始是否进行中
-                    //if(diff > 0 && diff2 < 0) {
-                    if(temp[i].category == 1) {
-                        resultNormal.push(temp[i]);
-                    } else {
-                        resultSpecial.push(temp[i]);
+
+                    temp[i].img_src = Util.common.getImg(p[0]);
+
+                    if(diff > 0) {
+                        if(temp[i].category == 1) {
+                            resultNormal.push(temp[i]);
+                        } else {
+                            resultSpecial.push(temp[i]);
+                        }
                     }
-                    //}
                 }
-                Util.common.getImg(ps[0]);
+
                 if (Util.common.getParameter('type') == "normal") {
                     console.log(resultNormal);
-                    Util.common.loadTemplate("#sy-rc-list", "#sy-rc-list-t", resultNormal);
+                    if(resultNormal == "" || resultNormal == null) {
+                        $('#sy-rc-list').empty().append($empty);
+                    } else {
+                        Util.common.loadTemplate("#sy-rc-list", "#sy-rc-list-t", resultNormal);
+                    }
+
                 } else if(Util.common.getParameter('type') == "special") {
                     console.log(resultSpecial);
-                    Util.common.loadTemplate("#sy-rc-list", "#sy-rc-list-t", resultSpecial);
+                    if(resultSpecial == "" || resultSpecial == null) {
+                        $('#sy-rc-list').empty().append($empty);
+                    } else {
+                        Util.common.loadTemplate("#sy-rc-list", "#sy-rc-list-t", resultSpecial);
+                    }
                 }
             }
         });
@@ -89,6 +100,8 @@ customer.book = {
                     var now = new Date().getTime();
                     var diff = endTime - now;
 
+                    temp[i].img_src = Util.common.getImg(p[0]);
+
                     if(diff < 0) {
                         if(temp[i].category == 1) {
                             resultNormal.push(temp[i]);
@@ -97,35 +110,27 @@ customer.book = {
                         }
                     }
                 }
-                //Util.common.getImg(ps[0]);
                 if (Util.common.getParameter('type') == "normal") {
                     console.log(resultNormal);
-                    Util.common.loadTemplate("#sy-rc-list", "#sy-rc-list-t", resultNormal);
+                    if(resultNormal == "" || resultNormal == null) {
+                        $('#sy-rc-list').empty().append($empty);
+                    } else {
+                        Util.common.loadTemplate("#sy-rc-list", "#sy-rc-list-t", resultNormal);
+                    }
+
                 } else if(Util.common.getParameter('type') == "special") {
                     console.log(resultSpecial);
-                    Util.common.loadTemplate("#sy-rc-list", "#sy-rc-list-t", resultSpecial);
+                    if(resultSpecial == "" || resultSpecial == null) {
+                        $('#sy-rc-list').empty().append($empty);
+                    } else {
+                        Util.common.loadTemplate("#sy-rc-list", "#sy-rc-list-t", resultSpecial);
+                    }
                 }
             }
         });
     },
     //初始化课程详情
     initDetailNormal: function(){
-        var data = {
-                "img": "./../../images/shuyuan/sy-rc-bigpic.png",
-                "title": "清洁无人管，居民叫苦清洁员喊难。",
-                "number": 321,
-                "share": 15,
-                "location": "鼓浪屿中华城",
-                "time": "2016-1-12",
-                "endTime": "2016-12-12",
-                "type": "养老活动",
-                "telephone": "10010",
-                "host": "莲前社区居委会",
-                "content": "装修合同就是为了房屋装修而签订的合同。这个合同是依照《中华人民共和国合同法》及有关法律、法规的规定，结合家庭居室装饰装修工程施工的实际情况",
-                "status": 0
-        };
-        //Util.common.loadTemplate("#rc-detail", "#rc-detail-t", data);
-
         var url = Util.common.baseUrl + "curriculumInfo/getById.do";
         var param = {
             "id": Util.common.getParameter('id'),
@@ -133,7 +138,26 @@ customer.book = {
         };
         Util.common.executeAjaxCallback(url, param, function(result){
             console.log(result.entities.curriculumInfo);
-            Util.common.loadTemplate("#rc-detail", "#rc-detail-t", result.entities.curriculumInfo);
+            var temp = result.entities.curriculumInfo;
+            var p  = temp.photos.split(',');
+
+            temp.img_src = Util.common.getImg(p[0]);
+            
+            Util.common.loadTemplate("#rc-detail", "#rc-detail-t", temp);
+
+            $('.detail-want').on('click', function(){
+                $('.box-mask').show();
+                $('.form-submit').on('click', function () {
+                    customer.book.wantJoin();
+                    $('.box-mask').hide();
+                });
+            });
+            $('.box-mask').on('click', function(e){
+                var $target = $(e.target);
+                if(!$target.is('.edit-box') && !$target.is('.edit-title') && !$target.is('input') && !$target.is('.form-submit')) {
+                    $('.box-mask').hide();
+                }
+            });
         });
     },
     //初始化议事平台
@@ -185,5 +209,21 @@ customer.book = {
         Util.common.executeAjaxCallback(url, param, function(result){
             console.log(result);
         });
+    },
+    //议事评论
+    addComment: function(){
+        var url = Util.common.baseUrl + "commentInfo/addNewComment.do";
+        var param = {
+            "procedureId": Util.common.getParameter('id'),
+            "userId": localStorage.getItem('userId'),
+            "content": $('#word').val(),
+            "commentDate": new Date(),
+            "pid": "",    //回复评论id
+            "remark": ""   //备注
+        };
+        console.log(param);
+       /* Util.common.executeAjaxCallback(url, param, function(result){
+            console.log(result);
+        });*/
     }
 };

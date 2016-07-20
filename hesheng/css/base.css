@@ -43,5 +43,5 @@ em {font-style: normal;}
 --------------------------------------------------*/
 html{ -webkit-text-size-adjust:none;}
 a:focus {outline:none;}
-
+input,textarea {border: 0;outline: none;}
 ::-webkit-scrollbar {width: 0;}

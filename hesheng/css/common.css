@@ -17,7 +17,7 @@
 .detail-desc-text {
     text-align: justify;
     line-height: .4rem;
-    padding-bottom: .2rem;
+   /* padding-bottom: .2rem;*/
     border-bottom: 1px dashed #c7c7c7;
 }
 
@@ -117,4 +117,15 @@
     display: inline-block;
     margin-top: 66%;
     letter-spacing: 1px;
+}
+
+/*empty-list*/
+.empty-list {
+    text-align: center;
+    font-size: .28rem;
+    letter-spacing: 2px;
+}
+.empty-list img {
+    width: 50%;
+    margin-top: 12%;
 }

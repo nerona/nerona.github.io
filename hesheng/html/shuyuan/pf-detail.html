@@ -16,21 +16,6 @@
 <body>
 <div class="rc-detail pl-detail">
     <div id="platform-detail"></div>
-    <!--<h5 class="detail-title platform-title">
-        <span class="platform-title-p1">议事主题 : </span>
-        <span class="platform-title-p2"> 清洁无人管，居民叫苦清洁员喊难</span>
-    </h5>
-    <img src="./../../images/shuyuan/sy-rc-bigpic.png" alt="" class="detail-icon">
-
-    <div class="detail-desc">
-        <div class="detail-desc-title">
-            <span>议事内容</span>
-            <em class="time">2016-02-02</em>
-        </div>
-        <div class="detail-desc-text">
-            装修合同就是为了房屋装修而签订的合同。装修合同就是为了房屋装修而签订的合同。装修合同就是为了房屋装修而签订的合同。装修合同就是为了房屋装修而签订的合同这个合同是依照《中华人民共和国合同法》及有关法律、法规的规定，结合家庭居室装饰装修工程施工的实际情况
-        </div>
-    </div>-->
 
     <!--评论列表-->
     <ul class="judge-list">
@@ -46,8 +31,8 @@
                 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
             </div>
             <div class="judge-status">
-                <span>0 回复</span> |
-                <span>赞 1</span><span class="judge-good"></span>
+              <!--  <span>0 回复</span> -->
+                | <span>赞 1</span><span class="judge-good"></span>
             </div>
         </li>
         <li class="judge-item">
@@ -62,11 +47,28 @@
                 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
             </div>
             <div class="judge-status">
-                <span><em>0</em> 回复</span> |
-                <span>赞 <em>1</em></span><span class="judge-good"></span>
+               <!-- <span><em>0</em> 回复</span> -->
+                | <span>赞 <em>1</em></span><span class="judge-good"></span>
             </div>
         </li>
     </ul>
+    <!--留言-->
+    <div class="text-right edit-board">
+        <span class="edit-out">写留言 <span class="edit-icon"></span></span>
+    </div>
+    <!--留言弹窗-->
+    <div class="box-mask">
+        <div class="edit-box my-form">
+            <p class="edit-title">写留言</p>
+            <div class="input-line">
+                <input type="text" placeholder="请输入您的姓名">
+            </div>
+            <div class="input-line">
+                <textarea placeholder="请输入您的留言" id="word"></textarea>
+            </div>
+            <div class="form-submit">提交</div>
+        </div>
+    </div>
 
     <!--往期热点新闻-->
     <div class="old-news">
@@ -104,6 +106,13 @@
         customer.book.initPlatformDetail();
         $('.judge-good').on('click', function(){
             $(this).toggleClass('judge-yes');
+        });
+
+        $('.edit-out').on('click', function(){
+            $('.box-mask').show();
+            $('.form-submit').on('click', function () {
+                customer.book.addComment();
+            });
         });
     })
 </script>

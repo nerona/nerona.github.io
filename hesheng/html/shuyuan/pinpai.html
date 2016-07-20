@@ -15,35 +15,29 @@
 </head>
 <body>
 <div class="pinpais">
-    <ul>
-        <li class="pinpai">
-            <a href="pp-detail.html?id=1">
-                <img src="./../../images/shuyuan/pinpai1.png" alt="">
-            </a>
-        </li>
-        <li class="pinpai">
-            <a href="pp-detail.html?id=2">
-                <img src="./../../images/shuyuan/pinpai2.png" alt="">
-            </a>
-        </li>
-        <li class="pinpai">
-            <a href="pp-detail.html?id=3">
-                <img src="./../../images/shuyuan/pinpai1.png" alt="">
-            </a>
-        </li>
-        <li class="pinpai">
-            <a href="pp-detail.html?id=3">
-                <img src="./../../images/shuyuan/pinpai1.png" alt="">
-            </a>
-        </li>
-        <li class="pinpai">
-            <a href="pp-detail.html?id=3">
-                <img src="./../../images/shuyuan/pinpai1.png" alt="">
-            </a>
-        </li>
+    <ul id="pp-list">
     </ul>
 
     <div class="copyright">@ 禾盛社区微官网</div>
 </div>
+
+<script src="./../../js/lib/jquery.min.js"></script>
+<script src="./../../js/lib/jquery.tmpl.min.js"></script>
+<script src="./../../js/lib/common.js"></script>
+<script src="./../../js/shuyuan/pinpai.js"></script>
+
+<script>
+    $(function(){
+        customer.pinpai.initList();
+    });
+</script>
+
+<script type="text/x-jquery-tmpl" id="pp-list-t">
+    <li class="pinpai">
+            <a href="pp-detail.html?id=${id}&title=${type}">
+                <img src="${photo}" alt="">
+            </a>
+    </li>
+</script>
 </body>
 </html>

@@ -1,0 +1,57 @@
+/**
+ *
+ * 下拉样式 Pull down styles
+ *
+ */
+#pullDown, #pullUp {
+	height:50px;
+	line-height:50px;
+	padding:5px 10px;
+	font-weight:bold;
+	font-size:0.7rem;;
+	text-align: center;
+	color:#888;
+	display: none;
+}
+#pullDown .pullDownLabel, #pullUp .pullUpLabel {
+	border:0;
+}
+
+#pullDown .pullDownIcon, #pullUp .pullUpIcon  {
+	display:inline-block;border:0;padding: 0;
+	width:50px; height:50px;
+	background:url(../../images/extends/refresh.png) 0 0 no-repeat;
+	-webkit-background-size:50px 50px;
+	-webkit-transition-property:-webkit-transform;
+	-webkit-transition-duration:250ms;
+}
+#pullDown .pullDownIcon {
+	-webkit-transform:rotate(0deg) translateZ(0);
+}
+#pullUp .pullUpIcon  {
+	-webkit-transform:rotate(-180deg) translateZ(0);
+}
+
+#pullDown.flip .pullDownIcon {
+	-webkit-transform:rotate(-180deg) translateZ(0);
+}
+
+#pullUp.flip .pullUpIcon {
+	-webkit-transform:rotate(0deg) translateZ(0);
+}
+
+#pullDown.loading .pullDownIcon, #pullUp.loading .pullUpIcon {
+	background-position:0 100%;
+	-webkit-transform:rotate(0deg) translateZ(0);
+	-webkit-transition-duration:0ms;
+
+	-webkit-animation-name:loading;
+	-webkit-animation-duration:2s;
+	-webkit-animation-iteration-count:infinite;
+	-webkit-animation-timing-function:linear;
+}
+
+@-webkit-keyframes loading {
+	from { -webkit-transform:rotate(0deg) translateZ(0); }
+	to { -webkit-transform:rotate(360deg) translateZ(0); }
+}

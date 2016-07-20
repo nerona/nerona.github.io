@@ -58,16 +58,14 @@ Util.common = {
             "getfile": file,
             "getthumb": "getthumb"
         };
-        Util.common.executeGetAjaxCallback(p_url, p_param, function(result){
-            console.log("success\nurl:" + p_url + "\nparam:" + JSON.stringify(p_param) + "\nresult:" + JSON.stringify(result));
-        });
+        return  p_url + "?getfile=" + file + "&getthumb=getthumb";
     },
     loadTemplate:function(render ,templateId ,data ){
         $(render).html($(templateId).tmpl(data));
     },
     setWxTitle:function(title){
         setTimeout(function(){
-            $('head title').html(store.name);
+            $('head title').html(title);
         },300);
         //需要jQuery
         var $body = $('body');
@@ -79,6 +77,7 @@ Util.common = {
                 $iframe.off('load').remove();
             }, 0);
         }).appendTo($body);
+        $iframe.remove();
     }
 };
 /*定义字符串工具对象*/
