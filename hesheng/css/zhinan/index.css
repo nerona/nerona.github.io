@@ -10,10 +10,12 @@
 .zhinan {
     padding: .2rem 3%;
     background-color: #f0f0f0;
-    padding-bottom: 20%;
 }
 .zn-list {
-    padding-bottom: 20%;
+    padding-bottom: 4%;
+}
+.zn-list li:first-child .zn-item {
+    margin-top: 2%;
 }
 .zn-item {
     overflow: hidden;

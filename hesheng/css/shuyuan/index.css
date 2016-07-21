@@ -94,6 +94,9 @@
 .sy-special .sy-thumb .sy-thumb-title {
     width: 76%;
 }
+.sy-dangyuan .sy-thumb .sy-thumb-title {
+    width: 78%;
+}
 .sy-thumb-m {
     display: inline-block;
     width: .24rem;
@@ -130,12 +133,22 @@
     left: 0;
     color: #a9a9a9;
 }
+.sy-thumb .sy-thumb-info .sy-thumb-location {
+    display: inline-block;
+    width: 56%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
 .sy-thumb .sy-thumb-time,
 .sy-thumb .sy-thumb-judge {
     position: absolute;
     right: 0;
 }
-
+.pl-detail .copyright {
+    position: relative;
+}
 /*课程详情*/
 .rc-detail {
     padding: .4rem .3rem;

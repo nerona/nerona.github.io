@@ -225,10 +225,10 @@ customer.book = {
         Util.common.executeAjaxCallback(url, param, function(result){
             console.log(result.entities.curriculumInfo);
             var temp = result.entities.curriculumInfo;
-            var p  = temp.photos.split(',');
+            var p = getFirst(temp.photos);
+            console.log(p);
 
-            temp.img_src = Util.common.getImg(p[0]);
-
+            temp.img_src = Util.common.getImg(p);
             Util.common.loadTemplate("#rc-detail", "#rc-detail-t", temp);
 
             $('.detail-want').on('click', function(){
@@ -243,60 +243,6 @@ customer.book = {
                     $('.box-mask').hide();
                 }
             });
-        });
-    },
-    //初始化议事平台
-    initPlatform: function(){
-        var url = Util.common.baseUrl + "procedureInfo/listProcedureInfoByPage.do";
-        var $empty = $('<li class="empty-list"><img src="./../../images/ts_ygq.png" alt=""><p>暂无相关活动~</p></li>');
-
-        Util.common.executeGetAjaxCallback(url , param , function(data){
-            var result = data.entities.procedureInfos;
-
-            console.log(result);
-            for(var i=0,len=result.length;i<len;i++) {
-                var p = getFirst(result[i].photos);
-                console.log(p);
-
-                result[i].img_src = Util.common.getImg(p);
-            }
-
-            if(result == "" || result == null) {
-                $("#sy-rc-list").empty();
-                $('#wrapper').append($empty);
-            } else {
-                Util.common.loadTemplate("#sy-rc-list", "#sy-rc-list-t", result);
-            }
-        });
-    },
-    //初始化议事项目详情
-    initPlatformDetail: function(){
-        var url = Util.common.baseUrl + "procedureInfo/getById.do";
-        var param = {
-            "id": Util.common.getParameter('id')
-        };
-        Util.common.executeAjaxCallback(url , param , function(data){
-            var result = data.entities.procedureInfo;
-            result.html = "<button>123</button>";
-            if(result.photos == null) {
-                result.img_src = "./../../images/shuyuan/sy-rc-bigpic.png";
-            } else {
-                result.img_src = Util.common.getImg(result.photos);
-            }
-
-            Util.common.loadTemplate("#platform-detail", "#platform-detail-t", result);
-
-            console.log(result.commentInfoList);
-            for(var i=0,len=result.commentInfoList.length;i<len;i++) {
-                if(result.commentInfoList[i].remark == null) {
-                    result.commentInfoList[i].remark =0;
-                }
-            }
-            Util.common.loadTemplate("#comment-list", "#comment-list-t", result.commentInfoList);
-        });
-        var news_url = Util.common.baseUrl + "procedureInfo/listHotProcedureInfo.do";
-        Util.common.executeGetAjaxCallback(news_url , param , function(data){
-            Util.common.loadTemplate("#news-list", "#news-list-t", data.entities.procedureInfos);
         });
     },
     //课程报名

@@ -54,10 +54,10 @@
 <script src="./../../js/lib/jquery.min.js"></script>
 <script src="./../../js/lib/jquery.tmpl.min.js"></script>
 <script src="./../../js/lib/common.js"></script>
-<script src="./../../js/shuyuan/index.js"></script>
+<script src="./../../js/shuyuan/platform.js"></script>
 <script>
     $(function () {
-        customer.book.initPlatformDetail();
+        customer.platform.initDetail();
         $('.judge-good').on('click', function(){
             $(this).toggleClass('judge-yes');
         });
@@ -74,7 +74,7 @@
                 if($('#username') != null || $('#username') != '') {
                     localStorage.setItem('username', $('#username').val());
                 }
-                customer.book.addComment();
+                customer.platform.addComment();
             });
         });
         $('.box-mask').on('click', function(e){

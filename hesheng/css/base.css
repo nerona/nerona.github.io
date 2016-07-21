@@ -6,7 +6,7 @@ Date:2015/12/29;
 Version:1.0;
 */
 html, body {
-    -webkit-overflow-scrolling: touch;
+    /*-webkit-overflow-scrolling: touch;*/
     -webkit-tap-highlight-color: rgba(0,0,0,0);
     font-family: "Microsoft YaHei";
 }
@@ -28,7 +28,7 @@ time, mark, audio, video { margin: 0; padding: 0; border: 0; font-size: 100%; ve
 article, aside, details, figcaption, figure, footer, header, menu, nav, section { display: block; }
 /* 标签初始化
 --------------------------------------------------*/
-body { font-size: 12px;overflow-x: hidden;background-color: #f0f0f0;-webkit-overflow-scrolling: touch}
+body { font-size: 12px;overflow-x: hidden;background-color: #f0f0f0;}
 ::-webkit-scrollbar {width: 0;}
 ol, ul { list-style: none; }
 i{font-style: normal;font-weight: normal;}

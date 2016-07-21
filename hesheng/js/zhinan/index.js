@@ -38,17 +38,15 @@ $(function(){
     $('.tab-item').on('click', function(){
         $(this).parent().find('.tab-active').removeClass('tab-active');
         $(this).addClass('tab-active');
+        customer.guide.init();
     });
     $('.tab-laodong').on('click', function(){
-        customer.guide.init();
         customer.guide.initLaodong();
     });
     $('.tab-jisheng').on('click', function(){
-        customer.guide.init();
         customer.guide.initJisheng();
     });
     $('.tab-zonghe').on('click', function(){
-        customer.guide.init();
         customer.guide.initZonghe();
     });
 });
@@ -56,7 +54,7 @@ var customer = customer || {};
 
 var param = {
     "page": 1,
-    "limit": 6,
+    "limit": 60,
     "start": 0
 };
 customer.guide = {
@@ -125,7 +123,7 @@ customer.guide = {
     },
     loadMore: function(){
         param.page++;
-        param.start += 5;
+        param.start += 6;
         param.category = localStorage.getItem('category');
 
         var url = Util.common.baseUrl + "serviceGuide/listServiceGuideByPage.do";
