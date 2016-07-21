@@ -65,7 +65,7 @@
     padding: .25rem .15rem;
 }
 .sy-rc-list .sy-thumb:last-child{
-    margin-bottom: 24%;
+    /*margin-bottom: 24%;*/
 }
 .sy-thumb .sy-thumb-icon {
     width: 1.9rem;
@@ -119,12 +119,12 @@
 }
 .sy-thumb .sy-thumb-num {
     position: absolute;
-    top: .42rem;
+    top: 2%;
     right: 4%;
     color: #a9a9a9;
 }
 .sy-thumb .sy-thumb-info {
-    width: 94%;
+    width: 96%;
     position: absolute;
     bottom: .1rem;
     left: 0;

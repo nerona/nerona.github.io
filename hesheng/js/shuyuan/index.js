@@ -1,7 +1,42 @@
 /**
  * Created by dell on 2016/6/16.
  */
+var myScroll;// 引用滑动分页需定义此固定变量myScroll，下拉时刷新使用
+/**
+ * 下拉刷新 （自定义实现此方法）
+ * 此处用延迟模拟数据，
+ */
+function pullDownAction() {
+    /**
+     *此处填写加载后台数据代码
+     * 结束处记得要调用刷新myScroll.refresh();
+     **/
+    myScroll.refresh();
+}
+/**
+ * 滚动翻页 （自定义实现此方法）
+ */
+function pullUpAction() {
+    customer.book.loadMore();
+}
+var Loader = {
+    isLoading:false,
+    request:function(url,data,cb){
+        var loader = this;
+        if(loader.isLoading){
+            return;
+        }
+        loader.isLoading = true;
+        Util.common.executeGetAjaxCallback(url,data,function(){
+            loader.isLoading = false;
+            cb.apply(null,arguments);
+        });
+    }
+};
+
 $(function(){
+    customer.book.init();
+
     $('.sy-normal .sy-item').on('click', function(){
         $(this).parent().find('.sy-item-active').removeClass('sy-item-active');
         $(this).addClass('sy-item-active');
@@ -24,14 +59,17 @@ $(function(){
 
 var param = {
     "page": 1,
-    "limit": 6,
+    "limit": 5,
     "start": 0
 };
 //
-var $empty = $('<li class="empty-list"><img src="./../../images/ts_ygq.png" alt=""><p>暂无相关课程</p><p>看看其他课程吧~</p></li>');
+var $empty = $('<div class="empty-list"><img src="./../../images/ts_ygq.png" alt=""><p>暂无相关课程</p><p>看看其他课程吧~</p></div>');
 
 var customer = customer || {};
 customer.book = {
+    init: function(){
+        $('#scroller').css("transform", "translate(0px,0px)");
+    },
     //课程详情
     goCourseDetail: function(obj){
         document.location.href = 'rc-detail.html?id=' + $(obj).attr('id');
@@ -46,6 +84,9 @@ customer.book = {
     },
     //日常课程-进行中
     initDailyIng: function(){
+        this.init();
+        param.page = 1;
+        param.start = 0;
         var url = Util.common.baseUrl + "curriculumInfo/listCurriculumInfoByConditions.do";
         $.extend(param, {
             "category": 1,
@@ -59,11 +100,14 @@ customer.book = {
                     var p  = temp[i].photos.split(',');
                     ps.push(p[0]);
                     temp[i].img_src = Util.common.getImg(p[0]);
+
+                    temp[i]. date = temp[i].endDate.split(" ")[0];
                     result.push(temp[i]);
                 }
                 console.log(result);
                 if(result == "" || result == null) {
-                    $('#sy-rc-list').empty().append($empty);
+                    $("#sy-rc-list").empty();
+                    $('#wrapper').append($empty);
                 } else {
                     Util.common.loadTemplate("#sy-rc-list", "#sy-rc-list-t", result);
                 }
@@ -72,6 +116,9 @@ customer.book = {
     },
     //日常课程-已关闭
     initDailyClose: function() {
+        this.init();
+        param.page = 1;
+        param.start = 0;
         var url = Util.common.baseUrl + "curriculumInfo/listCurriculumInfoByConditions.do";
         $.extend(param, {
             "category": 1,
@@ -86,12 +133,14 @@ customer.book = {
                     var p  = temp[i].photos.split(',');
                     ps.push(p[0]);
                     temp[i].img_src = Util.common.getImg(p[0]);
+                    temp[i]. date = temp[i].endDate.split(" ")[0];
 
                     result.push(temp[i]);
                 }
                 console.log(result);
                 if(result == "" || result == null) {
-                    $('#sy-rc-list').empty().append($empty);
+                    $("#sy-rc-list").empty();
+                    $('#wrapper').append($empty);
                 } else {
                     Util.common.loadTemplate("#sy-rc-list", "#sy-rc-list-t", result);
                 }
@@ -100,6 +149,9 @@ customer.book = {
     },
     //特色课程-进行中
     initSpecialIng: function(){
+        this.init();
+        param.page = 1;
+        param.start = 0;
         var url = Util.common.baseUrl + "curriculumInfo/listCurriculumInfoByConditions.do";
         $.extend(param, {
             "category": 2,
@@ -113,12 +165,14 @@ customer.book = {
                     var p  = temp[i].photos.split(',');
                     ps.push(p[0]);
                     temp[i].img_src = Util.common.getImg(p[0]);
+                    temp[i]. date = temp[i].endDate.split(" ")[0];
 
                     result.push(temp[i]);
                 }
                 console.log(result);
                 if(result == "" || result == null) {
-                    $('#sy-rc-list').empty().append($empty);
+                    $("#sy-rc-list").empty();
+                    $('#wrapper').append($empty);
                 } else {
                     Util.common.loadTemplate("#sy-rc-list", "#sy-rc-list-t", result);
                 }
@@ -127,6 +181,9 @@ customer.book = {
     },
     //特色课程-已关闭
     initSpecialClose: function() {
+        this.init();
+        param.page = 1;
+        param.start = 0;
         var url = Util.common.baseUrl + "curriculumInfo/listCurriculumInfoByConditions.do";
         $.extend(param, {
             "category": 2,
@@ -142,11 +199,14 @@ customer.book = {
                     ps.push(p[0]);
 
                     temp[i].img_src = Util.common.getImg(p[0]);
+                    temp[i]. date = temp[i].endDate.split(" ")[0];
+
                     result.push(temp[i]);
                 }
                 console.log(result);
                 if(result == "" || result == null) {
-                    $('#sy-rc-list').empty().append($empty);
+                    $("#sy-rc-list").empty();
+                    $('#wrapper').append($empty);
                 } else {
                     Util.common.loadTemplate("#sy-rc-list", "#sy-rc-list-t", result);
                 }
@@ -200,9 +260,10 @@ customer.book = {
             }
 
             if(result == "" || result == null) {
-                $('#sy-platform-list').empty().append($empty);
+                $("#sy-rc-list").empty();
+                $('#wrapper').append($empty);
             } else {
-                Util.common.loadTemplate("#sy-platform-list", "#sy-platform-list-t", result);
+                Util.common.loadTemplate("#sy-rc-list", "#sy-rc-list-t", result);
             }
         });
     },
@@ -266,7 +327,7 @@ customer.book = {
                     $('.box-mask').hide();
                     Util.msg.show("msgId", data.msg);
                 } else {
-                    Util.msg.show("msgId", "请确认输入信息!");
+                    Util.msg.show("msgId", data.msg);
                 }
             });
         }
@@ -316,6 +377,91 @@ customer.book = {
                 }
             });
         }
+    },
+    loadMore: function(){
+        param.page++;
+        param.start += 5;
+        var $level = $('.sy-richang');
+        var url = Util.common.baseUrl + "curriculumInfo/listCurriculumInfoByConditions.do";
+        //议事平台
+        if($level.hasClass('sy-platform')) {
+            url = Util.common.baseUrl + "procedureInfo/listProcedureInfoByPage.do";
+            Util.common.executeGetAjaxCallback(url , param , function(data){
+                var result = data.entities.procedureInfos;
+
+                for(var i=0,len=result.length;i<len;i++) {
+                    if(result[i].photos == null) {
+                        result[i].img_src = "./../../images/shuyuan/sy-rc-bigpic.png";
+                    } else {
+                        result[i].img_src = Util.common.getImg(result[i].photos);
+                    }
+                }
+
+                if(result == "" || result == null) {
+                    $('.no-more').show();
+                    setTimeout(function(){
+                        $('.no-more').hide();
+                    }, 1000);
+                } else {
+                    var tpl = $("#sy-rc-list-t").tmpl(result);
+                    $("#sy-rc-list").append(tpl);
+                }
+            });
+        } else {
+            var $level2 = $('.sy-item-active');
+            if($level.hasClass('sy-normal')){
+                if($level2 .hasClass('sy-item-ing')){
+                    $.extend(param, {
+                        "category": 1,
+                        "status": 1
+                    });
+                } else if($level2 .hasClass('sy-item-close')) {
+                    $.extend(param, {
+                        "category": 1,
+                        "status": 0
+                    });
+                }
+            } else if($level.hasClass('sy-special')) {
+                if ($level2.hasClass('sy-item-ing')) {
+                    $.extend(param, {
+                        "category": 2,
+                        "status": 1
+                    });
+                } else if ($level2.hasClass('sy-item-close')) {
+                    $.extend(param, {
+                        "category": 2,
+                        "status": 0
+                    });
+                }
+            }
+            Loader.request(url, param, function (data) {
+                if(data.success == true){
+                    var temp = data.entities.curriculumInfos;
+                    var ps = [], result = [];
+                    for(var i=0,len=temp.length;i<len;i++) {
+                        var p  = temp[i].photos.split(',');
+                        ps.push(p[0]);
+                        temp[i].img_src = Util.common.getImg(p[0]);
+
+                        temp[i]. date = temp[i].endDate.split(" ")[0];
+                        result.push(temp[i]);
+                    }
+                    console.log(result);
+
+                    if(result == "" || result == null) {
+                        $('.no-more').show();
+                        setTimeout(function(){
+                            $('.no-more').hide();
+                        }, 1000);
+                    } else {
+                        var tpl = $("#sy-rc-list-t").tmpl(result);
+                        $("#sy-rc-list").append(tpl);
+                    }
+                }
+                myScroll.refresh();		//调用刷新页面myScroll.refresh();
+            });
+        }
+
     }
 };
 

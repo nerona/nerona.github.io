@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>日常课程</title>
+    <title>特色课程</title>
     <meta name="format-detection" content="telephone=no"/>
     <meta name="format-detection" content="email=no"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -12,6 +12,19 @@
     <script src="./../../js/lib/reset.js"></script>
 
     <link rel="stylesheet" href="./../../css/shuyuan/index.css">
+    <link rel="stylesheet" href="./../../css/scrollbar.css">
+
+    <style>
+        #wrapper {
+            position:absolute;
+            z-index:1;
+            top:1rem;
+            left:1px;
+            width:100%;
+            overflow:auto;
+            bottom: 0;
+        }
+    </style>
 </head>
 <body>
 <div class="sy-richang sy-special">
@@ -21,19 +34,35 @@
     </div>
 
     <!--list-->
-    <ul class="sy-rc-list" id="sy-rc-list">
-    </ul>
+    <div id="wrapper">
+        <div id="scroller">
+            <div id="pullDown">
+                <span class="pullDownIcon"></span><span class="pullDownLabel"></span>
+            </div>
+            <ul id="sy-rc-list" class="sy-rc-list">
+            </ul>
+            <div id="pullUp">
+                <span class="pullUpIcon"></span><span class="pullUpLabel">.</span>
+            </div>
+            <div class="no-more" style="display: none;text-align: center;font-size: .28rem;color: #999;letter-spacing: 1px;margin-top: 4%;">
+                -----没有更多了-----
+            </div>
+        </div>
+    </div>
     <div class="copyright">@ 禾盛社区微官网</div>
 </div>
 <script src="./../../js/lib/jquery.min.js"></script>
 <script src="./../../js/lib/jquery.tmpl.min.js"></script>
 <script src="./../../js/lib/common.js"></script>
+<script src="./../../js/lib/iscroll.js"></script>
 <script src="./../../js/shuyuan/index.js"></script>
 
 <script>
     $(function(){
         $('head title').html(Util.common.getParameter('title'));
         customer.book.initSpecialIng();
+
+        loaded('wrapper');
     })
 </script>
 <!--以下是模板文件-->

@@ -1181,5 +1181,5 @@ function loaded(renderId) {
 		}
 	});
 
-	setTimeout(function () { document.getElementById(renderId).style.left = '0'; }, 800);
+	//setTimeout(function () { document.getElementById(renderId).style.left = '0'; }, 800);
 }

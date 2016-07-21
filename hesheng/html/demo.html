@@ -9,11 +9,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <script src="./../../js/lib/reset.js"></script>
+    <script src="./../js/lib/reset.js"></script>
 
-    <link rel="stylesheet" href="./../../css/shuyuan/index.css">
-    <link rel="stylesheet" href="./../../css/scrollbar.css">
-
+    <link rel="stylesheet" href="./../css/shuyuan/index.css">
+    <link rel="stylesheet" href="./../css/scrollbar.css">
+    <script src="./../js/lib/iscroll.js"></script>
     <style>
         #wrapper {
             position:absolute;
@@ -36,15 +36,15 @@
     <div id="wrapper">
         <div id="scroller">
             <div id="pullDown">
-                <span class="pullDownIcon"></span><span class="pullDownLabel"></span>
+                <span class="pullDownIcon"></span><span class="pullDownLabel">下拉刷新...</span>
             </div>
             <ul id="sy-rc-list" class="sy-rc-list">
             </ul>
             <div id="pullUp">
                 <span class="pullUpIcon"></span><span class="pullUpLabel">.</span>
             </div>
-            <div class="no-more" style="display: none;text-align: center;font-size: .28rem;color: #999;letter-spacing: 1px;margin-top: 4%;">
-                -----没有更多了-----
+            <div class="no-more" style="display: none;text-align: center;font-size: .28rem;color: #999;letter-spacing: 1px;">
+                没有更多了
             </div>
         </div>
     </div>
@@ -52,18 +52,16 @@
     <div class="copyright">@ 禾盛社区微官网</div>
 </div>
 
-<script src="./../../js/lib/jquery.min.js"></script>
-<script src="./../../js/lib/jquery.tmpl.min.js"></script>
-<script src="./../../js/lib/common.js"></script>
-<script src="./../../js/lib/iscroll.js"></script>
-<script src="./../../js/shuyuan/index.js"></script>
+<script src="./../js/lib/jquery.min.js"></script>
+<script src="./../js/lib/jquery.tmpl.min.js"></script>
+<script src="./../js/lib/common.js"></script>
+<script src="./../js/lib/iscroll.js"></script>
+<script src="./../js/shuyuan/index.js"></script>
 
 <script>
     $(function(){
         Util.common.setWxTitle(Util.common.getParameter('title'));
         customer.book.initDailyIng();
-
-        loaded('wrapper');
     })
 </script>
 <!--以下是模板文件-->
@@ -82,6 +80,43 @@
                   </div>
             </div>
       </li>
+</script>
+<script>
+    loaded('wrapper');
+    function loadMore(){
+        param.page++;
+        param.start += 5;
+        var url = Util.common.baseUrl + "curriculumInfo/listCurriculumInfoByConditions.do";
+        $.extend(param, {
+            "category": 1,
+            "status": 1
+        });
+        Loader.request(url, param, function (data) {
+            if(data.success == true){
+                var temp = data.entities.curriculumInfos;
+                var ps = [], result = [];
+                for(var i=0,len=temp.length;i<len;i++) {
+                    var p  = temp[i].photos.split(',');
+                    ps.push(p[0]);
+                    temp[i].img_src = Util.common.getImg(p[0]);
+
+                    temp[i]. date = temp[i].endDate.split(" ")[0];
+                    result.push(temp[i]);
+                }
+                console.log(result);
+                if(result == "" || result == null) {
+                    $('.no-more').show();
+                    setTimeout(function(){
+                        $('.no-more').hide();
+                    }, 1000);
+                } else {
+                    var tpl = $("#sy-rc-list-t").tmpl(result);
+                    $("#sy-rc-list").append(tpl);
+                }
+            }
+            myScroll.refresh();		//调用刷新页面myScroll.refresh();
+        });
+    }
 </script>
 </body>
 </html>

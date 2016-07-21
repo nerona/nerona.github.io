@@ -115,7 +115,12 @@
 .plus .copyright {
     margin-top: 8%;
 }
-
+.five .copyright {
+    margin-top: 6%;
+    position: relative;
+    left: 0;
+    top: 0;
+}
 .swiper-slide > p {
     font-size: .24rem;
     color: #333;
