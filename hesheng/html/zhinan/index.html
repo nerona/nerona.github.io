@@ -13,6 +13,21 @@
     <link href="//cdn.bootcss.com/Swiper/3.3.1/css/swiper.min.css" rel="stylesheet">
 
     <link rel="stylesheet" href="./../../css/zhinan/index.css">
+    <link rel="stylesheet" href="./../../css/scrollbar.css">
+
+    <style>
+        #wrapper {
+            position:absolute;
+            z-index:1;
+            top:3.6rem;
+            left:1px;
+            width:94%;
+            overflow:auto;
+            bottom: 0;
+            padding: 0 3%;
+            height: 55%;
+        }
+    </style>
 </head>
 <body>
 <div class="zhinan">
@@ -28,27 +43,40 @@
         <!-- 如果需要分页器 -->
         <div class="swiper-pagination"></div>
     </div>
-    <!---->
-    <ul class="zn-list" id="zn-list">
 
-    </ul>
+    <!--list-->
+    <div id="wrapper">
+        <div id="scroller">
+            <div id="pullDown">
+                <span class="pullDownIcon"></span><span class="pullDownLabel"></span>
+            </div>
+            <ul  class="zn-list" id="zn-list">
+            </ul>
+            <div id="pullUp">
+                <span class="pullUpIcon"></span><span class="pullUpLabel">.</span>
+            </div>
+            <div class="no-more" style="display: none;text-align: center;font-size: .28rem;color: #999;letter-spacing: 1px;margin-top: 4%;">
+                -----没有更多了-----
+            </div>
+        </div>
+    </div>
 
-    <div class="copyright">@ 禾盛社区微官网</div>
+    <!--<div class="copyright">@ 禾盛社区微官网</div>-->
 
     <div class="tab">
-        <a class="tab-item" href="#">
+        <a class="tab-item tab-active tab-laodong" href="javascript:void(0);">
             <img src="./../../images/zhinan/zn_09.png" alt="">
             <p>劳动保障</p>
         </a>
-        <a class="tab-item" href="#">
+        <a class="tab-item tab-jisheng" href="javascript:void(0);">
             <img src="./../../images/zhinan/zn_10.png" alt="">
             <p>计生服务</p>
         </a>
-        <a class="tab-item" href="#">
+        <a class="tab-item tab-zonghe" href="javascript:void(0);">
             <img src="./../../images/zhinan/zn_11.png" alt="">
             <p>综合服务</p>
         </a>
-        <a class="tab-item" href="#">
+        <a class="tab-item" href="mingpian.html">
             <img src="./../../images/zhinan/zn_12.png" alt="">
             <p>社区名片</p>
         </a>
@@ -59,12 +87,13 @@
 <script src="./../../js/lib/jquery.tmpl.min.js"></script>
 <script src="//cdn.bootcss.com/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
 <script src="./../../js/lib/common.js"></script>
+<script src="./../../js/lib/iscroll.js"></script>
 <script src="./../../js/zhinan/index.js"></script>
 
 
 <script>
     $(function () {
-        customer.guide.initGuide();
+        customer.guide.initLaodong();
         var mySwiper = new Swiper('.swiper-container', {
             loop: true,
             pagination: '.swiper-pagination',
@@ -73,15 +102,17 @@
             spaceBetween: 1,
             autoplayDisableOnInteraction: false
         });
+
+        loaded("wrapper");
     });
 </script>
 
 <script type="text/x-jquery-tmpl" id="zn-list-t">
-     <li id=${id}>
-            <a href="#" class="zn-item">
+     <li>
+            <a href="${htmlUrl}" class="zn-item" id=${id}>
                 <div class="zn-item-color"></div>
                 <div class="zn-item-title">
-                    ${title}
+                    ${name}
                 </div>
                 <div class="zn-item-next"></div>
             </a>

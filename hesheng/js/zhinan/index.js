@@ -1,79 +1,103 @@
 /**
  * Created by dell on 2016/6/30.
  */
-
+var myScroll;// 引用滑动分页需定义此固定变量myScroll，下拉时刷新使用
+/**
+ * 下拉刷新 （自定义实现此方法）
+ * 此处用延迟模拟数据，
+ */
+function pullDownAction() {
+    /**
+     *此处填写加载后台数据代码
+     * 结束处记得要调用刷新myScroll.refresh();
+     **/
+    myScroll.refresh();
+}
+/**
+ * 滚动翻页 （自定义实现此方法）
+ */
+function pullUpAction() {
+    customer.guide.loadMore();
+}
+var Loader = {
+    isLoading:false,
+    request:function(url,data,cb){
+        var loader = this;
+        if(loader.isLoading){
+            return;
+        }
+        loader.isLoading = true;
+        Util.common.executeGetAjaxCallback(url,data,function(){
+            loader.isLoading = false;
+            cb.apply(null,arguments);
+        });
+    }
+};
+//
+$(function(){
+    $('.tab-item').on('click', function(){
+        $(this).parent().find('.tab-active').removeClass('tab-active');
+        $(this).addClass('tab-active');
+    });
+    $('.tab-laodong').on('click', function(){
+        customer.guide.init();
+        customer.guide.initLaodong();
+    });
+    $('.tab-jisheng').on('click', function(){
+        customer.guide.init();
+        customer.guide.initJisheng();
+    });
+    $('.tab-zonghe').on('click', function(){
+        customer.guide.init();
+        customer.guide.initZonghe();
+    });
+});
 var customer = customer || {};
+
+var param = {
+    "page": 1,
+    "limit": 6,
+    "start": 0
+};
 customer.guide = {
-    initGuide: function(){
-        var data = [{
-            "id": 1,
-            "title": "(新增业务)禾山街道设立、变更社会保障卡交易密码"
-        },{
-            "id": 2,
-            "title": "15禾山街道《就业失业登记证》办事指南"
-        },{
-            "id": 3,
-            "title": "16禾山街道办理符合供养直系亲属领取抚恤金待遇的审批手续"
-        },{
-            "id": 4,
-            "title": "17禾山街道办理继承人领取丧葬费的审批手续"
-        },{
-            "id": 5,
-            "title": "18禾山街道健康综合子账户办事指南"
-        },{
-            "id": 6,
-            "title": "19禾山街道小额担保贴息贷款办事指南"
-        },{
-            "id": 7,
-            "title": "20禾山街道协助异地退休人员及抚恤人员的生存认证"
-        },{
-            "id": 8,
-            "title": "21禾山街道就业困难人员认定办事指南"
-        },{
-            "id": 9,
-            "title": "22禾山街道灵活就业人员认定办事指南"
-        },{
-            "id": 10,
-            "title": "23禾山街道灵活就业人员认定复核办事指南"
-        },{
-            "id": 11,
-            "title": "24禾山街道初、高中毕业生继续学习学费补贴申领表"
-        },{
-            "id": 12,
-            "title": "25禾山街道就业困难人员灵活就业社保补贴办事指南"
-        },{
-            "id": 13,
-            "title": "26禾山街道就业工资性补贴办事指南"
-        },{
-            "id": 14,
-            "title": "27禾山街道职业技能培训补贴办事指南"
-        },{
-            "id": 15,
-            "title": "28禾山街道汽车驾驶培训补贴办事指南"
-        },{
-            "id": 16,
-            "title": "29禾山街道辖区失业人员培训生活补助办事指南"
-        },{
-            "id": 17,
-            "title": "30禾山街道外来农村劳动力职业技能培训误工补贴办事指南"
-        },{
-            "id": 18,
-            "title": "31禾山街道自主创业奖励金申领办事指南"
-        },{
-            "id": 19,
-            "title": "32禾山街道城乡居民养老保险办事指南"
-        },{
-            "id": 20,
-            "title": "33禾山街道基本医保参保人员自付医疗费困难补助办事指南"
-        },{
-            "id": 21,
-            "title": "34禾山街道被征地人员参保补助申领办事指南"
-        },{
-            "id": 22,
-            "title": "35禾山街道未安置就业上山下乡人员参保补贴办事指南"
-        }];
-        console.log(data);
-        Util.common.loadTemplate("#zn-list", "#zn-list-t", data);
+    init: function(){
+        $('#scroller').css("transform", "translate(0px,0px)");
+    },
+    initLaodong: function(){
+        param.page = 1;
+        param.start = 0;
+        var url = Util.common.baseUrl + "serviceGuide/listServiceGuideByPage.do";
+        $.extend(param, {
+            "category": 1
+        });
+        localStorage.setItem('category', 1);
+        Util.common.executeGetAjaxCallback(url, param, function(data){
+            Util.common.loadTemplate("#zn-list", "#zn-list-t", data.entities.serviceGuides);
+        });
+    },
+    initJisheng: function(){
+        param.page = 1;
+        param.start = 0;
+        var url = Util.common.baseUrl + "serviceGuide/listServiceGuideByPage.do";
+        $.extend(param, {
+            "category": 2
+        });
+        localStorage.setItem('category', 2);
+        Util.common.executeGetAjaxCallback(url, param, function(data){
+            Util.common.loadTemplate("#zn-list", "#zn-list-t", data.entities.serviceGuides);
+        });
+    },
+    initZonghe: function(){
+        param.page = 1;
+        param.start = 0;
+        var url = Util.common.baseUrl + "serviceGuide/listServiceGuideByPage.do";
+        $.extend(param, {
+            "category": 3
+        });
+        localStorage.setItem('category', 3);
+        Util.common.executeGetAjaxCallback(url, param, function(data){
+            Util.common.loadTemplate("#zn-list", "#zn-list-t", data.entities.serviceGuides);
+        });
     },
     initCard: function(){
         var data = [{
@@ -98,5 +122,18 @@ customer.guide = {
             "photo": "./../../images/zhinan/pic.png"
         }];
         Util.common.loadTemplate("#card-list", "#card-list-t", data);
+    },
+    loadMore: function(){
+        param.page++;
+        param.start += 5;
+        param.category = localStorage.getItem('category');
+
+        var url = Util.common.baseUrl + "serviceGuide/listServiceGuideByPage.do";
+        Loader.request(url, param, function(data){
+            if(data.success == true) {
+                var tpl = $('#zn-list-t').tmpl(data.entities.serviceGuides);
+                $("#zn-list").append(tpl);
+            }
+        });
     }
 };

@@ -8,11 +8,13 @@
     background-color: #a7d264;
 }
 .zhinan {
-    padding: .2rem .2rem;
+    padding: .2rem 3%;
     background-color: #f0f0f0;
     padding-bottom: 20%;
 }
-.zn-list {}
+.zn-list {
+    padding-bottom: 20%;
+}
 .zn-item {
     overflow: hidden;
     margin-top: 3%;
@@ -127,6 +129,7 @@
     display: -webkit-box;
     background-color: rgb(39,39,39);
     text-align: center;
+    z-index: 9;
 }
 .tab .tab-item {
     display: block;
@@ -181,4 +184,7 @@
 }
 .tab .tab-item:last-child:before {
     width: 0;
+}
+.tab .tab-active {
+    color: #31cb31;
 }

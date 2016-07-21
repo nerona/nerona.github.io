@@ -95,11 +95,12 @@ customer.book = {
         Util.common.executeGetAjaxCallback(url, param, function(data){
             if(data.success == true){
                 var temp = data.entities.curriculumInfos;
-                var ps = [], result = [];
+                var result = [];
                 for(var i=0,len=temp.length;i<len;i++) {
-                    var p  = temp[i].photos.split(',');
-                    ps.push(p[0]);
-                    temp[i].img_src = Util.common.getImg(p[0]);
+                    var p = getFirst(temp[i].photos);
+                    console.log(p);
+
+                    temp[i].img_src = Util.common.getImg(p);
 
                     temp[i]. date = temp[i].endDate.split(" ")[0];
                     result.push(temp[i]);
@@ -130,9 +131,10 @@ customer.book = {
 
                 var ps = [], result = [];
                 for(var i=0,len=temp.length;i<len;i++) {
-                    var p  = temp[i].photos.split(',');
-                    ps.push(p[0]);
-                    temp[i].img_src = Util.common.getImg(p[0]);
+                    var p = getFirst(temp[i].photos);
+                    console.log(p);
+
+                    temp[i].img_src = Util.common.getImg(p);
                     temp[i]. date = temp[i].endDate.split(" ")[0];
 
                     result.push(temp[i]);
@@ -162,9 +164,10 @@ customer.book = {
                 var temp = data.entities.curriculumInfos;
                 var ps = [], result = [];
                 for(var i=0,len=temp.length;i<len;i++) {
-                    var p  = temp[i].photos.split(',');
-                    ps.push(p[0]);
-                    temp[i].img_src = Util.common.getImg(p[0]);
+                    var p = getFirst(temp[i].photos);
+                    console.log(p);
+
+                    temp[i].img_src = Util.common.getImg(p);
                     temp[i]. date = temp[i].endDate.split(" ")[0];
 
                     result.push(temp[i]);
@@ -195,10 +198,10 @@ customer.book = {
 
                 var ps = [], result = [];
                 for(var i=0,len=temp.length;i<len;i++) {
-                    var p  = temp[i].photos.split(',');
-                    ps.push(p[0]);
+                    var p = getFirst(temp[i].photos);
+                    console.log(p);
 
-                    temp[i].img_src = Util.common.getImg(p[0]);
+                    temp[i].img_src = Util.common.getImg(p);
                     temp[i]. date = temp[i].endDate.split(" ")[0];
 
                     result.push(temp[i]);
@@ -252,11 +255,10 @@ customer.book = {
 
             console.log(result);
             for(var i=0,len=result.length;i<len;i++) {
-                if(result[i].photos == null) {
-                    result[i].img_src = "./../../images/shuyuan/sy-rc-bigpic.png";
-                } else {
-                    result[i].img_src = Util.common.getImg(result[i].photos);
-                }
+                var p = getFirst(result[i].photos);
+                console.log(p);
+
+                result[i].img_src = Util.common.getImg(p);
             }
 
             if(result == "" || result == null) {
@@ -386,15 +388,14 @@ customer.book = {
         //议事平台
         if($level.hasClass('sy-platform')) {
             url = Util.common.baseUrl + "procedureInfo/listProcedureInfoByPage.do";
-            Util.common.executeGetAjaxCallback(url , param , function(data){
+            Loader.request(url , param , function(data){
                 var result = data.entities.procedureInfos;
 
                 for(var i=0,len=result.length;i<len;i++) {
-                    if(result[i].photos == null) {
-                        result[i].img_src = "./../../images/shuyuan/sy-rc-bigpic.png";
-                    } else {
-                        result[i].img_src = Util.common.getImg(result[i].photos);
-                    }
+                    var p = getFirst(result[i].photos);
+                    console.log(p);
+
+                    result[i].img_src = Util.common.getImg(p);
                 }
 
                 if(result == "" || result == null) {
@@ -439,9 +440,10 @@ customer.book = {
                     var temp = data.entities.curriculumInfos;
                     var ps = [], result = [];
                     for(var i=0,len=temp.length;i<len;i++) {
-                        var p  = temp[i].photos.split(',');
-                        ps.push(p[0]);
-                        temp[i].img_src = Util.common.getImg(p[0]);
+                        var p = getFirst(temp[i].photos);
+                        console.log(p);
+
+                        temp[i].img_src = Util.common.getImg(p);
 
                         temp[i]. date = temp[i].endDate.split(" ")[0];
                         result.push(temp[i]);
@@ -468,4 +470,15 @@ customer.book = {
 function FormatDate (strTime) {
     var date = new Date(strTime);
     return date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate()+" "+date.getHours()+":"+date.getMinutes()+":"+date.getSeconds();
+}
+function getFirst(str) {
+    var temp;
+    if(str == null || str == '') {
+        temp = "/ProcedureInfo/21/1f715a26a7b741dfaa3348514b4ef399.png";
+    } else if(str.indexOf(',') != -1) {
+        temp = str.split(',')[0];
+    } else {
+        temp = str;
+    }
+    return temp;
 }
