@@ -144,7 +144,18 @@ customer.pinpai = {
             "name": "",
             "time": ""
         }];
-
+        var data_ziran = [{
+            "id": 1,
+            "title": "禾盛社区自然体验营",
+            "img1": "",
+            "text1": " 生活不止是苟且，诗也不仅仅在远方。也许你不需要折腾那么远，你身边的事物也能够给你全新的体验和感动。比如，你身边的社区和无限可能的自然体验。",
+            "img2": "./../../images/shuyuan/pinpai/ziran/ziran-1.jpg",
+            "text2": "禾盛社区打造水晶森林自然生态园，力求发挥禾盛社区生态优势，将自然科普教育落实到社区居民当中。不仅丰富了学员的文化娱乐生活同时为社区居民打开了一道窗，通过自然体验项目让学员接触大自然认识自然。硬件上，自然体验营落实了教室、望远镜、小区植物挂牌等基础设备。在软件上，通过和厦门小小鸥、厦门快乐社区服务中心、中国青年观鸟联合会、露丰堂（中医）等单位合作，保证了课程内容丰富多彩。既有由中医、观鸟、植物、天文、农耕、茶文化等为导入的主题式体验活动，也有会员制、任务式的长期自主体验活动。接下来，禾盛社区还将开展“激光对抗电子竞技活动”，让大家一边玩，一边通过作战感受到团队精神和互助友爱，欢迎大家来参加。",
+            "img3": "./../../images/shuyuan/pinpai/ziran/ziran-2.jpg",
+            "text3": "禾盛社区书院自然体验营的初衷从来都不是让居民多认识一种鸟或者一棵树，更多的是期望为社区居民提供一个有意义的精神文化活动平台。",
+            "name": "",
+            "time": ""
+        }];
         var type = Util.common.getParameter('id');
         if(type == 1) {
             Util.common.loadTemplate("#pp-detail", "#pp-detail-t", data_guoxue);
@@ -152,7 +163,9 @@ customer.pinpai = {
         } else if(type == 2) {
             Util.common.loadTemplate("#pp-detail", "#pp-detail-t", data_xianfeng);
         } else if(type == 3) {
-            Util.common.loadTemplate("#pp-detail", "#pp-detail-t", data_guoxue);
+            Util.common.loadTemplate("#pp-detail", "#pp-detail-t", data_ziran);
+            $('.pp-item .pp-icon:nth-of-type(1)').remove();
+            $('.pp-item .detail-desc:nth-of-type(1)').css("margin-top", "4%");
         } else if(type == 4) {
             Util.common.loadTemplate("#pp-detail", "#pp-detail-t", data_qiye);
         } else if(type == 5) {

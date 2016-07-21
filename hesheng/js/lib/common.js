@@ -7,8 +7,8 @@ var Util = Util || {};
 
 /*定义常用方法工具对象*/
 Util.common = {
-    //配置全局根路径http://115.159.25.170/shanguoyinyi
-    baseUrl: 'http://120.26.241.5:80/hesheng/',
+    //配置全局根路径http://120.26.241.5:80/hesheng/
+    baseUrl: 'http://120.26.241.5:8080/hesheng/',
     //配置全局版本号
     versionCode: 'v1.0',
     //获取html页面直接跳转参数值

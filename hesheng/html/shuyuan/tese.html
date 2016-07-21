@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="./../../css/shuyuan/index.css">
 </head>
 <body>
-<div class="sy-richang">
+<div class="sy-richang sy-special">
     <div class="sy-line">
         <div class="sy-item sy-item-active sy-item-ing">报名中</div>
         <div class="sy-item sy-item sy-item-close">已关闭</div>
@@ -33,7 +33,7 @@
 <script>
     $(function(){
         $('head title').html(Util.common.getParameter('title'));
-        customer.book.initDailyIng();
+        customer.book.initSpecialIng();
     })
 </script>
 <!--以下是模板文件-->

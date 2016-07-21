@@ -15,35 +15,24 @@
 </head>
 <body>
 <div class="rc-detail" id="rc-detail">
-    <!--    <h5 class="detail-title">清洁无人管，居民叫苦清洁员喊难</h5>
-        <div class="detail-time">
-            <span>2014-12-12</span>
-            <span class="text-right"><span class="sy-thumb-m"></span>25</span>
-        </div>
-        <img src="./../../images/shuyuan/sy-rc-bigpic.png" alt="" class="detail-icon">
-        <div class="detail-line detail-endtime">
-            <span class="sy-thumb-m"></span> 截止报名时间 : <span>2015-12-12</span>
-        </div>
-        <div class="detail-line detail-location">
-            <span class="sy-thumb-m"></span> 报名地点 : <span>鼓浪屿中华城</span>
-        </div>
-        <div class="detail-line detail-type">
-            <span class="sy-thumb-m"></span> 养老活动
-        </div>
-        <div class="detail-line detail-number">
-            <span class="sy-thumb-m"></span> 当前报名人数 : <span>133</span>
-        </div>
-        <div class="detail-line detail-host">
-            主办方 <span class="text-right"><a href="tel:10010" class="sy-thumb-m"></a>莲前社区居委会</span>
-        </div>
 
-        <div class="detail-desc">
-            <div class="detail-desc-title"><span>课程内容</span></div>
-            <div class="detail-desc-text">装修合同就是为了房屋装修而签订的合同。这个合同是依照《中华人民共和国合同法》及有关法律、法规的规定，结合家庭居室装饰装修工程施工的实际情况</div>
+</div>
+
+<!--报名弹窗-->
+<div class="box-mask">
+    <div class="edit-box my-form">
+        <p class="edit-title">报名</p>
+        <div class="input-line">
+            <input type="text" placeholder="请输入您的姓名" id="name">
         </div>
-        <div class="detail-btns">
-            <a href="#" class="detail-want">我要报名</a>
-        </div>-->
+        <div class="input-line input-phone">
+            <input type="tel" placeholder="请输入您的电话" id="phone">
+        </div>
+        <div class="input-line input-number">
+            <input type="tel" placeholder="报名人数" id="number">
+        </div>
+        <div class="form-submit">提交</div>
+    </div>
 </div>
 
 <script src="./../../js/lib/jquery.min.js"></script>
@@ -61,7 +50,7 @@
  <h5 class="detail-title">${name}</h5>
     <div class="detail-time">
         <span>${beginDate}</span>
-        <span class="text-right"><span class="sy-thumb-m" onclick="customer.book.support();"></span></span>
+       <!-- <span class="text-right"><span class="sy-thumb-m" onclick="customer.book.support();"></span></span>-->
     </div>
     <img src="${img_src}" alt="" class="detail-icon">
     <!--<img src="./../../images/shuyuan/sy-rc-bigpic.png" alt="" class="detail-icon">-->
@@ -75,7 +64,7 @@
         <span class="sy-thumb-m"></span> ${type}
     </div>
     <div class="detail-line detail-number">
-        <span class="sy-thumb-m"></span> 当前报名人数 : <span>${signUp-surplusSign}</span>
+        <span class="sy-thumb-m"></span> 当前报名人数 : <span>${signUp}</span>
     </div>
     <div class="detail-line detail-host">
         主办方 <span class="text-right"><a href="tel:${sponsorTel}" class="sy-thumb-m"></a>${sponsor}</span>
@@ -86,7 +75,7 @@
         <div class="detail-desc-text">${content}</div>
     </div>
     <div class="detail-btns">
-        <a href="javascript:void(0);" class="detail-want" onclick="customer.book.wantJoin();">我要报名</a>
+        <a href="javascript:void(0);" class="detail-want">我要报名</a>
     </div>
     <div class="copyright">@ 禾盛社区微官网</div>
 </script>

@@ -34,7 +34,7 @@
 
 .judge-list {}
 .judge-list .judge-item {
-    padding: 8% 0 3% 0;
+    padding: 6% 0 3% 0;
     border-bottom: 1px dashed #c7c7c7;
 }
 .judge-list .judge-item:last-child {
@@ -49,13 +49,8 @@
 .judge-info .judge-header {
     width: 1.2rem;
     height: 1.2rem;
-    margin-left: 4%;
 }
 .judge-info .judge-name {
-    display: inline-block;
-    position: absolute;
-    top: .24rem;
-    margin-left: 3%;
     font-size: .24rem;
     color: #999;
 }
@@ -69,7 +64,7 @@
     padding-top: .1rem;
     font-size: .26rem;
     color: #666;
-    margin: 0 0 0 4%;
+    margin: 0;
     letter-spacing: 1px;
     white-space: normal;
     word-break: break-all;

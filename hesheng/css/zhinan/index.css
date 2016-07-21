@@ -62,7 +62,17 @@
 
 
 /**/
-.card-list {}
+.card-list {
+    margin-top: 10%;
+}
+.card-desc {
+    text-indent: .5rem;
+    font-size: .28rem;
+    text-align: justify;
+    padding: .2rem .3rem;
+    word-break: break-all;
+    line-height: .4rem;
+}
 .card-item {
     display: -webkit-box;
     background-color: #fff;

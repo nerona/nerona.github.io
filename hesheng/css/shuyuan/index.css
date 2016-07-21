@@ -68,20 +68,31 @@
     margin-bottom: 24%;
 }
 .sy-thumb .sy-thumb-icon {
-    width: 30%;
+    width: 1.9rem;
     margin-right: 3%;
-    min-height: 1.6rem;
+    height: 1.6rem;
 }
 .sy-thumb .sy-thumb-desc {
     -webkit-box-flex: 1;
     margin-right: 2%;
     position: relative;
     font-size: .24rem;
+    height: 1.6rem;
+    overflow: hidden;
 }
 .sy-thumb .sy-thumb-title {
-    font-size: .28rem;
+    width: 96%;
+    font-size: .26rem;
+    text-align: justify;
     color: #333;
-    word-break: break-all;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.sy-normal .sy-thumb .sy-thumb-title,
+.sy-special .sy-thumb .sy-thumb-title {
+    width: 76%;
 }
 .sy-thumb-m {
     display: inline-block;
@@ -109,7 +120,7 @@
 .sy-thumb .sy-thumb-num {
     position: absolute;
     top: .42rem;
-    right: 6%;
+    right: 4%;
     color: #a9a9a9;
 }
 .sy-thumb .sy-thumb-info {

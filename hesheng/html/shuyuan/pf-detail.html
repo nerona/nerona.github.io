@@ -16,52 +16,21 @@
 <body>
 <div class="rc-detail pl-detail">
     <div id="platform-detail"></div>
-
-    <!--评论列表-->
-    <ul class="judge-list">
-        <li class="judge-item">
-            <div class="judge-info">
-                <img src="./../../images/shuyuan/header1.png" alt="" class="judge-icon judge-header">
-                <div class="judge-name">
-                    <p>王先生</p>
-                    <p>2016-02-21  &nbsp; 12:22:22</p>
-                </div>
-            </div>
-            <div class="judge-content">
-                XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-            </div>
-            <div class="judge-status">
-              <!--  <span>0 回复</span> -->
-                | <span>赞 1</span><span class="judge-good"></span>
-            </div>
-        </li>
-        <li class="judge-item">
-            <div class="judge-info">
-                <img src="./../../images/shuyuan/header2.png" alt="" class="judge-icon judge-header">
-                <div class="judge-name">
-                    <p>王先生</p>
-                    <p>2016-02-21  &nbsp; 12:22:22</p>
-                </div>
-            </div>
-            <div class="judge-content">
-                XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-            </div>
-            <div class="judge-status">
-               <!-- <span><em>0</em> 回复</span> -->
-                | <span>赞 <em>1</em></span><span class="judge-good"></span>
-            </div>
-        </li>
-    </ul>
     <!--留言-->
     <div class="text-right edit-board">
         <span class="edit-out">写留言 <span class="edit-icon"></span></span>
     </div>
+    <!--评论列表-->
+    <ul class="judge-list" id="comment-list">
+
+    </ul>
+
     <!--留言弹窗-->
     <div class="box-mask">
         <div class="edit-box my-form">
             <p class="edit-title">写留言</p>
             <div class="input-line">
-                <input type="text" placeholder="请输入您的姓名">
+                <input type="text" placeholder="请输入您的姓名" id="username">
             </div>
             <div class="input-line">
                 <textarea placeholder="请输入您的留言" id="word"></textarea>
@@ -73,24 +42,9 @@
     <!--往期热点新闻-->
     <div class="old-news">
         <div class="old-news-title">往期热点新闻</div>
-        <ul>
-            <li class="news-item">
-                <div class="new-title">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</div>
-                <div class="new-time">2016-02-02</div>
-            </li>
-            <li class="news-item">
-                <div class="new-title">XXXXXXXXXXXX</div>
-                <div class="new-time">2016-02-02</div>
-            </li>
-            <li class="news-item">
-                <div class="new-title">XXXXXXXXXXXX</div>
-                <div class="new-time">2016-02-02</div>
-            </li>
-            <li class="news-item">
-                <div class="new-title">XXXXXXXXXZZZZZZZZZZZZZZZZZZZZZZZZXXX</div>
-                <div class="new-time">2016-02-02</div>
-            </li>
-        </ul>
+        <div id="news-list">
+
+        </div>
 
     </div>
 
@@ -110,9 +64,28 @@
 
         $('.edit-out').on('click', function(){
             $('.box-mask').show();
+
+            var username = localStorage.getItem('username');
+            if(username != null || username != ''){
+                $('#username').val(username);
+            }
+            $('#word').val('');
             $('.form-submit').on('click', function () {
+                if($('#username') != null || $('#username') != '') {
+                    localStorage.setItem('username', $('#username').val());
+                }
                 customer.book.addComment();
             });
+        });
+        $('.box-mask').on('click', function(e){
+            var $target = $(e.target);
+            if(!$target.is('.edit-box') && !$target.is('.edit-title') && !$target.is('input') && !$target.is('textarea') && !$target.is('.form-submit')) {
+                $('.box-mask').hide();
+            }
+        });
+        //
+        $('.news-item').on('click', function(){
+            document.location.href = "html/shuyuan/pf-detail.html?id=" + $(this).attr('id');
         });
     })
 </script>
@@ -123,8 +96,8 @@
         <span class="platform-title-p1">议事主题 : </span>
         <span class="platform-title-p2"> ${theme}</span>
     </h5>
-    <!--<img src="${img}" alt="" class="detail-icon">-->
-    <img src="./../../images/shuyuan/sy-rc-bigpic.png" alt="" class="detail-icon">
+    <img src="${img_src}" alt="" class="detail-icon">
+    <!--<img src="./../../images/shuyuan/sy-rc-bigpic.png" alt="" class="detail-icon">-->
 
     <div class="detail-desc">
         <div class="detail-desc-title">
@@ -135,6 +108,33 @@
            ${content}
         </div>
     </div>
+</script>
+
+<script type="text/x-jquery-tmpl" id="comment-list-t">
+  <li class="judge-item">
+            <div class="judge-info">
+                <div class="judge-name">
+                    <p>${userName}</p>
+                    <p>${commentDate}</p>
+                </div>
+            </div>
+            <div class="judge-content">
+                ${content}
+            </div>
+            <div class="judge-status">
+              <!--  <span>0 回复</span> -->
+              <!--  | <span>赞 ${remark}</span><span class="judge-good"></span>-->
+            </div>
+  </li>
+</script>
+
+<script type="text/x-jquery-tmpl" id="news-list-t">
+<a class="news-item" href="pf-detail.html?id=${id}">
+
+      <div class="new-title">${theme}</div>
+      <div class="new-time">2016-02-02</div>
+</a>
+
 </script>
 </body>
 </html>
