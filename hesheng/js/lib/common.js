@@ -8,7 +8,7 @@ var Util = Util || {};
 /*定义常用方法工具对象*/
 Util.common = {
     //配置全局根路径http://120.26.241.5:80/hesheng/
-    baseUrl: 'http://120.26.241.5:8080/hesheng/',
+    baseUrl: 'http://120.26.241.5/hesheng/',
     //配置全局版本号
     versionCode: 'v1.0',
     //获取html页面直接跳转参数值
@@ -55,10 +55,20 @@ Util.common = {
     getImg: function(file){
         var p_url = Util.common.baseUrl + "sysUtilsController/getFile.do";
         var p_param = {
-            "getfile": file,
+            "getfile": file ,
             "getthumb": "getthumb"
         };
-        return  p_url + "?getfile=" + file + "&getthumb=getthumb";
+        //return  p_url + "?getfile=" + file + "&width=400" + "&getthumb=getthumb";
+        return  p_url + "?getthumb=" + file + "&width=200&height=160";
+    },
+    getImgHigh: function(file){
+        var p_url = Util.common.baseUrl + "sysUtilsController/getFile.do";
+        var p_param = {
+            "getfile": file ,
+            "getthumb": "getthumb"
+        };
+        //return  p_url + "?getfile=" + file + "&width=400" + "&getthumb=getthumb";
+        return  p_url + "?getthumb=" + file + "&width=600&height=320";
     },
     loadTemplate:function(render ,templateId ,data ){
         $(render).html($(templateId).tmpl(data));

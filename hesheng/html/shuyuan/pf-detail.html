@@ -10,6 +10,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <script src="./../../js/lib/reset.js"></script>
+    <link href="//cdn.bootcss.com/Swiper/3.3.1/css/swiper.min.css" rel="stylesheet">
 
     <link rel="stylesheet" href="./../../css/shuyuan/index.css">
 </head>
@@ -53,11 +54,29 @@
 
 <script src="./../../js/lib/jquery.min.js"></script>
 <script src="./../../js/lib/jquery.tmpl.min.js"></script>
+<script src="//cdn.bootcss.com/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
 <script src="./../../js/lib/common.js"></script>
-<script src="./../../js/shuyuan/index.js"></script>
+<script src="./../../js/shuyuan/platform.js"></script>
 <script>
     $(function () {
-        customer.book.initPlatformDetail();
+        customer.platform.initDetail();
+        var config = {
+            loop: true,
+            autoplay: 2500,
+            speed: 2000,
+            spaceBetween: 1,
+            autoplayDisableOnInteraction: false
+        };
+        setTimeout(function(){
+            if($('.swiper-slide').length == 1) {
+                config = {
+                    spaceBetween: 1,
+                    autoplayDisableOnInteraction: false
+                };
+            }
+            var mySwiper = new Swiper('.swiper-container', config);
+        }, 1000);
+
         $('.judge-good').on('click', function(){
             $(this).toggleClass('judge-yes');
         });
@@ -74,7 +93,7 @@
                 if($('#username') != null || $('#username') != '') {
                     localStorage.setItem('username', $('#username').val());
                 }
-                customer.book.addComment();
+                customer.platform.addComment();
             });
         });
         $('.box-mask').on('click', function(e){
@@ -96,8 +115,24 @@
         <span class="platform-title-p1">议事主题 : </span>
         <span class="platform-title-p2"> ${theme}</span>
     </h5>
-    <img src="${img_src}" alt="" class="detail-icon">
+    <!--<img src="${img_src}" alt="" class="detail-icon">-->
     <!--<img src="./../../images/shuyuan/sy-rc-bigpic.png" alt="" class="detail-icon">-->
+
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            {{if length == 1}}
+                <div class="swiper-slide">
+                    <img src="${img_src}" alt="" class="detail-icon">
+                </div>
+            {{else}}
+                {{each(j,src) img_src}}
+                    <div class="swiper-slide">
+                        <img src="${src}" alt="" class="detail-icon">
+                    </div>
+                {{/each}}
+            {{/if}}
+        </div>
+    </div>
 
     <div class="detail-desc">
         <div class="detail-desc-title">

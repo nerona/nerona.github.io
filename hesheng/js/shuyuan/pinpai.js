@@ -103,7 +103,7 @@ customer.pinpai = {
             "title": "",
             "img1": "./../../images/shuyuan/pinpai/qiye/pp-1-7.jpg",
             "text1": "禾盛企业雷锋团一直都秉承着用自己有限的力量提供高质量的服务，它的茁壮成长更表明了其平台的影响力，让需要的人感受到无限温暖的宗旨，哪里需要，企业雷锋团便出现在哪里。爱的奉献在禾盛社区成为新常态，快乐理念在越来越多禾盛人的心中植入。",
-            "img2": "./../../images/shuyuan/pinpai/qiye/pp-1-8.jpg",
+            "img2": "./../../images/shuyuan/pinpai/qiye/pp-1-8.JPG",
             "text2": "",
             "img3": "./../../images/shuyuan/pinpai/qiye/pp-1-9.jpg",
             "text3": "",

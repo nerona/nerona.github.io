@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>一键导航</title>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="email=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=5342c606f0e47557ae6edba0e704570f"></script>
+    <style>
+        html {
+            font-size: 12px;
+        }
+        #container {
+            width:100%;
+            height: 100%;
+            position: absolute;
+            left:0;
+            top:0;
+        }
+        .title{
+            margin: 0px;
+            color: #666;
+            font-size: 14px;
+            background-color: #eee;
+            border-bottom: solid 1px silver;
+            line-height: 26px;
+            padding: 1px 0 1px 8px;
+            font-weight: lighter;
+            letter-spacing: 1px
+        }
+        .content{
+            color: #666;
+            line-height: 30px;
+            font-size: 18px;
+            padding: 8px 10px;
+        }
+        .content:after {
+            content: '';
+            display: block;
+            height: 0;
+            visibility: hidden;
+            clear: both;
+        }
+        .content img{
+            float: left;
+            width: 60px;
+            margin-right: 12px;
+        }
+        .amap-icon img {
+            width: 100%;
+        }
+        #panel {
+            position: absolute;
+            background-color: white;
+            max-height: 80%;
+            overflow-y: auto;
+            top: 10px;
+            right: 10px;
+            width: 250px;
+            border: solid 1px silver;
+        }
+    </style>
+</head>
+<body>
+<div id="container"></div>
+<div id="panel"></div>
+
+<script src="./../js/lib/jquery.min.js"></script>
+<script src="./../js/lib/common.js"></script>
+<script>
+    $(function(){
+        Util.common.setWxTitle("一键导航");
+    });
+</script>
+<script>
+    var lnglat = [118.155336,24.514861];
+    var map = new AMap.Map('container',{
+        zoom: 14,
+        center: lnglat
+    });
+    //标记
+    var marker = new AMap.Marker({
+        map: map,
+        position: lnglat,
+        icon: new AMap.Icon({
+            size: new AMap.Size(18, 26),  //图标大小
+            image: "./../images/map.png",
+            imageOffset: new AMap.Pixel(0, 0)
+        })
+    });
+    marker.setMap(map);
+    map.setCenter(marker.getPosition());
+
+    //信息窗
+    AMap.plugin('AMap.AdvancedInfoWindow',function(){
+        var infowindow = new AMap.AdvancedInfoWindow({
+            content: '<h3 class="title">禾盛社区</h1>'+
+            '<div class="content"><img src="./../images/default.jpg">厦门市湖里区禾盛社区<br>社区服务中心</div>',
+            offset: new AMap.Pixel(0, -30),
+            asOrigin:false
+        });
+        infowindow.open(map, lnglat);
+        marker.on('click',function(e){
+            infowindow.open(map, lnglat);
+        });
+    });
+    //工具条
+    AMap.plugin(['AMap.ToolBar','AMap.Scale'],function(){
+        var toolBar = new AMap.ToolBar();
+        var scale = new AMap.Scale();
+        map.addControl(toolBar);
+        map.addControl(scale);
+    });
+
+    /*
+     * 调用公交换乘服务
+     */
+    //加载公交换乘插件
+    AMap.service(["AMap.Transfer"], function() {
+        var transOptions = {
+            map: map,
+            city: '厦门市',
+            panel:'panel',                            //公交城市
+            //cityd:'厦门市',
+            policy: AMap.TransferPolicy.LEAST_TIME //乘车策略
+        };
+        //构造公交换乘类
+        var trans = new AMap.Transfer(transOptions);
+        //根据起、终点坐标查询公交换乘路线
+        trans.search([{keyword:'康利金融大厦'},{keyword:'禾盛社区'}], function(status, result){
+            console.log(result);
+        });
+    });
+</script>
+
+</body>
+</html>

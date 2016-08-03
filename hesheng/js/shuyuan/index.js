@@ -55,6 +55,31 @@ $(function(){
             customer.book.initSpecialClose();
         }
     });
+
+    //
+    $('.edit-box input').on('focus', function(){
+       /* var id = $(this).attr('id');
+        if(id == "name") {
+            $('.my-form').css('margin-top', '-2%');
+        } else if(id == "sex") {
+            $('.my-form').css('margin-top', '-12%');
+        } else if(id == "id_number") {
+            $('.my-form').css('margin-top', '-12%');
+        } else if(id == "age") {
+            $('.my-form').css('margin-top', '-36%');
+        } else if(id == "parent") {
+            $('.my-form').css('margin-top', '-36%');
+        } else if(id == "phone") {
+            $('.my-form').css('margin-top', '-62%');
+        } else if(id == "address") {
+            $('.my-form').css('margin-top', '-74%');
+        }*/
+        $('.box-mask').css('overflow', 'auto');
+    });
+    $('.edit-box input').on('blur', function(){
+        //$('.box-mask').css('overflow', 'hidden');
+    });
+
 });
 
 var param = {
@@ -69,6 +94,7 @@ var customer = customer || {};
 customer.book = {
     init: function(){
         $('#scroller').css("transform", "translate(0px,0px)");
+        $empty.remove();
     },
     //课程详情
     goCourseDetail: function(obj){
@@ -97,10 +123,14 @@ customer.book = {
                 var temp = data.entities.curriculumInfos;
                 var result = [];
                 for(var i=0,len=temp.length;i<len;i++) {
-                    var p = getFirst(temp[i].photos);
-                    console.log(p);
+                    if(temp[i].photos == null) {
+                        temp[i].img_src = './../../images/default.jpg';
+                    } else {
+                        var p = getFirst(temp[i].photos);
+                        console.log(p[0]);
 
-                    temp[i].img_src = Util.common.getImg(p);
+                        temp[i].img_src = Util.common.getImg(p[0]);
+                    }
 
                     temp[i]. date = temp[i].endDate.split(" ")[0];
                     result.push(temp[i]);
@@ -131,12 +161,15 @@ customer.book = {
 
                 var ps = [], result = [];
                 for(var i=0,len=temp.length;i<len;i++) {
-                    var p = getFirst(temp[i].photos);
-                    console.log(p);
+                    if(temp[i].photos == null) {
+                        temp[i].img_src = './../../images/default.jpg';
+                    } else {
+                        var p = getFirst(temp[i].photos);
+                        console.log(p[0]);
 
-                    temp[i].img_src = Util.common.getImg(p);
+                        temp[i].img_src = Util.common.getImg(p[0]);
+                    }
                     temp[i]. date = temp[i].endDate.split(" ")[0];
-
                     result.push(temp[i]);
                 }
                 console.log(result);
@@ -164,12 +197,15 @@ customer.book = {
                 var temp = data.entities.curriculumInfos;
                 var ps = [], result = [];
                 for(var i=0,len=temp.length;i<len;i++) {
-                    var p = getFirst(temp[i].photos);
-                    console.log(p);
+                    if(temp[i].photos == null) {
+                        temp[i].img_src = './../../images/default.jpg';
+                    } else {
+                        var p = getFirst(temp[i].photos);
+                        console.log(p[0]);
 
-                    temp[i].img_src = Util.common.getImg(p);
+                        temp[i].img_src = Util.common.getImg(p[0]);
+                    }
                     temp[i]. date = temp[i].endDate.split(" ")[0];
-
                     result.push(temp[i]);
                 }
                 console.log(result);
@@ -198,12 +234,15 @@ customer.book = {
 
                 var ps = [], result = [];
                 for(var i=0,len=temp.length;i<len;i++) {
-                    var p = getFirst(temp[i].photos);
-                    console.log(p);
+                    if(temp[i].photos == null) {
+                        temp[i].img_src = './../../images/default.jpg';
+                    } else {
+                        var p = getFirst(temp[i].photos);
+                        console.log(p[0]);
 
-                    temp[i].img_src = Util.common.getImg(p);
+                        temp[i].img_src = Util.common.getImg(p[0]);
+                    }
                     temp[i]. date = temp[i].endDate.split(" ")[0];
-
                     result.push(temp[i]);
                 }
                 console.log(result);
@@ -225,103 +264,94 @@ customer.book = {
         Util.common.executeAjaxCallback(url, param, function(result){
             console.log(result.entities.curriculumInfo);
             var temp = result.entities.curriculumInfo;
-            var p  = temp.photos.split(',');
-
-            temp.img_src = Util.common.getImg(p[0]);
+            if(temp.photos == null) {
+                temp.length = 1;
+                temp.img_src = './../../images/default.jpg';
+            } else {
+                var p = getFirst(result.photos);
+                console.log(p.length);
+                temp.length = p.length;
+                if(p.length > 1) {
+                    var ts = [];
+                    for(var x=0;x<p.length;x++) {
+                        ts.push( Util.common.getImgHigh(p[x]));
+                    }
+                    temp.img_src = ts;
+                } else {
+                    temp.img_src = Util.common.getImgHigh(p[0]);
+                }
+            }
 
             Util.common.loadTemplate("#rc-detail", "#rc-detail-t", temp);
 
-            $('.detail-want').on('click', function(){
-                $('.box-mask').show();
-                $('.form-submit').on('click', function () {
-                    customer.book.wantJoin();
+            if(temp.status == 0) {
+                $('.detail-want').on('click', function(){
+                    Util.msg.show('msgId', "报名已结束！");
                 });
-            });
+            } else {
+                $('.detail-want').on('click', function(){
+                    $('.box-mask').show().css('overflow', 'auto');
+                    $('.form-submit').on('click', function () {
+                        customer.book.wantJoin();
+                    });
+                });
+            }
             $('.box-mask').on('click', function(e){
                 var $target = $(e.target);
-                if(!$target.is('.edit-box') && !$target.is('.edit-title') && !$target.is('input') && !$target.is('.form-submit')) {
+                if(!$target.is('.edit-box') && !$target.is('.edit-title') && !$target.is('input') && !$target.is('select') && !$target.is('.form-submit')) {
+                    $(window).scrollTop(0);
                     $('.box-mask').hide();
                 }
             });
-        });
-    },
-    //初始化议事平台
-    initPlatform: function(){
-        var url = Util.common.baseUrl + "procedureInfo/listProcedureInfoByPage.do";
-        var $empty = $('<li class="empty-list"><img src="./../../images/ts_ygq.png" alt=""><p>暂无相关活动~</p></li>');
-
-        Util.common.executeGetAjaxCallback(url , param , function(data){
-            var result = data.entities.procedureInfos;
-
-            console.log(result);
-            for(var i=0,len=result.length;i<len;i++) {
-                var p = getFirst(result[i].photos);
-                console.log(p);
-
-                result[i].img_src = Util.common.getImg(p);
-            }
-
-            if(result == "" || result == null) {
-                $("#sy-rc-list").empty();
-                $('#wrapper').append($empty);
-            } else {
-                Util.common.loadTemplate("#sy-rc-list", "#sy-rc-list-t", result);
-            }
-        });
-    },
-    //初始化议事项目详情
-    initPlatformDetail: function(){
-        var url = Util.common.baseUrl + "procedureInfo/getById.do";
-        var param = {
-            "id": Util.common.getParameter('id')
-        };
-        Util.common.executeAjaxCallback(url , param , function(data){
-            var result = data.entities.procedureInfo;
-            result.html = "<button>123</button>";
-            if(result.photos == null) {
-                result.img_src = "./../../images/shuyuan/sy-rc-bigpic.png";
-            } else {
-                result.img_src = Util.common.getImg(result.photos);
-            }
-
-            Util.common.loadTemplate("#platform-detail", "#platform-detail-t", result);
-
-            console.log(result.commentInfoList);
-            for(var i=0,len=result.commentInfoList.length;i<len;i++) {
-                if(result.commentInfoList[i].remark == null) {
-                    result.commentInfoList[i].remark =0;
-                }
-            }
-            Util.common.loadTemplate("#comment-list", "#comment-list-t", result.commentInfoList);
-        });
-        var news_url = Util.common.baseUrl + "procedureInfo/listHotProcedureInfo.do";
-        Util.common.executeGetAjaxCallback(news_url , param , function(data){
-            Util.common.loadTemplate("#news-list", "#news-list-t", data.entities.procedureInfos);
         });
     },
     //课程报名
     wantJoin: function(){
         var url = Util.common.baseUrl + "curriculumInfo/sign.do";
 
-        var name = $('#name').val();
-        var phone = $('#phone').val();
-        var number = $('#number').val();
+        var name = $('#name').val();  //姓名
+        var sex = $('#sex').val();    //性别
+        var id_number = $('#id_number').val();   //身份证
+        var age = $('#age').val();    //年龄
+        var parent = $('#parent').val();   //监护人姓名
+        var phone = $('#phone').val();     //联系电话
+        var address = $('#address').val();     //联系电话
         if(name == null || name == ""){
             Util.msg.show('msgId', "请输入姓名!");
             $('#name').focus();
+        } else if(sex == null || sex == ""){
+            Util.msg.show('msgId', "请输入性别!");
+            $('#sex').focus();
+        } else if(id_number == null || id_number == ""){
+            Util.msg.show('msgId', "请输入身份证!");
+            $('#id_number').focus();
+        } else if(age == null || age == ""){
+            Util.msg.show('msgId', "请输入年龄!");
+            $('#age').focus();
+        } else if(parent == null || parent == ""){
+            Util.msg.show('msgId', "请输入监护人姓名!");
+            $('#parent').focus();
+        } else if(phone == null || phone == ""){
+            Util.msg.show('msgId', "请输入联系电话!");
+            $('#phone').focus();
         } else if(!(/^1[3|4|5|7|8]\d{9}$/.test(phone))){
             Util.msg.show('msgId',"手机号码有误，请重填");
             $('#phone').focus();
-        } else if(number == null || number == "" || number == 0){
-            Util.msg.show('msgId', "请输入大于0的报名人数!");
-            $('#number').focus();
-        }else {
+        } else if(address == null || address == ""){
+            Util.msg.show('msgId', "请输入联系地址!");
+            $('#address').focus();
+        } else {
             var param = {
                 "curriculumId": Util.common.getParameter("id"),
-                "contactUser": name,   //联系人
+                "contactUser": name,    //联系人
                 "contactTel": phone,    //联系方式
-                "signNum": number,       //报名人数
-                "status": ""         //报名状态
+                "signNum": "",          //报名人数
+                "status": "",           //报名状态
+                "sex": sex,             //性别
+                "idCard": id_number,    //身份证
+                "age": age,             //年龄
+                "guardian": parent,     //监护人
+                "contactAddress": address      //联系地址
             };
             Util.common.executeAjaxCallback(url, param, function(data){
                 console.log(data);
@@ -472,13 +502,13 @@ function FormatDate (strTime) {
     return date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate()+" "+date.getHours()+":"+date.getMinutes()+":"+date.getSeconds();
 }
 function getFirst(str) {
-    var temp;
-    if(str == null || str == '') {
-        temp = "/ProcedureInfo/21/1f715a26a7b741dfaa3348514b4ef399.png";
-    } else if(str.indexOf(',') != -1) {
-        temp = str.split(',')[0];
+    var temp = [];
+    if (str == null || str == '') {
+        temp.push("/CurriculumInfo/23/3f11e760135949c8b6c1bd3c55edc447.png");
+    } else if (str.indexOf(',') != -1) {
+        temp = str.split(',');
     } else {
-        temp = str;
+        temp.push(str);
     }
     return temp;
 }

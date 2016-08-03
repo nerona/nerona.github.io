@@ -19,20 +19,20 @@
     <div class="swiper-container">
         <div class="swiper-wrapper">
             <div class="swiper-slide">
-                <img src="./../../images/hudong/wule.png" alt="">
-                <p>禾盛社区 "12.5" 召开国际志愿者表彰仪式。</p>
+                <img src="./../../images/hudong/wu-1.jpg" alt="">
+                <p>禾盛社区举行爱心企业慈善捐赠仪式。</p>
             </div>
             <div class="swiper-slide">
-                <img src="./../../images/hudong/wule.png" alt="">
-                <p>禾盛社区 "12.6" 召开国际志愿者表彰仪式。</p>
+                <img src="./../../images/hudong/wu-2.jpg" alt="">
+                <p>禾盛社区召开“两违”工作部署会。</p>
             </div>
             <div class="swiper-slide">
-                <img src="./../../images/hudong/wule.png" alt="">
-                <p>禾盛社区 "12.7" 召开国际志愿者表彰仪式。</p>
+                <img src="./../../images/hudong/wu-3.jpg" alt="">
+                <p>禾盛社区党的群众路线教育实践活动领导小组召开工作例会。</p>
             </div>
             <div class="swiper-slide">
-                <img src="./../../images/hudong/wule.png" alt="">
-                <p>禾盛社区 "12.8" 召开国际志愿者表彰仪式。</p>
+                <img src="./../../images/hudong/wu-4.jpg" alt="">
+                <p>社区范有钦同志参加湖里区党的群众路线教育实践活动主题演讲决赛。</p>
             </div>
         </div>
         <!-- 如果需要分页器 -->
@@ -42,7 +42,7 @@
     <div class="five-item">
         <div class="five-one">
             <img src="./../../images/hudong/lebg.png" alt="">
-            <div class="five-container">
+            <div class="five-container" id="1" title="乐民生">
                 <h5>乐民生</h5>
                 <p>PEOPLE'S</p>
                 <img src="./../../images/hudong/peoples.png" alt="">
@@ -51,7 +51,7 @@
         <div class="five-next">
             <div class="five-two">
                 <img src="./../../images/hudong/se.png" alt="">
-                <div class="five-container">
+                <div class="five-container" id="2" title="乐服务">
                     <h5>乐服务</h5>
                     <p>SERVICE</p>
                     <img src="./../../images/hudong/service.png" alt="">
@@ -59,7 +59,7 @@
             </div>
             <div class="five-three">
                 <img src="./../../images/hudong/green.png" alt="">
-                <div class="five-container">
+                <div class="five-container" id="3" title="乐组织">
                     <h5>乐组织</h5>
                     <p>ORGANIZE</p>
                     <img src="./../../images/hudong/zuzhi.png" alt="">
@@ -70,7 +70,7 @@
     <div class="five-item">
         <div class="five-four">
             <img src="./../../images/hudong/pink.png" alt="">
-            <div class="five-container">
+            <div class="five-container" id="4" title="乐文化">
                 <h5>乐文化</h5>
                 <p>CULTURE</p>
                 <img src="./../../images/hudong/culture.png" alt="">
@@ -78,7 +78,7 @@
         </div>
         <div class="five-five">
             <img src="./../../images/hudong/blue.png" alt="">
-            <div class="five-container">
+            <div class="five-container" id="5" title="乐成长">
                 <h5>乐成长</h5>
                 <p>GROW UP</p>
                 <img src="./../../images/hudong/growup.png" alt="">
@@ -101,6 +101,10 @@
             speed: 2000,
             spaceBetween: 1,
             autoplayDisableOnInteraction: false
+        });
+
+        $('.five-container').on('click', function(){
+            document.location.href = "wu-detail.html?id=" + $(this).attr('id') + "&title=" + $(this).attr('title');
         });
     });
 </script>

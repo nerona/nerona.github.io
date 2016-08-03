@@ -152,8 +152,9 @@
     position: relative;
 }
 .five-item .five-next .five-three {
-    position: absolute;
-    bottom: 0;
+/*    position: absolute;
+    bottom: 0;*/
+    margin-top: 10%;
 }
 .five-item .five-four,
 .five-item .five-five {

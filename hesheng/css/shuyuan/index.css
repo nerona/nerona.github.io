@@ -68,16 +68,16 @@
     /*margin-bottom: 24%;*/
 }
 .sy-thumb .sy-thumb-icon {
-    width: 1.9rem;
+    width: 2rem;
     margin-right: 3%;
-    height: 1.6rem;
+    min-height: 1.6rem;
 }
 .sy-thumb .sy-thumb-desc {
     -webkit-box-flex: 1;
     margin-right: 2%;
     position: relative;
     font-size: .24rem;
-    height: 1.6rem;
+    min-height: 1.6rem;
     overflow: hidden;
 }
 .sy-thumb .sy-thumb-title {
@@ -93,6 +93,9 @@
 .sy-normal .sy-thumb .sy-thumb-title,
 .sy-special .sy-thumb .sy-thumb-title {
     width: 76%;
+}
+.sy-dangyuan .sy-thumb .sy-thumb-title {
+    width: 78%;
 }
 .sy-thumb-m {
     display: inline-block;
@@ -130,12 +133,22 @@
     left: 0;
     color: #a9a9a9;
 }
+.sy-thumb .sy-thumb-info .sy-thumb-location {
+    display: inline-block;
+    width: 56%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
 .sy-thumb .sy-thumb-time,
 .sy-thumb .sy-thumb-judge {
     position: absolute;
     right: 0;
 }
-
+.pl-detail .copyright {
+    position: relative;
+}
 /*课程详情*/
 .rc-detail {
     padding: .4rem .3rem;
@@ -363,7 +376,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    background-color: rgba(0,0,0,.5);
+    background-color: rgba(0,0,0,.8);
     text-align: center;
     z-index: 9999;
     display: none;
@@ -378,10 +391,11 @@
     background-color: #ececec;
     width: 90%;
     margin: 0 auto;
-    margin-top: 40%;
+    margin-top: 18%;
     border-radius: 3px;
     text-align: left;
     padding-bottom: 6%;
+    margin-bottom: 100%;
 }
 .my-form .input-line {
     width: 90%;
@@ -389,7 +403,9 @@
     margin-bottom: 4%;
 }
 .input-line input,
-.input-line textarea {
+.input-line textarea,
+.input-line select {
+    display: inline-block;
     width: 88%;
     background-color: #fff;
     color: #4978ab;
@@ -401,6 +417,10 @@
     background-position: 4% center;
     background-size: .27rem .32rem;
     font-family: "Microsoft YaHei";
+}
+.input-line select {
+    width: 100%;
+    border: none;
 }
 .input-line textarea {
     background-image: url(./../../images/shuyuan/pen-gray.png);

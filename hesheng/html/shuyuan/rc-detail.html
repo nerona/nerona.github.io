@@ -10,6 +10,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <script src="./../../js/lib/reset.js"></script>
+    <link href="//cdn.bootcss.com/Swiper/3.3.1/css/swiper.min.css" rel="stylesheet">
 
     <link rel="stylesheet" href="./../../css/shuyuan/index.css">
 </head>
@@ -22,13 +23,40 @@
     <div class="edit-box my-form">
         <p class="edit-title">报名</p>
         <div class="input-line">
-            <input type="text" placeholder="请输入您的姓名" id="name">
+            <input type="text" placeholder="请输入姓名" id="name">
         </div>
-        <div class="input-line input-phone">
-            <input type="tel" placeholder="请输入您的电话" id="phone">
+        <div class="input-line">
+            <!--<input type="text" placeholder="请输入性别" id="sex">-->
+            <select name="sex" id="sex">
+                <option value="1">男</option>
+                <option value="0">女</option>
+            </select>
         </div>
-        <div class="input-line input-number">
-            <input type="tel" placeholder="报名人数" id="number">
+        <div class="input-line">
+            <input type="text" placeholder="请输入身份证号码" id="id_number">
+        </div>
+        <div class="input-line">
+            <!--<input type="tel" placeholder="请输入年龄" id="age">-->
+            <select name="age" id="age">
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+            </select>
+        </div>
+        <div class="input-line">
+            <input type="text" placeholder="请输入监护人姓名" id="parent">
+        </div>
+        <div class="input-line">
+            <input type="tel" placeholder="请输入联系电话" id="phone">
+        </div>
+        <div class="input-line">
+            <input type="tel" placeholder="请输入联系地址" id="address">
         </div>
         <div class="form-submit">提交</div>
     </div>
@@ -36,11 +64,28 @@
 
 <script src="./../../js/lib/jquery.min.js"></script>
 <script src="./../../js/lib/jquery.tmpl.min.js"></script>
+<script src="//cdn.bootcss.com/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
 <script src="./../../js/lib/common.js"></script>
 <script src="./../../js/shuyuan/index.js"></script>
 <script>
     $(function(){
         customer.book.initDetailNormal();
+        var config = {
+            loop: true,
+            autoplay: 2500,
+            speed: 2000,
+            spaceBetween: 1,
+            autoplayDisableOnInteraction: false
+        };
+        setTimeout(function(){
+            if($('.swiper-slide').length == 1) {
+                config = {
+                    spaceBetween: 1,
+                    autoplayDisableOnInteraction: false
+                };
+            }
+            var mySwiper = new Swiper('.swiper-container', config);
+        }, 1000);
     })
 </script>
 
@@ -51,13 +96,29 @@
         <span>${beginDate}</span>
        <!-- <span class="text-right"><span class="sy-thumb-m"></span></span>-->
     </div>
-    <img src="${img_src}" alt="" class="detail-icon">
+    <!--<img src="${img_src}" alt="" class="detail-icon">-->
+     <div class="swiper-container">
+        <div class="swiper-wrapper">
+            {{if length == 1}}
+                <div class="swiper-slide">
+                    <img src="${img_src}" alt="" class="detail-icon">
+                </div>
+            {{else}}
+                {{each(j,src) img_src}}
+                    <div class="swiper-slide">
+                        <img src="${src}" alt="" class="detail-icon">
+                    </div>
+                {{/each}}
+            {{/if}}
+        </div>
+    </div>
+
     <!--<img src="./../../images/shuyuan/sy-rc-bigpic.png" alt="" class="detail-icon">-->
     <div class="detail-line detail-endtime">
         <span class="sy-thumb-m"></span> 截止报名时间 : <span>${endDate}</span>
     </div>
     <div class="detail-line detail-location">
-        <span class="sy-thumb-m"></span> 报名地点 : <span>${location}</span>
+        <span class="sy-thumb-m"></span> 活动地点 : <span>${location}</span>
     </div>
     <div class="detail-line detail-type">
         <span class="sy-thumb-m"></span> ${type}

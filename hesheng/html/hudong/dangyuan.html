@@ -12,21 +12,45 @@
     <script src="./../../js/lib/reset.js"></script>
 
     <link rel="stylesheet" href="./../../css/shuyuan/index.css">
+    <link rel="stylesheet" href="./../../css/scrollbar.css">
+
+    <style>
+        #wrapper {
+            position:absolute;
+            z-index:1;
+            top:1rem;
+            left:1px;
+            width:100%;
+            overflow:auto;
+            bottom: 0;
+        }
+    </style>
 </head>
 <body>
-<div class="sy-richang">
+<div class="sy-richang sy-dangyuan">
     <div class="sy-line">
         <div class="sy-item sy-item-active sy-item-ing">报名中</div>
         <div class="sy-item sy-item sy-item-close">已关闭</div>
     </div>
 
     <!--list-->
-    <ul class="sy-rc-list" id="sy-rc-list">
-        <li class="empty-list">
-
-        </li>
-    </ul>
-    <div class="copyright">@ 禾盛社区微官网</div>
+    <!--list-->
+    <div id="wrapper">
+        <div id="scroller">
+            <div id="pullDown">
+                <span class="pullDownIcon"></span><span class="pullDownLabel"></span>
+            </div>
+            <ul id="sy-rc-list" class="sy-rc-list">
+            </ul>
+            <div id="pullUp">
+                <span class="pullUpIcon"></span><span class="pullUpLabel">.</span>
+            </div>
+            <div class="no-more" style="display: none;text-align: center;font-size: .28rem;color: #999;letter-spacing: 1px;margin-top: 4%;">
+                -----没有更多了-----
+            </div>
+        </div>
+    </div>
+    <!--<div class="copyright">@ 禾盛社区微官网</div>-->
 </div>
 
 <script src="./../../js/lib/jquery.min.js"></script>
@@ -39,6 +63,8 @@
     $(function(){
         Util.common.setWxTitle("在职党员");
         customer.hudong.initListIng();
+
+        loaded('wrapper');
     })
 </script>
 <!--以下是模板文件-->

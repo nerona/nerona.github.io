@@ -50,18 +50,18 @@
 <script src="./../../js/lib/jquery.tmpl.min.js"></script>
 <script src="./../../js/lib/common.js"></script>
 <script src="./../../js/lib/iscroll.js"></script>
-<script src="./../../js/shuyuan/index.js"></script>
+<script src="./../../js/shuyuan/platform.js"></script>
 
 <script>
     $(function(){
-        customer.book.initPlatform();
+        customer.platform.initList();
 
         loaded("wrapper");
     })
 </script>
 <!--以下是模板文件-->
 <script type="text/x-jquery-tmpl" id="sy-rc-list-t">
-      <li class="sy-thumb" id="${id}" onclick="customer.book.goPlatformDetail(this);">
+      <li class="sy-thumb" id="${id}" onclick="customer.platform.goDetail(this);">
             <div class="sy-thumb-icon">
                   <img src="${img_src}" alt="">
                   <!--<img src="./../../images/shuyuan/sy-rc-smallpic.png" alt="">-->
