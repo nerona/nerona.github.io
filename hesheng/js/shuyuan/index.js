@@ -289,7 +289,9 @@ customer.book = {
                     Util.msg.show('msgId', "报名已结束！");
                 });
             } else {
-                $('.detail-want').on('click', function(){
+                $('.detail-want').on('click', function(e){
+                    e.stopPropagation();
+                    e.cancelBubble();
                     $('.box-mask').show().css('overflow', 'auto');
                     $('.form-submit').on('click', function () {
                         customer.book.wantJoin();
