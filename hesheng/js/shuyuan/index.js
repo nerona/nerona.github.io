@@ -291,7 +291,12 @@ customer.book = {
             } else {
                 $('.detail-want').on('click', function(e){
                     e.stopPropagation();
-                    $('.box-mask').show().css('overflow', 'auto');
+                    $('.box-mask').show().css({
+                        'position': 'absolute',
+                        'width': '100%',
+                        'height': '100%',
+                        'overflow': 'auto'
+                    })
                     $('body').css('overflow', 'hidden');
                     $('.form-submit').on('click', function () {
                         customer.book.wantJoin();
