@@ -1,38 +1,81 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
+    <title>一键导航</title>
+    <script type="text/javascript"
+            src="http://api.map.baidu.com/api?v=2.0&ak=ZOp3gM4zpTIiMlGeLHN5L4eYdXG83zki"></script>
+    <script type="text/javascript"
+            src="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.js"></script>
+    <link rel="stylesheet" href="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.css"/>
     <style type="text/css">
-        body, html {width: 100%;height: 100%;margin:0;font-family:"微软雅黑";}
-        #allmap{width:100%;height:500px;}
-        #r-result{width:100%;margin-top:5px;}
-        p{margin:5px; font-size:14px;}
-    </style>
-    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ZOp3gM4zpTIiMlGeLHN5L4eYdXG83zki"></script>
-    <title></title>
-    <style>
+        body, html {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            font-family: "微软雅黑";
+        }
+
         #allmap {
             width: 100%;
             height: 100%;
+            overflow: hidden;
         }
+        .BMap_Marker img {
+            width: 100%;
+        }
+        dl, dt, dd, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        dt {
+            font-size: 14px;
+            font-family: "微软雅黑";
+            font-weight: bold;
+            border-bottom: 1px dotted #000;
+            padding: 5px 0 5px 5px;
+            margin: 5px 0;
+        }
+        dd {
+            padding: 5px 0 0 5px;
+        }
+        li {
+            line-height: 28px;
+        }
+        #r-result {
+            position: absolute;
+            top: 50%;
+            left: 0;
+        }
+        #r-result,#r-result table{width:100%;}
     </style>
 </head>
 <body>
 <div id="allmap"></div>
+<div id="r-result"></div>
 </body>
 </html>
+<script src="./../js/lib/jquery.min.js"></script>
+<script src="./../js/lib/common.js"></script>
+<script>
+    $(function () {
+        Util.common.setWxTitle("一键导航");
+    });
+</script>
 <script type="text/javascript">
+    var point = new BMap.Point(118.1620300000, 24.5205480000);
     // 百度地图API功能
     var map = new BMap.Map("allmap");
-    map.centerAndZoom(new BMap.Point(118.155336,24.514861), 14);
+    map.centerAndZoom(point, 16);
 
     var top_left_navigation = new BMap.NavigationControl();  //左上角，添加默认缩放平移控件
     map.addControl(top_left_navigation);
 
     // 添加定位控件
     var geolocationControl = new BMap.GeolocationControl();
-    geolocationControl.addEventListener("locationSuccess", function(e){
+    geolocationControl.addEventListener("locationSuccess", function (e) {
         // 定位成功事件
         var address = '';
         address += e.addressComponent.province;
@@ -42,9 +85,47 @@
         address += e.addressComponent.streetNumber;
         console.log("当前定位地址为：" + address);
     });
-    geolocationControl.addEventListener("locationError",function(e){
+    geolocationControl.addEventListener("locationError", function (e) {
         // 定位失败事件
         console.log(e.message);
     });
     map.addControl(geolocationControl);
+
+    //创建图标
+    var myIcon = new BMap.Icon("./../images/map.png", new BMap.Size(18, 26));
+    var marker = new BMap.Marker(point, {icon: myIcon});  // 创建标注
+    map.addOverlay(marker);              // 将标注添加到地图中
+
+    //
+    var content = '<div style="margin:0;line-height:32px;padding:2px;">' +
+            '<img src="./../images/default.jpg" alt="" style="float:left;zoom:1;overflow:hidden;width:55px;height:55px;padding: 6px 6px;padding-right: 10px;"/>' +
+            '厦门市湖里区禾盛社区<br>社区服务中心' +
+            '</div>';
+    //创建检索信息窗口对象
+    var searchInfoWindow = null;
+    searchInfoWindow = new BMapLib.SearchInfoWindow(map, content, {
+        title: "禾盛社区",      //标题
+        width: 260,             //宽度
+        //height : 105,              //高度
+        panel: "panel",         //检索结果面板
+        enableAutoPan: true,     //自动平移
+        searchTypes: [
+            BMAPLIB_TAB_SEARCH,   //周边检索
+            BMAPLIB_TAB_TO_HERE,  //到这里去
+            BMAPLIB_TAB_FROM_HERE //从这里出发
+        ]
+    });
+    searchInfoWindow.open(marker);
+    marker.addEventListener("click", function (e) {
+        searchInfoWindow.open(marker);
+    });
+
+    //附近搜索
+    var local = new BMap.LocalSearch(map, {
+        renderOptions:{map: map, panel: "r-result"}
+    });
+    //local.search("景点");
+
+    var driving = new BMap.DrivingRoute(map, {renderOptions: {map: map, panel: "r-result", autoViewport: true}});
+    //driving.search("康利金融大厦", "后房站");
 </script>

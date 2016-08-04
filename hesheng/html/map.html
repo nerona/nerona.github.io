@@ -57,11 +57,11 @@
         #panel {
             position: absolute;
             background-color: white;
-            max-height: 80%;
+            max-height: 60%;
             overflow-y: auto;
-            top: 10px;
-            right: 10px;
-            width: 250px;
+            bottom: 0;
+            left: 0;
+            width: 100%;
             border: solid 1px silver;
         }
     </style>
@@ -132,9 +132,9 @@
         //构造公交换乘类
         var trans = new AMap.Transfer(transOptions);
         //根据起、终点坐标查询公交换乘路线
-        trans.search([{keyword:'康利金融大厦'},{keyword:'禾盛社区'}], function(status, result){
-            console.log(result);
-        });
+        //trans.search([{keyword:'康利金融大厦'},{keyword:'禾盛社区'}], function(status, result){
+        //   console.log(result);
+        //});
     });
 </script>
 

@@ -293,6 +293,8 @@ customer.book = {
                     $('.box-mask').show().css('overflow', 'auto');
                     $('.form-submit').on('click', function () {
                         customer.book.wantJoin();
+                        $(this).off('click');
+
                     });
                 });
             }
