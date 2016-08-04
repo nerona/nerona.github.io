@@ -291,15 +291,15 @@ customer.book = {
             } else {
                 $('.detail-want').on('click', function(e){
                     e.stopPropagation();
-                    $('.box-mask').show().css({
+                    $('.box-mask').show().css('overflow', 'auto');
+                    $('body').css({
                         'position': 'fixed',
                         'top': '0',
                         'left': '0',
                         'width': '100%',
                         'height': '100%',
-                        'overflow': 'auto'
+                        'overflow': 'hidden'
                     });
-                    $('body').css('overflow', 'hidden');
                     $('.form-submit').on('click', function () {
                         customer.book.wantJoin();
                         $(this).off('click');
