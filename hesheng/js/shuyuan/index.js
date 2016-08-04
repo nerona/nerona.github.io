@@ -292,11 +292,13 @@ customer.book = {
                 $('.detail-want').on('click', function(e){
                     e.stopPropagation();
                     $('.box-mask').show().css({
-                        'position': 'absolute',
+                        'position': 'fixed',
+                        'top': '0',
+                        'left': '0',
                         'width': '100%',
                         'height': '100%',
                         'overflow': 'auto'
-                    })
+                    });
                     $('body').css('overflow', 'hidden');
                     $('.form-submit').on('click', function () {
                         customer.book.wantJoin();
