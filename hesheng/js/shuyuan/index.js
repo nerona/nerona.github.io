@@ -291,7 +291,6 @@ customer.book = {
             } else {
                 $('.detail-want').on('click', function(e){
                     e.stopPropagation();
-                    e.cancelBubble();
                     $('.box-mask').show().css('overflow', 'auto');
                     $('body').css('overflow', 'hidden');
                     $('.form-submit').on('click', function () {
