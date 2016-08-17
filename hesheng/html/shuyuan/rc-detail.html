@@ -22,11 +22,14 @@
 <div class="box-mask">
     <div class="edit-box my-form">
         <p class="edit-title">报名</p>
-        <div class="input-line">
+        <div id="form-detail">
+
+        </div>
+       <!-- <div class="input-line">
             <input type="text" placeholder="请输入姓名" id="name">
         </div>
         <div class="input-line">
-            <!--<input type="text" placeholder="请输入性别" id="sex">-->
+            &lt;!&ndash;<input type="text" placeholder="请输入性别" id="sex">&ndash;&gt;
             <select name="sex" id="sex">
                 <option value="1">男</option>
                 <option value="0">女</option>
@@ -36,7 +39,7 @@
             <input type="text" placeholder="请输入身份证号码" id="id_number">
         </div>
         <div class="input-line">
-            <!--<input type="tel" placeholder="请输入年龄" id="age">-->
+            &lt;!&ndash;<input type="tel" placeholder="请输入年龄" id="age">&ndash;&gt;
             <select name="age" id="age">
                 <option value="8">8</option>
                 <option value="9">9</option>
@@ -57,7 +60,7 @@
         </div>
         <div class="input-line">
             <input type="text" placeholder="请输入联系地址" id="address">
-        </div>
+        </div>-->
         <div class="form-submit">提交</div>
     </div>
 </div>
@@ -141,6 +144,27 @@
         <a href="javascript:void(0);" class="detail-want">我要报名</a>
     </div>
     <div class="copyright">@ 禾盛社区微官网</div>
+</script>
+
+<script type="text/x-jquery-tmpl" id="form-detail-t">
+       {{if id == 'sex'}}
+       <div class="input-line" type="${type}">
+           <select name="sex" id="sex">
+              <option value="1">男</option>
+              <option value="0">女</option>
+           </select>
+       </div>
+    {{else}}
+        {{if limit != 0}}
+             <div class="input-line" type="${type}">
+                <input type="text" placeholder="请输入${name}(${limit})" id="${id}">
+             </div>
+        {{else}}
+             <div class="input-line" type="${type}">
+                <input type="text" placeholder="请输入${name}" id="${id}">
+             </div>
+        {{/if}}
+    {{/if}}
 </script>
 </body>
 </html>

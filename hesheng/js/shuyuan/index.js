@@ -201,14 +201,14 @@ customer.book = {
                         temp[i].img_src = './../../images/default.jpg';
                     } else {
                         var p = getFirst(temp[i].photos);
-                        console.log(p[0]);
+                        //console.log(p[0]);
 
                         temp[i].img_src = Util.common.getImg(p[0]);
                     }
                     temp[i]. date = temp[i].endDate.split(" ")[0];
                     result.push(temp[i]);
                 }
-                console.log(result);
+                //console.log(result);
                 if(result == "" || result == null) {
                     $("#sy-rc-list").empty();
                     $('#wrapper').append($empty);
@@ -238,14 +238,14 @@ customer.book = {
                         temp[i].img_src = './../../images/default.jpg';
                     } else {
                         var p = getFirst(temp[i].photos);
-                        console.log(p[0]);
+                        //console.log(p[0]);
 
                         temp[i].img_src = Util.common.getImg(p[0]);
                     }
                     temp[i]. date = temp[i].endDate.split(" ")[0];
                     result.push(temp[i]);
                 }
-                console.log(result);
+                //console.log(result);
                 if(result == "" || result == null) {
                     $("#sy-rc-list").empty();
                     $('#wrapper').append($empty);
@@ -262,14 +262,14 @@ customer.book = {
             "id": Util.common.getParameter('id')
         };
         Util.common.executeAjaxCallback(url, param, function(result){
-            console.log(result.entities.curriculumInfo);
+            //console.log(result.entities.curriculumInfo);
             var temp = result.entities.curriculumInfo;
             if(temp.photos == null) {
                 temp.length = 1;
                 temp.img_src = './../../images/default.jpg';
             } else {
-                var p = getFirst(result.photos);
-                console.log(p.length);
+                var p = getFirst(temp.photos);
+                //console.log(p.length);
                 temp.length = p.length;
                 if(p.length > 1) {
                     var ts = [];
@@ -284,13 +284,39 @@ customer.book = {
 
             Util.common.loadTemplate("#rc-detail", "#rc-detail-t", temp);
 
+            //form
+            var form_result = [], form_list = [];
+            if(temp.settingItem != null && temp.settingItem != '') {
+                form_list = temp.settingItem.split(',');
+            }
+            //console.log(form_list.length);
+            for(var l=0;l<form_list.length;l++) {
+                var form_item = {};
+                var form_info = form_list[l].split(':');
+                //console.log(form_info);
+
+                form_item.name = form_info[0];
+                form_item.id = form_info[1];
+                if (form_info[1] == 'age') {
+                    form_item.limit = temp.ageLimit;
+                    localStorage.setItem('ageLimit', temp.ageLimit);
+                } else {
+                    form_item.limit = 0;
+                }
+                form_item.type = form_info[2];
+
+                form_result.push(form_item);
+
+            }
+            //console.log(form_result);
+            Util.common.loadTemplate("#form-detail", "#form-detail-t", form_result);
+
             if(temp.status == 0) {
                 $('.detail-want').on('click', function(){
-                    Util.msg.show('msgId', "报名已结束！");
+                   Util.msg.show('msgId', "报名已结束！");
                 });
             } else {
-                $('.detail-want').on('click', function(e){
-                    e.stopPropagation();
+                $('.detail-want').on('click', function(){
                     $('.box-mask').show().css('overflow', 'auto');
                     $('body').css({
                         'position': 'fixed',
@@ -301,8 +327,8 @@ customer.book = {
                         'overflow': 'hidden'
                     });
                     $('.form-submit').on('click', function () {
-                        customer.book.wantJoin();
                         $(this).off('click');
+                        customer.book.wantJoin();
                     });
                 });
             }
@@ -311,6 +337,14 @@ customer.book = {
                 if(!$target.is('.edit-box') && !$target.is('.edit-title') && !$target.is('input') && !$target.is('select') && !$target.is('.form-submit')) {
                     $(window).scrollTop(0);
                     $('.box-mask').hide();
+                    $('body').css({
+                        'position': 'relative',
+                        'top': '0',
+                        'left': '0',
+                        'width': 'auto',
+                        'height': 'auto',
+                        'overflow': 'auto'
+                    });
                 }
             });
         });
@@ -318,61 +352,77 @@ customer.book = {
     //课程报名
     wantJoin: function(){
         var url = Util.common.baseUrl + "curriculumInfo/sign.do";
+        var param = {
+            "curriculumId": Util.common.getParameter("id")
+        };
 
-        var name = $('#name').val();  //姓名
-        var sex = $('#sex').val();    //性别
-        var id_number = $('#id_number').val();   //身份证
-        var age = $('#age').val();    //年龄
-        var parent = $('#parent').val();   //监护人姓名
-        var phone = $('#phone').val();     //联系电话
-        var address = $('#address').val();     //联系电话
-        if(name == null || name == ""){
-            Util.msg.show('msgId', "请输入姓名!");
-            $('#name').focus();
-        } else if(sex == null || sex == ""){
-            Util.msg.show('msgId', "请输入性别!");
-            $('#sex').focus();
-        } else if(id_number == null || id_number == ""){
-            Util.msg.show('msgId', "请输入身份证!");
-            $('#id_number').focus();
-        } else if(age == null || age == ""){
-            Util.msg.show('msgId', "请输入年龄!");
-            $('#age').focus();
-        } else if(parent == null || parent == ""){
-            Util.msg.show('msgId', "请输入监护人姓名!");
-            $('#parent').focus();
-        } else if(phone == null || phone == ""){
-            Util.msg.show('msgId', "请输入联系电话!");
-            $('#phone').focus();
-        } else if(!(/^1[3|4|5|7|8]\d{9}$/.test(phone))){
-            Util.msg.show('msgId',"手机号码有误，请重填");
-            $('#phone').focus();
-        } else if(address == null || address == ""){
-            Util.msg.show('msgId', "请输入联系地址!");
-            $('#address').focus();
-        } else {
-            var param = {
-                "curriculumId": Util.common.getParameter("id"),
-                "contactUser": name,    //联系人
-                "contactTel": phone,    //联系方式
-                "signNum": "",          //报名人数
-                "status": "",           //报名状态
-                "sex": sex,             //性别
-                "idCard": id_number,    //身份证
-                "age": age,             //年龄
-                "guardian": parent,     //监护人
-                "contactAddress": address      //联系地址
-            };
-            Util.common.executeAjaxCallback(url, param, function(data){
-                console.log(data);
-                if(data.success == true) {
-                    $('.box-mask').hide();
-                    Util.msg.show("msgId", data.msg);
-                } else {
-                    Util.msg.show("msgId", data.msg);
+        var length = $('.input-line').length;
+
+        for(var i=0; i<length; i++) {
+            var $input = $('#form-detail .input-line').eq(i);
+            var pa, value;
+            if($input.attr('type') == 'textfield') {
+                pa = $input.find('input').attr('id');
+                value = $('#'+pa).val();
+                if(value == null || value == '') {
+                    Util.msg.show("msgId", "报名信息未填写完整！");
+                    $input.find('input').focus();
+                    $('.form-submit').on('click');
+                    return;
                 }
-            });
+                if(pa == 'contactTel') {
+                    if(!(/^1[3|4|5|7|8]\d{9}$/.test(value))) {
+                        Util.msg.show("msgId", "手机号码格式有误！");
+                        $('#contactTel').focus();
+                        $('.form-submit').on('click');
+                        return;
+                    }
+                }
+                if(pa == 'age') {
+                    if(localStorage.getItem('ageLimit') != "不限") {
+                        var ageLimit = localStorage.getItem('ageLimit').split('-');
+                        console.log(ageLimit[0] + ":" + ageLimit[1] + ":" + value);
+                        if(parseInt(value) < parseInt(ageLimit[0]) || parseInt(value) > parseInt(ageLimit[1])){
+                            Util.msg.show("msgId", "年龄不在活动范围内！");
+                            $('#age').focus();
+                            $('.form-submit').on('click');
+                            return;
+                        }
+                    }
+                }
+            } else if($input.attr('type') == 'comboBox') {
+                pa = $input.find('select').attr('id');
+                value = $('#'+pa).val();
+            }
+
+            console.log(pa + ":" + value);
+
+            param[pa] = value;
         }
+        console.log(param);
+
+        Util.common.executeAjaxCallback(url, param, function(data){
+            console.log(data);
+            $('body').css({
+                'position': 'relative',
+                'top': '0',
+                'left': '0',
+                'width': 'auto',
+                'height': 'auto',
+                'overflow': 'auto'
+            });
+            if(data.success == true) {
+                Util.msg.show("msgId", data.msg);
+                setTimeout(function(){
+                    $('.box-mask').hide();
+                }, 3000);
+            } else {
+                Util.msg.show("msgId", data.msg);
+                setTimeout(function(){
+                    $('.box-mask').hide();
+                }, 3000);
+            }
+        });
     },
     //课程点赞
     support: function(){

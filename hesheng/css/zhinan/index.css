@@ -69,6 +69,9 @@
 .card-list {
     margin-top: 10%;
 }
+.cards .padding {
+    padding: .3rem;
+}
 .card-desc {
     text-indent: .5rem;
     font-size: .28rem;

@@ -153,8 +153,8 @@
 .rc-detail {
     padding: .4rem .3rem;
     background-color: #f0f0f0;
-    color: #b1b1b1;
-    font-size: .24rem;
+    color: #666;
+    font-size: .28rem;
     position: relative;
 }
 .rc-detail .detail-title {
@@ -180,10 +180,13 @@
     right: 0;
 }
 .rc-detail .detail-line {
-    padding-top: .2rem;
+    padding-top: .3rem;
 }
 .rc-detail .detail-line > span {
-    color: #666;
+    color: #333;
+}
+.rc-detail .detail-desc-text {
+    padding-bottom: .2rem;
 }
 .detail-endtime .sy-thumb-m {
     background: url(./../../images/shuyuan/sy-rc-time.png) no-repeat left center;
@@ -378,7 +381,7 @@
     left: 0;
     background-color: rgba(0,0,0,.8);
     text-align: center;
-    z-index: 9999;
+    z-index: 99;
     display: none;
 }
 .edit-title {
