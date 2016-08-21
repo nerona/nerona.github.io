@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title></title>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="email=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <script src="./../../js/lib/reset.js"></script>
+
+    <link rel="stylesheet" href="./../../css/shuyuan/index.css">
+    <style>
+        .zz-title {
+            color: #222;
+            font-size: .34rem;
+            word-break: break-all;
+            font-family: "Heiti SC";
+            padding: .3rem .3rem 0 .3rem;
+        }
+        .rc-detail {
+            padding: .2rem .3rem .4rem .3rem;
+        }
+    </style>
+</head>
+<body>
+<h5 class="zz-title"></h5>
+<div class="rc-detail" id="zz-detail">
+
+</div>
+<div class="copyright relative">@ 禾盛社区微官网</div>
+
+<script src="./../../js/lib/jquery.min.js"></script>
+<script src="./../../js/lib/jquery.tmpl.min.js"></script>
+<script src="./../../js/lib/common.js"></script>
+<script src="./../../js/hudong/zaizhi.js"></script>
+
+<script>
+    $(function(){
+        Util.common.setWxTitle(Util.common.getParameter('title'));
+        customer.zaizhi.initDetail();
+    });
+</script>
+
+<script type="text/x-jquery-tmpl" id="zz-detail-t">
+    <div class="pp-item">
+        <img src="${image}" alt="" class="pp-icon">
+        <div class="detail-desc">
+            <div class="detail-desc-text">${text}</div>
+        </div>
+    </div>
+</script>
+</body>
+</html>
