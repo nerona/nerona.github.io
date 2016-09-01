@@ -3,14 +3,53 @@
 <head>
   <title></title>
   <meta name='viewport' content='width=device-width;initial-scale=1.0'>
+  <style>
+    * {margin:0;padding:0;}
+    body {
+      background-color: #000;
+    }
+    ul {
+      width: 80%;
+      height: 500px;
+      overflow-x:hidden;
+      overflow-y:auto;
+      background-color: #fff;
+    }
+  </style>
 </head>
 <body>
 
   <ul>
         <li>1234123412341234</li>
          <li>1234123412341234</li>
-          <li>1234123412341234</li> <li>1234123412341234</li> <li>1234123412341234</li>
+                <li>1234123412341234</li> 
+          <li>1234123412341234</li>
+          <li>1234123412341234</li>
+           <li>1234123412341234</li>
+            <li>1234123412341234</li>
+             <li>1234123412341234</li>
+          <li>1234123412341234</li> 
+          <li>1234123412341234</li>
+          <li>1234123412341234</li>
+           <li>1234123412341234</li>
+            <li>1234123412341234</li>
+             <li>1234123412341234</li>
+              <li id='a'>1234123412341234</li>
+               <li>1234123412341234</li>
+                <li>1234123412341234</li>
+                 <li>1234123412341234</li>
+                        <li>1234123412341234</li> 
+          <li>1234123412341234</li>
+          <li>1234123412341234</li>
+           <li>1234123412341234</li>
+            <li>1234123412341234</li>
+             <li>1234123412341234</li>
   </ul>
-
+<script>
+  var a = document.getElementById("a");
+  setTimeout(function(){
+    a.scrollIntoView();
+  }, 1000);
+</script>
 </body>
 </html>
