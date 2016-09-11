@@ -9,7 +9,19 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <link rel="stylesheet" href="./../../css/beauty/index.css">
-    <script src="./../../js/lib/common.js"></script>
+    <script>
+        (function () {
+            document.addEventListener('DOMContentLoaded', function () {
+                var html = document.documentElement;
+                var windowWidth = html.clientWidth;
+                if(windowWidth > 550){
+                    html.style.fontSize = '80px';
+                } else {
+                    html.style.fontSize = windowWidth / 6.4 + 'px';
+                }
+            }, false);
+        })();
+    </script>
 </head>
 <body>
     <div class="app">
