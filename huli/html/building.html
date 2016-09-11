@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>正在建设中</title>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="email=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="./../css/base.css">
+    <script src="./../js/lib/jquery.min.js"></script>
+    <script src="./../js/lib/common.js"></script>
+    <script src="./../js/lib/jquery.thooClock.js"></script>
+    <style>
+        .build {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: -webkit-linear-gradient(top, rgba(239, 237, 242, 0.93), #c8d9d4);
+            text-align: center;
+        }
+        h2 {
+            font-size: .5rem;
+            margin-top: 20%;
+            letter-spacing: 1px;
+        }
+        h3 {
+            font-size: .36rem;
+            margin-top: 6%;
+            margin-bottom: 16%;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="build">
+    <h2>建设中</h2>
+    <h3>更多精彩，敬请期待</h3>
+    <div id="myclock"></div>
+</div>
+
+<script>
+    $(function(){
+        //Util.common.setWxTitle(Util.common.getParameter('title'));
+
+        $('#myclock').thooClock();
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+@import "./../base.css";
+@import "./../common.css";
+
+.app {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url(./../../images/safety/s-01.png) no-repeat;
+    background-size: 100% 100%;
+    overflow-x: hidden;
+}
+
+.safe-menu {
+    margin-top: 102%;
+    position: relative;
+    text-align: center;
+}
+
+.safe-menu > a {
+    display: inline-block;
+    width: 25%;
+    float: left;
+    position: relative;
+    -webkit-transform: rotate(-45deg);
+    -webkit-transform-origin: center center;
+}
+.safe-menu > a:nth-child(1) {
+    margin-left: 4.5%;
+}
+.safe-menu > a:nth-child(2) {
+    position: absolute;
+    left: 21%;
+    top: 65%;
+}
+.safe-menu > a:nth-child(3) {
+    margin: 0 8%;
+}
+.safe-menu > a:nth-child(4) {
+    position: absolute;
+    left: 54%;
+    top: 65%;
+}
+
+.safe-menu > a > p {
+
+}
