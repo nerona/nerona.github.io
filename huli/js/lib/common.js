@@ -118,7 +118,7 @@ Util.validate = {
 
 };
 
-(function(){
+$(function(){
     //html font-size reset ---> rem
     document.addEventListener('DOMContentLoaded', function () {
         var html = document.documentElement;
@@ -129,4 +129,4 @@ Util.validate = {
             html.style.fontSize = windowWidth / 7.5 + 'px';
         }
     }, false);
-})()
+});
