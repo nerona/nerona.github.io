@@ -59,6 +59,7 @@
     color: rgb(110, 113, 110);
     letter-spacing: 1px;
     position: relative;
+    -webkit-box-flex: 1;
 }
 
 .tabs .tab > img {
