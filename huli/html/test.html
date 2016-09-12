@@ -46,8 +46,8 @@
             height: 1.06rem;
             text-align: center;
             font-size: .28rem;
+            color: rgb(110, 113, 110);
             letter-spacing: 1px;
-            color: red;
             position: relative;
         }
         .tab > img {
@@ -67,6 +67,27 @@
             text-align: center;
             position: absolute;
             bottom: .1rem;
+        }
+        .tabs .tab:nth-child(2):before {
+            content: '';
+            display: block;
+            width: 1px;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background-color: rgba(0, 0, 0, .8);
+        }
+
+        .tabs .tab:nth-child(2):after {
+            content: '';
+            display: block;
+            width: 1px;
+            height: 100%;
+            position: absolute;
+            right: 0;
+            top: 0;
+            background-color: rgba(0, 0, 0, .8);
         }
     </style>
 </head>
