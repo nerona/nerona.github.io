@@ -42,7 +42,7 @@
 */
 .tabs {
     width: 100%;
-    height: 1.06rem;
+    height: 50px;
     position: fixed;
     bottom: 0;
     left: 0;
@@ -52,30 +52,29 @@
 .tab {
     display: block;
     width: 33.33%;
-    height: 1.06rem;
+    height: 50px;
     text-align: center;
-    font-size: .28rem;
+    font-size: 14px;
     color: rgb(110, 113, 110);
     letter-spacing: 1px;
     position: relative;
 }
 .tab > img {
-    width: .45rem;
+    width: 23px;
     margin: 0 auto;
-    padding-top: .15rem;
+    padding-top: 5px;
 }
 .tabs .tab:nth-child(2) > img {
-    width: .4rem;
+    width: 20px;
 }
-
 .tabs .tab:nth-child(3) > img {
-    width: .35rem;
+    width: 16px;
 }
 .tab > p {
     width: 100%;
     text-align: center;
     position: absolute;
-    bottom: .08rem;
+    bottom: 4px;
 }
 .tabs .tab:nth-child(2):before {
     content: '';
