@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="email=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="./../css/base.css">
+    <script>
+        (function () {
+            document.addEventListener('DOMContentLoaded', function () {
+                var html = document.documentElement;
+                var windowWidth = html.clientWidth;
+                if(windowWidth > 550){
+                    html.style.fontSize = '80px';
+                } else {
+                    html.style.fontSize = windowWidth / 6.4 + 'px';
+                }
+            }, false);
+        })();
+    </script>
+    <style>
+        .app {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: #eee;
+        }
+        .tabs {
+            width: 100%;
+            height: 1.06rem;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            display: -webkit-box;
+            background-color: rgba(0,0,0,.6);
+        }
+        .tab {
+            display: block;
+            width: 33.33%;
+            text-align: center;
+            font-size: .28rem;
+            letter-spacing: 1px;
+            color: red;
+            position: relative;
+        }
+        .tab > img {
+            width: .5rem;
+            margin: 0 auto;
+            padding-top: .15rem;
+        }
+        .tab > p {
+            width: 100%;
+            text-align: center;
+            position: absolute;
+            bottom: .1rem;
+        }
+    </style>
+</head>
+<body>
+<div class="app">
+    <nav class="tabs">
+        <a class="tab">
+            <img src="./../images/safety/s-home.png">
+            <p>Home</p>
+        </a>
+        <a class="tab">
+            <img src="./../images/safety/s-phone.png">
+            <p>Phone</p>
+        </a>
+        <a class="tab">
+            <img src="./../images/safety/s-map.png">
+            <p>Guide</p>
+        </a>
+    </nav>
+</div>
+</body>
+</html>
