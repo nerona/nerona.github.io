@@ -11,13 +11,18 @@
     background-size: 100% 100%;
     overflow-x: hidden;
 }
-.beauty-menu-top {
-    margin-top: 70%;
-}
+
 .beauty-menu-top,
 .beauty-menu-bottom {
     text-align: center;
-    position: relative;
+    position: absolute;
+    width: 100%;
+}
+.beauty-menu-top {
+    bottom: 37%;
+}
+.beauty-menu-bottom {
+    bottom: 14%;
 }
 .beauty-menu-top > a,
 .beauty-menu-bottom > a{

@@ -13,8 +13,9 @@
 }
 
 .safe-menu {
-    margin-top: 102%;
-    position: relative;
+    width: 100%;
+    position: absolute;
+    bottom: 3rem;
     text-align: center;
 }
 
