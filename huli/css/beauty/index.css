@@ -1,6 +1,9 @@
 @import "./../base.css";
 @import "./../common.css";
 
+/**/
+@import "guide.css";
+
 .app {
     width: 100%;
     height: 100%;
@@ -11,18 +14,17 @@
     background-size: 100% 100%;
     overflow-x: hidden;
 }
-
+.beauty-menu {
+    position: absolute;
+    width: 100%;
+    bottom: 1.4rem;
+}
 .beauty-menu-top,
 .beauty-menu-bottom {
     text-align: center;
-    position: absolute;
+    position: relative;
     width: 100%;
-}
-.beauty-menu-top {
-    bottom: 37%;
-}
-.beauty-menu-bottom {
-    bottom: 14%;
+    z-index: 2;
 }
 .beauty-menu-top > a,
 .beauty-menu-bottom > a{

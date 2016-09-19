@@ -13,10 +13,9 @@
 }
 
 .safe-menu {
-    width: 100%;
     position: absolute;
-    bottom: 3rem;
     text-align: center;
+    bottom: 3rem;
 }
 
 .safe-menu > a {

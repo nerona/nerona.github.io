@@ -9,9 +9,14 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <link rel="stylesheet" href="./../css/base.css">
-    <script src="./../js/lib/jquery.min.js"></script>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
     <script src="./../js/lib/common.js"></script>
     <script src="./../js/lib/jquery.thooClock.js"></script>
+    <script>
+        $(function(){
+            common.loading.show();
+        })
+    </script>
     <style>
         .build {
             width: 100%;
@@ -48,6 +53,10 @@
         //Util.common.setWxTitle(Util.common.getParameter('title'));
 
         $('#myclock').thooClock();
+
+        window.onload = function(){
+            Util.loading.hide();
+        }
     })
 </script>
 </body>
