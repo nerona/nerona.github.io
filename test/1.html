@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
     <meta name="format-detection" content="telephone=no"/>
     <meta name="format-detection" content="email=no"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -10,6 +10,60 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
 </head>
 <body>
-$END$
+<script>
+    function reg(n) {
+        var x = n.toString();
+        var len = x.length;
+        var result = [], c1 = 1, c2 = 1;
+        for(var i=0;i<len;i++) {
+            if(x[i] <= 4) {
+                if(x[i+1] <= 4) {
+                    c1++;
+                } else {
+                    result.push(c1);
+                    c1 = 1;
+                }
+            } else {
+                if(x[i+1] > 4) {
+                    c2++;
+                } else {
+                    result.push(c2);
+                    c2 = 1;
+                }
+            }
+        }
+        return result.join('');
+    }
+
+    function reg2(n) {
+        var x = n.toString();
+        var len = x.length;
+        var result = [], c1 = 0, c2 = 0, c3 = 0;
+        for(var i=0;i<len;i++) {
+            if(x[i] == 6) {
+                if(x[i+1] > 1) {
+                    c1++;
+                } else if(x[i+1] == 1 && x[i+3] > 1) {
+                    c2++;
+                } else if(x[i+1] == 1 && x[i+3] == 1 && x[i+5] > 1) {
+                    c3++;
+                }
+            }
+        }
+        if(c1 > 0) {
+            result.push(c1);
+        }
+        if(c2 > 0) {
+            result.push(c2);
+        }
+        if(c3 > 0) {
+            result.push(c3);
+        }
+        return result.join('');
+    }
+    var a = "1126261126112";
+    console.log(a);
+    console.log(reg2(a));
+</script>
 </body>
 </html>

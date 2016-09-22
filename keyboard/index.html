@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 50px;">
+<head>
+    <meta charset="UTF-8">
+    <title>Keyboard</title>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="email=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="key.css">
+    <style>
+        .keyboard {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: flex;
+            width: 80%;
+            padding: 0 2%;
+            margin: 0 auto;
+            margin-top: 40%;
+            height: .8rem;
+            line-height: .8rem;
+            background-color: #fff;
+            color: #fff;
+            font-size: .36rem;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        .keyboard .word {
+            width: 100%;
+            position: relative;
+            font-size: .5rem;
+            letter-spacing: 4px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="keyboard" id="keyboard">
+    <input type="tel" readonly placeholder="请输入数字！" class="word">
+</div>
+<section class="keys">
+    <div class="keys-hide">
+        <img class="shine"
+             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAARCAYAAAA2cze9AAAAuUlEQVR42qWTAQ2EMAxFJ+EkIAEJSEACEibhHEwCEpCAhElAAhJ6LWTJsdJ8Vn7SjGzl7/1sC0VENAS/iseHa/yf6LkynVq5OqfxwLVdfI4PrW8jbSKtVBoi114tZknVQFskPmPd2MEUmHaRNYMFpEC0QCjFYtEis1lGmELT1jcvyWba4BwjTqFp5WzUxsek1mqk2AzafJNqQg0x2AJgjmYnDP6xidYReW+hdaRw0KIU6ia8lflAHuoHvUHrCAPHmhAAAAAASUVORK5CYII="
+             alt="">
+    </div>
+    <div class="keys-number">
+        <div class="keys-line">
+            <div class="key key1">1</div>
+            <div class="key key2">2</div>
+            <div class="key key3">3</div>
+        </div>
+        <div class="keys-line">
+            <div class="key key4">4</div>
+            <div class="key key5">5</div>
+            <div class="key key6">6</div>
+        </div>
+        <div class="keys-line">
+            <div class="key key7">7</div>
+            <div class="key key8">8</div>
+            <div class="key key9">9</div>
+        </div>
+        <div class="keys-line">
+            <div class="key key-point">.</div>
+            <div class="key key10">0</div>
+            <div class="key key-back">
+                <img src="data:image/png;base64,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"
+                     alt="">
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="key.js"></script>
+
+</body>
+</html>
