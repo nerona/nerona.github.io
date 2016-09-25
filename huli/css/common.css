@@ -68,7 +68,7 @@
 */
 .tabs {
     width: 100%;
-    height: 1.06rem;
+    height: 1rem;
     position: fixed;
     bottom: 0;
     left: 0;
@@ -78,9 +78,8 @@
 .tab {
     display: block;
     width: 33.33%;
-    height: 1.06rem;
+    height: 1rem;
     text-align: center;
-    font-size: .28rem;
     color: rgb(110, 113, 110);
     letter-spacing: 1px;
     position: relative;
@@ -100,7 +99,8 @@
     width: 100%;
     text-align: center;
     position: absolute;
-    bottom: .08rem;
+    bottom: .1rem;
+    font-size: .28rem;
 }
 .tabs .tab:nth-child(2):before {
     content: '';
