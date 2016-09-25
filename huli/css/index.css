@@ -10,7 +10,7 @@
     background-color: #fff;
 }
 .index-menu {
-    padding: 2% 2% 6% 2%;
+    padding: 2% 2% 4% 2%;
     position: relative;
 }
 .index-menu:after {
@@ -37,5 +37,5 @@
     color: rgb(153,153,153);
     font-size: 14px;
     letter-spacing: 1px;
-    margin-top: 4%;
+    margin-top: 2%;
 }
