@@ -2,111 +2,60 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>test</title>
+    <title>创新湖里</title>
     <meta name="format-detection" content="telephone=no"/>
     <meta name="format-detection" content="email=no"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="stylesheet" href="./../css/base.css">
+    <script src="./../../js/lib/reset.js"></script>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="./../../js/lib/common.js"></script>
+    <link rel="stylesheet" href="./../../css/create/index.css">
     <script>
-        (function () {
-            document.addEventListener('DOMContentLoaded', function () {
-                var html = document.documentElement;
-                var windowWidth = html.clientWidth;
-                if(windowWidth > 550){
-                    html.style.fontSize = '80px';
-                } else {
-                    html.style.fontSize = windowWidth / 6.4 + 'px';
-                }
-            }, false);
-        })();
+        $(function(){
+            common.loading.show();
+        })
     </script>
-    <style>
-        .app {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
-            background-color: #eee;
-        }
-        .tabs {
-            width: 100%;
-            height: 1.06rem;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            display: -webkit-box;
-            background-color: rgba(0,0,0,.7);
-        }
-        .tab {
-            display: block;
-            width: 33.33%;
-            height: 1.06rem;
-            text-align: center;
-            font-size: .28rem;
-            color: rgb(110, 113, 110);
-            letter-spacing: 1px;
-            position: relative;
-        }
-        .tab > img {
-            width: .45rem;
-            margin: 0 auto;
-            padding-top: .15rem;
-        }
-        .tabs .tab:nth-child(2) > img {
-            width: .4rem;
-        }
-
-        .tabs .tab:nth-child(3) > img {
-            width: .35rem;
-        }
-        .tab > p {
-            width: 100%;
-            text-align: center;
-            position: absolute;
-            bottom: .08rem;
-        }
-        .tabs .tab:nth-child(2):before {
-            content: '';
-            display: block;
-            width: 1px;
-            height: 100%;
-            position: absolute;
-            left: 0;
-            top: 0;
-            background-color: rgba(0, 0, 0, .8);
-        }
-
-        .tabs .tab:nth-child(2):after {
-            content: '';
-            display: block;
-            width: 1px;
-            height: 100%;
-            position: absolute;
-            right: 0;
-            top: 0;
-            background-color: rgba(0, 0, 0, .8);
-        }
-    </style>
 </head>
 <body>
 <div class="app">
+    <!--menu-->
+    <div class="create-menu">
+        <a href="./../building.html">
+            <img src="./../../images/create/c-02.png">
+        </a>
+        <a href="./../building.html">
+            <img src="./../../images/create/c-03.png">
+        </a>
+        <a href="./../building.html">
+            <img src="./../../images/create/c-04.png">
+        </a>
+        <a href="./../building.html">
+            <img src="./../../images/create/c-05.png">
+        </a>
+    </div>
+
+    <!--tab-->
     <nav class="tabs">
-        <a class="tab">
-            <img src="./../images/safety/s-home.png">
+        <a href="./../index.html" class="tab">
+            <img src="./../../images/safety/s-home.png">
             <p>首页</p>
         </a>
         <a class="tab">
-            <img src="./../images/safety/s-phone.png">
+            <img src="./../../images/safety/s-phone.png">
             <p>电话</p>
         </a>
         <a class="tab">
-            <img src="./../images/safety/s-map.png">
+            <img src="./../../images/safety/s-map.png">
             <p>一键导航</p>
         </a>
     </nav>
 </div>
+<script>
+    window.onload = function(){
+        common.loading.hide();
+    }
+</script>
 </body>
 </html>

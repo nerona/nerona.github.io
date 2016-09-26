@@ -2,7 +2,7 @@
 @import "./../common.css";
 
 /*子菜单*/
-@import "guide.css";
+@import "sub.css";
 
 .app {
     width: 100%;

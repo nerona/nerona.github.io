@@ -11,60 +11,54 @@
     <script src="./../../js/lib/reset.js"></script>
     <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
     <script src="./../../js/lib/common.js"></script>
-    <link rel="stylesheet" href="./../../css/create/index.css">
+    <link rel="stylesheet" href="./../../css/safety/index.css">
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var html = document.documentElement;
-            var windowWidth = html.clientWidth;
-            if(windowWidth > 550){
-                html.style.fontSize = '80px';
-            } else {
-                html.style.fontSize = windowWidth / 7.5 + 'px';
-            }
-        }, false);
         $(function(){
             common.loading.show();
         })
     </script>
 </head>
 <body>
-    <div class="app">
-        <!--menu-->
-        <div class="create-menu">
-            <a href="./../building.html">
-                <img src="./../../images/create/c-02.png">
-            </a>
-            <a href="./../building.html">
-                <img src="./../../images/create/c-03.png">
-            </a>
-            <a href="./../building.html">
-                <img src="./../../images/create/c-04.png">
-            </a>
-            <a href="./../building.html">
-                <img src="./../../images/create/c-05.png">
-            </a>
-        </div>
-
-        <!--tab-->
-        <nav class="tabs">
-            <a href="./../index.html" class="tab">
-                <img src="./../../images/safety/s-home.png">
-                <p>首页</p>
-            </a>
-            <a class="tab">
-                <img src="./../../images/safety/s-phone.png">
-                <p>电话</p>
-            </a>
-            <a class="tab">
-                <img src="./../../images/safety/s-map.png">
-                <p>一键导航</p>
-            </a>
-        </nav>
+<div class="app">
+    <!--menu-->
+    <div class="safe-menu clearfix">
+        <a href="./../building.html">
+            <img src="./../../images/safety/s-02.png">
+        </a>
+        <a href="./../building.html">
+            <img src="./../../images/safety/s-03.png">
+        </a>
+        <a href="./../building.html">
+            <img src="./../../images/safety/s-04.png">
+        </a>
+        <a href="./../building.html">
+            <img src="./../../images/safety/s-05.png">
+        </a>
+        <a href="./../building.html">
+            <img src="./../../images/safety/s-06.png">
+        </a>
     </div>
-    <script>
-        window.onload = function(){
-            common.loading.hide();
-        }
-    </script>
+
+    <!--tab-->
+    <nav class="tabs">
+        <a href="./../index.html" class="tab">
+            <img src="./../../images/safety/s-home.png">
+            <p>首页</p>
+        </a>
+        <a class="tab">
+            <img src="./../../images/safety/s-phone.png">
+            <p>电话</p>
+        </a>
+        <a class="tab">
+            <img src="./../../images/safety/s-map.png">
+            <p>一键导航</p>
+        </a>
+    </nav>
+</div>
+<script>
+    window.onload = function(){
+        common.loading.hide();
+    }
+</script>
 </body>
 </html>
