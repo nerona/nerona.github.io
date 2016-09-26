@@ -43,6 +43,34 @@
     top: 65%;
 }
 
-.safe-menu > a > p {
 
+.create-menu {
+    margin-top: 50%;
+    position: relative;
+    text-align: center;
+}
+.create-menu > a {
+    display: inline-block;
+    width: 22%;
+    -webkit-transform: rotate(-45deg);
+    -webkit-transform-origin: center center;
+}
+.create-menu > a:nth-child(1) {
+    width: 24%;
+    position: absolute;
+    top: 62%;
+    left: 6%;
+}
+.create-menu > a:nth-child(2) {
+    width: 44%;
+}
+.create-menu > a:nth-child(3) {
+    position: absolute;
+    top: 60%;
+    left: 70.8%;
+}
+.create-menu > a:nth-child(4) {
+    position: absolute;
+    top: 96%;
+    left: 55%;
 }
