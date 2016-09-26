@@ -44,6 +44,16 @@
 }
 
 
+.app-create {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url(./../../images/create/c-01.png) no-repeat;
+    background-size: 100% 100%;
+    overflow-x: hidden;
+}
 .create-menu {
     margin-top: 50%;
     position: relative;
