@@ -1,36 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f2559ecf-70b9-4859-9fc6-9a81b4f0c86a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/beauty/guide/banshi.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/create/youhui.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/create/zhaoshang.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/default.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/map.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/safety/anquan.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/safety/liangwei.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/html/beauty/guide/banshi.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/html/create/youhui.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/html/create/zhaoshang.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/html/map.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/html/safety/anquan.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/html/safety/liangwei.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/beauty/guide/banshi.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/create/youhui.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/create/zhaoshang.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/safety/anquan.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/safety/liangwei.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/beauty/common.css" afterPath="$PROJECT_DIR$/css/beauty/common.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/beauty/dangjian/feigong.html" afterPath="$PROJECT_DIR$/html/beauty/dangjian/feigong.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/beauty/guide.html" afterPath="$PROJECT_DIR$/html/beauty/guide.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/beauty/guide/huimin.html" afterPath="$PROJECT_DIR$/html/beauty/guide/huimin.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/beauty/index.html" afterPath="$PROJECT_DIR$/html/beauty/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/create/index.html" afterPath="$PROJECT_DIR$/html/create/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/html/safety/index.html" afterPath="$PROJECT_DIR$/html/safety/index.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/images/beauty/dangjian/fg-1.png" afterPath="$PROJECT_DIR$/images/beauty/dangjian/feigong.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/images/beauty/guide/hm-1.png" afterPath="$PROJECT_DIR$/images/beauty/guide/huimin.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/beauty/guide.js" afterPath="$PROJECT_DIR$/js/beauty/guide/huimin.js" />
-    </list>
+    <list default="true" id="f2559ecf-70b9-4859-9fc6-9a81b4f0c86a" name="Default" comment="" />
     <ignored path="huli.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -95,8 +66,8 @@
       <file leaf-file-name="liangwei.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/html/safety/liangwei.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="127">
-              <caret line="22" column="68" selection-start-line="22" selection-start-column="68" selection-end-line="22" selection-end-column="68" />
+            <state relative-caret-position="262">
+              <caret line="27" column="27" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -371,12 +342,12 @@
       <workItem from="1475633796246" duration="5510000" />
       <workItem from="1475654618846" duration="2292000" />
       <workItem from="1475715475096" duration="3525000" />
-      <workItem from="1476059815464" duration="3416000" />
+      <workItem from="1476059815464" duration="4057000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15420000" />
+    <option name="totallyTimeSpent" value="16061000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -766,8 +737,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/html/safety/liangwei.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="22" column="68" selection-start-line="22" selection-start-column="68" selection-end-line="22" selection-end-column="68" />
+        <state relative-caret-position="262">
+          <caret line="27" column="27" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
           <folding />
         </state>
       </provider>
