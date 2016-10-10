@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>两违治理</title>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="email=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="./../../js/lib/common.js"></script>
+    <link rel="stylesheet" href="./../../css/beauty/guide.css">
+    <script>
+        $(function () {
+            common.loading.show();
+        })
+    </script>
+</head>
+<body>
+<div class="page page-huimin">
+    <!-- banner -->
+    <img class="page-banner" src="./../../images/beauty/guide/hm-1.png">
+    <!-- title -->
+    <div class="page-title">两违治理</div>
+    <!-- list -->
+    <div id="wrapper">
+        <div id="scroller">
+            <div id="pullDown">
+                <span class="pullDownIcon"></span><span class="pullDownLabel"></span>
+            </div>
+            <ul class="page-list" id="list">
+            </ul>
+            <div id="pullUp">
+                <span class="pullUpIcon"></span><span class="pullUpLabel">.</span>
+            </div>
+            <div class="no-more">
+                -----没有更多了-----
+            </div>
+        </div>
+    </div>
+</div>
+<script src="./../../js/lib/jquery.tmpl.min.js"></script>
+<script src="./../../js/lib/iscroll.js"></script>
+<script src="./../../js/safety/liangwei.js"></script>
+<script>
+    $(function(){
+        window.onload = function() {
+            common.loading.hide();
+        };
+        customer.safety.init();
+
+        loaded('wrapper');
+    })
+</script>
+<script type="text/x-jquery-tmpl" id="list-t">
+     <li>
+         <a href="${htmlUrl}" class="list-item" id=${id}>
+             ${name}
+         </a>
+     </li>
+</script>
+</body>
+</html>
