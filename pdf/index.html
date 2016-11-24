@@ -25,7 +25,7 @@
 <script>
     $('.photo').on('click', function() {
         $('#photo').click();
-        $('#photo').change(function () {
+        $('#photo').click().change(function () {
             var fileName = $(this).val();
             console.log(fileName);
             var file_typename = fileName.substring(fileName.lastIndexOf('.'), fileName.length);
