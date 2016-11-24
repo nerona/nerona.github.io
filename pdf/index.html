@@ -12,10 +12,32 @@
     <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
     <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
     <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+    <script src="touch.min.js"></script>
 </head>
 <body>
 <div>
     <a href="http://pic.pthui.com/yczj/2016/11/24/o_2016_11_24_09_28_23_704.pdf">PDF</a>
+
+
+    <div class="photo"> photo </div>
+    <input type="file" id="photo">
 </div>
+<script>
+    $('.photo').on('click', function() {
+        $('#photo-').click();
+        $('#photo').change(function () {
+            var fileName = $(this).val();
+            console.log(fileName);
+            var file_typename = fileName.substring(fileName.lastIndexOf('.'), fileName.length);
+            console.log(file_typename);
+            if (file_typename == '.jpg' || file_typename == '.bmp' || file_typename == '.png') {
+                //这里限定上传文件文件类型
+            } else {
+                $.toast("对不起，文件格式不符.,请重新选择要上传的文件(.jpg,.bmp,.png格式）)");
+                return;
+            }
+        });
+    });
+</script>
 </body>
 </html>
