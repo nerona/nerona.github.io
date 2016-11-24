@@ -19,12 +19,12 @@
     <a href="http://pic.pthui.com/yczj/2016/11/24/o_2016_11_24_09_28_23_704.pdf">PDF</a>
 
 
-    <div class="photo"> photo </div>
-    <input type="file" id="photo">
+    <h1 class="photo"> photo </h1>
+    <input type="file" id="photo" style="display: none;">
 </div>
 <script>
     $('.photo').on('click', function() {
-        $('#photo-').click();
+        $('#photo').click();
         $('#photo').change(function () {
             var fileName = $(this).val();
             console.log(fileName);
