@@ -19,7 +19,7 @@
     <a href="http://pic.pthui.com/yczj/2016/11/24/o_2016_11_24_09_28_23_704.pdf">PDF</a>
 
 
-    <h1 class="photo"> photo4 </h1>
+    <h1 class="photo"> photo5 </h1>
     <input type="file" id="photo" style="display: none;" accept="image/*">
     <div class="file"></div>
     <div class="file_type"></div>
@@ -34,7 +34,7 @@
             var file_typename = fileName.substring(fileName.lastIndexOf('.'), fileName.length);
             console.log(file_typename);
             $('.file_type').html(file_typename);
-            if (file_typename == '.jpg' || file_typename == '.bmp' || file_typename == '.png') {
+            if (file_typename == '.JPG' || file_typename == '.jpg' || file_typename == '.bmp' || file_typename == '.png') {
                 //这里限定上传文件文件类型
             } else {
                 $.toast("对不起，文件格式不符.,请重新选择要上传的文件(.jpg,.bmp,.png格式）)");
