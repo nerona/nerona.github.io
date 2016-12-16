@@ -72,5 +72,8 @@
     "webpack-html-plugin": "^0.1.0",
     "webpack-stream": "^3.1.0",
     "worker-loader": "^0.7.0"
+  },
+  "dependencies": {
+    "gulp-uglify": "^1.5.4"
   }
 }
