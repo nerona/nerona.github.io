@@ -7,26 +7,24 @@
 </head>
 <body>
 <input type="text" name="txt" id="txt" value="0" />次
-<div>start time: <span id="start">0</span></div>
-<div>end time: <span id="end">0</span></div>
-<div>HTML 5 手机摇一摇，在手机上运行的5。</div>
+<div>diff time: <span id="diff">0</span></div>
+<div>HTML 5 手机摇一摇，在手机上运行的6。</div>
 
 
 <script type="text/javascript">
     var i = 0;
     var color = new Array('#fff', '#ff0', '#f00', '#000', '#00f', '#0ff');
-    var last_time = new Date().getTime();
+    var last_time = 0;
     if(window.DeviceMotionEvent) {
-        var speed = 25;
+        var speed = 20;
         var x = y = z = lastX = lastY = lastZ = 0;
-        document.getElementById("start").innerHTML = last_time;
         window.addEventListener('devicemotion', function(){
             var acceleration =event.accelerationIncludingGravity;
             x = acceleration.x;
             y = acceleration.y;
             var cur_time = new Date().getTime();
             var diff_time = cur_time - last_time;
-            document.getElementById("end").innerHTML = diff_time;
+            document.getElementById("diff").innerHTML = diff_time;
             if(Math.abs(x-lastX) > speed || Math.abs(y-lastY) > speed) {
                 i += parseInt(1);//自加变量
                 var txt = document.getElementById("txt");//获取text属性
