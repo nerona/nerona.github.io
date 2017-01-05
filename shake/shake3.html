@@ -18,16 +18,17 @@
 </head>
 <body>
 
-<h1>Shake to Undo------6</h1>
-<h2 id="counter">0</h2>
+<h2>摇一摇-1</h2>
+<h1 id="counter">0</h1>
 
 <script type="text/javascript">
     window.onload = function() {
+        var color = new Array('#fff', '#ff0', '#f00', '#000', '#00f', '#0ff');
         var count = 0;
         //create a new instance of shake.js.
         var myShakeEvent = new Shake({
             threshold: 5,
-            timeout: 300
+            timeout: 150
         });
         // start listening to device motion
         myShakeEvent.start();
@@ -38,6 +39,7 @@
             //put your own code here etc.
             count++;
             document.getElementById('counter').innerHTML = count;
+            document.body.style.backgroundColor = color[Math.round(Math.random()*10)%6];
         }
     };
 </script>
