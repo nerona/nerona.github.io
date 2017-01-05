@@ -29,9 +29,9 @@
 </head>
 <body>
 
-<h2>摇一摇-4</h2>
+<h2>摇一摇-5</h2>
 
-<div class="circle" id="left">10</div>
+<div class="circle" id="left"><span id="value">10</span></div>
 
 <div class="circle" id="counter">0</div>
 
@@ -53,19 +53,22 @@
         }
 
         var left = 10;
-        var timer = setInterval(function(){
-            if(left > 0) {
-                // start listening to device motion
-                myShakeEvent.start();
-                // register a shake event
-                window.addEventListener('shake', shakeEventDidOccur, false);
-                left--;
-                document.getElementById('left').innerHTML = left;
-            } else {
-                clearInterval(timer);
-                myShakeEvent.stop();
-            }
-        }, 1000);
+        document.getElementById('left').addEventListener('click', function(){
+            var timer = setInterval(function(){
+                if(left > 0) {
+                    // start listening to device motion
+                    myShakeEvent.start();
+                    // register a shake event
+                    window.addEventListener('shake', shakeEventDidOccur, false);
+                    left--;
+                    document.getElementById('value').innerHTML = left;
+                } else {
+                    clearInterval(timer);
+                    myShakeEvent.stop();
+                    alert('您摇了' + count + '下');
+                }
+            }, 1000);
+        }, false);
     };
 </script>
 </body>
