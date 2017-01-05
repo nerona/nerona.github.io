@@ -1,60 +1,55 @@
 <!doctype html>
 <html>
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
     <title>HTML5 手机摇一摇</title>
-    <script type="text/javascript">
-        var jsonObject=null;
-        // 当页面加载完以后会执行window.onload
-        window.onload = function() {
-            var times = -1; // 记录摇动次数
-            var last_time = 0;
-            var borderSpeed = 800;  // 加速度变化临界值
-            var x = y = z = last_x = last_y = last_z = 0;
-            if (window.DeviceMotionEvent) {
-                window.addEventListener('devicemotion',shake,false);
-            }
-            else
-            {
-                alert('您的设备不支持摇一摇哦');
-            }
-            // 每次手机移动的时候都会执行下面shake函数的代码
-            function shake(eventData)
-            {
-                var acceleration = eventData.accelerationIncludingGravity;
-                var curTime = new Date().getTime();
-                var diffTime  = curTime-last_time;
-                // 每隔100ms进行判断
-                if (diffTime>100) {
-                    x = acceleration.x;
-                    y = acceleration.y;
-                    z = acceleration.z;
-                    var speed = Math.abs(x + y + z - last_x - last_y - last_z) / diffTime * 10000;
-                    // 判断手机确实发生了摇动而不是正常的移动
-                    if (speed>borderSpeed) {
-                        times++;
-                        document.body.style.backgroundColor = color[Math.round(Math.random()*10)%6];
-                        document.getElementById("text").innerHTML=times+" times";
-                        // 用户的微信昵称和头像连接发送一次即可，不需要每次都发送
-                       /* if (times==0)
-                        {
-                            document.forms["insertForm"].headimg.value =img ;
-                            document.forms["insertForm"].user.value = nickname;
-                        }
-                        document.forms["insertForm"].time.value = times;*/
-                    }
-                    last_time = curTime;
-                    last_x = x;
-                    last_y = y;
-                    last_z = z;
-                }
-            }
-        }
-    </script>
 </head>
 <body>
 <div>shake2------1</div>
-<div id="text"></div>
+<div id="text">0</div>
+
+<script type="text/javascript">
+    // 当页面加载完以后会执行window.onload
+    var times = -1; // 记录摇动次数
+    var last_time = 0;
+    var borderSpeed = 800;  // 加速度变化临界值
+    var x = y = z = last_x = last_y = last_z = 0;
+    if (window.DeviceMotionEvent) {
+        window.addEventListener('devicemotion', shake, false);
+    }
+    else {
+        alert('您的设备不支持摇一摇哦');
+    }
+    // 每次手机移动的时候都会执行下面shake函数的代码
+    function shake() {
+        var acceleration = event.accelerationIncludingGravity;
+        var curTime = new Date().getTime();
+        var diffTime = curTime - last_time;
+        // 每隔100ms进行判断
+        if (diffTime > 100) {
+            x = acceleration.x;
+            y = acceleration.y;
+            z = acceleration.z;
+            var speed = Math.abs(x + y + z - last_x - last_y - last_z) / diffTime * 10000;
+            // 判断手机确实发生了摇动而不是正常的移动
+            if (speed > borderSpeed) {
+                times++;
+                document.getElementById("text").innerHTML = times + " times";
+                // 用户的微信昵称和头像连接发送一次即可，不需要每次都发送
+                /* if (times==0)
+                 {
+                 document.forms["insertForm"].headimg.value =img ;
+                 document.forms["insertForm"].user.value = nickname;
+                 }
+                 document.forms["insertForm"].time.value = times;*/
+            }
+            last_time = curTime;
+            last_x = x;
+            last_y = y;
+            last_z = z;
+        }
+    }
+</script>
 </body>
 </html>
