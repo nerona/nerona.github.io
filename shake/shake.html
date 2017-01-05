@@ -8,12 +8,16 @@
 var i = 0;
 var color = new Array('#fff', '#ff0', '#f00', '#000', '#00f', '#0ff');
 if(window.DeviceMotionEvent) {
-	var speed = 30;
+	var speed = 25;
 	var x = y = z = lastX = lastY = lastZ = 0;
+	var last_time = new Date().getTime();
+    document.getElementById("start").innerHTML = last_time;
 	window.addEventListener('devicemotion', function(){
 		var acceleration =event.accelerationIncludingGravity;
 		x = acceleration.x;
 		y = acceleration.y;
+        var cur_time = new Date().getTime();
+        document.getElementById("end").innerHTML = cur_time;
 		if(Math.abs(x-lastX) > speed || Math.abs(y-lastY) > speed) {			
 			i += parseInt(1);//自加变量
 			var txt = document.getElementById("txt");//获取text属性
@@ -30,6 +34,8 @@ if(window.DeviceMotionEvent) {
 </head>
 <body>
 <input type="text" name="txt" id="txt" value="0" />次
-HTML 5 手机摇一摇，在手机上运行的2。
+<div>start time: <span id="start"></span></div>
+<div>end time: <span id="end"></span></div>
+HTML 5 手机摇一摇，在手机上运行的3。
 </body>
 </html>
