@@ -8,7 +8,7 @@
 var i = 0;
 var color = new Array('#fff', '#ff0', '#f00', '#000', '#00f', '#0ff');
 if(window.DeviceMotionEvent) {
-	var speed = 800;
+	var speed = 50;
 	var x = y = z = lastX = lastY = lastZ = 0;
 	window.addEventListener('devicemotion', function(){
 		var acceleration =event.accelerationIncludingGravity;
@@ -30,6 +30,6 @@ if(window.DeviceMotionEvent) {
 </head>
 <body>
 <input type="text" name="txt" id="txt" value="0" />次
-HTML 5 手机摇一摇，在手机上运行的。
+HTML 5 手机摇一摇，在手机上运行的1。
 </body>
 </html>
