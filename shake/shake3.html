@@ -46,7 +46,7 @@
 
 <h2 class="title">摇一摇-7</h2>
 
-<div class="circle" id="left"><span id="sec">10</span></div>
+<div class="circle" id="left"><span id="sec">10</span>:<span id="minSec">00</span></div>
 
 <div class="circle" id="counter">0</div>
 
@@ -68,7 +68,7 @@
             document.body.style.backgroundColor = color[Math.round(Math.random()*10)%6];
         }
 
-        var left = 10;
+        var left = 10 * 100;
         document.getElementById('left').addEventListener('click', function(){
             var timer = setInterval(function(){
                 if(left > 0) {
@@ -77,14 +77,26 @@
                     // register a shake event
                     window.addEventListener('shake', shakeEventDidOccur, false);
                     left--;
-                    document.getElementById('sec').innerHTML = left;
+                    //time counter
+                    var t1 = left%100;
+                    var t2 = Math.floor(left/100);
+                    if(t2 < 10) {
+                        document.getElementById('sec').innerHTML = '0' + t2;
+                    } else {
+                        document.getElementById('sec').innerHTML = t2;
+                    }
+                    if(t1 < 10) {
+                        document.getElementById('minSec').innerHTML = '0' + t1;
+                    } else {
+                        document.getElementById('minSec').innerHTML = t1;
+                    }
                 } else {
                     clearInterval(timer);
                     myShakeEvent.stop();
                     document.getElementById('result').style.display = 'block';
                     document.getElementById('all').innerHTML = count;
                 }
-            }, 1000);
+            }, 10);
         }, false);
     };
 </script>
