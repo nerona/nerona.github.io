@@ -35,6 +35,8 @@
 
 <div class="circle" id="counter">0</div>
 
+<div id="result" style="display: none;text-align: center;">您共摇了<span id="all"></span>下</div>
+
 <script type="text/javascript">
     window.onload = function() {
         var color = new Array('#fff', '#ff0', '#f00', '#000', '#00f', '#0ff');
@@ -65,7 +67,8 @@
                 } else {
                     clearInterval(timer);
                     myShakeEvent.stop();
-                    alert('您摇了' + count + '下');
+                    document.getElementById('result').style.display = 'block';
+                    document.getElementById('all').innerHTML = count;
                 }
             }, 1000);
         }, false);
