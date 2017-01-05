@@ -13,13 +13,27 @@
             text-shadow: rgba(255,255,255,0.8) 0 1px 0;
             text-align: center;
         }
+        .circle {
+            width: 150px;
+            height: 150px;
+            line-height: 150px;
+            text-align: center;
+            font-size: 60px;
+            background-color: #24936e;
+            color: #fff;
+            border-radius: 50%;
+            margin: 20% auto;
+        }
     </style>
     <script type="text/javascript" src="shake.js"></script>
 </head>
 <body>
 
 <h2>摇一摇-3</h2>
-<h1 id="counter">0</h1>
+
+<div class="circle" id="left">10</div>
+
+<div class="circle" id="counter">0</div>
 
 <script type="text/javascript">
     window.onload = function() {
@@ -30,10 +44,6 @@
             threshold: 12,
             timeout: 150
         });
-        // start listening to device motion
-        myShakeEvent.start();
-        // register a shake event
-        window.addEventListener('shake', shakeEventDidOccur, false);
         //shake event callback
         function shakeEventDidOccur () {
             //put your own code here etc.
@@ -41,6 +51,21 @@
             document.getElementById('counter').innerHTML = count;
             document.body.style.backgroundColor = color[Math.round(Math.random()*10)%6];
         }
+
+        var left = 10;
+        var timer = setInterval(function(){
+            if(left > 0) {
+                // start listening to device motion
+                myShakeEvent.start();
+                // register a shake event
+                window.addEventListener('shake', shakeEventDidOccur, false);
+                left--;
+                document.getElementById('left').innerHTML = left;
+            } else {
+                clearInterval(timer);
+                myShakeEvent.stop();
+            }
+        }, 1000);
     };
 </script>
 </body>
