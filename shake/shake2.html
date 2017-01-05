@@ -6,48 +6,57 @@
     <title>HTML5 手机摇一摇</title>
 </head>
 <body>
-<div>shake2------3</div>
+<div>shake2------4</div>
 <div id="text">0</div>
 
 <script type="text/javascript">
-    // 当页面加载完以后会执行window.onload
-    var times = -1; // 记录摇动次数
-    var last_time = 0;
-    var borderSpeed = 800;  // 加速度变化临界值
-    var x = y = z = last_x = last_y = last_z = 0;
+    var SHAKE_THRESHOLD = 30;
+    // 定义一个变量保存上次更新的时间
+    var last_update = 0;
+    // 紧接着定义x、y、z记录三个轴的数据以及上一次出发的时间
+    var x;
+    var y;
+    var z;
+    var last_x;
+    var last_y;
+    var last_z;
+    var count = 0;
+    var num = 0;
+    var lastSpeed = 0;
+    var timer;
+
     if (window.DeviceMotionEvent) {
-        window.addEventListener('devicemotion', shake, false);
+        // 移动浏览器支持运动传感事件
+        window.addEventListener('devicemotion', deviceMotionHandler, false);
+    } else {
+        alert(1);
     }
-    else {
-        alert('您的设备不支持摇一摇哦');
-    }
-    // 每次手机移动的时候都会执行下面shake函数的代码
-    function shake() {
-        var acceleration = event.accelerationIncludingGravity;
+    function deviceMotionHandler(eventData) {
+        // 获取含重力的加速度
+        var acceleration = eventData.accelerationIncludingGravity;
+        // 获取当前时间
         var curTime = new Date().getTime();
-        var diffTime = curTime - last_time;
-        // 每隔100ms进行判断
-        if (diffTime > 100) {
+        var diffTime = curTime - last_update;
+        // 固定时间段
+        if (diffTime > 20) {
+            last_update = curTime;
             x = acceleration.x;
             y = acceleration.y;
             z = acceleration.z;
-            var speed = Math.abs(x + y + z - last_x - last_y - last_z) / diffTime * 10000;
-            // 判断手机确实发生了摇动而不是正常的移动
-            if (speed > borderSpeed) {
-                times++;
-                document.getElementById("text").innerHTML = times + " times";
-                // 用户的微信昵称和头像连接发送一次即可，不需要每次都发送
-                /* if (times==0)
-                 {
-                 document.forms["insertForm"].headimg.value =img ;
-                 document.forms["insertForm"].user.value = nickname;
-                 }
-                 document.forms["insertForm"].time.value = times;*/
+
+            //var speed = Math.abs(x + y + z - last_x - last_y - last_z) / diffTime * 30000;
+            var speed = Math.sqrt(x * x + y * y + z * z);
+            var ds = Math.abs(speed - lastSpeed);
+
+            if (ds > SHAKE_THRESHOLD) {
+                // TODO:在此处可以实现摇一摇之后所要进行的数据逻辑操作
+                count++;
+                document.getElementById('text').innerHTML = count;
             }
-            last_time = curTime;
             last_x = x;
             last_y = y;
             last_z = z;
+            lastSpeed = speed;
         }
     }
 </script>
