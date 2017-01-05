@@ -44,7 +44,7 @@
 </head>
 <body>
 
-<h2 class="title">摇一摇-7</h2>
+<h2 class="title">摇一摇-8</h2>
 
 <div class="circle" id="left"><span id="sec">10</span>:<span id="minSec">00</span></div>
 
@@ -70,12 +70,12 @@
 
         var left = 10 * 100;
         document.getElementById('left').addEventListener('click', function(){
+            // start listening to device motion
+            myShakeEvent.start();
+            // register a shake event
+            window.addEventListener('shake', shakeEventDidOccur, false);
             var timer = setInterval(function(){
                 if(left > 0) {
-                    // start listening to device motion
-                    myShakeEvent.start();
-                    // register a shake event
-                    window.addEventListener('shake', shakeEventDidOccur, false);
                     left--;
                     //time counter
                     var t1 = left%100;
