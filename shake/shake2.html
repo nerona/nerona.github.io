@@ -24,12 +24,13 @@
     var num = 0;
     var lastSpeed = 0;
     var timer;
+    var color = new Array('#fff', '#ff0', '#f00', '#000', '#00f', '#0ff');
 
     if (window.DeviceMotionEvent) {
         // 移动浏览器支持运动传感事件
         window.addEventListener('devicemotion', deviceMotionHandler, false);
     } else {
-        alert(1);
+        alert('您的设备不支持摇一摇哦');
     }
     function deviceMotionHandler(eventData) {
         // 获取含重力的加速度
@@ -52,6 +53,7 @@
                 // TODO:在此处可以实现摇一摇之后所要进行的数据逻辑操作
                 count++;
                 document.getElementById('text').innerHTML = count;
+                document.body.style.backgroundColor = color[Math.round(Math.random()*10)%6];
             }
             last_x = x;
             last_y = y;

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="initial-scale=1.0, width=device-width, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>手机摇一摇</title>
+    <style type="text/css">
+        body {
+            background: #E9E9E9;
+            color: #333;
+            font: 1em/1.3em "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif; /* 16px / 21px */
+            text-shadow: rgba(255,255,255,0.8) 0 1px 0;
+            text-align: center;
+        }
+    </style>
+    <script type="text/javascript" src="shake.js"></script>
+</head>
+<body>
+
+<h1>Shake to Undo------1</h1>
+<h2 id="counter">0</h2>
+
+<script type="text/javascript">
+    window.onload = function() {
+        var count = 0;
+        //create a new instance of shake.js.
+        var myShakeEvent = new Shake({
+            threshold: 15
+        });
+        // start listening to device motion
+        myShakeEvent.start();
+        // register a shake event
+        window.addEventListener('shake', shakeEventDidOccur, false);
+        //shake event callback
+        function shakeEventDidOccur () {
+            //put your own code here etc.
+            alert('Shake!');
+            count++;
+            document.getElementById('counter').innerHTML = count;
+        }
+    };
+</script>
+</body>
+</html>
