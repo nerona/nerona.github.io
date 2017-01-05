@@ -18,7 +18,7 @@
 </head>
 <body>
 
-<h1>Shake to Undo------5</h1>
+<h1>Shake to Undo------6</h1>
 <h2 id="counter">0</h2>
 
 <script type="text/javascript">
@@ -26,7 +26,8 @@
         var count = 0;
         //create a new instance of shake.js.
         var myShakeEvent = new Shake({
-            threshold: 5
+            threshold: 5,
+            timeout: 300
         });
         // start listening to device motion
         myShakeEvent.start();
