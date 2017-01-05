@@ -6,7 +6,7 @@
     <title>HTML5 手机摇一摇</title>
 </head>
 <body>
-<div>shake2------2</div>
+<div>shake2------3</div>
 <div id="text">0</div>
 
 <script type="text/javascript">
@@ -14,7 +14,6 @@
     var times = -1; // 记录摇动次数
     var last_time = 0;
     var borderSpeed = 800;  // 加速度变化临界值
-    var speed = 25;
     var x = y = z = last_x = last_y = last_z = 0;
     if (window.DeviceMotionEvent) {
         window.addEventListener('devicemotion', shake, false);
@@ -32,11 +31,11 @@
             x = acceleration.x;
             y = acceleration.y;
             z = acceleration.z;
-            //var speed = Math.abs(x + y + z - last_x - last_y - last_z) / diffTime * 10000;
+            var speed = Math.abs(x + y + z - last_x - last_y - last_z) / diffTime * 10000;
             // 判断手机确实发生了摇动而不是正常的移动
-            //if (speed > borderSpeed) {
-            //    times++;
-            //    document.getElementById("text").innerHTML = times + " times";
+            if (speed > borderSpeed) {
+                times++;
+                document.getElementById("text").innerHTML = times + " times";
                 // 用户的微信昵称和头像连接发送一次即可，不需要每次都发送
                 /* if (times==0)
                  {
@@ -44,10 +43,6 @@
                  document.forms["insertForm"].user.value = nickname;
                  }
                  document.forms["insertForm"].time.value = times;*/
-            //}
-            if(Math.abs(x-lastX) > speed || Math.abs(y-lastY) > speed) {
-                times += parseInt(1);//自加变量
-                document.getElementById("text").innerHTML = times + " times";
             }
             last_time = curTime;
             last_x = x;
