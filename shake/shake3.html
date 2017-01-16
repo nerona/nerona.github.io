@@ -63,6 +63,7 @@
         });
         //摇动事件回调
         function shakeEventDidOccur () {
+            $('.hand').addClass('shake');
             count++;
             document.getElementById('counter').innerHTML = count;
         }
@@ -74,7 +75,7 @@
         var flag = true;
         if(flag) {
             myShakeEvent.start();
-            $('.hand').addClass('shake');
+
             window.addEventListener('shake', shakeEventDidOccur, false);
 
             var timer = setInterval(function(){
