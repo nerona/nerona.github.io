@@ -1,4 +1,3 @@
-
 .container {
 	width: 100%;
 	min-height: 100%;
@@ -24,8 +23,8 @@
 	color: #bc0303;
 	position: absolute;
 	left: 1.7rem;
-    bottom: .55rem;
-    font-size: .24rem;
+	bottom: .55rem;
+	font-size: .24rem;
 }
 .info {
 	margin-top: 2%;
@@ -43,6 +42,9 @@
 	border-radius: 50%;
 	overflow: hidden;
 	margin-bottom: .1rem;
+}
+.tip-hide {
+	display: none;
 }
 .text {
 	margin-top: .05rem;
@@ -62,34 +64,34 @@
 }
 .circle .hand {
 	display: block;
-	width: 2.5rem;
-	height: 3.6rem;
+	width: 2.3rem;
+	height: 3.8rem;
 	background: url(./hand.png) no-repeat;
 	background-size: 100% 100%;
 }
 .circle .shake {
 	-webkit-animation: shake 1s linear infinite;
-			animation: shake 1s linear infinite;
+	animation: shake 1s linear infinite;
 }
- @-webkit-keyframes shake  {
-     0% {
-     	-webkit-transform-origin: center 100%;
-     	-webkit-transform: rotate(0deg);
-     }
-     25% {
-     	-webkit-transform-origin: center 100%;
-     	-webkit-transform: rotate(10deg);
-     }
-     50% {
-     	-webkit-transform-origin: center 100%;
-     	-webkit-transform: rotate(0deg);
-     }
-     75% {
-     	-webkit-transform-origin: center 100%;
-     	-webkit-transform: rotate(-10deg);
-     }
-     100% {
-     	-webkit-transform-origin: center 100%;
-     	-webkit-transform: rotate(0deg);
-     }       
+@-webkit-keyframes shake  {
+	0% {
+		-webkit-transform-origin: center 100%;
+		-webkit-transform: rotate(0deg);
+	}
+	25% {
+		-webkit-transform-origin: center 100%;
+		-webkit-transform: rotate(10deg);
+	}
+	50% {
+		-webkit-transform-origin: center 100%;
+		-webkit-transform: rotate(0deg);
+	}
+	75% {
+		-webkit-transform-origin: center 100%;
+		-webkit-transform: rotate(-10deg);
+	}
+	100% {
+		-webkit-transform-origin: center 100%;
+		-webkit-transform: rotate(0deg);
+	}
 }

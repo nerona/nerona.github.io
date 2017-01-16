@@ -29,16 +29,21 @@
 <body>
 <div class="container">
     <div class="banner">
-        <span class="price">奖品:价值5800元精品挂葫芦</span>
+        <span class="price">奖品:价值5600元精品挂葫芦</span>
     </div>
     <!--  -->
     <div class="info">
         <img class="header" src="header.png">
         <!--  -->
-        <div></div>
+        <div class="tip-show">
+            <div class="text">童话光年，欢迎您！</div>
+            <div class="text">摇一摇，赢大奖！</div>
+        </div>
         <!--  -->
-        <div class="text">童话光年，继续加油！</div>
-        <div class="text">您已摇<span id="all">0</span>次，排名<span id="range">1</span>名</div>
+        <div class="tip-hide">
+            <div class="text">童话光年，继续加油！</div>
+            <div class="text">您已摇<span id="all">0</span>次，排名<span id="range">0</span>名</div>
+        </div>
     </div>
     <!--  -->
     <div class="circle">
@@ -66,16 +71,20 @@
 
         //摇一摇开关
         var flag = true;
+
         if(flag) {
             myShakeEvent.start();
-
             window.addEventListener('shake', shakeEventDidOccur, false);
+
+            $('.tip-show').hide();
+            $('.tip-hide').show();
 
             var timer = setInterval(function(){
                 if(left > 0) {
                     left--;
                 } else {
                     clearInterval(timer);
+                    $('.hand').removeClass('shake');
                     myShakeEvent.stop();
                 }
             }, 1000);
