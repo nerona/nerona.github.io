@@ -1,103 +1,92 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page isELIgnored="false"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+
+<c:set var="ctxPath" value="${pageContext.request.contextPath}"
+       scope="request" />
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="initial-scale=1.0, width=device-width, user-scalable=no" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <title>手机摇一摇</title>
-    <style type="text/css">
-        * {
-            margin: 0;
-            padding: 0;
-        }
-        body {
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #fff;
-            color: #333;
-            font: 1em/1.3em "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif; /* 16px / 21px */
-            text-shadow: rgba(255,255,255,0.8) 0 1px 0;
-            text-align: center;
-            overflow-x: hidden;
-        }
-        .title {
-            margin-top: 6%;
-        }
-        .circle {
-            width: 150px;
-            height: 150px;
-            line-height: 150px;
-            text-align: center;
-            font-size: 40px;
-            background-color: #24936e;
-            color: #fff;
-            border-radius: 50%;
-            margin: 20% auto;
-            box-shadow: 2px 2px 5px #999;
-        }
-    </style>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>摇一摇</title>
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="email=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <script type='text/javascript' src='zepto.min.js' charset='utf-8'></script>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        (function () {
+            document.addEventListener('DOMContentLoaded', function () {
+                var html = document.documentElement;
+                var windowWidth = html.clientWidth;
+                if(windowWidth < 750) {
+                    html.style.fontSize = windowWidth / 7.5 + 'px';
+                } else {
+                    html.style.fontSize = '80px';
+                }
+
+            }, false);
+        })();
+    </script>
 </head>
 <body>
-
-<h2 class="title">摇一摇-8</h2>
-
-<div class="circle" id="left"><span id="sec">10</span>:<span id="minSec">00</span></div>
-
-<div class="circle" id="counter">0</div>
-
-<div id="result" style="display: none;text-align: center;font-size: 30px;">您共摇了<span id="all"></span>下</div>
+<div class="container">
+    <div class="banner">
+        <span class="price">奖品:价值5800元精品挂葫芦</span>
+    </div>
+    <!--  -->
+    <div class="info">
+        <img class="header" src="header.png">
+        <!--  -->
+        <div></div>
+        <!--  -->
+        <div class="text">童话光年，继续加油！</div>
+        <div class="text">您已摇<span id="all">154</span>次，排名<span id="range">54</span>名</div>
+    </div>
+    <!--  -->
+    <div class="circle">
+        <div class="hand"></div>
+    </div>
+</div>
 
 <script type="text/javascript" src="shake.js"></script>
 <script type="text/javascript">
     window.onload = function() {
-        var color = new Array('#e4e4e4', '#ff0', '#f00', '#efefefef', '#00f', '#0ff');
         var count = 0;
         var myShakeEvent = new Shake({
             threshold: 12,
             timeout: 150
         });
-        //shake event callback
+        //摇动事件回调
         function shakeEventDidOccur () {
             count++;
             document.getElementById('counter').innerHTML = count;
-            document.body.style.backgroundColor = color[Math.round(Math.random()*10)%6];
         }
 
-        var left = 10 * 100;
-        document.getElementById('left').addEventListener('click', function(){
-            // start listening to device motion
+        //计时
+        var left = 10;
+
+        //摇一摇开关
+        var flag = true;
+        if(flag) {
             myShakeEvent.start();
-            // register a shake event
+            $('.hand').addClass('shake');
             window.addEventListener('shake', shakeEventDidOccur, false);
+
             var timer = setInterval(function(){
                 if(left > 0) {
                     left--;
-                    //time counter
-                    var t1 = left%100;
-                    var t2 = Math.floor(left/100);
-                    if(t2 < 10) {
-                        document.getElementById('sec').innerHTML = '0' + t2;
-                    } else {
-                        document.getElementById('sec').innerHTML = t2;
-                    }
-                    if(t1 < 10) {
-                        document.getElementById('minSec').innerHTML = '0' + t1;
-                    } else {
-                        document.getElementById('minSec').innerHTML = t1;
-                    }
                 } else {
                     clearInterval(timer);
                     myShakeEvent.stop();
-                    document.getElementById('result').style.display = 'block';
                     document.getElementById('all').innerHTML = count;
                 }
-            }, 10);
-        }, false);
+            }, 1000);
+        }
     };
 </script>
 </body>
