@@ -58,11 +58,11 @@
         function shakeEventDidOccur () {
             $('.hand').addClass('shake');
             count++;
-            document.getElementById('counter').innerHTML = count;
+            document.getElementById('all').innerHTML = count;
         }
 
         //计时
-        var left = 10;
+        var left = 20;
 
         //摇一摇开关
         var flag = true;
@@ -77,7 +77,6 @@
                 } else {
                     clearInterval(timer);
                     myShakeEvent.stop();
-                    document.getElementById('all').innerHTML = count;
                 }
             }, 1000);
         }
