@@ -48,12 +48,23 @@
     <!--  -->
     <div class="circle">
         <div class="hand"></div>
+        <div class="deng"></div>
     </div>
 </div>
 
 <script type="text/javascript" src="shake.js"></script>
 <script type="text/javascript">
     window.onload = function() {
+        //灯光效果
+        var light = 0;
+        setInterval(function(){
+            light += 500;
+            $('.deng').addClass('deng2');
+            if(light%1000 == 0) {
+                $('.deng').removeClass('deng2');
+            }
+        }, 500);
+        //
         var count = 0;
         var myShakeEvent = new Shake({
             threshold: 12,
@@ -61,33 +72,61 @@
         });
         //摇动事件回调
         function shakeEventDidOccur () {
-            $('.hand').addClass('shake');
             count++;
-            document.getElementById('all').innerHTML = count;
+            $('#all').html(count);
         }
 
-        //计时
-        var left = 20;
+        //计数计时, 提交计时
+        var left = 60, post = left;
 
-        //摇一摇开关
-        var flag = true;
+        //TODO 摇一摇开关
+        var flag = false;
+        var flag_timer = setInterval(deal, 500);
 
-        if(flag) {
-            myShakeEvent.start();
-            window.addEventListener('shake', shakeEventDidOccur, false);
+        function getFlag() {
+            flag = true;
+        }
 
-            $('.tip-show').hide();
-            $('.tip-hide').show();
+        function deal() {
+            getFlag();
+            if(flag) {
+                //禁止获取摇一摇状态
+                clearInterval(flag_timer);
+                //摇一摇功能
+                $('.tip-show').hide();
+                $('.tip-hide').show();
+                $('.hand').addClass('shake');
 
-            var timer = setInterval(function(){
-                if(left > 0) {
-                    left--;
-                } else {
-                    clearInterval(timer);
-                    $('.hand').removeClass('shake');
-                    myShakeEvent.stop();
-                }
-            }, 1000);
+                myShakeEvent.start();
+                window.addEventListener('shake', shakeEventDidOccur, false);
+
+                var timer = setInterval(function(){
+                    if(left > 0) {
+                        left--;
+                    } else {
+                        clearInterval(timer);
+                        $('.hand').removeClass('shake');
+                        myShakeEvent.stop();
+                    }
+                }, 1000);
+
+                //服务端交互
+                var send = setInterval(function(){
+                    if(post > 0) {
+                        post -= 2;
+                        $('#range').html(post);
+                    } else {
+                        clearInterval(send);
+                    }
+                }, 2000);
+
+                //恢复获取摇一摇状态
+                setTimeout(function(){
+                    flag_timer = setInterval(deal, 500);
+                }, 60000);
+            } else {
+                return;
+            }
         }
     };
 </script>
