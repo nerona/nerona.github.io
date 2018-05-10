@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>volecity demo1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+    .element {
+        background: #ccc;
+        border: 1px solid red;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .button {
+        position: relative;
+        appearance: none;
+        background: #f72359;
+        padding: 1em 2em;
+        border: none;
+        color: white;
+        font-size: 1.2em;
+        cursor: pointer;
+        outline: none;
+        overflow: hidden;
+        border-radius: 100px;
+    }
+    span {
+        position: relative;
+    }
+    .button::before {
+        --size: 0;  
+
+        content: '';
+        position: absolute;
+        left: var(--x);
+        top: var(--y);
+        width: var(--size);
+        height: var(--size);
+        background: radial-gradient(circle closest-side, #4405f7, transparent);
+        transform: translate(-50%, -50%);
+        transition: width .2s ease, height .2s ease;
+    }
+
+    .button:hover::before {
+        --size: 400px;
+    }
+    
+    </style>
+</head>
+<body>
+    <!-- dom -->
+    <div class="element"></div>
+
+    <div class="button"><span>I am button!</span></div>
+
+    <script src="jquery-1.8.0.min.js"></script>
+    <script src="velocity.min.js"></script>
+
+    <script>
+        document.querySelector('.button').onmousemove = (e) => {
+            const x = e.pageX - e.target.offsetLeft;
+            const y = e.pageY - e.target.offsetTop;
+
+            e.target.style.setProperty('--x', `${ x }px`);
+            e.target.style.setProperty('--y', `${ y }px`);
+        }
+
+
+
+
+        $(".element").velocity({
+            borderBottomWidth: [ "2px", "spring" ], // border-bottom 使用 "spring"
+            width: [ "100px", [ 250, 15 ] ],        // width 使用 spring physics
+            height: "100px"
+        }, {
+            easing: "easeInSine", // 默认所有属性使用 "easeInSine"
+            loop: false,
+            duration: 1400,
+        });
+    </script>
+</body>
+</html>
