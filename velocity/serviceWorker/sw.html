@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script>
+      if('serviceWorker' in navigator) {
+        navigator.serviceWorker
+        .register('./sw.js')
+        .then((registration) => {
+          // 注册成功
+          console.log(registration.scope)
+        }).catch((err) => {
+          // 注册失败 :(
+          console.log( err);
+        })
+      }
+    </script>
+
+  </head>
+  <body>
+  
+  </body>
+</html>
