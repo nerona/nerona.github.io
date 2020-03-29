@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>地图</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, max-scale=1.0, min-scale=1.0">
+		<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+	</head>
+
+	<style type="text/css">
+		* {
+			padding: 0;
+			margin: 0;
+		}
+
+		body {
+			width: 100vw;
+			height: 100vh;
+			position: relative;
+			overflow: hidden;
+		}
+		
+		.page {
+			overflow: auto;
+		}
+
+		.page::-webkit-scrollbar {
+			display: none
+		}
+
+		.btn-group {
+			position: fixed;
+			top: 30px;
+			right: 30px;
+			z-index: 9;
+			cursor: pointer;
+		}
+
+		.btn {}
+
+		.btn:active {
+			transform: scale(1.05);
+		}
+
+		.btn-image {
+			width: 70px;
+			height: 70px;
+		}
+	</style>
+
+	<body>
+		<div class="page">
+			<img src="./static/ranqi.jpg" width="9325" height="5000">
+
+			<div class="btn-group">
+				<div class="btn">
+					<img class="btn-image" src="./static/btn-plus.png" />
+				</div>
+				<div class="btn">
+					<img class="btn-image" src="./static/btn-minus.png" />
+				</div>
+			</div>
+		</div>
+	</body>
+
+	<script type="text/javascript">
+
+	</script>
+</html>
