@@ -68,7 +68,7 @@
     "vue-router": "^0.7.11",
     "vue-style-loader": "^1.0.0",
     "webpack": "^1.12.14",
-    "webpack-dev-server": "^1.14.0",
+    "webpack-dev-server": "^3.10.3",
     "webpack-html-plugin": "^0.1.0",
     "webpack-stream": "^3.1.0",
     "worker-loader": "^0.7.0"
